@@ -427,36 +427,33 @@ typedef enum {
 	COSONIC_TRACE_CFG_NUM,
 } COSONIC_TRACE_CFG_E;
 		
-extern COSONIC_TRACE_CFG_T cosonic_trace_cfg[COSONIC_TRACE_CFG_NUM];
+extern COSONIC_TRACE_CFG_T cosonic_trace_cfg_array[COSONIC_TRACE_CFG_NUM];
 	
 #define COSONIC_TRACE(n,is_cnt,str,...) \
-	do{\
-		if ((is_cnt)>0)\
-		{\
-			TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "COSONIC:\t%s\t%s\t%s\t%d\t"str, \
-				cosonic_trace_cfg[(n)].func_mode, \
-				cosonic_trace_cfg[(n)].block, \
-				__func__ , \
-				__LINE__, \
+do{\
+	if ((is_cnt))\
+	{\
+		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "COSONIC:   %s   %s   %s   %d   "str,\
+			cosonic_trace_cfg_array[(n)].func_mode,\
+			cosonic_trace_cfg_array[(n)].block,\
+			__func__ ,\
+			__LINE__,\
 	    	##__VA_ARGS__);\
-			TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "\tcnt=%d\n",\
-				cosonic_trace_cfg[(n)].cnt++);\
-		}\
-		else\
-		{\
-			TRACE(0, "COSONIC:\t%s\t%s\t%s\t%d\t"str,\
-				cosonic_trace_cfg[(n)].func_mode, \
-				cosonic_trace_cfg[(n)].block, \
-				__func__ , \
-				__LINE__, \
-		    ##__VA_ARGS__);\
-		}\
-	}while(0)
-	
+		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "cnt=%d\n",\
+			cosonic_trace_cfg_array[(n)].cnt++);\
+	}\
+	else\
+	{\
+		TRACE(0, "COSONIC:   %s   %s   %s   %d   "str,\
+			cosonic_trace_cfg_array[(n)].func_mode,\
+			cosonic_trace_cfg_array[(n)].block,\
+			__func__ ,\
+			__LINE__,\
+		   	##__VA_ARGS__);\
+	}\
+}while(0)
 #else	/* !defined(COSONIC_LOG) */
-	
 #define COSONIC_TRACE(n,is_cnt,str,...) 
-	
 #endif	/*END* !defined(COSONIC_LOG) */
 /*******  *END* Cosonic log   ********/
 

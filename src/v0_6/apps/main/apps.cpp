@@ -1547,6 +1547,9 @@ extern uint32_t __factory_start[];
 
 int app_init(void)
 {
+	TRACE(0, "Hello, world!");
+	COSONIC_TRACE(COSONIC_TEST_LOG, true, "Hi");
+	COSONIC_TRACE(COSONIC_TEST_LOG, false, "Hi");
     int nRet = 0;
     struct nvrecord_env_t *nvrecord_env;
 #ifdef POWER_ON_ENTER_TWS_PAIRING_ENABLED

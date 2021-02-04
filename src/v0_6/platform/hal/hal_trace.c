@@ -2944,14 +2944,14 @@ int hal_trace_crash_dump_printf(uint32_t attr, const char *fmt, ...)
     return ret;
 }
 
+#endif
+
 /*******  Cosonic log  *******/
 #ifdef COSONIC_LOG
 
-COSONIC_TRACE_CFG_T cosonic_trace_cfg[COSONIC_TRACE_CFG_NUM] = {
+COSONIC_TRACE_CFG_T cosonic_trace_cfg_array[COSONIC_TRACE_CFG_NUM] = {
 	[COSONIC_TEST_LOG]={"TEST", "STATUSMACHINE",0},	
 };
 	
 #endif	/*END* defined(COSONIC_LOG) */
 
-
-#endif
