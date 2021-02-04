@@ -1,0 +1,50 @@
+/***************************************************************************
+ *
+ * Copyright 2015-2019 BES.
+ * All rights reserved. All unpublished rights reserved.
+ *
+ * No part of this work may be used or reproduced in any form or by any
+ * means, or stored in a database or retrieval system, without prior written
+ * permission of BES.
+ *
+ * Use of this work is governed by a license granted by BES.
+ * This work contains confidential and proprietary information of
+ * BES. which is protected by copyright, trade secret,
+ * trademark and other intellectual property rights.
+ *
+ ****************************************************************************/
+#ifndef __BT_DRV_IQ_COMMON_H__
+#define  __BT_DRV_IQ_COMMON_H__
+
+#define BTRF_REG_DUMP(addr) do{ \
+                                uint16_t rf_reg_val = 0; \
+                                btdrv_read_rf_reg(addr, &rf_reg_val); \
+                                TRACE_IMM(2,"btrf reg addr:%04x val:%04x", addr, rf_reg_val); \
+                            }while(0);
+
+#define BTRF_DIG_DUMP(addr) do{ \
+                                uint32_t dig_reg_val = 0; \
+                                dig_reg_val = BTDIGITAL_REG(addr); \
+                                TRACE_IMM(2,"dig reg addr:%08x val:%08x", addr, dig_reg_val); \
+                            }while(0);
+
+void bt_drv_rx_iq_datasort(int *arry,int len);
+
+void bt_drv_rx_iq_datawrite(int * gain_arr, int * phy_arr, int len);
+
+void lib_iqmis_getiq(short *data, int datalength_2X, float *din_i, float *din_q);
+
+void lib_iqmis_esti(float *din_i, float *din_q, int din_length, int *gain_comp_reg, int *phi_comp_reg);
+
+
+
+
+
+
+
+
+
+
+
+
+#endif

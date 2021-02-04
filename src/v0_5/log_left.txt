@@ -1,0 +1,2216 @@
+[2021/02/02 15:05:09.046] È@**°ó
+[2021/02/02 15:05:09.620] 
+
+
+CHIP=best1305
+KERNEL=RTX5
+CRASH_DUMP_SIZE=0
+AUD_SEC_SIZE=0
+USER_SEC_SIZE=0x1000
+FACT_SEC_SIZE=0x1000
+NV_REC_DEV_VER=2
+FLASH_BASE=0x38000000
+FLASH_SIZE=0x200000
+OTA_CODE_OFFSET=0
+CRC32_OF_IMAGE=0x00000000
+BUILD_DATE=Feb  2 2021 14:44:20
+REV_INFO=:best2500i_ibrt
+
+
+------
+METAL_ID: 0
+------
+
+      565/I/NONE  /  1 | FLASH_ID: 85-42-15
+      567/I/NONE  /  1 | Warning: Bad dc calib efuse L: 0x0000
+      567/I/NONE  /  1 | ANA: DC CALIB L=0x0000/0
+      568/I/NONE  /  1 | sram start 20002740 size 58e0
+      568/I/NONE  /  1 | _sbrk: incr 0 cur=0x200296b8
+
+      568/I/NONE  /  1 | _sbrk: incr 32 cur=0x200296b8
+
+      568/I/NONE  /  1 | please check all sections sizes and heads is correct ........
+      568/I/NONE  /  1 | __coredump_section_start: 0x381fb000 length: 0x0
+      568/I/NONE  /  1 | __ota_upgrade_log_start: 0x381fb000 length: 0x0
+      568/I/NONE  /  1 | __log_dump_start: 0x381fb000 length: 0x0
+      568/I/NONE  /  1 | __crash_dump_start: 0x381fb000 length: 0x0
+      569/I/NONE  /  1 | __custom_parameter_start: 0x381fb000 length: 0x1000
+      569/I/NONE  /  1 | __userdata_start: 0x381fc000 length: 0x2000
+      569/I/NONE  /  1 | __aud_start: 0x381fe000 length: 0x0
+      569/I/NONE  /  1 | __factory_start: 0x381ff000 length: 0x1000
+      569/I/NONE  /  1 | app_init
+
+      569/I/NONE  /  1 | nv ext magic 0x4e455854 valid len 704
+      571/I/NONE  /  1 | generated crc32: 0xc373cc5c, header crc: 0xc373cc5c
+      571/I/NONE  /  1 | Nv extension is valid.
+      571/I/NONE  /  1 | Former nv ext valid len 704
+      571/I/NONE  /  1 | Current FW version nv ext valid len 704
+      571/I/NONE  /  1 | nv_record_extension_init,main sector is valid.
+      571/I/NONE  /  1 | nv ext magic 0x4e455854 valid len 704
+      572/I/NONE  /  1 | generated crc32: 0xc373cc5c, header crc: 0xc373cc5c
+      573/I/NONE  /  1 | Nv extension is valid.
+      573/I/NONE  /  1 | Former nv ext valid len 704
+      573/I/NONE  /  1 | Current FW version nv ext valid len 704
+      573/I/NONE  /  1 | nv_record_extension_init,bak sector is valid.
+      573/I/NONE  /  1 | nv_record_extension_init,data is valid.
+      574/I/NONE  /  1 | set mpu 0x20009a40 len 1024 result 0
+      574/I/NONE  /  1 | nv_record_extension_init,done.
+      576/I/NONE  /  1 | Configured BT addr is:
+1e 57 34 45 56 67 
+      576/I/NONE  /  1 | Modified debug BT addr is:
+5e 67 0b 36 37 0a 
+      586/I/NONE  /  1 | app_battery_open batt range:3200~4200
+      587/I/NONE  /  1 | app_battery_charger_indication_open
+[2021/02/02 15:05:09.733]       708/I/NONE  /  1 | BATTERY 0
+[2021/02/02 15:05:09.932]       908/I/NONE  /  1 | app_poweron_key_init
+      909/I/NONE  /  1 | savedStoppedStreamId is set to -1
+      909/I/NONE  /  1 | nvrec_dev_data_open,vermagic=0x2ba80
+      909/I/NONE  /  1 | Nv record dev version 2
+      910/I/NONE  /  1 | nvrec_dev_data_open: data len 0x140,dev_zone_flsh_crc=0xe81176c8,dev_zone_crc=0xe81176c8
+      910/I/NONE  /  1 | nvrec_dev_data_open: nv rec dev is valid.
+      910/I/NONE  /  1 | factory_section_open sucess btname:hi_sam
+24 63 24 86 11 11 
+d4 9a c2 56 34 12 
+      911/I/AUDFLG/  1 | [STRM_PLAYER][VOL][UPDATE] default
+      911/I/NONE  /  1 | Left earbud
+[2021/02/02 15:05:10.053]      1022/I/NONE  /  1 | reg=c2,v=7180
+     1022/I/NONE  /  1 | reg=88,v=8640
+     1022/I/NONE  /  1 | reg=8b,v=784a
+     1022/I/NONE  /  1 | reg=8e,v=4728
+     1022/I/NONE  /  1 | reg=90,v=891f
+     1023/I/NONE  /  1 | reg=91,v=5c0
+     1023/I/NONE  /  1 | reg=92,v=6a8e
+     1023/I/NONE  /  1 | reg=96,v=508a
+     1023/I/NONE  /  1 | reg=97,v=2523
+     1023/I/NONE  /  1 | reg=98,v=1224
+     1023/I/NONE  /  1 | reg=9a,v=4470
+     1023/I/NONE  /  1 | reg=9b,v=fd22
+     1023/I/NONE  /  1 | reg=9c,v=180f
+     1023/I/NONE  /  1 | reg=a3,v=789
+     1023/I/NONE  /  1 | reg=a5,v=1004
+     1023/I/NONE  /  1 | reg=a6,v=2820
+     1023/I/NONE  /  1 | reg=a8,v=2512
+     1023/I/NONE  /  1 | reg=ab,v=300c
+     1024/I/NONE  /  1 | reg=b0,v=0
+     1024/I/NONE  /  1 | reg=b1,v=0
+     1024/I/NONE  /  1 | reg=b3,v=0
+     1024/I/NONE  /  1 | reg=b4,v=883c
+     1024/I/NONE  /  1 | reg=b6,v=3156
+     1024/I/NONE  /  1 | reg=b7,v=1820
+     1024/I/NONE  /  1 | reg=b9,v=8000
+     1024/I/NONE  /  1 | reg=ba,v=104e
+     1024/I/NONE  /  1 | reg=c3,v=48
+     1024/I/NONE  /  1 | reg=c5,v=4b50
+     1024/I/NONE  /  1 | reg=c9,v=3e08
+     1024/I/NONE  /  1 | reg=cf,v=0
+     1025/I/NONE  /  1 | reg=d1,v=8412
+     1025/I/NONE  /  1 | reg=d3,v=c1c1
+     1025/I/NONE  /  1 | reg=d4,v=f
+     1025/I/NONE  /  1 | reg=d5,v=4000
+     1025/I/NONE  /  1 | reg=d6,v=7980
+     1025/I/NONE  /  1 | reg=e8,v=e000
+     1025/I/NONE  /  1 | reg=df,v=2000
+     1025/I/NONE  /  1 | reg=f3,v=c01
+     1025/I/NONE  /  1 | reg=eb,v=83f
+     1025/I/NONE  /  1 | reg=181,v=ce
+     1025/I/NONE  /  1 | reg=ec,v=81c
+     1025/I/NONE  /  1 | reg=182,v=ce
+     1025/I/NONE  /  1 | reg=ed,v=c5
+     1026/I/NONE  /  1 | reg=183,v=ce
+     1026/I/NONE  /  1 | reg=ee,v=1c5
+     1026/I/NONE  /  1 | reg=184,v=be
+     1026/I/NONE  /  1 | reg=ef,v=145
+     1026/I/NONE  /  1 | reg=185,v=b6
+     1026/I/NONE  /  1 | reg=f0,v=345
+     1026/I/NONE  /  1 | reg=186,v=36
+     1026/I/NONE  /  1 | reg=f1,v=345
+     1026/I/NONE  /  1 | reg=187,v=2d
+     1026/I/NONE  /  1 | reg=f2,v=345
+     1027/I/NONE  /  1 | reg=188,v=c
+     1027/I/NONE  /  1 | reg=191,v=35
+     1027/I/NONE  /  1 | reg=1b8,v=20a
+     1027/I/NONE  /  1 | reg=1b9,v=27f
+     1027/I/NONE  /  1 | reg=1ba,v=27f
+     1027/I/NONE  /  1 | reg=1bb,v=27f
+     1027/I/NONE  /  1 | reg=1bc,v=27f
+     1027/I/NONE  /  1 | reg=1bd,v=27f
+     1027/I/NONE  /  1 | reg=1be,v=27f
+     1027/I/NONE  /  1 | reg=1bf,v=27f
+     1028/I/NONE  /  1 | reg=1f4,v=2002
+     1028/I/NONE  /  1 | reg=2af,v=9
+     1028/I/NONE  /  1 | reg=ad,v=4a
+     1028/I/NONE  /  1 | reg=cd,v=40
+     1028/I/NONE  /  1 | reg=8a,v=4ea4
+     1028/I/NONE  /  1 | reg=e9,v=8020
+     1028/I/NONE  /  1 | reg=85,v=0
+     1028/I/NONE  /  1 | reg=ac,v=80e
+     1028/I/NONE  /  1 | reg=1a6,v=600
+     1028/I/NONE  /  1 | reg=1d1,v=0
+     1028/I/NONE  /  1 | reg=1d2,v=e1f0
+     1029/I/NONE  /  1 | reg=d0,v=0
+     1029/I/NONE  /  1 | reg=a2,v=67c2
+     1029/I/NONE  /  1 | reg=8c,v=9000
+     1029/I/NONE  /  1 | reg=1b7,v=2a00
+     1029/I/NONE  /  1 | reg=1cc,v=668c
+     1029/I/NONE  /  1 | btdrv_rf_log_delay_cal_init
+
+     1029/I/NONE  /  1 | 0xd0340020 =30e01c1
+
+     1031/I/NONE  /  1 | 0x1e2 read_value:9a9a
+
+     1031/I/NONE  /  1 | btdrv_rf_log_delay_cal
+
+     1031/I/NONE  /  1 | 0xd0340020 =10e01c0
+
+     1031/I/NONE  /  1 | 0xd0340020 =30e01c1
+
+     1033/I/NONE  /  1 | 0x1e2 read_value:9a9a
+
+     1033/I/NONE  /  1 | d3 write_value:3535
+
+     1034/I/NONE  /  1 | 0xd0340020 =10e01c0
+
+     1035/I/NONE  /  1 | reg_store:
+
+     1035/I/NONE  /  1 | reg=81,v=0
+     1035/I/NONE  /  1 | reg=8c,v=9000
+     1035/I/NONE  /  1 | reg=af,v=0
+     1035/I/NONE  /  1 | reg=1d2,v=e1f0
+     1035/I/NONE  /  1 | reg=1d6,v=1858
+     1035/I/NONE  /  1 | reg=a2,v=67c2
+     1035/I/NONE  /  1 | reg=94,v=8041
+     1035/I/NONE  /  1 | reg=d1,v=8412
+     1035/I/NONE  /  1 | reg=95,v=e0ff
+     1035/I/NONE  /  1 | reg=b1,v=0
+     1035/I/NONE  /  1 | reg=b2,v=0
+     1035/I/NONE  /  1 | reg=ba,v=104e
+     1036/I/NONE  /  1 | reg=af,v=0
+     1036/I/NONE  /  1 | reg=bf,v=e000
+     1036/I/NONE  /  1 | reg=bf,v=e000
+     1036/I/NONE  /  1 | reg=90,v=891f
+     1036/I/NONE  /  1 | reg=8b,v=784a
+     1036/I/NONE  /  1 | reg=bf,v=e000
+     1036/I/NONE  /  1 | 0xd0340020:10e01c0
+
+     1036/I/NONE  /  1 | 0xd0330038:10d
+
+     1036/I/NONE  /  1 | 0xd0350364:2eb908
+
+     1036/I/NONE  /  1 | 0xd0350360:1b7fc040
+
+     1036/I/NONE  /  1 | 0xd035037c:10ec5
+
+     1036/I/NONE  /  1 | 0xd02201e4:0
+
+     1036/I/NONE  /  1 | reg_set:
+
+     1036/I/NONE  /  1 | reg=81,v=1
+     1036/I/NONE  /  1 | reg=8c,v=81f0
+     1036/I/NONE  /  1 | reg=af,v=c000
+     1037/I/NONE  /  1 | reg=1d2,v=e1f0
+     1037/I/NONE  /  1 | reg=1d6,v=858
+     1037/I/NONE  /  1 | reg=a2,v=67c2
+     1037/I/NONE  /  1 | reg=94,v=87cf
+     1037/I/NONE  /  1 | reg=d1,v=84bb
+     1037/I/NONE  /  1 | reg=95,v=e4ff
+     1037/I/NONE  /  1 | reg=b1,v=300
+     1037/I/NONE  /  1 | reg=b2,v=3030
+     1037/I/NONE  /  1 | reg=ba,v=304e
+     1037/I/NONE  /  1 | reg=af,v=c00c
+     1037/I/NONE  /  1 | reg=bf,v=5000
+     1037/I/NONE  /  1 | reg=bf,v=7000
+     1038/I/NONE  /  1 | reg=90,v=89df
+     1038/I/NONE  /  1 | reg=8b,v=404a
+     1039/I/NONE  /  1 | 0xd0340020:30e01c0
+
+     1039/I/NONE  /  1 | 0xd0330038:30030d
+
+     1039/I/NONE  /  1 | 0xd0350364:2eb948
+
+     1039/I/NONE  /  1 | 0xd0350360:7fc240
+
+     1039/I/NONE  /  1 | 0xd035037c:20405
+
+     1039/I/NONE  /  1 | 0xd02201e4:0
+
+     1039/I/NONE  /  1 | bt_iqimb_ini :
+     1039/I/NONE  /  1 | 0xd0350208 : 0x02140000
+     1039/I/NONE  /  1 | 0xd0350228 : 0x02140000
+     1039/I/NONE  /  1 | 0xd0350218 : 0x00000404
+     1039/I/NONE  /  1 | 0xd0330034 : 0x6c000000
+     1046/I/NONE  /  1 | syspool_init: 0x2002a6b8,0x18748
+     1046/I/NONE  /  1 | [syspool_get_buff] ptr=0x2002a6b8 size=20480 free=100168 user=0xc03aa39
+     1046/I/NONE  /  1 | [med_heap_add_block] g_block_index=0 begin_addr=0x2002a6b8 size=20480
+     1048/I/NONE  /  1 | [multi_heap_register_impl] start=0x2002a6b8 size=20480 user=0xc069edd
+     1048/I/NONE  /  1 | malloc ini
+     1049/I/NONE  /  1 | st:0x2002a6dc, st->M0data:0x2002a6f0, st->Table0:0x2002b6f4, st->Table1:0x2002c6f8, st->Table2*H Ü¦ *     1049/I/NONE  /  1 | malloc ok
+[2021/02/02 15:05:10.215]      1220/I/NONE  /  1 | use time: 180 ms
+[2021/02/02 15:05:10.306]      1305/I/NONE  /  1 | 0 IQ phase correct addr = 0xd0310034,phase_mis = -4 ,gain_mis = 0,Energy = 37
+     1305/I/NONE  /  1 | use time: 265 ms
+[2021/02/02 15:05:10.387]      1389/I/NONE  /  1 | 0 IQ phase correct addr = 0xd031009c,phase_mis = -4 ,gain_mis = 8,Energy = 74
+     1389/I/NONE  /  1 | use time: 349 ms
+[2021/02/02 15:05:10.514]      1466/I/NONE  /  1 | 0 IQ phase correct addr = 0xd0310104,phase_mis = -2 ,gain_mis = -2,Energy = 197
+     1467/I/NONE  /  1 | use time: 427 ms
+     1467/I/NONE  /  1 | reg_reset:
+
+     1467/I/NONE  /  1 | reg=81,v=0
+     1467/I/NONE  /  1 | reg=8c,v=9000
+     1467/I/NONE  /  1 | reg=af,v=0
+     1467/I/NONE  /  1 | reg=1d2,v=e1f0
+     1467/I/NONE  /  1 | reg=1d6,v=1858
+     1467/I/NONE  /  1 | reg=a2,v=67c2
+     1467/I/NONE  /  1 | reg=94,v=8041
+     1467/I/NONE  /  1 | reg=d1,v=8412
+     1467/I/NONE  /  1 | reg=95,v=e0ff
+     1467/I/NONE  /  1 | reg=b1,v=0
+     1468/I/NONE  /  1 | reg=b2,v=0
+     1468/I/NONE  /  1 | reg=ba,v=104e
+     1468/I/NONE  /  1 | reg=af,v=0
+     1468/I/NONE  /  1 | reg=bf,v=e000
+     1468/I/NONE  /  1 | reg=bf,v=e000
+     1468/I/NONE  /  1 | reg=90,v=891f
+     1468/I/NONE  /  1 | reg=8b,v=784a
+     1468/I/NONE  /  1 | reg=bf,v=e000
+     1468/I/NONE  /  1 | 0xd0340020:10e01c0
+
+     1468/I/NONE  /  1 | 0xd0330038:10d
+
+     1468/I/NONE  /  1 | 0xd0350364:2eb908
+
+     1468/I/NONE  /  1 | 0xd0350360:1b7fc040
+
+     1468/I/NONE  /  1 | 0xd035037c:10ec5
+
+     1468/I/NONE  /  1 | 0xd02201e4:0
+
+     1468/I/NONE  /  1 | Acquired calibration value:
+     1469/I/NONE  /  1 | 0: 0x0 - 0xfffc
+     1469/I/NONE  /  1 | 1: 0x8 - 0xfffc
+     1469/I/NONE  /  1 | 2: 0xfffe - 0xfffe
+     1469/I/NONE  /  1 | set mpu 0x20009a40 len 1024 result 0
+     1469/I/NONE  /  1 | efuse_8=0x0
+     1469/I/NONE  /  1 | invalid efuse value.
+     1469/I/NONE  /  1 | efuse_8=0x0
+     1469/I/NONE  /  1 | invalid efuse value.
+     1470/I/NONE  /  1 | btdrv_rf_init_ext 0xc2=0x7f
+     1470/I/NONE  /  1 | btdrv_config_init
+     1471/I/NONE  /  1 | btdrv_SendData
+     1471/I/NONE  /21E | tx
+01 81 fc 08 bf ee cd fa db bd 7b 87 
+     1471/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 81 fc 00 
+     1472/I/NONE  /  1 | btdrv_SendData
+01 86 fc 68 00 01 04 00 01 c8 00 20 03 40 06 3a 00 01 00 ff 04 17 11 00 00 01 04 01 04 00 01 00 03 00 00 08 02 50 78 01 01 3a 5e 0b 04 00 2c 00 01 00 00 3f 2b 00 07 00 20 03 05 00 0c 01 00 32 00 48 00 06 01 00 01 01 01 04 02 00 00 00 00 c4 09 00 00 c4 09*     1479/I/NONE  /21E | tx
+     1480/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 86 fc 00 
+     1480/I/NONE  /  1 | btdrv_SendData
+01 ae fc 19 00 01 32 00 00 12 01 00 08 00 0a 98 14 00 00 01 01 01 00 00 50 a6 64 00 01 
+     1484/I/NONE  /21E | tx
+     1484/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 ae fc 00 
+     1485/I/NONE  /  1 | btdrv_SendData
+01 b3 fc 4f 00 04 0f 14 00 00 06 01 01 00 ff 02 00 02 02 02 01 01 01 00 55 00 00 00 55 00 00 00 0f 00 00 00 00 00 ff ff 04 00 00 14 01 00 14 28 00 00 00 08 ff ff 00 00 00 02 79 00 79 00 01 00 00 00 64 05 00 00 00 01 01 01 01 02 01 01 00 2b 01 96 03 
+     1492/I/NONE  /21E | tx
+     1493/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 b3 fc 00 
+     1493/I/NONE  /  1 | btdrv_SendData
+01 bf fc 1b 00 00 00 00 00 05 01 01 01 01 01 01 01 01 00 01 00 00 00 01 00 00 05 01 0a 00 0a 
+     1501/I/NONE  /21E | tx
+     1501/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 bf fc 00 
+     1502/I/NONE  /  1 | btdrv_SendData
+01 77 fc 08 01 01 c8 00 32 00 00 00 
+     1510/I/NONE  /21E | tx
+     1510/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 77 fc 00 
+     1511/I/NONE  /  1 | btdrv_SendData
+01 88 fc bd 01 00 01 b9 03 ff fe 9c 0f 02 0e 00 e8 03 00 ff ff ab 7f 01 01 01 01 00 eb e5 ed ee e8 f3 f1 eb f6 f4 ee f6 f7 f1 f6 fa f4 f6 fd f7 f6 00 fa 00 7f fd 7f 7f 00 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 32 00 b0 2d 00 b0 1e 00 b0 17 00 b0*     1518/I/NONE  /21E | tx
+     1518/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 88 fc 00 
+     1519/I/NONE  /  1 | btdrv_SendData
+01 71 fc 06 e8 03 e8 03 e8 03 
+     1522/I/NONE  /21E | tx
+     1522/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 70 fc 00 
+     1523/I/NONE  /  1 | btdrv_SendData
+01 8f fc 04 01 01 00 00 
+     1531/I/NONE  /21E | tx
+     1531/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 8f fc 00 
+     1532/I/NONE  /  1 | btdrv_SendData
+01 74 fc 08 20 00 00 00 70 51 00 00 
+     1539/I/NONE  /21E | tx
+     1539/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 74 fc 00 
+     1540/I/NONE  /  1 | btdrv_SendData
+01 76 fc 03 ff fe 9c 
+     1543/I/NONE  /21E | tx
+     1543/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 76 fc 00 
+     1544/I/NONE  /  1 | btdrv_SendData
+01 82 fc 09 02 1f 03 00 00 00 00 00 00 
+     1551/I/NONE  /21E | tx
+     1552/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 82 fc 00 
+     1552/I/NONE  /  1 | btdrv_SendData
+01 83 fc 05 0e 13 42 0f 56 
+     1555/I/NONE  /21E | tx
+     1556/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 83 fc 00 
+     1556/I/NONE  /  1 | btdrv_SendData
+01 84 fc 06 0c 2c 0e 42 07 40 
+     1564/I/NONE  /21E | tx
+     1564/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 84 fc 00 
+     1565/I/NONE  /  1 | btdrv_SendData
+01 b9 fc 03 ff ff 02 
+     1568/I/NONE  /21E | tx
+     1568/I/NONE  /23E | btdrv_rx len:7
+04 0e 04 05 b9 fc 12 
+     1569/I/NONE  /  1 | btdrv_bt_modem_config
+     1570/I/NONE  /  1 | BTC:1305 work mode patch version:11240001
+     1571/I/NONE  /  6 | intersys_tx_thread_id 0x200258a0
+
+     1571/I/NONE  /  6 | intersys_rx_thread_id 0x20025ab0
+
+     1571/I/NONE  /  6 | bt_if LIB_INFO=737987b2f3
+     1572/I/NONE  /  6 | :_sdp_add_to_ctl_list:list 0x2000a2ec, node 0x20011dec
+     1573/I/NONE  /  6 | :_sdp_add_to_ctl_list:list 0x2000a2ec, node 0x20011f70
+     1573/I/NONE  /  6 | :_sdp_add_to_ctl_list:list 0x2000a2ec, node 0x200120f4
+     1573/I/NONE  /  6 | btif_cmgr_handler_init:node 0x20011c4c, next 0x20011c4c
+     1573/I/NONE  /  6 | btif_me_register_global_handler 1097
+     1573/I/NONE  /  6 | btif_me_event_manager_init 110
+     1573/I/NONE  /  6 | btif_a2dp_init 934
+     1573/I/NONE  /  6 | sdp_server_add_global_record:add node 0x20013994 to list, record 0x20013994, handle 0x10000
+     1573/I/NONE  /  6 | btif_a2dp_alloc_stream 952
+     1573/I/NONE  /  6 | btif_a2dp_alloc_stream  stream: 0x20011620, ->a2dp_stream 0x20011484
+     1574/I/NONE  /  6 | btif_a2dp_alloc_stream 952
+     1574/I/NONE  /  6 | btif_a2dp_alloc_stream  stream: 0x20011628, ->a2dp_stream 0x20011548
+     1574/I/NONE  /  6 | sdp_server_add_global_record:add node 0x20013a1c to list, record 0x20013a1c, handle 0x10001
+     1574/I/NONE  /  6 | sdp_server_add_global_record:add node 0x20013a38 to list, record 0x20013a38, handle 0x10002
+     1574/I/NONE  /  6 | btif_avrcp_init 829 st:0
+     1574/I/NONE  /  6 | sdp_server_add_global_record:add node 0x200143e4 to list, record 0x200143e4, handle 0x10003
+     1575/I/NONE  /  6 | #### btif_hf_create_channel max channel 1, current 0
+
+     1575/I/NONE  /  6 | app_hfp_mute_upstream devId 0 isMute 1
+     1575/I/NONE  /  6 | btif_a2dp_register 872 codec type:0
+     1575/I/NONE  /  6 | _sbrk: incr 40 cur=0x200296d8
+
+     1575/I/NONE  /  6 | btif_a2dp_register 872 codec type:2
+     1575/I/NONE  /  6 | _sbrk: incr 40 cur=0x20029700
+
+     1575/I/NONE  /  6 | [multi_heap_register_impl] start=0x2000dd78 size=1200 user=0xc046055
+     1576/I/NONE  /  6 | tx process:0,1,1,1
+     1577/I/NONE  /  6 | [TX]:
+01 03 0c 00 
+     1577/I/NONE  /  1 | BesbtThread: 0x200258a0
+
+     1589/I/NONE  /  7 | [RX]:
+04 0e 04 05 03 0c 00 
+     1590/I/NONE  /  6 | [TX]:
+01 26 0c 02 43 00 
+     1593/I/NONE  /  7 | [RX]:
+04 0e 04 05 26 0c 00 
+     1594/I/NONE  /  6 | [TX]:
+01 05 10 00 
+     1597/I/NONE  /  7 | [RX]:
+04 0e 0b 05 05 10 00 fd 03 ff 05 00 04 00 
+     1598/I/NONE  /  6 | [TX]:
+01 33 0c 07 20 03 b4 06 00 06 00 
+     1605/I/NONE  /  7 | [RX]:
+04 0e 04 05 33 0c 00 
+     1605/I/NONE  /  6 | [TX]:
+01 31 0c 01 01 
+     1609/I/NONE  /  7 | [RX]:
+04 0e 04 05 31 0c 00 
+     1609/I/NONE  /  6 | [TX]:
+01 18 0c 02 00 20 
+     1612/I/NONE  /  7 | [RX]:
+04 0e 04 05 18 0c 00 
+     1613/I/NONE  /  6 | [TX]:
+01 17 0c 00 
+     1621/I/NONE  /  7 | [RX]:
+04 0e 06 05 17 0c 00 00 20 
+     1622/I/NONE  /  6 | [TX]:
+01 72 fc 07 01 d4 9a c2 56 34 12 
+     1629/I/NONE  /  7 | [RX]:
+04 0e 04 05 72 fc 00 
+     1630/I/NONE  /  6 | [TX]:
+01 72 fc 07 00 24 63 24 86 11 11 
+     1634/I/NONE  /  7 | [RX]:
+04 0e 04 05 72 fc 00 
+     1634/I/NONE  /  6 | [TX]:
+01 01 0c 08 ff ff ff ff ff ff ff 1f 
+     1637/I/NONE  /  7 | [RX]:
+04 0e 04 05 01 0c 00 
+     1638/I/NONE  /  6 | [TX]:
+01 01 20 08 7f 00 00 00 00 00 00 00 
+     1641/I/NONE  /  7 | [RX]:
+04 0e 04 05 01 20 00 
+     1642/I/NONE  /  6 | [TX]:
+01 01 10 00 
+     1650/I/NONE  /  7 | [RX]:
+04 0e 0c 05 01 10 00 0b 2c 04 0b b0 02 2c 04 
+     1650/I/NONE  /  6 | [TX]:
+01 03 10 00 
+     1654/I/NONE  /  7 | [RX]:
+04 0e 0c 05 03 10 00 bf ee cd fa db bd 7b 87 
+0xbf 0xee 0xcd 0xfa 0xdb 0xbd 0x7b 0x87 
+     1654/I/NONE  /  6 | [TX]:
+01 09 10 00 
+     1657/I/NONE  /  7 | [RX]:
+04 0e 0a 05 09 10 00 24 63 24 86 11 11 
+     1658/I/NONE  /  6 | [TX]:
+01 44 0c 00 
+     1661/I/NONE  /  7 | [RX]:
+04 0e 05 05 44 0c 00 00 
+     1662/I/NONE  /  6 | [TX]:
+01 5a 0c 00 
+     1665/I/NONE  /  7 | [RX]:
+04 0e 05 05 5a 0c 00 00 
+     1666/I/NONE  /  6 | [TX]:
+01 56 0c 01 01 
+     1674/I/NONE  /  7 | [RX]:
+04 0e 04 05 56 0c 00 
+     1674/I/NONE  /  6 | [TX]:
+01 24 0c 03 04 04 24 
+     1682/I/NONE  /  7 | [RX]:
+04 0e 04 05 24 0c 00 
+     1683/I/NONE  /  6 | [TX]:
+01 13 0c f8 62 65 73 74 32 35 30 30 69 5f 69 62 72 74 2e 44 45 53 4b 54 4f 50 2d 42 52 42 55 4d 4e 34 2e 73 61 6d 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+     1691/I/NONE  /  7 | [RX]:
+04 0e 04 05 13 0c 00 
+     1691/I/NONE  /  6 | [TX]:
+01 8f fc 04 11 00 00 00 
+     1699/I/NONE  /  7 | [RX]:
+04 0e 04 05 8f fc 00 
+     1700/I/NONE  /  6 | [TX]:
+01 5b 0c 01 00 
+     1703/I/NONE  /  7 | [RX]:
+04 0e 04 05 5b 0c 00 
+     1704/I/NONE  /  6 | [TX]:
+01 1c 0c 04 00 08 12 00 
+     1712/I/NONE  /  7 | [RX]:
+04 0e 04 05 1c 0c 00 
+     1712/I/NONE  /  6 | [TX]:
+01 1e 0c 04 00 08 12 00 
+     1715/I/NONE  /  7 | [RX]:
+04 0e 04 05 1e 0c 00 
+     1716/I/NONE  /  6 | [TX]:
+01 43 0c 01 01 
+     1724/I/NONE  /  7 | [RX]:
+04 0e 04 05 43 0c 00 
+     1725/I/NONE  /  6 | [TX]:
+01 47 0c 01 01 
+     1728/I/NONE  /  7 | [RX]:
+04 0e 04 05 47 0c 00 
+     1728/I/NONE  /  6 | [TX]:
+01 0f 08 02 00 00 
+     1732/I/NONE  /  7 | [RX]:
+04 0e 04 05 0f 08 00 
+     1732/I/NONE  /  6 | nvrec_dev_localname_addr_init: nv dev data valid
+     1732/I/NONE  /  6 | BT addr is:
+24 63 24 86 11 11 
+     1733/I/NONE  /  6 | BLE addr is:
+d4 9a c2 56 34 12 
+     1733/I/NONE  /  6 | localname=hi_sam, namelen=6
+     1733/I/NONE  /  6 | blename=hi_sam, namelen=6
+     1733/I/NONE  /  6 | bt_stack_config
+     1733/I/NONE  /  6 | btif_me_set_inquiry_mode:mode=0x2
+     1734/I/NONE  /  6 | app_notify_stack_ready 0 1
+     1734/I/NONE  /  6 | [TX]:
+01 13 0c f8 68 69 5f 73 61 6d 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+     1735/I/NONE  /  1 | app_wait_stack_ready: wait:157 ms
+     1735/I/NONE  /  1 | stack init done
+     1735/I/NONE  /  1 | BT_DRV:set fa invert en=1
+     1735/I/NONE  /  1 | 
+
+
+bt_stack_init_done:9
+
+
+
+     1735/I/NONE  /  1 | app_status_indication_set 0
+     1736/I/NONE  /  1 | app_voice_report_handler 0[POWERON]
+     1736/I/AUDFLG/  4 | [handle_process] id 0 [START] type 0x2 [MEDIA]
+     1736/I/AUDFLG/  4 | [MEDIA_TYPE][SET] 0x2 active_now 0x0 id 0
+     1736/I/AUDFLG/  4 | [HANDLE_START] type= 0x2->:[MEDIA],device id = 0x0,media_id = 0xe000
+     1737/I/AUDFLG/  4 | [HANDLE_START] media_active = 0x2->:[MEDIA]
+     1737/I/AUDFLG/  4 | [HANDLE_START] curr_active_media = 0x0->:[]
+     1737/I/AUDFLG/  4 | curr_active_media is set to 0x2->:[MEDIA]
+     1737/I/AUDFLG/  4 | [OPEN] before status_id: 0x80[BACK_AUDIO], aud_id: 57344, len = 0
+     1737/I/AUDFLG/  4 | [STREAM_LIST][APPEND] id 0x80[BACK_AUDIO]
+     1738/I/AUDFLG/  4 | [STREAM_LIST][APPEND] id 0x80[BACK_AUDIO] status 0 len 1 ret 1
+     1738/I/AUDFLG/  4 | [STRM_PLAYER][OPEN] prev:0x0[] freq:0
+     1738/I/AUDFLG/  4 | [STRM_PLAYER][OPEN] cur:0x80[BACK_AUDIO] freq:0
+     1738/I/AUDFLG/  4 | [MEDIA_ONOFF] Idle, to start it
+     1738/I/AUDFLG/  4 | [MEDIA_ONOFF] aud_id:e000 [POWER_ON] aud_pram:e000 chnlsel:24576
+     1738/I/NONE  /  4 | syspool_init_specific_size: 88064/100168
+     1742/I/NONE  /  7 | [RX]:
+04 0e 04 05 13 0c 00 
+     1750/I/NONE  /  4 | syspool_init_specific_size: 0x2002a6b8,0x15800
+     1750/I/NONE  /  4 | [syspool_get_buff] ptr=0x2002a6b8 size=32 free=88064 user=0xc0729a7
+     1751/I/NONE  /  4 | [syspool_get_buff] ptr=0x2002a6d8 size=1024 free=88032 user=0xc0729c5
+     1751/I/NONE  /  4 | [syspool_get_buff] ptr=0x2002aad8 size=3004 free=87008 user=0xc0729ef
+     1751/I/NONE  /  4 | [syspool_get_buff] ptr=0x2002b694 size=1024 free=84004 user=0xc073473
+     1751/I/NONE  /  4 | [syspool_get_buff] ptr=0x2002ba94 size=4096 free=82980 user=0xc07347b
+     1752/I/NONE  /  4 | [af_stream_open] id = 0, stream = 0
+     1752/I/NONE  /  4 | codec_int_open: user_map=0x0
+     1752/I/NONE  /  4 | codec_hw_open
+     1753/I/NONE  /  4 | codec_int_stream_open: stream=0
+     1754/I/NONE  /  4 | [af_stream_setup] id = 0, stream = 0
+     1754/I/NONE  /  4 | codec_int_stream_setup: stream=0
+     1754/I/NONE  /  4 | [sample_rate]old=0 new=16000
+     1754/I/NONE  /  4 | [bits]old=0 new=16
+     1754/I/NONE  /  4 | [channel_num]old=0 new=2
+     1754/I/NONE  /  4 | [channel_map]old=0x0 new=0x1
+     1754/I/NONE  /  4 | [use_dma]old=0 new=1
+     1754/I/NONE  /  4 | [vol]old=0 new=12 chan_vol_set=0
+     1755/I/NONE  /  4 | [io_path]old=0 new=10
+     1755/I/NONE  /  4 | [codec_int_stream_setup]stream=0 set_flag=0xff
+     1755/I/NONE  /  4 | 
+!!! WARNING:hal_codec_setup_stream: Bad play stereo ch map: 0x1
+
+     1755/I/NONE  /  4 | [hal_codec_setup_stream] playback sample_rate=16000
+     1755/I/AUDFLG/  4 | [AUD][VOICE_RPT]ibrt not init done.
+     1756/I/NONE  /  4 | [af_stream_start] id = 0, stream = 0
+     1756/I/NONE  /  4 | codec_int_stream_start: stream=0
+     1756/I/NONE  /  4 | codec_hw_start: stream=0
+     1757/I/NONE  /  6 | [BT_FUNC] src_thread:0x20023cf8 call request_id=18->:BT_Custom_Func
+     1757/I/NONE  /  6 | func:0x0c079df5,param0:0x00000000, param1:0x00000000
+     1757/I/NONE  /  6 | btif_me_register_global_handler 1097
+     1758/I/NONE  /  6 | tws_ibrt LIB_INFO=737987b2f3
+     1759/I/NONE  /  6 | app_tws_ibrt_audio_sync_pid_setup mode:1
+     1760/I/AUDFLG/  6 | [AUD][DECODER][SYNC] fix diff reset
+     1760/I/AUDFLG/  4 | [STRM_PLAYER][OPEN] updated to  0x80[BACK_AUDIO]
+     1760/I/AUDFLG/  4 | [OPEN] after status_id: 0x80[BACK_AUDIO], len = 1
+     1760/I/NONE  /  4 | mod_handler[1] ret=-1
+     1760/I/AUDFLG/  6 | [AUD][DECODER][SYNC]reset_data
+     1761/I/NONE  /  6 | app_ibrt_ui_test_init
+     1761/I/NONE  /  6 | ibrt_ui_log: app_ibrt_ui_box_init addr:
+78 33 33 22 11 11 
+     1762/I/NONE  /  6 | ibrt_ui_log: app_ibrt_ui_set_box_ble_addr addr: 
+78 33 33 22 11 11 
+     1762/I/NONE  /  6 | ibrt_ui_log:sniff_checker_init interval:3000 
+
+     1775/I/NONE  /  6 | this is ibrt 255
+     1776/I/NONE  /  6 | local_addr
+aa 00 20 00 00 00 
+     1776/I/NONE  /  6 | peer_addr
+00 00 00 00 00 00 
+     1777/I/NONE  /  6 | audio_chnl_sel 1
+     1777/I/NONE  /  6 | [BT_FUNC] exit request_id:24 :status:25
+     1778/I/NONE  /  6 | [TX]:
+01 52 0c f1 01 07 09 68 69 5f 73 61 6d 0f 03 01 00 0b 11 0e 11 0f 11 0c 11 1e 11 03 12 01 05 01 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+     1780/I/NONE  /  1 | poweron_wait_case enter:9
+     1782/I/NONE  /  7 | [RX]:
+04 0e 04 05 52 0c 00 
+     1782/I/NONE  /  6 | [BT_FUNC] src_thread:0x200258a0 call request_id=2->:ME_SetConnectionRole
+     1783/I/NONE  /  6 | [BT_FUNC] exit request_id:2 :status:0
+     1784/I/NONE  /  6 | [TX]:
+01 45 0c 01 02 
+     1786/I/NONE  /  7 | [RX]:
+04 0e 04 05 45 0c 00 
+     1787/I/NONE  /  6 | [BT_FUNC] src_thread:0x200258a0 call request_id=b->:A2DP_SetMasterRole
+     1787/I/NONE  /  6 | [BT_FUNC] exit request_id:11 :status:1
+     1788/I/NONE  /  6 | [TX]:
+01 a2 fc 02 01 00 
+     1790/I/NONE  /  7 | [RX]:
+04 0e 04 05 a2 fc 00 
+     1791/I/NONE  /  6 | [BT_FUNC] src_thread:0x200258a0 call request_id=b->:A2DP_SetMasterRole
+     1791/I/NONE  /  6 | [BT_FUNC] exit request_id:11 :status:1
+     1792/I/NONE  /  6 | [TX]:
+01 47 0c 01 01 
+     1797/I/NONE  /  7 | [RX]:
+04 0e 04 05 47 0c 00 
+     1798/I/NONE  /  6 | [BT_FUNC] src_thread:0x200258a0 call request_id=11->:HF_SetMasterRole
+     1798/I/NONE  /  6 | [BT_FUNC] exit request_id:17 :status:1
+     1799/I/NONE  /  6 | [TX]:
+01 1c 0c 04 b8 01 12 00 
+     1803/I/NONE  /  7 | [RX]:
+04 0e 04 05 1c 0c 00 
+     1803/I/NONE  /  6 | [BT_FUNC] src_thread:0x200258a0 call request_id=8->:CMGR_SetSniffInofToAllHandlerByRemDev
+     1803/I/NONE  /  6 | [BT_FUNC] exit request_id:8 :status:14
+     1804/I/NONE  /  6 | [BT_FUNC] src_thread:0x200258a0 call request_id=10->:HF_EnableSniffMode
+     1804/I/NONE  /  6 | btif_me_stop_sniff no remote device
+     1804/I/NONE  /  6 | [BT_FUNC] exit request_id:16 :status:1
+[2021/02/02 15:05:10.888]      1871/I/NONE  /  4 | app_poweron_normal 1,17
+     1871/I/NONE  /  4 | app_poweron_finished 1,20
+     1871/I/NONE  /  1 | powon raw case:0 time:91
+     1871/I/NONE  /  1 | power on case:0
+
+     1872/I/NONE  /  1 | app_status_indication_set 1
+     1872/I/NONE  /  6 | [BT_FUNC] src_thread:0x20023cf8 call request_id=18->:BT_Custom_Func
+     1872/I/NONE  /  6 | func:0x0c052bcd,param0:0x00000001, param1:0x00000000
+     1873/I/NONE  /  6 | [BT_FUNC] exit request_id:24 :status:25
+     1873/I/NONE  /  6 | [TX]:
+01 77 fc 08 01 01 c8 00 32 00 00 00 
+     1874/I/NONE  /  1 | ibrt_ui_log:power on unknow mode
+     1874/I/NONE  /  7 | [RX]:
+04 0e 04 05 77 fc 00 
+     1874/I/NONE  /  1 | Remove all history tws nv records.
+     1876/I/NONE  /  1 | Master addr:
+aa 00 20 00 00 00 
+     1876/I/NONE  /  1 | Slave addr:
+00 00 00 00 00 00 
+     1876/I/NONE  /  1 | nv record bdAddr = 
+0e ad 35 4e e9 f8 
+     1876/I/NONE  /  1 | record_trusted = 
+0 
+     1876/I/NONE  /  1 | record_linkKey = 
+4c 53 7b e2 68 f5 a4 47 00 91 3e f0 77 69 b1 e2 
+     1877/I/NONE  /  1 | record_keyType = 
+4 
+     1877/I/NONE  /  1 | record_pinLen = 
+5c 
+     1877/I/NONE  /  1 | The index 3 of nv records:
+0e ad 35 4e e9 f8 
+     1877/I/NONE  /  1 | nv record bdAddr = 
+25 63 24 86 11 11 
+     1877/I/NONE  /  1 | record_trusted = 
+59 
+     1878/I/NONE  /  1 | record_linkKey = 
+e6 7e 7a 50 12 c5 6d 2f 37 47 5d ca 10 c6 b2 d9 
+     1878/I/NONE  /  1 | record_keyType = 
+4 
+     1878/I/NONE  /  1 | record_pinLen = 
+5a 
+     1878/I/NONE  /  1 | The index 2 of nv records:
+25 63 24 86 11 11 
+     1878/I/NONE  /  1 | nv record bdAddr = 
+51 1e e1 4d 17 c0 
+     1879/I/NONE  /  1 | record_trusted = 
+171 
+     1879/I/NONE  /  1 | record_linkKey = 
+bf ed 3c 38 69 38 43 70 6e e0 23 3b f4 d4 b6 c2 
+     1879/I/NONE  /  1 | record_keyType = 
+4 
+     1879/I/NONE  /  1 | record_pinLen = 
+5b 
+     1879/I/NONE  /  1 | The index 1 of nv records:
+51 1e e1 4d 17 c0 
+     1880/I/NONE  /  1 | nv record bdAddr = 
+24 63 24 86 11 11 
+     1880/I/NONE  /  1 | record_trusted = 
+219 
+     1880/I/NONE  /  1 | record_linkKey = 
+5f df aa 43 cd b5 26 04 e9 ae 03 c4 86 65 ac 01 
+     1880/I/NONE  /  1 | record_keyType = 
+4 
+     1880/I/NONE  /  1 | record_pinLen = 
+57 
+     1880/I/NONE  /  1 | The index 0 of nv records:
+24 63 24 86 11 11 
+     1881/I/NONE  /  1 | ibrt_ui_log:power on enter pairing
+     1881/I/NONE  /  1 | ibrt_ui_log:set_access_mode=0, ca=0xc03e697
+     1881/I/NONE  /  1 | ibrt_ui_log:filter access mode=0, current access mode=0
+     1881/I/NONE  /  6 | [TX]:
+01 43 0c 01 01 
+     1883/I/NONE  /  7 | [RX]:
+04 0e 04 05 43 0c 00 
+     1884/I/NONE  /  6 | [TX]:
+01 1e 0c 04 b8 01 12 00 
+     1884/I/NONE  /  1 | j_scan=SEARCH_SLAVE, l_type=NO_LINK_TYPE, mode=0x13, p_mode=0
+     1884/I/NONE  /  1 | ibrt_ui_log:set_access_mode=19, ca=0xc07a7f9
+     1887/I/NONE  /  7 | [RX]:
+04 0e 04 05 1e 0c 00 
+     1887/I/NONE  /  1 | write_scan_enable=3
+     1887/I/NONE  /  1 | ibrt_ui_log:btif_me_set_accessible_mode status:02
+     1888/I/NONE  /  6 | [TX]:
+01 3a 0c 04 01 00 8b 9e 
+     1888/I/NONE  /  1 | app_status_indication_set 2
+     1903/I/NONE  /  7 | [RX]:
+04 0e 04 05 3a 0c 00 
+     1904/I/NONE  /  6 | [TX]:
+01 1a 0c 01 03 
+     1904/I/NONE  /  1 | app_battery_start 200
+     1911/I/NONE  /  7 | [RX]:
+04 0e 04 05 1a 0c 00 
+     1912/I/NONE  /  6 | [BTEVENT] evt = 10
+     1912/I/NONE  /  6 | [BTEVENT] ACCESSIBLE_CHANGE evt:10 errCode:0x0 aMode=0x3
+     1913/I/NONE  /  6 | ibrt_ui_log:accessible_change dest:255 curr:3 err:00
+     1913/I/NONE  /  6 | BT_REG_OP: LC_STATE=0x0
+     1913/I/NONE  /  6 | ibrt_ui_log:link_type=0, evtcode=10, status=0x0
+[2021/02/02 15:05:11.072]      2106/I/NONE  /31E | hal_gpadc_adc2volt_calib efuse:15798/20632 LV=15798, HV=20632, Slope:0 Intcpt:-17
+     2107/I/NONE  /31E | app_battery_irqhandler 1230
+[2021/02/02 15:05:11.249]      2306/I/NONE  /31E | app_battery_irqhandler 1231
+[2021/02/02 15:05:11.440]      2506/I/NONE  /31E | app_battery_irqhandler 1231
+[2021/02/02 15:05:11.542]      2598/I/AUDFLG/  5 | [DECODE_SBC][END]
+     2598/I/AUDFLG/  5 | [DECODE_SBC][END] len:1024
+ 
+     2598/I/AUDFLG/  5 | [SINGLE_SBC_MORE_DATA][END] length:3920 len:1024 l:256
+[2021/02/02 15:05:11.590]      2664/I/AUDFLG/  5 | [STOP]
+     2665/I/AUDFLG/  4 | [CLOSE] current id: 0x80[BACK_AUDIO]
+     2665/I/AUDFLG/  4 | [STRM_PLAYER][CLOSE] gStreamplayer: 0x80[BACK_AUDIO]
+     2665/I/AUDFLG/  4 | [STRM_PLAYER][CLOSE] player:0x80[BACK_AUDIO]
+     2666/I/AUDFLG/  4 | [MEDIA_ONOFF] Running, to stop it
+     2666/I/NONE  /  4 | [af_stream_playback_fadeout] ms:10/10 us:32000 sample:160 bit:16 ch:2
+     2666/I/NONE  /  4 | fadeout sample:160
+[2021/02/02 15:05:11.640]      2706/I/NONE  /31E | app_battery_irqhandler 1229
+[2021/02/02 15:05:11.724]      2766/I/NONE  /  5 | fadeout_process end
+     2766/I/NONE  /  4 | [af_stream_stop] id = 0, stream = 0
+     2768/I/NONE  /  4 | codec_int_stream_stop: stream=0
+     2770/I/NONE  /  4 | codec_hw_stop: stream=0
+     2774/I/NONE  /  4 | [af_stream_close] id = 0, stream = 0
+     2775/I/NONE  /  4 | codec_int_stream_close: stream=0
+     2775/I/NONE  /  4 | codec_int_stream_restore_chan_vol: stream=0
+     2775/I/NONE  /  4 | codec_int_close: type=0 user_map=0x1
+     2775/I/NONE  /  4 | codec_hw_close: type=0
+     2780/I/AUDFLG/  4 | [AUD][VOICE_RPT][TRIG] trigger clear
+     2780/I/AUDFLG/  4 | [STRM_PLAYER][CLOSE] updated to 0x0[]
+     2780/I/AUDFLG/  4 | [CLOSE] list: 1
+     2781/I/AUDFLG/  4 | =======>APP_BT_SETTING_CLOSE MEDIA
+     2781/I/AUDFLG/  4 | [HANDLE_STOP] type= 0x2->:[MEDIA], device id = 0x0
+     2781/I/AUDFLG/  4 | [HANDLE_STOP] media_active = 0x2->:[MEDIA]
+     2782/I/AUDFLG/  4 | [HANDLE_STOP] curr_active_media = 0x2->:[MEDIA]
+     2782/I/AUDFLG/  4 | [MEDIA_TYPE][CLR] 0x2 active_now 0x2 id 0
+     2782/I/AUDFLG/  4 | curr_active_media is set to 0x0->:[]
+     2782/I/AUDFLG/  4 | [HANDLE_STOP] end media_active = 0[]
+     2783/I/AUDFLG/  4 | [HANDLE_STOP] end curr_active_media = 0[]
+     2783/I/AUDFLG/  4 | [STREAM_LIST][RMV] audio list len 1 close_id 0x80[BACK_AUDIO]
+     2783/I/AUDFLG/  4 | [HANDLE_FREE] , aud_id: 0xe000, type = 0x458d
+     2784/I/AUDFLG/  4 | [STREAM_LIST][RMV] end len:0 ret 0 data 0x20024ee8
+     2784/I/NONE  /  4 | mod_handler[1] ret=-1
+[2021/02/02 15:05:11.836]      2908/I/NONE  /31E | app_battery_irqhandler 1230
+[2021/02/02 15:05:12.029] CT:con cmp idx=0,addr=24 63
+     3078/I/NONE  /  7 | [RX]:
+04 03 0b 00 80 00 24 63 24 86 11 11 01 00 
+     3080/I/NONE  /  6 | btif_cmgr_init_sniff_timer 0x20011ca4
+24 63 24 86 11 11 
+24 63 24 86 11 11 
+     3081/I/NONE  /  6 | l2cap_conn_add_new,malloc conn=0x2001448c
+     3082/I/NONE  /  6 | [BTEVENT] evt = 4
+     3082/I/NONE  /  6 | hfp_reconnecting_timer_stop_callback: not find bt device
+     3083/I/NONE  /  6 | app_bt_get_devId_from_RemDev 0
+     3083/I/NONE  /  6 | Dev 0 enters connecting profiles state
+     3083/I/NONE  /  6 | btif_me_get_pendCons:conn 0x20013b30, state 0x3[BTM_ACL_ST_CONNECTED]
+     3084/I/NONE  /  6 | MEC(pendCons) is 0
+     3084/I/NONE  /  6 | btif_cmgr_clear_sniff_timer handler 0x20011ca4 timer 0
+     3084/I/NONE  /  6 | btif_cmgr_disable_sniff_timer handler 0x20011ca4 timer 0
+     3085/I/NONE  /  6 | [BTEVENT] CONNECT_IND/CNF evt:4 errCode:0x0 newRole:0 activeCons:1
+24 63 24 86 11 11 
+     3086/I/NONE  /  6 | get factory_section_p
+     3086/I/NONE  /  6 | local:11 remd:11
+     3086/I/NONE  /  6 | app_tws_ibrt_update_info
+     3086/I/NONE  /  6 | ##nv_record_update_ibrt_info,1
+     3087/I/NONE  /  6 | set mpu 0x20009a40 len 1024 result 0
+     3087/I/NONE  /  6 | #left
+     3088/I/NONE  /  7 | [RX]:
+04 1b 03 80 00 05 
+     3087/I/NONE  /  6 | BT_REG_OP:Set the lsto for hciHandle=0x80, from:0x7d00 to 0xc80
+     3089/I/NONE  /  6 | ibrt_ui_log:tws link connected,handle=80
+     3089/I/NONE  /  6 | BT_REG_OP: LC_STATE=0x3c
+     3089/I/NONE  /  6 | ##app_ibrt_nvrecord_update_ibrt_mode_tws,1
+     3090/I/NONE  /  6 | set mpu 0x20009a40 len 1024 result 0
+     3090/I/NONE  /  6 | BT_REG_OP:hack slot id=0,slot=1
+     3090/I/NONE  /  6 | ibrt_ui_log:link_type=TWS_LINK, evt_type=LINK_CONNECT_IND, evtcode=4, status=0x0
+     3091/I/NONE  /  6 | role is unknow, wait tws info exchange
+     3091/I/NONE  /  6 | ibrt_ui_log:set_access_mode=0, ca=0xc03e75b
+     3092/I/NONE  /  6 | write_scan_enable=0
+     3092/I/NONE  /  6 | ibrt_ui_log:btif_me_set_accessible_mode status:02
+     3093/I/NONE  /  6 | j_scan=CONNECTED, l_type=TWS_LINK, mode=0x0, p_mode=0
+     3093/I/NONE  /  6 | ibrt_ui_log:set_access_mode=0, ca=0xc042643
+     3093/I/NONE  /  6 | ibrt_ui_log:filter access mode=0, current access mode=0
+     3094/I/NONE  /  6 | [TX]:
+01 1a 0c 01 00 
+     3097/I/NONE  /  7 | [RX]:
+04 0e 04 05 1a 0c 00 
+     3098/I/NONE  /  6 | [BTEVENT] evt = 10
+     3099/I/NONE  /  6 | [BTEVENT] ACCESSIBLE_CHANGE evt:10 errCode:0x0 aMode=0x0
+     3099/I/NONE  /  6 | ibrt_ui_log:accessible_change dest:255 curr:0 err:00
+     3099/I/NONE  /  6 | BT_REG_OP: LC_STATE=0x9
+     3100/I/NONE  /  6 | ibrt_ui_log:link_type=0, evtcode=10, status=0x0
+     3100/I/NONE  /  6 | [TX]:
+01 1c 0c 04 00 08 12 00 
+     3101/I/NONE  /  7 | [RX]:
+04 0e 04 05 1c 0c 00 
+     3103/I/NONE  /  6 | [TX]:
+01 1e 0c 04 00 08 12 00 
+     3106/I/NONE  /  7 | [RX]:
+     3107/I/NONE  /31E | app_battery_irqhandler 1229
+     3108/I/NONE  /31E | app_battery_event_process 2,4920 36
+04 0e 04 05 1e 0c 00 
+     3109/I/NONE  /  4 | checker: IBRT_UNKNOW activeCons:1
+     3109/I/NONE  /  4 | checker: nv_role:1 current_role:255 access_mode:0
+24 63 24 86 11 11 
+24 63 24 86 11 11 
+     3110/I/NONE  /  4 | checker: super_state:IDLE/IDLE evt:NONE_EVENT plf:0
+     3110/I/NONE  /  4 | checker: box_state:OUT_BOX/IN_BOX_CLOSED sm_run:0/0
+     3111/I/NONE  /  4 | BT_REG_OP: LC_STATE=0x1
+     3112/I/NONE  /  6 | [TX]:
+01 09 08 02 80 00 
+     3115/I/NONE  /  7 | [RX]:
+04 0e 07 05 09 08 00 80 00 01 
+     3117/I/NONE  /  6 | [TX]:
+01 1d 04 02 80 00 
+     3120/I/NONE  /  7 | [RX]:
+02 80 20 0c 00 08 00 01 00 02 20 04 00 33 00 40 00 
+     3121/I/NONE  /  7 | [RX]:
+04 0f 04 00 05 1d 04 
+     3122/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3123/I/NONE  /  6 | besaud l2cap channel count--=0
+     3123/I/NONE  /  6 | l2cap alloc,conn=0x2001448c,lst=0x200144b4,psm=0x33[PSM_BESAUD],cid=0x40,l2c handle=0x1
+     3124/I/NONE  /  6 | l2cap_send_connect_rsp:
+     3124/I/NONE  /  7 | [RX]:
+04 0c 08 00 80 00 0b b0 02 2c 04 
+     3125/I/NONE  /  6 | ui_log:L2C send res (Opcode 3)
+     3125/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3128/I/NONE  /  6 | [TX]:
+02 80 20 10 00 0c 00 01 00 03 20 08 00 40 00 40 00 00 00 00 00 
+     3133/I/NONE  /  6 | [TX]:
+01 1b 04 02 80 00 
+     3137/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+     3138/I/NONE  /  7 | [RX]:
+04 0f 04 00 05 1b 04 
+     3141/I/NONE  /  7 | [RX]:
+04 0b 0b 00 80 00 bf ee cd fa db bd 7b 87 
+[2021/02/02 15:05:12.104]      3162/I/NONE  /  7 | [RX]:
+02 80 20 10 00 0c 00 01 00 04 21 08 00 40 00 00 00 01 02 a7 02 
+     3164/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3164/I/NONE  /  6 | l2cap_get_cfg_req:state=5[L2CAP_WAIT_CONFIG]
+     3165/I/NONE  /  6 | l2cap_send_cfg_rsp:
+     3165/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3166/I/NONE  /  6 | l2cap_get_cfg_req:channel 0x200144b4
+     3166/I/NONE  /  6 | l2cap_send_cfg_req:
+     3166/I/NONE  /  6 | ui_log:l2cap,generate sigid=32
+     3166/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3170/I/NONE  /  6 | [TX]:
+02 80 20 12 00 0e 00 01 00 05 21 0a 00 40 00 00 00 00 00 01 02 a7 02 
+     3175/I/NONE  /  6 | [TX]:
+02 80 20 10 00 0c 00 01 00 04 20 08 00 40 00 00 00 01 02 a7 02 
+     3183/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+     3187/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+[2021/02/02 15:05:12.175]      3235/I/NONE  /  7 | [RX]:
+02 80 20 12 00 0e 00 01 00 05 20 0a 00 40 00 00 00 00 00 01 02 a7 02 
+     3237/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3237/I/NONE  /  6 | l2cap_get_cfg_rsp:state=7[L2CAP_WAIT_CONFIG_RSP]
+     3238/I/NONE  /  6 | BT_REG_OP: LC_STATE=0x1
+     3239/I/NONE  /  8 | ibrt_ui_log:-------TRS:0000 cmdcode=NOTIFY_POLICY------->
+     3239/I/NONE  /  6 | ibrt_ui_log:judge policy=TWS_INIT, policy=5
+     3239/I/NONE  /  6 | btif_me_set_link_policy:rem_dev=0x20013b30,policy=0x5,ca=0xc03e46d
+     3240/I/NONE  /  6 | ibrt_ui_log:event_handler, action=TWS_CONNECT, state=IDLE, status=0x0
+
+     3241/I/NONE  /  6 | ibrt_ui_log: [IO] app_ibrt_ui_event_entry,event=TWS_SYNC_INFO_EVENT
+     3241/I/NONE  /  6 | ibrt_ui_log:current box state=OUT_BOX
+     3241/I/NONE  /  6 | ibrt_ui_log:current running event=TWS_SYNC_INFO_EVENT
+     3242/I/NONE  /  6 | ibrt_ui_log:l_info,mobile_conn=0,constate=0x0,ibrt_conn=0,sm=1,b_sta=OUT_BOX,evt=TWS_SYNC_INFO*H     3243/I/NONE  /  8 | ibrt_ui_log:-------TRS:0001 cmdcode=SHARE_TWS_INFO------->
+     3246/I/NONE  /  6 | ===mail_count==1==
+     3247/I/NONE  /  6 | ibrt_ui_log:entry=app_ibrt_ui_tws_connect_sync_info_event_handler, action=IDLE, status=0x0
+     3247/I/NONE  /  6 | ibrt_ui_log:enter=IDLE, exit=TWS_INFO_EXCHANGE
+     3248/I/NONE  /  7 | [RX]:
+02 80 20 20 00 1c 00 40 00 80 05 80 00 00 00 00 00 00 00 00 51 1e e1 4d 17 c0 03 ff 10 00 30 00 00 00 00 00 00 
+     3247/I/NONE  /  6 | ibrt_ui_log:link_type=TWS_LINK, evt_type=BES_AUD_CONNECTED, evtcode=200, status=0x0
+     3250/I/NONE  /  6 | app_status_indication_set 9
+     3251/I/NONE  /  6 | twsif_tws_connected, role 255
+     3251/I/NONE  /  6 | btif_besaud_callback connected
+     3251/I/NONE  /  6 | l2cap handle 0x1 opened, scid=0x40, dcid=0x40, psm=[PSM_BESAUD]
+     3253/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3254/I/NONE  /  6 | ibrt_ui_log:TXDONE:0000 cmdcode=NOTIFY_POLICY
+     3255/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3255/I/NONE  /  6 | [TX]:
+01 0d 08 04 80 00 05 00 
+     3256/I/NONE  /  7 | [RX]:
+04 0e 06 05 0d 08 00 80 00 
+     3257/I/NONE  /  6 | [TX]:
+02 80 20 0b 00 07 00 40 00 80 1b 80 00 00 00 05 
+     3259/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3260/I/NONE  /  6 | ibrt_ui_log:TXDONE:0001 cmdcode=SHARE_TWS_INFO
+     3260/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:0000 cmdcode=SHARE_TWS_INFO len=27-------
+     3261/I/NONE  /  6 | ibrt_ui_log:l_info,mobile_conn=0,constate=0x0,ibrt_conn=0,sm=1,b_sta=OUT_BOX,evt=TWS_SYNC_INFO*H     3262/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+     3263/I/NONE  /  6 | ibrt_ui_log:-------TRS:0000 RSP cmdcode=SHARE_TWS_INFO------->
+     3263/I/NONE  /  7 | [RX]:
+04 17 06 24 63 24 86 11 11 
+     3263/I/NONE  /  6 | ibrt_ui_log:role judge condition=3
+     3264/I/NONE  /  6 | ibrt_ui_log:judge role,local_role=1,peer_role=0x0,mobile_handle=0xffff,ibrt_hanle=0xffff
+     3265/I/NONE  /  6 | pagescan tws connected, slave pscan closed
+     3265/I/NONE  /  6 | j_scan=IBRT_ROLE_JUDGE, l_type=NO_LINK_TYPE, mode=0x0, p_mode=0
+     3265/I/NONE  /  6 | ibrt_ui_log:set_access_mode=0, ca=0xc03e835
+     3266/I/NONE  /  6 | ibrt_ui_log:filter access mode=0, current access mode=0
+     3266/I/NONE  /  6 | ibrt_ui_log:p_info,mobile=0x0,sco_s=0,constate=0x0,ibrt=0x0,sm_run=0,p_s=OUT_BOX,l_s=OUT_BOX
+     3268/I/NONE  /  6 | [TX]:
+02 80 20 20 00 1c 00 40 00 80 05 80 01 00 00 00 00 00 00 00 51 1e e1 4d 17 c0 03 ff 16 00 04 00 00 00 00 00 00 
+     3271/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3272/I/NONE  /  6 | ibrt_ui_log:TXDONE:0002 cmdcode=TWS_CMD_RSP
+     3273/I/NONE  /  6 | [TX]:
+02 80 20 24 00 20 00 40 00 80 04 80 02 00 05 80 00 00 00 00 00 00 00 00 51 1e e1 4d 17 c0 03 ff 16 00 04 00 00 00 00 00 00 
+5f df aa 43 cd b5 26 04 e9 ae 03 c4 86 65 ac 01 
+5f df aa 43 cd b5 26 04 e9 ae 03 c4 86 65 ac 01 
+     3278/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+     3279/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+     3279/I/NONE  /  6 | [TX]:
+01 0b 04 16 24 63 24 86 11 11 5f df aa 43 cd b5 26 04 e9 ae 03 c4 86 65 ac 01 
+     3282/I/NONE  /  7 | [RX]:
+04 0e 0a 05 0b 04 00 24 63 24 86 11 11 
+[2021/02/02 15:05:12.377]      3456/I/NONE  /  7 | [RX]:
+02 80 20 24 00 20 00 40 00 80 04 80 01 00 05 80 01 00 00 00 00 00 00 00 51 1e e1 4d 17 c0 03 ff 16 00 04 00 00 00 00 00 00 
+     3459/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3460/I/NONE  /  6 | ibrt_ui_log:<-----------RCV_RSP:0001 cmdcode=SHARE_TWS_INFO-------
+     3461/I/NONE  /  6 | ibrt_ui_log:role judge condition=0
+     3461/I/NONE  /  6 | ibrt_ui_log:judge role,local_role=1,peer_role=0xff,mobile_handle=0xffff,ibrt_hanle=0xffff
+     3461/I/NONE  /  6 | ibrt_ui_log:event_handler, action=INFO_EXCHANGE, state=TWS_INFO_EXCHANGE, status=0x0
+
+     3462/I/NONE  /  6 | [app_tws_if_tws_connected_sync_info]+++ role 1
+     3462/I/NONE  /  6 | [app_tws_if_tws_connected_sync_info]---
+     3463/I/NONE  /  6 | ibrt_ui_log:l_info,mobile_conn=0,constate=0x0,ibrt_conn=0,sm=0,b_sta=OUT_BOX,evt=TWS_SYNC_INFO*H     3466/I/NONE  /  6 | ===mail_count==2==
+     3467/I/NONE  /  6 | ibrt_ui_log:entry=app_ibrt_ui_tws_connect_sync_info_event_handler, action=INFO_EXCHANGE, statu*H      3467/I/NONE  /  6 | ibrt_ui_log:enter=TWS_INFO_EXCHANGE, exit=SM_STOP
+     3468/I/NONE  /  6 | ibrt_ui_log:p_info,mobile_conn=0,constate=0x0,ibrt_conn=0,sm_run=1,box_state=OUT_BOX,run_evt=T*H ****¸ì* `***     3469/I/NONE  /  8 | ibrt_ui_log:-------TRS:0003 cmdcode=SHARE_TWS_INFO------->
+     3470/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3470/I/NONE  /  6 | ibrt_ui_log:TXDONE:0003 cmdcode=SHARE_TWS_INFO
+     3471/I/NONE  /  6 | [TX]:
+02 80 20 20 00 1c 00 40 00 80 05 80 03 00 00 00 00 00 00 00 51 1e e1 4d 17 c0 03 01 16 00 e0 00 00 00 00 00 00 
+[2021/02/02 15:05:12.409]      3507/I/NONE  /  7 | [RX]:
+04 08 04 00 80 00 01 
+24 63 24 86 11 11 
+[2021/02/02 15:05:12.447]      3508/I/NONE  /  6 | paired Bt dev:4
+     3509/I/NONE  /  6 | Is to flush nv: 0
+     3509/I/NONE  /  6 | nv record bdAddr = 
+24 63 24 86 11 11 
+     3509/I/NONE  /  6 | record_trusted = 
+219 
+     3510/I/NONE  /  6 | record_linkKey = 
+5f df aa 43 cd b5 26 04 e9 ae 03 c4 86 65 ac 01 
+     3511/I/NONE  /  6 | record_keyType = 
+4 
+     3511/I/NONE  /  6 | record_pinLen = 
+57 
+     3511/I/NONE  /  6 | nv record bdAddr = 
+24 63 24 86 11 11 
+     3512/I/NONE  /  6 | record_trusted = 
+219 
+     3512/I/NONE  /  6 | record_linkKey = 
+5f df aa 43 cd b5 26 04 e9 ae 03 c4 86 65 ac 01 
+     3513/I/NONE  /  6 | record_keyType = 
+4 
+     3513/I/NONE  /  6 | record_pinLen = 
+57 
+     3513/I/NONE  /  6 | nv record bdAddr = 
+51 1e e1 4d 17 c0 
+     3514/I/NONE  /  6 | record_trusted = 
+171 
+     3514/I/NONE  /  6 | record_linkKey = 
+bf ed 3c 38 69 38 43 70 6e e0 23 3b f4 d4 b6 c2 
+     3515/I/NONE  /  6 | record_keyType = 
+4 
+     3515/I/NONE  /  6 | record_pinLen = 
+5b 
+     3516/I/NONE  /  6 | nv record bdAddr = 
+51 1e e1 4d 17 c0 
+     3516/I/NONE  /  6 | record_trusted = 
+171 
+     3516/I/NONE  /  6 | record_linkKey = 
+bf ed 3c 38 69 38 43 70 6e e0 23 3b f4 d4 b6 c2 
+     3517/I/NONE  /  6 | record_keyType = 
+4 
+     3518/I/NONE  /  6 | record_pinLen = 
+5b 
+     3518/I/NONE  /  6 | nv record bdAddr = 
+25 63 24 86 11 11 
+     3518/I/NONE  /  6 | record_trusted = 
+59 
+     3519/I/NONE  /  6 | record_linkKey = 
+e6 7e 7a 50 12 c5 6d 2f 37 47 5d ca 10 c6 b2 d9 
+     3520/I/NONE  /  6 | record_keyType = 
+4 
+     3520/I/NONE  /  6 | record_pinLen = 
+5a 
+     3520/I/NONE  /  6 | nv record bdAddr = 
+25 63 24 86 11 11 
+     3521/I/NONE  /  6 | record_trusted = 
+59 
+     3521/I/NONE  /  6 | record_linkKey = 
+e6 7e 7a 50 12 c5 6d 2f 37 47 5d ca 10 c6 b2 d9 
+     3522/I/NONE  /  6 | record_keyType = 
+4 
+     3522/I/NONE  /  6 | record_pinLen = 
+5a 
+     3523/I/NONE  /  6 | nv record bdAddr = 
+0e ad 35 4e e9 f8 
+     3523/I/NONE  /  6 | record_trusted = 
+0 
+     3523/I/NONE  /  6 | record_linkKey = 
+4c 53 7b e2 68 f5 a4 47 00 91 3e f0 77 69 b1 e2 
+     3524/I/NONE  /  6 | record_keyType = 
+4 
+     3525/I/NONE  /  6 | record_pinLen = 
+5c 
+     3525/I/NONE  /  6 | nv record bdAddr = 
+0e ad 35 4e e9 f8 
+     3525/I/NONE  /  6 | record_trusted = 
+0 
+     3526/I/NONE  /  6 | record_linkKey = 
+4c 53 7b e2 68 f5 a4 47 00 91 3e f0 77 69 b1 e2 
+     3527/I/NONE  /  6 | record_keyType = 
+4 
+     3527/I/NONE  /  6 | record_pinLen = 
+5c 
+     3527/I/NONE  /  7 | [RX]:
+02 80 20 0b 00 07 00 40 00 80 1b 80 02 00 00 05 
+     3528/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+     3529/I/NONE  /  7 | [RX]:
+02 80 20 20 00 1c 00 40 00 80 05 80 03 00 00 00 00 00 00 00 51 1e e1 4d 17 c0 03 ff 16 00 04 00 00 00 00 00 00 
+     3531/I/NONE  /  6 | set mpu 0x20009a40 len 1024 result 0
+     3531/I/NONE  /  6 | [BTEVENT] evt = 12
+     3531/I/NONE  /  6 | app_ibrt_if_config_keeper_tws_update success
+24 63 24 86 11 11 
+5f df aa 43 cd b5 26 04 e9 ae 03 c4 86 65 ac 01 
+     3533/I/NONE  /  6 | app_ibrt_if_config_keeper_flush crc:a7797c00
+     3533/I/NONE  /  6 | BT_REG_OP: LC_STATE=0x1
+     3534/I/NONE  /  6 | set tws link id =0
+     3534/I/NONE  /  6 | ibrt_ui_log:app_tws_ibrt_timing_control,enable=0,type =0x4,ACL interv=208, ACL inter in sco=15*     3534/I/NONE  /  6 | BT_REG_OP:Set private tws interval,acl interv=208,acl interv insco =156
+     3535/I/NONE  /  6 | ibrt_ui_log:link_type=TWS_LINK, evt_type=ENCRYPTION_CHANGE, evtcode=12, status=0x0
+     3535/I/NONE  /  6 | pagescan tws connected, slave pscan closed
+     3535/I/NONE  /  6 | ibrt_ui_log:set_access_mode=0, ca=0xc03e75b
+     3536/I/NONE  /  6 | ibrt_ui_log:filter access mode=0, current access mode=0
+     3536/I/NONE  /  6 | j_scan=CONNECTED, l_type=TWS_LINK, mode=0x0, p_mode=0
+     3537/I/NONE  /  6 | ibrt_ui_log:set_access_mode=0, ca=0xc042643
+     3537/I/NONE  /  6 | ibrt_ui_log:filter access mode=0, current access mode=0
+     3538/I/NONE  /  6 | [TX]:
+01 1c 0c 04 00 08 12 00 
+     3539/I/NONE  /  7 | [RX]:
+04 0e 04 05 1c 0c 00 
+     3540/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3542/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:0002 cmdcode=NOTIFY_POLICY len=6-------
+     3542/I/NONE  /  6 | btif_me_set_link_policy:rem_dev=0x20013b30,policy=0x5,ca=0xc04b3d1
+     3543/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3545/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:0003 cmdcode=SHARE_TWS_INFO len=27-------
+     3545/I/NONE  /  6 | ibrt_ui_log:l_info,mobile_conn=0,constate=0x0,ibrt_conn=0,sm=0,b_sta=OUT_BOX,evt=TWS_SYNC_INFO*H     3546/I/NONE  /  6 | ibrt_ui_log:-------TRS:0003 RSP cmdcode=SHARE_TWS_INFO------->
+     3547/I/NONE  /  6 | ibrt_ui_log:role judge condition=0
+     3547/I/NONE  /  6 | ibrt_ui_log:judge role,local_role=1,peer_role=0xff,mobile_handle=0xffff,ibrt_hanle=0xffff
+     3547/I/NONE  /  6 | ibrt_ui_log:reset2 tws interval to default 104 80
+     3548/I/NONE  /  6 | ibrt_ui_log:p_info,mobile=0x0,sco_s=0,constate=0x0,ibrt=0x0,sm_run=1,p_s=OUT_BOX,l_s=OUT_BOX
+     3548/I/NONE  /  6 | ibrt_ui_log:peer current running event=TWS_SYNC_INFO_EVENT
+     3549/I/NONE  /  6 | [TX]:
+01 0d 08 04 80 00 05 00 
+     3550/I/NONE  /  7 | [RX]:
+04 0e 06 05 0d 08 00 80 00 
+     3552/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3552/I/NONE  /  6 | ibrt_ui_log:TXDONE:0004 cmdcode=TWS_CMD_RSP
+     3553/I/NONE  /  6 | [TX]:
+02 80 20 24 00 20 00 40 00 80 04 80 04 00 05 80 03 00 00 00 00 00 00 00 51 1e e1 4d 17 c0 03 01 16 00 00 00 00 00 00 00 00 
+[2021/02/02 15:05:12.507]      3625/I/NONE  /  7 | [RX]:
+[2021/02/02 15:05:12.535] 02 80 20 24 00 20 00 40 00 80 04 80 04 00 05 80 03 00 00 00 00 00 00 00 51 1e e1 4d 17 c0 03 00 00 00 00 00 00 00 00 01 00 
+     3627/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+     3628/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3630/I/NONE  /  6 | ibrt_ui_log:<-----------RCV_RSP:0003 cmdcode=SHARE_TWS_INFO-------
+     3630/I/NONE  /  6 | ibrt_ui_log:role judge condition=0
+     3631/I/NONE  /  6 | ibrt_ui_log:judge role,local_role=1,peer_role=0x0,mobile_handle=0xffff,ibrt_hanle=0xffff
+     3631/I/NONE  /  6 | ibrt_ui_log:reset1 tws interval to default 104 80
+     3631/I/NONE  /  6 | ibrt_ui_log:event_handler, action=SM_STOP, state=SM_STOP, status=0x0
+
+     3632/I/NONE  /  6 | ibrt_ui_log:active event=TWS_SYNC_INFO_EVENT, consume_ms=390
+     3632/I/NONE  /  6 | ibrt_ui_log:entry=app_ibrt_ui_tws_connect_sync_info_event_handler, action=SM_STOP, status=0x0
+     3633/I/NONE  /  6 | ibrt_ui_log:enter=SM_STOP, exit=IDLE
+     3633/I/NONE  /  6 | ibrt_ui_log:p_info,mobile_conn=0,constate=0x0,ibrt_conn=0,sm_run=0,box_state=OUT_BOX,run_evt=N*H *     3761/I/NONE  /  7 | [RX]:
+02 80 20 20 00 1c 00 40 00 80 05 80 05 00 00 00 00 00 00 00 51 1e e1 4d 17 c0 03 00 16 00 00 00 00 00 00 00 00 
+     3763/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3765/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:0005 cmdcode=SHARE_TWS_INFO len=27-------
+     3765/I/NONE  /  6 | ibrt_ui_log:l_info,mobile_conn=0,constate=0x0,ibrt_conn=0,sm=0,b_sta=OUT_BOX,evt=NONE_EVENT
+     3766/I/NONE  /  6 | ibrt_ui_log:-------TRS:0005 RSP cmdcode=SHARE_TWS_INFO------->
+     3767/I/NONE  /  6 | ibrt_ui_log:role judge condition=0
+     3767/I/NONE  /  6 | ibrt_ui_log:judge role,local_role=1,peer_role=0x0,mobile_handle=0xffff,ibrt_hanle=0xffff
+     3768/I/NONE  /  6 | ibrt_ui_log:reset2 tws interval to default 104 80
+     3768/I/NONE  /  6 | ibrt_ui_log:p_info,mobile=0x0,sco_s=0,constate=0x0,ibrt=0x0,sm_run=0,p_s=OUT_BOX,l_s=OUT_BOX
+     3769/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+     3770/I/NONE  /  6 | ibrt_ui_log:TXDONE:0005 cmdcode=TWS_CMD_RSP
+     3770/I/NONE  /  6 | [TX]:
+02 80 20 24 00 20 00 40 00 80 04 80 05 00 05 80 05 00 00 00 00 00 00 00 51 1e e1 4d 17 c0 03 01 00 00 00 00 00 00 00 00 00 
+[2021/02/02 15:05:12.776]      3898/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+[2021/02/02 15:05:13.416]      4573/I/NONE  /  3 | feed watchdog
+[2021/02/02 15:05:16.997]      8323/I/NONE  /  3 | feed watchdog
+[2021/02/02 15:05:19.355]     10774/I/NONE  /  2 | CPU USAGE: busy=14 light=11 sys_deep=0 chip_deep=75
+[2021/02/02 15:05:20.585]     12074/I/NONE  /  3 | feed watchdog
+[2021/02/02 15:05:21.617]     13128/I/NONE  /  6 | ibrt_ui_log:sniff allowed
+
+    13129/I/NONE  /  6 | btif_evm_start_timer handler 0x20011ca4 timeout 10000 timer 2
+    13129/I/NONE  /  6 | app_tws_ibrt_sniff_timeout_handler handler 0x20011ca4 timeout 10000 role 1 type:3 act_evt:0 sk*H    13139/I/NONE  /31E | app_battery_irqhandler 1230
+    13139/I/NONE  /31E | app_battery_event_process 2,4919 36
+    13141/I/NONE  /  4 | checker: IBRT_UNKNOW activeCons:1
+    13141/I/NONE  /  4 | checker: nv_role:1 current_role:1 access_mode:0
+24 63 24 86 11 11 
+24 63 24 86 11 11 
+    13142/I/NONE  /  4 | checker: super_state:IDLE/IDLE evt:NONE_EVENT plf:0
+    13142/I/NONE  /  4 | checker: box_state:OUT_BOX/OUT_BOX sm_run:0/0
+    13143/I/NONE  /  4 | BT_REG_OP: LC_STATE=0x1
+[2021/02/02 15:05:24.175]     15824/I/NONE  /  3 | feed watchdog
+[2021/02/02 15:05:25.015]     16685/I/NONE  /  7 | [RX]:
+02 80 20 20 00 1c 00 40 00 80 05 80 06 00 51 1e e1 4d 17 c0 51 1e e1 4d 17 c0 03 00 08 00 75 00 00 00 00 00 00 
+    16688/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+    16689/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:0006 cmdcode=SHARE_TWS_INFO len=27-------
+    16690/I/NONE  /  6 | ibrt_ui_log:l_info,mobile_conn=0,constate=0x0,ibrt_conn=0,sm=0,b_sta=OUT_BOX,evt=NONE_EVENT
+    16691/I/NONE  /  6 | ibrt_ui_log:-------TRS:0006 RSP cmdcode=SHARE_TWS_INFO------->
+    16691/I/NONE  /  6 | ibrt_ui_log:role judge condition=2
+    16692/I/NONE  /  6 | ibrt_ui_log:judge role,local_role=1,peer_role=0x0,mobile_handle=0xffff,ibrt_hanle=0xffff
+    16692/I/NONE  /  6 | ibrt_ui_log:p_info,mobile=0x1,sco_s=0,constate=0x0,ibrt=0x0,sm_run=1,p_s=OUT_BOX,l_s=OUT_BOX
+    16693/I/NONE  /  6 | ibrt_ui_log:peer current running event=PHONE_CONNECT_EVENT
+    16694/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+    16694/I/NONE  /  6 | ibrt_ui_log:TXDONE:0006 cmdcode=TWS_CMD_RSP
+    16695/I/NONE  /  6 | [TX]:
+02 80 20 24 00 20 00 40 00 80 04 80 06 00 05 80 06 00 00 00 00 00 00 00 51 1e e1 4d 17 c0 03 01 00 00 00 00 00 00 00 00 00 
+[2021/02/02 15:05:25.126]     16823/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+[2021/02/02 15:05:25.211]     16889/I/NONE  /  7 | [RX]:
+02 80 20 20 00 1c 00 40 00 80 0e 80 07 00 51 1e e1 4d 17 c0 51 1e e1 4d 17 c0 03 00 08 00 65 00 00 00 00 00 00 
+    16892/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+    16893/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:0007 cmdcode=SET_ENV len=27-------
+    16894/I/NONE  /  6 | ibrt_ui_log:role judge condition=2
+    16894/I/NONE  /  6 | ibrt_ui_log:judge role,local_role=1,peer_role=0x0,mobile_handle=0xffff,ibrt_hanle=0xffff
+    16895/I/NONE  /  6 | ibrt_ui_log:app_ibrt_set_env_cmd_handler ibrt slave set env
+    16895/I/NONE  /  6 | ibrt_ui_log:l_info,mobile_conn=0,constate=0x0,ibrt_conn=0,sm=0,b_sta=OUT_BOX,evt=NONE_EVENT
+    16896/I/NONE  /  6 | ibrt_ui_log:-------TRS:0007 RSP cmdcode=SET_ENV------->
+    16897/I/NONE  /  6 | [TX]:
+01 8e fc 0e 01 01 24 63 24 86 11 11 24 63 24 86 11 11 
+04 ff 02 10 01 
+    16899/I/NONE  /  7 | [RX]:
+04 0e 04 05 8e fc 00 
+    16900/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+    16901/I/NONE  /  6 | ibrt_ui_log:TXDONE:0007 cmdcode=TWS_CMD_RSP
+    16902/I/NONE  /  6 | vendor event,subcode=0x10
+    16902/I/NONE  /  6 | ibrt_ui_log:snoop env init completed
+    16902/I/NONE  /  6 | ibrt_ui_log:event_handler, action=SET_ENV, state=IDLE, status=0x0
+
+    16903/I/NONE  /  6 | [TX]:
+02 80 20 24 00 20 00 40 00 80 04 80 07 00 0e 80 07 00 00 00 00 00 00 00 51 1e e1 4d 17 c0 03 01 00 00 00 00 00 00 00 00 00 
+[2021/02/02 15:05:25.259]     16959/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+[2021/02/02 15:05:25.323] CT:store connect info,role=1,clock=0x3d5185d,bitoff=224
+[2021/02/02 15:05:25.599]     17298/I/NONE  /  7 | [RX]:
+02 80 20 11 00 0d 00 40 00 80 0c 80 08 00 51 1e e1 4d 17 c0 01 00 
+    17299/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+    17301/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:0008 cmdcode=START_IBRT len=12-------
+    17301/I/NONE  /  6 | ibrt_ui_log:app_tws_ibrt_timing_control,enable=1,type =0x7,ACL interv=104, ACL inter in sco=60    17302/I/NONE  /  6 | BT_REG_OP:Enable private tws function,flag=1
+    17302/I/NONE  /  6 | BT_REG_OP:Set private tws link duration,val=12
+    17303/I/NONE  /  6 | BT_REG_OP:Set private tws interval,acl interv=104,acl interv insco =60
+    17303/I/NONE  /  6 | ibrt_ui_log:-------TRS:0008 RSP cmdcode=START_IBRT------->
+    17304/I/NONE  /  6 | ======slave rcv start ibrt========
+    17304/I/NONE  /  6 | increase freq when start ibrt
+    17305/I/NONE  /  6 | ============up freq temp=============
+    17306/I/NONE  /  6 | sysfreq calc : 96000000
+
+    17307/I/NONE  /  6 | ibrt_ui_log: ACL_DATA_ACTIVE TWS_LINK only
+    17307/I/NONE  /  6 | ibrt_ui_log:TXDONE:0008 cmdcode=TWS_CMD_RSP
+    17308/I/NONE  /  6 | [TX]:
+02 80 20 0e 00 0a 00 40 00 80 04 80 08 00 0c 80 08 00 00 
+[2021/02/02 15:05:25.648]     17366/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+[2021/02/02 15:05:25.711] CT:ibrt slave rx BT info
+[2021/02/02 15:05:25.800] CT:IBRT switch start,msg_idx=0,sco active=0,snoop op=1
+CT:Snoop config faskack link=1,mod=1
+04 ff 02 09 00 
+    17503/I/NONE  /  6 | vendor event,subcode=0x9
+    17503/I/NONE  /  6 | ibrt_ui_log: ibrt slave create simu link to snoop mobile data
+    17507/I/NONE  /  7 | [RX]:
+02 81 20 10 00 0c 00 01 00 04 12 08 00 42 00 00 00 01 02 a0 02 
+CT:TWS switch status=0,idx=1, forward=0
+CT:slave check if need start sco,sco=0
+CT:LMP TX result=0,idx=0
+CT:ibrt connected,id=1,result=0
+04 ff 04 0e 81 00 00 
+    17509/I/NONE  /  6 | vendor event,subcode=0xe
+    17509/I/NONE  /  6 | ibrt_ui_log:snoop connected,status=0x0
+    17509/I/NONE  /  6 | ibrt_ui_log: SNOOP_CONNECTED clear pairing mode
+    17509/I/NONE  /  6 | pagescan tws connected, slave pscan closed
+    17509/I/NONE  /  6 | j_scan=CONNECTED, l_type=MOBILE_LINK, mode=0x0, p_mode=0
+    17510/I/NONE  /  6 | ibrt_ui_log:set_access_mode=0, ca=0xc04d7a7
+    17510/I/NONE  /  6 | ibrt_ui_log:filter access mode=0, current access mode=0
+    17510/I/NONE  /  6 | ibrt_ui_log:event_handler, action=START_IBRT, state=IDLE, status=0x0
+
+    17510/I/NONE  /  6 | ibrt_ui_log:app_tws_ibrt_timing_control,enable=0,type =0x1,ACL interv=0, ACL inter in sco=0
+    17510/I/NONE  /  6 | BT_REG_OP:Enable private tws function,flag=0
+    17510/I/NONE  /  6 | sniffer_ibrt conhdl=0x81,op=0x5
+    17510/I/NONE  /  6 | BT_REG_OP:get mobile address
+51 1e e1 4d 17 c0 
+    17510/I/NONE  /  6 | ibrt link connected,handle=81,tws_handle=80,mobile_handle=ffff,ibrt_handle=1
+    17511/I/NONE  /  6 | twsif_ibrt_connected
+    17513/I/NONE  /  7 | [RX]:
+02 81 20 0f 00 0b 00 41 00 9b ff 0d 01 0d 0a 4f 4b 0d 0a 3b 
+    17514/I/NONE  /  7 | [RX]:
+02 81 20 0e 00 0a 00 01 00 05 25 06 00 42 00 00 00 00 00 
+    17515/I/NONE  /  7 | [RX]:
+02 81 20 06 00 02 00 42 00 00 01 
+[2021/02/02 15:05:25.830]     17552/I/NONE  /  7 | [RX]:
+02 81 20 07 00 03 00 42 00 10 0c 04 
+[2021/02/02 15:05:25.902]     17588/I/NONE  /  7 | [RX]:
+02 81 20 07 00 03 00 42 00 20 0c 08 
+    17598/I/NONE  /  7 | [RX]:
+02 81 20 16 00 12 00 42 00 30 03 08 08 01 00 07 08 00 02 80 01 04 04 09 b6 08 00 
+    17609/I/NONE  /  7 | [RX]:
+02 81 20 07 00 03 00 42 00 40 06 08 
+    17613/I/NONE  /  7 | [RX]:
+02 81 20 06 00 02 00 42 00 02 0d 
+    17618/I/NONE  /  7 | [RX]:
+02 81 20 0c 00 08 00 01 00 02 13 04 00 19 00 46 00 
+    17628/I/NONE  /  7 | [RX]:
+02 81 20 10 00 0c 00 01 00 04 14 08 00 43 00 00 00 01 02 f0 03 
+[2021/02/02 15:05:25.946]     17646/I/NONE  /  7 | [RX]:
+02 81 20 0e 00 0a 00 01 00 05 26 06 00 43 00 00 00 00 00 
+    17660/I/NONE  /  7 | [RX]:
+02 81 20 10 00 0c 00 01 00 03 27 08 00 56 00 44 00 00 00 00 00 
+    17662/I/NONE  /  7 | [RX]:
+02 81 20 10 00 0c 00 01 00 04 15 08 00 44 00 00 00 01 02 00 04 
+    17671/I/NONE  /  7 | [RX]:
+02 81 20 0e 00 0a 00 01 00 05 28 06 00 44 00 00 00 00 00 
+[2021/02/02 15:05:26.036]     17692/I/NONE  /  7 | [RX]:
+02 81 20 39 00 35 00 44 00 07 00 00 00 30 00 2d 35 2b 36 00 28 09 00 04 35 10 35 06 19 01 00 09 00 17 35 06 19 00 17 09 01 04 09 00 09 35 08 35 06 19 11 0e 09 01 04 09 03 11 09 00 
+    17704/I/NONE  /  7 | [RX]:
+02 81 20 10 00 0c 00 01 00 03 29 08 00 48 00 45 00 00 00 00 00 
+    17714/I/NONE  /  7 | [RX]:
+02 81 20 10 00 0c 00 01 00 04 16 08 00 45 00 00 00 01 02 00 02 
+    17715/I/NONE  /  7 | [RX]:
+02 81 20 0c 00 08 00 01 00 07 2a 04 00 56 00 44 00 
+    17719/I/NONE  /  7 | [RX]:
+02 81 20 0e 00 0a 00 01 00 05 2b 06 00 45 00 00 00 00 00 
+    17724/I/NONE  /  7 | [RX]:
+02 81 20 0c 00 08 00 01 00 02 17 04 00 01 00 57 00 
+    17737/I/NONE  /  7 | [RX]:
+02 81 20 1a 00 16 00 45 00 12 11 0e 0c 48 00 00 19 58 10 00 00 09 03 07 01 02 05 08 09 0a 0b 
+    17739/I/NONE  /  7 | [RX]:
+02 81 20 1a 00 16 00 45 00 22 11 0e 0c 48 00 00 19 58 30 00 00 09 00 00 00 00 00 00 00 00 00 
+    17740/I/NONE  /  7 | [RX]:
+02 81 20 10 00 0c 00 01 00 04 18 08 00 44 00 00 00 01 02 00 04 
+    17751/I/NONE  /  7 | [RX]:
+02 81 20 13 00 0f 00 45 00 32 11 0e 0f 48 00 00 19 58 31 00 00 02 01 00 
+    17754/I/NONE  /  7 | [RX]:
+02 81 20 0e 00 0a 00 01 00 05 2c 06 00 44 00 00 00 00 00 
+    17756/I/NONE  /  7 | [RX]:
+02 81 20 1c 00 18 00 44 00 06 00 00 00 13 35 03 19 11 0e 03 f0 35 09 09 00 01 09 00 09 09 03 11 00 
+    17768/I/NONE  /  7 | [RX]:
+02 81 20 0c 00 08 00 01 00 06 19 04 00 44 00 57 00 
+[2021/02/02 15:05:26.075]     17808/I/NONE  /  7 | [RX]:
+02 81 20 16 00 12 00 45 00 00 11 0e 03 48 00 00 19 58 31 00 00 05 0d 00 00 00 00 
+[2021/02/02 15:05:26.326]     18047/I/NONE  /  7 | [RX]:
+02 80 20 bf 00 bb 00 40 00 80 01 80 09 00 01 00 09 00 51 1e e1 4d 17 c0 00 00 00 00 51 1e e1 4d 17 c0 20 7c 20 62 74 69 1a 1a 2a 7d 35 75 71 ec 1c 68 de ae 0c 27 ca f2 04 56 01 20 
+    18049/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:0009 cmdcode=PROFILE_DATA_EXCHANGE len=186-------
+    18049/I/NONE  /  7 | [RX]:
+02 80 20 72 00 6e 00 40 00 80 01 80 0a 00 02 00 01 51 1e e1 4d 17 c0 01 00 00 02 20 10 58 01 00 00 00 00 00 00 00 01 01 05 02 51 1e e1 4d 17 c0 20 7c 20 62 74 69 1a 1a 2a 7d 35 75 
+    18051/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:000a cmdcode=PROFILE_DATA_EXCHANGE len=109-------
+    18052/I/NONE  /  7 | [RX]:
+02 80 20 4a 00 46 00 40 00 80 01 80 0b 00 04 55 01 0f 01 00 00 51 1e e1 4d 17 c0 20 7c 20 62 74 69 1a 1a 2a 7d 35 75 71 ec 1c 68 de ae 0c 27 ca f2 04 56 01 20 0c 0c 01 00 01 02 00 
+    18054/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:000b cmdcode=PROFILE_DATA_EXCHANGE len=69-------
+01000900511ee14d17c000000000511ee14d17c0
+    18055/I/NONE  /  6 | app_bt_restore_hfp_app_ctx call 0 callsetup 0 callheld 0
+    18055/I/NONE  /  6 | btif_me_set_record_ctx buf:0x2001041a size:40
+    18055/I/NONE  /  6 | paired Bt dev:4
+    18055/I/NONE  /  6 | Is to flush nv: 1
+    18055/I/NONE  /  6 | nv record bdAddr = 
+51 1e e1 4d 17 c0 
+    18055/I/NONE  /  6 | record_trusted = 
+32 
+    18056/I/NONE  /  6 | record_linkKey = 
+1a 1a 2a 7d 35 75 71 ec 1c 68 de ae 0c 27 ca f2 
+    18056/I/NONE  /  6 | record_keyType = 
+4 
+    18056/I/NONE  /  6 | record_pinLen = 
+56 
+    18056/I/NONE  /  6 | nv record bdAddr = 
+51 1e e1 4d 17 c0 
+    18056/I/NONE  /  6 | record_trusted = 
+32 
+    18056/I/NONE  /  6 | record_linkKey = 
+1a 1a 2a 7d 35 75 71 ec 1c 68 de ae 0c 27 ca f2 
+    18056/I/NONE  /  6 | record_keyType = 
+4 
+    18056/I/NONE  /  6 | record_pinLen = 
+56 
+    18057/I/NONE  /  6 | nv record bdAddr = 
+24 63 24 86 11 11 
+    18057/I/NONE  /  6 | record_trusted = 
+219 
+    18057/I/NONE  /  6 | record_linkKey = 
+5f df aa 43 cd b5 26 04 e9 ae 03 c4 86 65 ac 01 
+    18057/I/NONE  /  6 | record_keyType = 
+4 
+    18057/I/NONE  /  6 | record_pinLen = 
+57 
+    18057/I/NONE  /  6 | nv record bdAddr = 
+24 63 24 86 11 11 
+    18057/I/NONE  /  6 | record_trusted = 
+219 
+    18057/I/NONE  /  6 | record_linkKey = 
+5f df aa 43 cd b5 26 04 e9 ae 03 c4 86 65 ac 01 
+    18058/I/NONE  /  6 | record_keyType = 
+4 
+    18058/I/NONE  /  6 | record_pinLen = 
+57 
+    18058/I/NONE  /  6 | nv record bdAddr = 
+25 63 24 86 11 11 
+    18058/I/NONE  /  6 | record_trusted = 
+59 
+    18058/I/NONE  /  6 | record_linkKey = 
+e6 7e 7a 50 12 c5 6d 2f 37 47 5d ca 10 c6 b2 d9 
+    18058/I/NONE  /  6 | record_keyType = 
+4 
+    18058/I/NONE  /  6 | record_pinLen = 
+5a 
+    18058/I/NONE  /  6 | nv record bdAddr = 
+25 63 24 86 11 11 
+    18059/I/NONE  /  6 | record_trusted = 
+59 
+    18059/I/NONE  /  6 | record_linkKey = 
+e6 7e 7a 50 12 c5 6d 2f 37 47 5d ca 10 c6 b2 d9 
+    18059/I/NONE  /  6 | record_keyType = 
+4 
+    18059/I/NONE  /  6 | record_pinLen = 
+5a 
+    18059/I/NONE  /  6 | nv record bdAddr = 
+0e ad 35 4e e9 f8 
+    18059/I/NONE  /  6 | record_trusted = 
+0 
+    18059/I/NONE  /  6 | record_linkKey = 
+4c 53 7b e2 68 f5 a4 47 00 91 3e f0 77 69 b1 e2 
+    18059/I/NONE  /  6 | record_keyType = 
+4 
+    18060/I/NONE  /  6 | record_pinLen = 
+5c 
+    18060/I/NONE  /  6 | nv record bdAddr = 
+0e ad 35 4e e9 f8 
+    18060/I/NONE  /  6 | record_trusted = 
+0 
+    18060/I/NONE  /  6 | record_linkKey = 
+4c 53 7b e2 68 f5 a4 47 00 91 3e f0 77 69 b1 e2 
+    18060/I/NONE  /  6 | record_keyType = 
+4 
+    18060/I/NONE  /  6 | record_pinLen = 
+5c 
+    18060/I/NONE  /  6 | set mpu 0x20009a40 len 1024 result 0
+    18060/I/NONE  /  6 | btif_hfp_profile_restore_ctx:channel_index=0,hfp_ctl=0x2001356c
+02 00 00 01 07 00 41 00 49 00 03 00 2c 07 00 26 cf c0 0a 14 99 00 68 00 01 01 3f 00 00 00 ff 02 00 00 ef 0f 00 00 01 01 00 02 01 00 03 00 01 01 00 00 00 00 0d d7 05 0c 01 00 01 00 00 00 00 00 11 d7 05 0c 02 00 03 00 00 00 00 00 25 d7 05 0c 07 00 02 00 00*51 1e e1 4d 17 c0 
+    18062/I/NONE  /  6 | btif_cmgr_init_sniff_timer 0x20011ce4
+51 1e e1 4d 17 c0 
+    18062/I/NONE  /  6 | l2cap_restore_ctx l2cap 0 scid 0x41
+    18062/I/NONE  /  6 | l2cap_restore_ctx:no_l2cap_conn_exist,new one!
+51 1e e1 4d 17 c0 
+    18062/I/NONE  /  6 | l2cap_conn_add_new,malloc conn=0x200148ec
+    18062/I/NONE  /  6 | l2cap_restore_ctx:no_l2cap_channel_exist,new one!
+    18063/I/NONE  /  6 | l2cap alloc,conn=0x200148ec,lst=0x2001498c,psm=0x3[PSM_RFCOMM],cid=0x41,l2c handle=0x2
+07 00 41 00 49 00 03 00 2c 
+    18063/I/NONE  /  6 | l2cap_restore_ctx:sigid=44
+    18063/I/NONE  /  6 | l2cap_restore_ctx:scid=0x41,dcid=0x49,psm_remote=0x3[PSM_RFCOMM],ouput_l2cap_handle=2
+    18063/I/NONE  /  6 | rfcomm_restore_ctx:l2cap_handle=0x2,dlci=0x26,tx_credits=0xa
+    18063/I/NONE  /  6 | rfcomm_restore_ctx:session_is_NULL,new one!
+    18063/I/NONE  /  6 | rfcomm_restore_ctx:dlc_is_NULL,new one!
+    18063/I/NONE  /  6 | rfcomm_restore_ctx,1
+    18064/I/NONE  /  6 | ibrt_ui_log:HFP profile connected
+    18064/I/NONE  /  6 | rx profile data 0x1,len=182
+020001511ee14d17c00100000220105801000000
+    18064/I/NONE  /  6 | avrcp_set_media_status 0
+    18065/I/NONE  /  6 | btif_a2dp_get_remote_device:null pointer call,warning,ca=0xc074631
+    18065/I/AUDFLG/  6 | [A2DP_ACTIVE] nRet:0 type:0 0/1
+    18065/I/NONE  /  6 | put vol raw:88/127 12
+    18065/I/NONE  /  6 | btif_me_set_record_ctx buf:0x20010544 size:40
+    18065/I/NONE  /  6 | paired Bt dev:4
+    18065/I/NONE  /  6 | Is to flush nv: 0
+    18065/I/NONE  /  6 | nv record bdAddr = 
+51 1e e1 4d 17 c0 
+    18065/I/NONE  /  6 | record_trusted = 
+32 
+    18065/I/NONE  /  6 | record_linkKey = 
+1a 1a 2a 7d 35 75 71 ec 1c 68 de ae 0c 27 ca f2 
+    18066/I/NONE  /  6 | record_keyType = 
+4 
+    18066/I/NONE  /  6 | record_pinLen = 
+56 
+    18066/I/NONE  /  6 | nv record bdAddr = 
+51 1e e1 4d 17 c0 
+    18066/I/NONE  /  6 | record_trusted = 
+32 
+    18066/I/NONE  /  6 | record_linkKey = 
+1a 1a 2a 7d 35 75 71 ec 1c 68 de ae 0c 27 ca f2 
+    18066/I/NONE  /  6 | record_keyType = 
+4 
+    18066/I/NONE  /  6 | record_pinLen = 
+56 
+    18066/I/NONE  /  6 | nv record bdAddr = 
+24 63 24 86 11 11 
+    18066/I/NONE  /  6 | record_trusted = 
+219 
+    18067/I/NONE  /  6 | record_linkKey = 
+5f df aa 43 cd b5 26 04 e9 ae 03 c4 86 65 ac 01 
+    18067/I/NONE  /  6 | record_keyType = 
+4 
+    18067/I/NONE  /  6 | record_pinLen = 
+57 
+    18067/I/NONE  /  6 | nv record bdAddr = 
+24 63 24 86 11 11 
+    18067/I/NONE  /  6 | record_trusted = 
+219 
+    18067/I/NONE  /  6 | record_linkKey = 
+5f df aa 43 cd b5 26 04 e9 ae 03 c4 86 65 ac 01 
+    18067/I/NONE  /  6 | record_keyType = 
+4 
+    18067/I/NONE  /  6 | record_pinLen = 
+57 
+    18068/I/NONE  /  6 | nv record bdAddr = 
+25 63 24 86 11 11 
+    18068/I/NONE  /  6 | record_trusted = 
+59 
+    18068/I/NONE  /  6 | record_linkKey = 
+e6 7e 7a 50 12 c5 6d 2f 37 47 5d ca 10 c6 b2 d9 
+    18068/I/NONE  /  6 | record_keyType = 
+4 
+    18068/I/NONE  /  6 | record_pinLen = 
+5a 
+    18068/I/NONE  /  6 | nv record bdAddr = 
+25 63 24 86 11 11 
+    18068/I/NONE  /  6 | record_trusted = 
+59 
+    18068/I/NONE  /  6 | record_linkKey = 
+e6 7e 7a 50 12 c5 6d 2f 37 47 5d ca 10 c6 b2 d9 
+    18069/I/NONE  /  6 | record_keyType = 
+4 
+    18069/I/NONE  /  6 | record_pinLen = 
+5a 
+    18069/I/NONE  /  6 | nv record bdAddr = 
+0e ad 35 4e e9 f8 
+    18069/I/NONE  /  6 | record_trusted = 
+0 
+    18069/I/NONE  /  6 | record_linkKey = 
+4c 53 7b e2 68 f5 a4 47 00 91 3e f0 77 69 b1 e2 
+    18069/I/NONE  /  6 | record_keyType = 
+4 
+    18069/I/NONE  /  6 | record_pinLen = 
+5c 
+    18069/I/NONE  /  6 | nv record bdAddr = 
+0e ad 35 4e e9 f8 
+    18070/I/NONE  /  6 | record_trusted = 
+0 
+    18070/I/NONE  /  6 | record_linkKey = 
+4c 53 7b e2 68 f5 a4 47 00 91 3e f0 77 69 b1 e2 
+    18070/I/NONE  /  6 | record_keyType = 
+4 
+    18070/I/NONE  /  6 | record_pinLen = 
+5c 
+    18070/I/NONE  /  6 | set mpu 0x20009a40 len 1024 result 0
+    18070/I/NONE  /  6 | btif_a2dp_profile_restore_ctx stream 0x20011548 chnid 1 avdtp 5
+02 00 00 01 07 00 42 00 5f 00 19 00 2c 07 00 43 00 46 00 19 00 2c 05 00 0a 08 02 00 01 02 06 80 01 04 04 09 b6 
+51 1e e1 4d 17 c0 
+0x51-0x1e-0xe1-0x4d-0x17-0xc0-
+0x24-0x63-0x24-0x86-0x11-0x11-
+    18071/I/NONE  /  6 | l2cap_restore_ctx l2cap 0x200148ec scid 0x42
+    18071/I/NONE  /  6 | l2cap_restore_ctx:no_l2cap_channel_exist,new one!
+    18071/I/NONE  /  6 | l2cap alloc,conn=0x200148ec,lst=0x20014a04,psm=0x19[PSM_AVDTP],cid=0x42,l2c handle=0x3
+07 00 42 00 5f 00 19 00 2c 
+    18071/I/NONE  /  6 | l2cap_restore_ctx:sigid=44
+    18072/I/NONE  /  6 | l2cap_restore_ctx:scid=0x42,dcid=0x5f,psm_remote=0x19[PSM_AVDTP],ouput_l2cap_handle=3
+    18072/I/NONE  /  6 | l2cap_restore_ctx l2cap 0x200148ec scid 0x43
+    18072/I/NONE  /  6 | l2cap_restore_ctx:no_l2cap_channel_exist,new one!
+    18072/I/NONE  /  6 | l2cap alloc,conn=0x200148ec,lst=0x20014a7c,psm=0x19[PSM_AVDTP],cid=0x43,l2c handle=0x4
+07 00 43 00 46 00 19 00 2c 
+    18072/I/NONE  /  6 | l2cap_restore_ctx:sigid=44
+    18072/I/NONE  /  6 | l2cap_restore_ctx:scid=0x43,dcid=0x46,psm_remote=0x19[PSM_AVDTP],ouput_l2cap_handle=4
+
+LOST 14
+32 
+
+LOST 3
+4 
+
+LOST 110
+    18115/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+[2021/02/02 15:05:26.442]     18181/I/NONE  /  7 | [RX]:
+02 80 20 17 00 13 00 40 00 80 11 80 0c 00 02 10 20 00 58 02 00 00 80 3f 00 00 00 00 
+    18183/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:000c cmdcode=SYNC_A2DP_STATUS len=18-------
+    18183/I/NONE  /  6 | a2dp_ibrt_sync_set_status,stream_state:[2]->[2], codec_type:2 volume:88
+    18183/I/NONE  /  6 | ibrt_ui_log:app_tws_ibrt_set_a2dp_codec codec_type 02, sample_rate 20, sample bit 10, vendor p*H x51 0x1e 0xe1 0x4d 0x17 0xc0 
+    18184/I/AUDFLG/  6 | [STRM_PLAYER][VOL][UPDATE] a2dp_vol:12 hfp_vol:12 ptr:0x20009ab4
+    18184/I/NONE  /  6 | set mpu 0x20009a40 len 1024 result 0
+    18184/I/AUDFLG/  6 | [A2DP_ACTIVE] nRet:0 type:0 0/1
+    18184/I/NONE  /  6 | put vol raw:88/127 12
+    18184/I/NONE  /  6 | ibrt_ui_log: a2dp status completed type:2 samplerate:32 volume:88 stream_state:2
+
+    18184/I/NONE  /  6 | a2dp_ibrt_sync_get_status,sync a2dp stream ac = 0x20011548 ; stream_status = 2 ; codec_type = *H   18184/I/NONE  /  6 | ibrt_ui_log:current sync a2dp status completed type:2 samplerate:32 volume:88 stream_state:2
+
+    18185/I/NONE  /  6 | ibrt_ui_log:-------TRS:000c RSP cmdcode=SYNC_A2DP_STATUS------->
+    18186/I/NONE  /  6 | ibrt_ui_log:TXDONE:000a cmdcode=TWS_CMD_RSP
+    18186/I/NONE  /  6 | [TX]:
+02 80 20 1b 00 17 00 40 00 80 04 80 0a 00 11 80 0c 00 02 10 20 00 58 02 00 00 80 3f 00 00 00 00 
+[2021/02/02 15:05:26.491]     18251/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+[2021/02/02 15:05:26.570]     18317/I/NONE  /  7 | [RX]:
+02 80 20 0b 00 07 00 40 00 80 23 80 0d 00 06 0a 
+    18319/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:000d cmdcode=PERFORM_ACTION len=6-------
+    18319/I/NONE  /  6 | ibrt_ui_log:receive action code=0x06
+
+    18319/I/NONE  /  6 | app_ibrt_ui_perform_sync_hfp_volume vol 10
+0x51 0x1e 0xe1 0x4d 0x17 0xc0 
+    18320/I/AUDFLG/  6 | [STRM_PLAYER][VOL][UPDATE] a2dp_vol:12 hfp_vol:12 ptr:0x20009ab4
+    18320/I/NONE  /  6 | set mpu 0x20009a40 len 1024 result 0
+    18320/I/AUDFLG/  6 | [SCO_ACTIVE] nRet:0 type:0 0/1
+    18320/I/NONE  /  6 | hfp put vol raw:10 loc:12
+    18320/I/NONE  /  8 | ibrt_ui_log:send action code=0x07
+
+    18320/I/NONE  /  8 | ibrt_ui_log:-------TRS:000b cmdcode=PERFORM_ACTION------->
+    18322/I/NONE  /  6 | ibrt_ui_log:TXDONE:000b cmdcode=PERFORM_ACTION
+    18322/I/NONE  /  6 | [TX]:
+02 80 20 0b 00 07 00 40 00 80 23 80 0b 00 07 0a 
+[2021/02/02 15:05:26.617]     18387/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+[2021/02/02 15:05:26.824]     18581/I/NONE  /  3 | ibrt_ui_log:slave profile rx done=7, remote mobile addr as below:
+51, 1E, E1, 4D, 17, C0, 
+    18581/I/NONE  /  3 | app_ibrt_if_config_keeper_mobile_update success
+51 1e e1 4d 17 c0 
+1a 1a 2a 7d 35 75 71 ec 1c 68 de ae 0c 27 ca f2 
+    18582/I/NONE  /  3 | app_ibrt_if_config_keeper_flush crc:2ec7e374
+0x51 0x1e 0xe1 0x4d 0x17 0xc0 
+    18582/I/AUDFLG/  3 | [STRM_PLAYER][VOL][UPDATE] a2dp_vol:12 hfp_vol:12 ptr:0x20009ab4
+    18582/I/NONE  /  3 | ibrt_ui_log:app_tws_ibrt_timing_control,enable=0,type =0x6,ACL interv=208, ACL inter in sco=15*    18582/I/NONE  /  3 | BT_REG_OP:Set private tws link duration,val=8
+    18582/I/NONE  /  3 | BT_REG_OP:Set private tws interval,acl interv=208,acl interv insco =156
+    18582/I/NONE  /  6 | [BT_FUNC] src_thread:0x20027ab0 call request_id=18->:BT_Custom_Func
+    18583/I/NONE  /  6 | func:0x0c041ec9,param0:0x00000009, param1:0x00000000
+    18583/I/NONE  /  6 | ibrt_ui_log:event_handler, action=DATA_EXCHANGE, state=IDLE, status=0x0
+
+    18583/I/NONE  /  6 | [BT_FUNC] exit request_id:24 :status:25
+[2021/02/02 15:05:26.964]     18726/I/NONE  /  7 | [RX]:
+02 80 20 0b 00 07 00 40 00 80 1b 80 0e 00 03 04 
+    18727/I/NONE  /  7 | [RX]:
+02 80 20 20 00 1c 00 40 00 80 05 80 0f 00 51 1e e1 4d 17 c0 51 1e e1 4d 17 c0 03 00 08 00 61 07 00 00 00 00 00 
+    18728/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:000e cmdcode=NOTIFY_POLICY len=6-------
+    18728/I/NONE  /  6 | btif_me_set_link_policy:rem_dev=0x20013ba8,policy=0x4,ca=0xc04b3d1
+    18729/I/NONE  /  6 | [TX]:
+01 0d 08 04 81 00 04 00 
+    18730/I/NONE  /  7 | [RX]:
+04 0e 06 05 0d 08 00 81 00 
+    18730/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:000f cmdcode=SHARE_TWS_INFO len=27-------
+    18730/I/NONE  /  6 | ibrt_ui_log:l_info,mobile_conn=0,constate=0x7,ibrt_conn=1,sm=0,b_sta=OUT_BOX,evt=NONE_EVENT
+    18731/I/NONE  /  6 | ibrt_ui_log:-------TRS:000f RSP cmdcode=SHARE_TWS_INFO------->
+    18731/I/NONE  /  6 | ibrt_ui_log:role judge condition=2
+    18731/I/NONE  /  6 | ibrt_ui_log:judge role,local_role=1,peer_role=0x0,mobile_handle=0xffff,ibrt_hanle=0x81
+    18731/I/NONE  /  6 | ibrt_ui_log:p_info,mobile=0x1,sco_s=0,constate=0x7,ibrt=0x0,sm_run=0,p_s=OUT_BOX,l_s=OUT_BOX
+    18733/I/NONE  /  6 | ibrt_ui_log:TXDONE:000c cmdcode=TWS_CMD_RSP
+    18733/I/NONE  /  6 | [TX]:
+02 80 20 24 00 20 00 40 00 80 04 80 0c 00 05 80 0f 00 51 1e e1 4d 17 c0 51 1e e1 4d 17 c0 03 01 00 00 02 07 00 00 00 00 00 
+[2021/02/02 15:05:27.075]     18863/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+[2021/02/02 15:05:27.217]     18998/I/NONE  /  7 | [RX]:
+02 80 20 09 00 05 00 40 00 80 1a 80 10 00 
+    18999/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:0010 cmdcode=GET_MOBILE_RSSI len=4-------
+    18999/I/NONE  /  6 | app_tws_ibrt_audio_sync_get_diff_us tws_diff:0us mobile_diff:0us
+    18999/I/NONE  /  6 | a2dp_audio_get_current_buf_size:0
+    19000/I/NONE  /  6 | ibrt_ui_log:-------TRS:0010 RSP cmdcode=GET_MOBILE_RSSI------->
+    19001/I/NONE  /  6 | ibrt_ui_log:TXDONE:000d cmdcode=TWS_CMD_RSP
+    19001/I/NONE  /  6 | [TX]:
+02 80 20 31 00 2d 00 40 00 80 04 80 0d 00 1a 80 10 00 00 00 81 00 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+[2021/02/02 15:05:27.329]     19135/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+[2021/02/02 15:05:27.762]     19588/I/NONE  /  3 | feed watchdog
+[2021/02/02 15:05:28.479]     20317/I/NONE  /  3 | =========RESU FRQ============
+    20323/I/NONE  /  3 | sysfreq calc : 26000000
+
+[2021/02/02 15:05:28.930]     20796/I/NONE  /  2 | CPU USAGE: busy=3 light=28 sys_deep=0 chip_deep=69
+[2021/02/02 15:05:31.200]     23158/I/NONE  /31E | app_battery_irqhandler 1232
+    23158/I/NONE  /31E | app_battery_event_process 2,4920 36
+    23160/I/NONE  /  4 | checker: IBRT_SLAVE activeCons:2
+    23160/I/NONE  /  4 | checker: tws peers remDev state:3 mode:0 role:1 sniffInterval:0/254
+    23160/I/NONE  /  4 | checker: tws peers remDev:0x20013b30 remote_dev_address:
+0x24 0x63 0x24 0x86 0x11 0x11 
+    23161/I/NONE  /  4 | tws peers a2dp stream NULL
+    23161/I/NONE  /  4 | tws peers hf_channel NULL
+    23161/I/NONE  /  4 | checker: ibrt mobile remDev:0 cmgrHandler:0
+    23162/I/NONE  /  4 | a2dp State:2
+    23162/I/NONE  /  4 | a2dp cmgrHandler remDev:0x20013ba8
+    23162/I/NONE  /  4 | hf_channel Connected:1 IsAudioUp:0/0 remDev:0x20013ba8
+    23162/I/NONE  /  4 | checker: nv_role:1 current_role:1 access_mode:0
+24 63 24 86 11 11 
+24 63 24 86 11 11 
+    23163/I/NONE  /  4 | checker: super_state:IDLE/IDLE evt:NONE_EVENT plf:1
+    23164/I/NONE  /  4 | checker: box_state:OUT_BOX/OUT_BOX sm_run:0/0
+    23164/I/NONE  /  4 | BT_REG_OP: LC_STATE=0x101
+    23170/I/NONE  /  6 | ibrt_ui_log:sniff allowed
+
+    23171/I/NONE  /  6 | btif_evm_start_timer handler 0x20011ca4 timeout 10000 timer 2
+    23171/I/NONE  /  6 | app_tws_ibrt_sniff_timeout_handler handler 0x20011ca4 timeout 10000 role 1 type:3 act_evt:0 sk*H    23344/I/NONE  /  3 | feed watchdog
+[2021/02/02 15:05:32.292]     24304/I/NONE  /  7 | [RX]:
+02 80 20 09 00 05 00 40 00 80 1a 80 11 00 
+    24307/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:0011 cmdcode=GET_MOBILE_RSSI len=4-------
+    24307/I/NONE  /  6 | app_tws_ibrt_audio_sync_get_diff_us tws_diff:0us mobile_diff:0us
+    24308/I/NONE  /  6 | a2dp_audio_get_current_buf_size:0
+    24308/I/NONE  /  6 | ibrt_ui_log:-------TRS:0011 RSP cmdcode=GET_MOBILE_RSSI------->
+    24310/I/NONE  /  6 | ibrt_ui_log:TXDONE:000e cmdcode=TWS_CMD_RSP
+    24311/I/NONE  /  6 | [TX]:
+02 80 20 31 00 2d 00 40 00 80 04 80 0e 00 1a 80 11 00 00 00 81 00 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+[2021/02/02 15:05:32.406]     24441/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+[2021/02/02 15:05:33.068] CT:RX start sniff cmd,idx =0,monitor_idx=1
+    25121/I/NONE  /  7 | [RX]:
+04 14 06 00 81 00 02 1e 03 
+    25122/I/NONE  /  6 | [BTEVENT] evt = 9
+    25122/I/NONE  /  6 | [BTEVENT] MODE_CHANGE evt:9 errCode:0x0 curMode=0x2, interval=798 
+51 1e e1 4d 17 c0 
+    25123/I/NONE  /  6 | ibrt_ui_log: mode change event, errCode=0x0 curMode=0x2, interval=798 
+    25123/I/NONE  /  6 | ibrt_ui_log: mode change event link type=2, mobile_mode=0, tws_mode=0
+51 1e e1 4d 17 c0 
+    25124/I/NONE  /  6 | BT_REG_OP:force set sniff att
+    25124/I/NONE  /  6 | BT_REG_OP: LC_STATE=0x101
+    25125/I/NONE  /  6 | ibrt_ui_log:link_type=MOBILE_LINK, evt_type=MODE_CHANGE, evtcode=9, status=0x0
+[2021/02/02 15:05:33.254]     25313/I/NONE  /  7 | [RX]:
+04 14 06 00 80 00 02 fe 00 
+    25314/I/NONE  /  6 | [BTEVENT] evt = 9
+    25314/I/NONE  /  6 | [BTEVENT] MODE_CHANGE evt:9 errCode:0x0 curMode=0x2, interval=254 
+24 63 24 86 11 11 
+    25315/I/NONE  /  6 | ibrt_ui_log: mode change event, errCode=0x0 curMode=0x2, interval=254 
+    25315/I/NONE  /  6 | ibrt_ui_log: mode change event link type=3, mobile_mode=2, tws_mode=0
+24 63 24 86 11 11 
+    25316/I/NONE  /  6 | BT_REG_OP: LC_STATE=0x101
+    25316/I/NONE  /  6 | ibrt_ui_log:link_type=TWS_LINK, evt_type=MODE_CHANGE, evtcode=9, status=0x0
+    25317/I/NONE  /  6 | ibrt_ui_log:stop ibrt timer start
+[2021/02/02 15:05:34.947]     27099/I/NONE  /  3 | feed watchdog
+[2021/02/02 15:05:38.537]     30849/I/NONE  /  2 | CPU USAGE: busy=1 light=0 sys_deep=0 chip_deep=99
+    30849/I/NONE  /  3 | feed watchdog
+[2021/02/02 15:05:40.762]     33169/I/NONE  /31E | app_battery_irqhandler 1232
+    33169/I/NONE  /31E | app_battery_event_process 2,4922 36
+    33171/I/NONE  /  4 | checker: IBRT_SLAVE activeCons:2
+    33171/I/NONE  /  4 | checker: tws peers remDev state:3 mode:2 role:1 sniffInterval:0/254
+    33171/I/NONE  /  4 | checker: tws peers remDev:0x20013b30 remote_dev_address:
+0x24 0x63 0x24 0x86 0x11 0x11 
+    33172/I/NONE  /  4 | tws peers a2dp stream NULL
+    33172/I/NONE  /  4 | tws peers hf_channel NULL
+    33172/I/NONE  /  4 | checker: ibrt mobile remDev:0 cmgrHandler:0
+    33173/I/NONE  /  4 | a2dp State:2
+    33173/I/NONE  /  4 | a2dp cmgrHandler remDev:0x20013ba8
+    33173/I/NONE  /  4 | hf_channel Connected:1 IsAudioUp:0/0 remDev:0x20013ba8
+    33174/I/NONE  /  4 | checker: nv_role:1 current_role:1 access_mode:0
+24 63 24 86 11 11 
+24 63 24 86 11 11 
+    33174/I/NONE  /  4 | checker: super_state:IDLE/IDLE evt:NONE_EVENT plf:1
+    33175/I/NONE  /  4 | checker: box_state:OUT_BOX/OUT_BOX sm_run:0/0
+[2021/02/02 15:05:42.105]     34600/I/NONE  /  3 | feed watchdog
+[2021/02/02 15:05:45.703]     38350/I/NONE  /  3 | feed watchdog
+[2021/02/02 15:05:46.744] CT:TX rem unsniff req cmd,slave idx=0
+    39432/I/NONE  /  7 | [RX]:
+04 14 06 00 81 00 00 00 00 
+    39433/I/NONE  /  6 | [BTEVENT] evt = 9
+    39434/I/NONE  /  6 | [BTEVENT] MODE_CHANGE evt:9 errCode:0x0 curMode=0x0, interval=0 
+51 1e e1 4d 17 c0 
+    39435/I/NONE  /  6 | ibrt_ui_log: mode change event, errCode=0x0 curMode=0x0, interval=0 
+    39435/I/NONE  /  6 | ibrt_ui_log: mode change event link type=2, mobile_mode=2, tws_mode=2
+51 1e e1 4d 17 c0 
+    39436/I/NONE  /  6 | BT_REG_OP: LC_STATE=0x101
+    39436/I/NONE  /  6 | ibrt_ui_log:event_handler, action=ENTER_ACTIVE, state=IDLE, status=0x0
+
+    39437/I/NONE  /  6 | ibrt_ui_log:link_type=MOBILE_LINK, evt_type=MODE_CHANGE, evtcode=9, status=0x0
+    39438/I/NONE  /  6 | ibrt_ui_log:stop ibrt timer stop
+[2021/02/02 15:05:46.902]     39598/I/NONE  /  7 | [RX]:
+04 14 06 00 80 00 00 00 00 
+    39599/I/NONE  /  6 | [BTEVENT] evt = 9
+    39600/I/NONE  /  6 | [BTEVENT] MODE_CHANGE evt:9 errCode:0x0 curMode=0x0, interval=0 
+24 63 24 86 11 11 
+    39600/I/NONE  /  6 | ibrt_ui_log: mode change event, errCode=0x0 curMode=0x0, interval=0 
+    39601/I/NONE  /  6 | ibrt_ui_log: mode change event link type=3, mobile_mode=0, tws_mode=2
+24 63 24 86 11 11 
+    39602/I/NONE  /  6 | BT_REG_OP: LC_STATE=0x101
+    39602/I/NONE  /  6 | ibrt_ui_log:event_handler, action=BOTH_ACTIVE, state=IDLE, status=0x0
+
+    39602/I/NONE  /  6 | ibrt_ui_log:link_type=TWS_LINK, evt_type=MODE_CHANGE, evtcode=9, status=0x0
+[2021/02/02 15:05:46.981]     39651/I/NONE  /  7 | [RX]:
+02 81 20 13 00 0f 00 45 00 32 11 0e 0d 48 00 00 19 58 31 00 00 02 01 01 
+    39653/I/NONE  /  7 | [RX]:
+02 81 20 07 00 03 00 42 00 50 07 08 
+    39654/I/NONE  /  6 | _avrcp_indicate_process_data_ind: pid_flag=11 e
+
+    39655/I/NONE  /  6 | avrcp_callback_CT : chnl 0x20011994, Parms 0x2001f9dc
+
+    39655/I/NONE  /  6 | ::avrcp_callback_CT Parms->event 17
+
+    39655/I/NONE  /  6 | ::avrcp_callback_CT AVRCP_EVENT_ADV_NOTIFY  adv.notify.event=1,device_id=0,chnl->role=0
+
+    39656/I/NONE  /  6 | ::avrcp_callback_CT ACRCP notify  playback states=1
+    39656/I/NONE  /  6 | avrcp_set_media_status 1
+    39657/I/NONE  /  6 | ibrt_ui_log:AVRCP callback event=0x11
+    39658/I/NONE  /  6 | [TX]:
+02 81 20 16 00 12 00 48 00 50 11 0e 03 48 00 00 19 58 31 00 00 05 01 00 00 00 00 
+    39660/I/NONE  /  7 | [RX]:
+04 13 05 01 81 00 01 00 
+    39661/I/NONE  /  6 | avrcp_callback_CT : chnl 0x20011994, Parms 0x2001f9b4
+
+    39661/I/NONE  /  6 | ::avrcp_callback_CT Parms->event 8
+
+    39662/I/NONE  /  6 | ibrt_ui_log:AVRCP callback event=0x8
+    39663/I/NONE  /  6 | Received START_CMD
+    39663/I/NONE  /  6 | avdtp_receive_start_cmd 1221  size:3 signal_hdl:0x3 media_hdl:0x4
+    39664/I/NONE  /  6 | avdtp_receive_start_cmd 1242  count:0 seid:2
+51 1e e1 4d 17 c0 
+51 1e e1 4d 17 c0 
+    39665/I/NONE  /  6 | ::A2DP AV_MEDIA_STREAM_START stream:0x20011548/0x20011628
+51 1e e1 4d 17 c0 
+    39666/I/NONE  /  6 | Get A2DP event 11
+    39666/I/NONE  /  6 | ibrt_ui_log:sniff_checker_start usr:1
+
+    39667/I/NONE  /  6 | ::A2DP_EVENT_STREAM_STARTED 2  stream_id:0 0 1
+
+    39667/I/NONE  /  6 | Set current a2dp stream as 0
+    39668/I/AUDFLG/  4 | [handle_process] id 0 [START] type 0x1 [SBC]
+    39668/I/AUDFLG/  4 | [MEDIA_TYPE][SET] 0x1 active_now 0x0 id 0
+    39668/I/AUDFLG/  4 | [HANDLE_START] type= 0x1->:[SBC],device id = 0x0,media_id = 0x27
+    39669/I/AUDFLG/  4 | [HANDLE_START] media_active = 0x1->:[SBC]
+    39669/I/AUDFLG/  4 | [HANDLE_START] curr_active_media = 0x0->:[]
+    39669/I/AUDFLG/  4 | [HANDLE_START] pre/cur_sbc = 1/0
+    39669/I/NONE  /  4 | audio_prompt_clear_pending_stream stop_id -1 pendingStopOp 0 op 0
+    39670/I/AUDFLG/  4 | [A2DP_SWITCH]the disconnected dev not working
+    39670/I/AUDFLG/  4 | curr_active_media is set to 0x1->:[SBC]
+    39670/I/AUDFLG/  4 | [STRM_PLAYER][SETUP] prev:0[] sample:32
+    39671/I/AUDFLG/  4 | [STRM_PLAYER][SETUP] cur:8[A2DP_SBC] sample:32
+    39671/I/NONE  /  4 | mod_handler[1] ret=-1
+    39671/I/AUDFLG/  4 | [OPEN] before status_id: 0x8[A2DP_SBC], aud_id: 0, len = 0
+    39672/I/AUDFLG/  4 | [STREAM_LIST][APPEND] id 0x8[A2DP_SBC]
+    39672/I/AUDFLG/  4 | [STREAM_LIST][APPEND] id 0x8[A2DP_SBC] status 0 len 1 ret 1
+    39673/I/AUDFLG/  4 | [STRM_PLAYER][OPEN] prev:0x0[] freq:0
+    39673/I/AUDFLG/  4 | [STRM_PLAYER][OPEN] cur:0x8[A2DP_SBC] freq:0
+    39673/I/AUDFLG/  4 | [A2DP_PLAYER] work:0 op:PLAYER_OPER_START freq:0 :sample:44100 
+
+    39674/I/AUDFLG/  4 | [VOLUME_PTR] enter
+    39674/I/NONE  /  6 | ibrt_ui_log:custom pscan int 0x800 win 0x12 type 1
+
+    39674/I/NONE  /  6 | pagescan tws connected, slave pscan closed
+    39675/I/NONE  /  6 | j_scan=A2DP_PLAYING, l_type=NO_LINK_TYPE, mode=0x0, p_mode=0
+    39675/I/NONE  /  6 | ibrt_ui_log:set_access_mode=0, ca=0xc073bfd
+    39675/I/NONE  /  6 | ibrt_ui_log:filter access mode=0, current access mode=0
+    39676/I/NONE  /  6 | btif_a2dp_set_stream_state status:3 0x20011548/0x20011628 ca=0xc05082d
+    39677/I/NONE  /  6 | [TX]:
+02 81 20 09 00 05 00 5f 00 00 0d 08 05 dc 
+    39678/I/NONE  /  7 | [RX]:
+04 13 05 01 81 00 01 00 
+0x51 0x1e 0xe1 0x4d 0x17 0xc0 
+    39680/I/AUDFLG/  4 | [STRM_PLAYER][VOL][UPDATE] a2dp_vol:12 hfp_vol:12 ptr:0x20009ab4
+    39680/I/AUDFLG/  4 | [VOLUME_PTR] exit
+    39680/I/NONE  /  4 | syspool_init_specific_size: 88064/100168
+    39684/I/NONE  /  7 | [RX]:
+04 38 04 80 00 80 0c 
+    39703/I/NONE  /  4 | syspool_init_specific_size: 0x2002a6b8,0x15800
+    39703/I/AUDFLG/  4 | [A2DP_PLAYER] codec_type:2
+    39703/I/NONE  /  4 | User 17 require sysfreq 1
+    39703/I/AUDFLG/  4 | [A2DP_PLAYER] sysfreq 1
+    39709/I/AUDFLG/  4 | [A2DP_PLAYER] sysfreq calc : 26000000
+
+    39709/I/NONE  /  4 | app_overlay_select id:4:8
+    39721/I/NONE  /  4 | [syspool_get_buff] ptr=0x2002a6b8 size=16384 free=88064 user=0xc070fd1
+    39721/I/NONE  /  7 | [RX]:
+02 81 20 13 00 0f 00 45 00 52 11 0e 0f 48 00 00 19 58 31 00 00 02 01 01 
+    39723/I/NONE  /  7 | [RX]:
+02 81 20 06 00 02 00 42 00 12 0d 
+    39721/I/NONE  /  4 | [syspool_get_buff] ptr=0x2002e6b8 size=512 free=71680 user=0xc070fe3
+    39724/I/NONE  /  4 | [syspool_get_buff] ptr=0x2002e8b8 size=1024 free=71168 user=0xc070fed
+    39724/I/NONE  /  4 | [syspool_get_buff] ptr=0x2002ecb8 size=2048 free=70144 user=0xc070ff7
+    39725/I/NONE  /  4 | [syspool_get_buff] ptr=0x2002f4b8 size=800 free=68096 user=0xc071001
+    39725/I/NONE  /  4 | A2DP Playback: sample rate: 44100, bits = 24, channel number = 2, data size:16384
+    39726/I/NONE  /  4 | [af_stream_open] id = 0, stream = 0
+    39726/I/NONE  /  4 | codec_int_open: user_map=0x0
+    39726/I/NONE  /  4 | codec_hw_open
+    39727/I/NONE  /  4 | codec_int_stream_open: stream=0
+    39727/I/NONE  /  4 | [af_stream_setup] id = 0, stream = 0
+    39727/I/NONE  /  4 | codec_int_stream_setup: stream=0
+    39728/I/NONE  /  4 | [sample_rate]old=16000 new=44100
+    39728/I/NONE  /  4 | [bits]old=16 new=24
+    39728/I/NONE  /  4 | [codec_int_stream_setup]stream=0 set_flag=0x3
+    39728/I/NONE  /  4 | [hal_codec_setup_stream] playback sample_rate=44100
+    39729/I/NONE  /  4 | [audio_process_open] sample_rate = 44100, sample_bits = 24
+    39729/I/NONE  /  4 | app_tws_ibrt_audio_sync_reconfig ratio:09999200
+    39729/I/AUDFLG/  4 | [TUNE] -799
+    39730/I/AUDFLG/  4 | [AUD][DECODER][SYNC] ppb:-799 ratio:09999200
+    39730/I/AUDFLG/  4 | [AUD][DECODER][INIT] freq:1 codec:2 chnl:2
+    39730/I/AUDFLG/  4 | [AUD][DECODER][INIT] out:44100-2-24 smp:1024 dest:6
+    39731/I/AUDFLG/  4 | [AUD][DECODER][BOOST] freq:1
+    39731/I/AUDFLG/  4 | [AUD][DECODER][BOOST] init freq:4 cnt:20
+    39731/I/NONE  /  4 | User 17 require sysfreq 4
+    39732/I/NONE  /  4 | [syspool_get_buff] ptr=0x2002f7d8 size=61440 free=67296 user=0xc07d8db
+    39732/I/NONE  /  4 | [multi_heap_register_impl] start=0x2002f7d8 size=61440 user=0xc07d8eb
+    39732/I/NONE  /  4 |  a2dp_cp_heap_init
+    39738/I/NONE  /  4 |  heap_addr:0x2006bda8
+    39738/I/NONE  /  4 | [multi_heap_register_impl] start=0x2006bda8 size=78424 user=0xc07f1c5
+    39738/I/NONE  /  4 |  cp_heap:0x2006bda8
+    39738/I/AUDFLG/  4 | [AUD][DECODER][AAC] init
+    39738/I/NONE  /  4 | [multi_heap_register_impl] start=0x2006bdcc size=40596 user=0x254079
+    39738/I/NONE  /  4 | cp_accel_open, task id = 0, cp_state = 0 init 0
+    39738/I/NONE  / CP | accel_main
+    39739/I/AUDFLG/  4 | [AUD][DECODER][AAC][INIT] cnt:20 list:0
+    39739/I/AUDFLG/  4 | [AUD][DECODER][SYNC] fix diff reset
+    39739/I/AUDFLG/  4 | [AUD][DECODER][SYNC] fix diff reset
+    39740/I/AUDFLG/  4 | [AUD][DECODER][SYNC]reset_data
+    39740/I/AUDFLG/  4 | [TUNE] -799
+    39740/I/AUDFLG/  4 | [AUD][DECODER][SYNC] ppb:-799 ratio:09999200
+    39740/I/AUDFLG/  4 | [AUTO_SYNC][SLAVE] start
+    39740/I/AUDFLG/  4 | [AUD][DECODER][START]
+    39740/I/AUDFLG/  4 | [STRM_TRIG] stauts_set 0->0
+    39740/I/AUDFLG/  4 | [STRM_TRIG][A2DP][SETTIME] trigger clear
+    39740/I/AUDFLG/  4 | [STRM_TRIG] stauts_set 0->1
+    39740/I/NONE  /  4 | [af_stream_start] id = 0, stream = 0
+    39741/I/NONE  /  4 | codec_int_stream_start: stream=0
+    39741/I/NONE  /  4 | codec_hw_start: stream=0
+    39743/I/NONE  /  6 | _avrcp_indicate_process_data_ind: pid_flag=11 e
+
+    39743/I/NONE  /  6 | avrcp_callback_CT : chnl 0x20011994, Parms 0x2001f9dc
+
+    39743/I/NONE  /  6 | ::avrcp_callback_CT Parms->event 18
+
+    39743/I/NONE  /  6 | ::avrcp_callback_CT AVRCP_EVENT_ADV_RESPONSE device_id=0,role=0
+
+    39744/I/NONE  /  6 | ::avrcp_callback_CT AVRCP_EVENT_ADV_RESPONSE op=31,status=0
+
+    39744/I/NONE  /  6 | ::avrcp_callback_CT ACRCP notify rsp playback states=1
+    39744/I/NONE  /  6 | avrcp_set_media_status 1
+    39744/I/NONE  /  6 | ibrt_ui_log:AVRCP callback event=0x12
+    39745/I/AUDFLG/  4 | [STRM_PLAYER][OPEN] updated to  0x8[A2DP_SBC]
+    39745/I/AUDFLG/  4 | [OPEN] after status_id: 0x8[A2DP_SBC], len = 1
+    39745/I/NONE  /  4 | mod_handler[1] ret=-1
+    39746/I/NONE  /  6 | DELAYREPORT request succeeded
+    39747/I/NONE  /  6 | tx process:1,1,1,1
+[2021/02/02 15:05:47.101] CT:RX stop sniff cmd,master_idx=0,mobile_idx=1,clk=0,bitoff=0
+[2021/02/02 15:05:47.167]     39880/I/NONE  /  6 | avdtp_send_start_res_timeout state 5
+    39881/I/NONE  /  6 | accept start req ret:0
+    39881/I/NONE  /  6 | [TX]:
+02 81 20 06 00 02 00 5f 00 52 07 
+    39882/I/NONE  /  7 | [RX]:
+04 13 05 01 81 00 01 00 
+[2021/02/02 15:05:47.270]     39984/I/AUDFLG/  6 | [AUD][DECODER][AAC][PRE] seq:1 timestamp:00000000
+    39985/I/AUDFLG/  6 | [AUTO_SYNC][SLAVE] detect_next_packet cnt:1
+
+    39985/W/AUDFLG/  6 | [AUD][DECODER][WARN][AAC][INPUT][REORDER] start seq:1 len:662
+    39985/I/NONE  /  6 | [TX]:
+02 81 20 11 00 0d 00 48 00 60 11 0e 01 48 00 00 19 58 30 00 00 00 
+    39986/I/NONE  /  7 | [RX]:
+04 13 05 01 81 00 01 00 
+    39986/I/NONE  /  6 | avrcp_callback_CT : chnl 0x20011994, Parms 0x2001f9b4
+
+    39987/I/NONE  /  6 | ::avrcp_callback_CT Parms->event 8
+
+    39987/I/NONE  /  6 | ibrt_ui_log:AVRCP callback event=0x8
+[2021/02/02 15:05:47.318]     40035/I/AUDFLG/  6 | [AUD][DECODER][AAC][PRE] seq:2 timestamp:00000400
+    40035/I/AUDFLG/  6 | [AUTO_SYNC][SLAVE] detect_next_packet cnt:2
+
+    40039/I/AUDFLG/  6 | [AUD][DECODER][AAC][PRE] seq:3 timestamp:00000800
+    40039/I/AUDFLG/  6 | [AUTO_SYNC][SLAVE] detect_next_packet cnt:3
+
+[2021/02/02 15:05:47.366]     40073/I/NONE  /  7 | [RX]:
+02 81 20 1a 00 16 00 45 00 62 11 0e 0c 48 00 00 19 58 30 00 00 09 00 04 2a 68 00 01 c0 77 01 
+    40074/I/NONE  /  6 | _avrcp_indicate_process_data_ind: pid_flag=11 e
+
+    40074/I/NONE  /  6 | avrcp_callback_CT : chnl 0x20011994, Parms 0x2001f9dc
+
+    40074/I/NONE  /  6 | ::avrcp_callback_CT Parms->event 18
+
+    40075/I/NONE  /  6 | ::avrcp_callback_CT AVRCP_EVENT_ADV_RESPONSE device_id=0,role=0
+
+    40075/I/NONE  /  6 | ::avrcp_callback_CT AVRCP_EVENT_ADV_RESPONSE op=30,status=0
+
+    40075/I/NONE  /  6 | ::AVRCP_OP_GET_PLAY_STATUS 114807/273000 Status:1
+    40075/I/NONE  /  6 | avrcp_set_media_status 1
+    40075/I/NONE  /  6 | AVRCP get play status returns 1
+    40075/I/NONE  /  6 | ibrt_ui_log:AVRCP callback event=0x12
+    40078/I/AUDFLG/  6 | [AUD][DECODER][AAC][PRE] seq:4 timestamp:00000c00
+    40078/I/AUDFLG/  6 | [AUTO_SYNC][SLAVE] detect_next_packet cnt:4
+
+    40082/I/AUDFLG/  6 | [AUD][DECODER][AAC][PRE] seq:5 timestamp:00001000
+    40082/I/AUDFLG/  6 | [AUTO_SYNC][SLAVE] detect_next_packet cnt:5
+
+    40085/I/NONE  /  7 | [RX]:
+02 80 20 09 00 05 00 40 00 80 1a 80 12 00 
+    40086/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:0012 cmdcode=GET_MOBILE_RSSI len=4-------
+    40086/I/NONE  /  6 | app_tws_ibrt_audio_sync_get_diff_us tws_diff:0us mobile_diff:0us
+    40087/I/NONE  /  6 | a2dp_audio_get_current_buf_size:0
+    40087/I/NONE  /  6 | ibrt_ui_log:-------TRS:0012 RSP cmdcode=GET_MOBILE_RSSI------->
+    40088/I/NONE  /  6 | ibrt_ui_log:TXDONE:000f cmdcode=TWS_CMD_RSP
+    40088/I/NONE  /  6 | [TX]:
+02 80 20 31 00 2d 00 40 00 80 04 80 0f 00 1a 80 12 00 00 00 81 00 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+[2021/02/02 15:05:47.422]     40140/I/AUDFLG/  6 | [AUD][DECODER][AAC][PRE] seq:6 timestamp:00001400
+    40140/I/AUDFLG/  6 | [AUTO_SYNC][SLAVE] detect_next_packet cnt:6
+
+    40144/I/AUDFLG/  6 | [AUD][DECODER][AAC][PRE] seq:7 timestamp:00001800
+    40144/I/AUDFLG/  6 | [AUTO_SYNC][SLAVE] detect_next_packet cnt:7
+
+    40148/I/AUDFLG/  6 | [AUD][DECODER][AAC][PRE] seq:8 timestamp:00001c00
+    40148/I/AUDFLG/  6 | [AUTO_SYNC][SLAVE] detect_next_packet cnt:8
+
+[2021/02/02 15:05:47.473]     40197/I/AUDFLG/  6 | [AUD][DECODER][AAC][PRE] seq:9 timestamp:00002000
+    40198/I/AUDFLG/  6 | [AUTO_SYNC][SLAVE] detect_next_packet cnt:9
+
+    40201/I/AUDFLG/  6 | [AUD][DECODER][AAC][PRE] seq:10 timestamp:00002400
+    40201/I/AUDFLG/  6 | [AUTO_SYNC][SLAVE] detect_next_packet cnt:10
+
+[2021/02/02 15:05:47.519]     40221/I/NONE  /  7 | [RX]:
+02 80 20 35 00 31 00 40 00 80 08 80 13 00 b0 fc ab 07 04 00 49 2f 00 28 00 00 0b 00 00 00 00 04 00 00 02 00 41 55 c2 fa 7f 3f 01 43 4f 44 00 00 00 00 41 41 43 5d 5b 50 52 45 
+    40222/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+    40223/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:0013 cmdcode=SET_TRIGGER_TIME len=48-------
+    40223/I/AUDFLG/  6 | [AUD][ANALYS]cmd_set_trigger_handler trigger:128711856 skip:4 type:0 seq:11 ref:9999200 cnt:0
+    40223/I/AUDFLG/  6 | [AUTO_SYNC] status:0
+    40224/W/AUDFLG/  6 | [STRM_TRIG][A2DP][IBRT] info base_seq:1/2
+    40224/C/NONE  / CP | FDKcalloc size=768 free=40552 alloc=0
+    40224/C/NONE  / CP | FDKcalloc size=2048 free=39780 alloc=768
+    40224/I/AUDFLG/  6 | [AUD][DECODER][MCU][SYNC][AAC] sync pkt nRet:0 SEQ:2 timestamp:1024
+    40224/I/AUDFLG/  6 | [STRM_TRIG][A2DP][IBRT] TRIGGER_TYPE_INIT_SYNC needskip:4
+    40224/C/NONE  / CP | FDKcalloc size=5336 free=37728 alloc=2816
+    40224/I/AUDFLG/  6 | [AUD][DECODER]AUD][DECODER][MCU][AAC] list:8 samples:8192
+    40224/I/AUDFLG/  6 | [STRM_TRIG][A2DP][IBRT] synchronize:8192/6144
+    40225/I/AUDFLG/  6 | [AUTO_SYNC][INITSYNC] start trigger_time:128711856 seq:11 timestamp:10240 SubSeq:0/0
+    40225/C/NONE  / CP | FDKcalloc size=8204 free=32388 alloc=8152
+    40225/I/NONE  /  6 | bt_syn_set_tg_ticks val:128711857 num:118159 mode:2 conhdl:81
+    40225/I/NONE  /  6 | bt_syn_set_tg_tick checker d0220498=0x20a00192 d02204a4=0x00000006 d02201f0=0x2001cd8f
+    40225/I/NONE  /  6 | bt_syn_set_tg_tick checker curr_ticks:0x0001cd87 bitoffset=0x00e5 rxbit=0x024a
+    40226/I/NONE  /  6 | bt_syn_set_tg_tick checker clock_offset:0x03d51791 bit_offset=0x00e5
+    40226/I/AUDFLG/  6 | [STRM_TRIG] stauts_set 1->2
+    40226/I/AUDFLG/  6 | [AUTO_SYNC][INITSYNC] start slave trigger curr(128711851)-->tg(128711856)
+    40226/I/AUDFLG/  6 | [AUD][ANALYS]app_tws_ibrt_audio_analysis_start start_offset:0
+    40226/I/NONE  /  6 | app_tws_ibrt_audio_sync_pid_setup mode:1
+    40226/I/NONE  /  6 | [app_tws_ibrt_audio_sync_mismatch_resume_request][0]->[1]
+    40226/I/AUDFLG/  6 | [AUD][DECODER][SYNC] fix diff reset
+    40227/I/AUDFLG/  6 | [AUD][DECODER][SYNC]reset_data
+    40227/I/NONE  /  6 | app_tws_ibrt_audio_sync_fix_initdiff_stop status:0
+    40227/I/NONE  /  6 | app_tws_ibrt_audio_sync_tune_skip_next_cnt cnt:50->50
+    40227/I/NONE  /  6 | app_tws_ibrt_audio_sync_new_reference ratio:09999200-->09999200 ref:09999200-->09999200
+    40227/I/AUDFLG/  6 | [AUTO_SYNC] status:2
+    40253/I/NONE  / 1E | bt_syn_set_tg_tick checker d0220498=0x20a00192 d02204a4=0x00000006 d02201f0=0x2001cd8f
+    40253/I/NONE  / 1E | bt_syn_set_tg_tick checker curr_ticks:0x0001cddc bitoffset=0x00e4 rxbit=0x024a
+    40253/I/NONE  / 1E | bt_syn_set_tg_tick checker clock_offset:0x03d51791 bit_offset=0x00e4
+    40253/I/AUDFLG/ 1E | [STRM_TRIG][A2DP][RESULT] trig:128711859 curr:128711933 tg:128711856 start:0
+    40253/I/AUDFLG/ 1E | [STRM_TRIG][A2DP][RESULT] tg_trig_diff:24062 trig_diff:1567773398
+    40254/I/AUDFLG/ 1E | [STRM_TRIG] stauts_set 2->0
+    40254/I/AUDFLG/ 1E | [STRM_TRIG][A2DP][SETTIME] trigger clear
+    40254/I/AUDFLG/ 1E | [STRM_TRIG] stauts_set 0->3
+    40254/I/AUDFLG/ 1E | [STRM_TRIG][A2DP][RESULT] synchronize_ok :2
+    40254/I/AUDFLG/  5 | [STRM_TRIG][CHK] ok
+
+    40254/I/AUDFLG/  5 | [AUD][DECODER]AUD][DECODER][MCU][AAC] list:8 samples:8192
+    40255/W/AUDFLG/  5 | [STRM_TRIG][CHK] synchronize:8192/6144
+    40255/W/AUDFLG/  5 | [STRM_TRIG][CHK] skip discards:4096
+    40255/I/AUDFLG/  5 | [AUD][DECODER]AUD][DECODER][MCU][AAC] list:8 samples:8192
+    40255/I/AUDFLG/  5 | [AUD][DECODER][PLAYBACK] init average_packet_mut:4 seq:6
+    40256/I/AUDFLG/  5 | [AUD][DECODER][MCU][AAC] olz!!!209 
+    40256/C/NONE  / CP | FDKcalloc size=220 free=24180 alloc=16356
+    40256/C/NONE  / CP | FDKcalloc size=220 free=23956 alloc=16576
+    40256/C/NONE  / CP | FDKcalloc size=4 free=23732 alloc=16796
+    40257/C/NONE  / CP | FDKcalloc size=5056 free=23724 alloc=16800
+    40257/I/AUDFLG/  5 | [AUD][ANALYS][TC] SEQ:10 SUBSEQ:0/0 tstmp:9216 btclk:59117, btcnt:93 tick:0
+    40257/C/NONE  / CP | FDKcalloc size=4108 free=18664 alloc=21856
+    40257/C/NONE  / CP | FDKcalloc size=60 free=14552 alloc=25964
+    40258/C/NONE  / CP | FDKcalloc size=3084 free=14488 alloc=26024
+    40258/C/NONE  / CP | FDKcalloc size=60 free=11400 alloc=29108
+    40258/C/NONE  / CP | FDKcalloc size=3084 free=11336 alloc=29168
+    40273/I/AUDFLG/  6 | [AUD][DECODER][AAC][PRE] seq:11 timestamp:00002800
+    40274/I/AUDFLG/  6 | [AUTO_SYNC][INITSYNC][DATAIND] dataind_seq:11/11 timestamp:10240/10240
+    40274/I/AUDFLG/  6 | [STRM_TRIG] stauts_get:3
+    40274/W/AUDFLG/  6 | [AUTO_SYNC][INITSYNC][DATAIND] already end
+    40279/I/AUDFLG/  5 | [AUD][DECODER][MCU][AAC] olz!!!209 
+[2021/02/02 15:05:47.987]     40740/I/AUDFLG/  5 | [AUD][DECODER][BOOST] freq:1
+    40740/I/NONE  /  5 | User 17 require sysfreq 1
+[2021/02/02 15:05:48.108]     40849/I/NONE  /  2 | CPU USAGE: busy=5 light=8 sys_deep=0 chip_deep=87
+    40866/I/AUDFLG/  5 | [AUD][ANALYS][TC] SEQ:29 SUBSEQ:0/0 tstmp:28672 btclk:60046, btcnt:172 tick:25
+[2021/02/02 15:05:48.157]     40901/I/NONE  /  7 | [RX]:
+02 80 20 35 00 31 00 40 00 80 07 80 14 00 00 70 00 00 1d 00 00 00 00 00 00 04 18 00 00 00 06 00 07 06 44 ac 00 00 3f 00 54 01 c3 e9 00 00 1e 02 d6 03 19 00 00 00 00 01 00 00 
+    40908/I/AUDFLG/  6 | [AUD][ANALYS]remote playback_info SEQ:29/0 handler_cnt:25
+    40914/I/AUDFLG/  5 | [AUD][ANALYS]audio sync seq:29/29 average_frames:6/6 undecode:6/6 min:0/0 max:7/7
+    40915/I/NONE  /  5 | audio_sync_tick init tws_diff_us:278 mobile_diff:293
+    40915/I/NONE  /  5 | audio_sync_tick fix_initdiff sampleRate:44096 ref_ratio:9999200 samples:12288 278661->278368
+    40916/I/AUDFLG/  5 | [TUNE] 9725
+    40917/I/AUDFLG/  5 | [AUD][DECODER][SYNC] ppb:9725 ratio:10009725
+[2021/02/02 15:05:48.190]     40938/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_proc tick:28/39
+[2021/02/02 15:05:48.213]     40962/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_proc tick:29/39
+[2021/02/02 15:05:48.235]     40987/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_proc tick:30/39
+[2021/02/02 15:05:48.263]     41011/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_proc tick:31/39
+[2021/02/02 15:05:48.292]     41035/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_proc tick:32/39
+    41059/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_proc tick:33/39
+[2021/02/02 15:05:48.320]     41084/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_proc tick:34/39
+[2021/02/02 15:05:48.345]     41108/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_proc tick:35/39
+[2021/02/02 15:05:48.365]     41134/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_proc tick:36/39
+[2021/02/02 15:05:48.395]     41157/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_proc tick:37/39
+[2021/02/02 15:05:48.413]     41181/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_proc tick:38/39
+[2021/02/02 15:05:48.434]     41205/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_proc tick:39/39
+    41206/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_stop status:1
+    41206/I/AUDFLG/  5 | [TUNE] -799
+    41207/I/AUDFLG/  5 | [AUD][DECODER][SYNC] ppb:-799 ratio:09999200
+    41208/I/NONE  /  5 | app_tws_ibrt_audio_sync_fix_initdiff_stop spent_us:278377 diff:9
+[2021/02/02 15:05:48.688]     41473/I/AUDFLG/  5 | [AUD][ANALYS][TC] SEQ:54 SUBSEQ:0/0 tstmp:54272 btclk:60975, btcnt:544 tick:50
+[2021/02/02 15:05:48.804]     41581/I/NONE  /  7 | [RX]:
+02 80 20 35 00 31 00 40 00 80 07 80 15 00 00 d4 00 00 36 00 00 00 00 00 00 04 31 00 00 00 06 05 07 06 44 ac 00 00 91 00 a4 01 64 ed 00 00 bf 05 d6 03 32 00 00 00 00 01 00 00 
+    41586/I/AUDFLG/  6 | [AUD][ANALYS]remote playback_info SEQ:54/0 handler_cnt:50
+    41594/I/AUDFLG/  5 | [AUD][ANALYS]audio sync filter !!!!!!skip_frame:0 cnt:1/0
+[2021/02/02 15:05:49.022]     41800/I/NONE  /  7 | [RX]:
+02 81 20 13 00 0f 00 45 00 52 11 0e 0d 48 00 00 19 58 31 00 00 02 01 02 
+    41805/I/NONE  /  6 | _avrcp_indicate_process_data_ind: pid_flag=11 e
+
+    41806/I/NONE  /  6 | avrcp_callback_CT : chnl 0x20011994, Parms 0x2001f9dc
+
+    41806/I/NONE  /  6 | ::avrcp_callback_CT Parms->event 17
+
+    41807/I/NONE  /  6 | ::avrcp_callback_CT AVRCP_EVENT_ADV_NOTIFY  adv.notify.event=1,device_id=0,chnl->role=0
+
+    41807/I/NONE  /  6 | ::avrcp_callback_CT ACRCP notify  playback states=2
+    41807/I/NONE  /  6 | avrcp_set_media_status 2
+    41817/I/NONE  /  6 | ibrt_ui_log:AVRCP callback event=0x11
+    41818/I/NONE  /  6 | [TX]:
+02 81 20 16 00 12 00 48 00 70 11 0e 03 48 00 00 19 58 31 00 00 05 01 00 00 00 00 
+    41820/I/NONE  /  7 | [RX]:
+04 13 05 01 81 00 01 00 
+    41821/I/NONE  /  6 | avrcp_callback_CT : chnl 0x20011994, Parms 0x2001f9b4
+
+    41822/I/NONE  /  6 | ::avrcp_callback_CT Parms->event 8
+
+    41822/I/NONE  /  6 | ibrt_ui_log:AVRCP callback event=0x8
+[2021/02/02 15:05:49.055]     41872/I/NONE  /  7 | [RX]:
+[2021/02/02 15:05:49.085] 02 81 20 13 00 0f 00 45 00 72 11 0e 0f 48 00 00 19 58 31 00 00 02 01 02 
+    41877/I/NONE  /  6 | _avrcp_indicate_process_data_ind: pid_flag=11 e
+
+    41878/I/NONE  /  6 | avrcp_callback_CT : chnl 0x20011994, Parms 0x2001f9dc
+
+    41878/I/NONE  /  6 | ::avrcp_callback_CT Parms->event 18
+
+    41878/I/NONE  /  6 | ::avrcp_callback_CT AVRCP_EVENT_ADV_RESPONSE device_id=0,role=0
+
+    41879/I/NONE  /  6 | ::avrcp_callback_CT AVRCP_EVENT_ADV_RESPONSE op=31,status=0
+
+    41879/I/NONE  /  6 | ::avrcp_callback_CT ACRCP notify rsp playback states=2
+    41879/I/NONE  /  6 | avrcp_set_media_status 2
+    41880/I/NONE  /  6 | ibrt_ui_log:AVRCP callback event=0x12
+[2021/02/02 15:05:49.269]     42080/I/AUDFLG/  5 | [AUD][ANALYS][TC] SEQ:79 SUBSEQ:0/0 tstmp:79872 btclk:61904, btcnt:624 tick:75
+[2021/02/02 15:05:49.311]     42112/I/NONE  /  3 | feed watchdog
+    42129/I/NONE  /  7 | [RX]:
+[2021/02/02 15:05:49.346] 02 80 20 35 00 31 00 40 00 80 07 80 16 00 00 38 01 00 4f 00 00 00 00 00 00 04 4a 00 00 00 06 05 07 07 44 ac 00 00 e0 00 f4 01 05 f1 00 00 60 09 d6 03 4b 00 00 00 00 01 00 00 
+    42139/I/AUDFLG/  6 | [AUD][ANALYS]remote playback_info SEQ:79/0 handler_cnt:75
+    42153/I/AUDFLG/  5 | [AUD][ANALYS]audio sync seq:79/79 average_frames:7/7 undecode:6/6 min:5/5 max:7/7
+    42154/I/NONE  /  5 | audio_sync_tick init tws_diff_us:-7 mobile_diff:8
+[2021/02/02 15:05:49.849]     42679/I/NONE  /  3 | ibrt_ui_log:sniff not allow
+
+    42688/I/AUDFLG/  5 | [AUD][ANALYS][TC] SEQ:104 SUBSEQ:0/0 tstmp:105472 btclk:62832, btcnt:78 tick:100
+[2021/02/02 15:05:49.865]     42719/I/NONE  /  6 | tx process:0,1,1,1
+[2021/02/02 15:05:49.991]     42810/I/NONE  /  7 | [RX]:
+02 80 20 35 00 31 00 40 00 80 07 80 17 00 00 9c 01 00 68 00 00 00 00 00 00 04 63 00 00 00 06 05 07 06 44 ac 00 00 34 01 44 02 a6 f4 00 00 01 0d d6 03 64 00 00 00 00 01 00 00 
+    42821/I/AUDFLG/  6 | [AUD][ANALYS]remote playback_info SEQ:104/0 handler_cnt:100
+    42834/I/AUDFLG/  5 | [AUD][ANALYS]audio sync seq:104/104 average_frames:6/6 undecode:6/6 min:5/5 max:7/7
+    42835/I/NONE  /  5 | audio_sync_tick mobile avg_diff:(abs)12/12 mobile_diff:12
+    42835/I/NONE  /  5 | audio_sync_tick tws_diff:-3us mobile_diff:12us samples:1024 frames:25 refppb:09999200/09999267    42836/I/AUDFLG/  5 | [TUNE] -732
+    42837/I/AUDFLG/  5 | [AUD][DECODER][SYNC] ppb:-732 ratio:09999267
+[2021/02/02 15:05:50.328]     43178/I/NONE  /31E | app_battery_irqhandler 1228
+    43179/I/NONE  /31E | app_battery_event_process 2,4920 36
+    43183/I/NONE  /  4 | checker: IBRT_SLAVE activeCons:2
+    43183/I/NONE  /  4 | checker: tws peers remDev state:3 mode:0 role:1 sniffInterval:0/254
+    43184/I/NONE  /  4 | checker: tws peers remDev:0x20013b30 remote_dev_address:
+0x24 0x63 0x24 0x86 0x11 0x11 
+    43184/I/NONE  /  4 | tws peers a2dp stream NULL
+    43185/I/NONE  /  4 | tws peers hf_channel NULL
+    43185/I/NONE  /  4 | checker: ibrt mobile remDev:0 cmgrHandler:0
+    43185/I/NONE  /  4 | a2dp State:3
+    43185/I/NONE  /  4 | a2dp cmgrHandler remDev:0x20013ba8
+    43186/I/NONE  /  4 | hf_channel Connected:1 IsAudioUp:0/0 remDev:0x20013ba8
+    43186/I/NONE  /  4 | checker: nv_role:1 current_role:1 access_mode:0
+24 63 24 86 11 11 
+24 63 24 86 11 11 
+    43187/I/NONE  /  4 | checker: super_state:IDLE/IDLE evt:NONE_EVENT plf:1
+    43187/I/NONE  /  4 | checker: box_state:OUT_BOX/OUT_BOX sm_run:0/0
+    43188/I/NONE  /  4 | BT_REG_OP: LC_STATE=0x101
+[2021/02/02 15:05:50.431]     43296/I/AUDFLG/  5 | [AUD][ANALYS][TC] SEQ:129 SUBSEQ:0/0 tstmp:131072 btclk:63761, btcnt:161 tick:125
+[2021/02/02 15:05:50.500]     43350/I/NONE  /  7 | [RX]:
+02 80 20 35 00 31 00 40 00 80 07 80 18 00 00 00 02 00 81 00 00 00 00 00 00 04 7c 00 00 00 05 05 07 06 44 ac 00 00 88 01 22 00 46 f8 00 00 a2 10 d6 03 7d 00 00 00 00 01 00 00 
+    43354/I/AUDFLG/  6 | [AUD][ANALYS]remote playback_info SEQ:129/0 handler_cnt:125
+    43369/I/AUDFLG/  5 | [AUD][ANALYS]audio sync filter !!!!!!skip_frame:0 cnt:0/0
+[2021/02/02 15:05:51.011]     43903/I/AUDFLG/  5 | [AUD][ANALYS][TC] SEQ:154 SUBSEQ:0/0 tstmp:156672 btclk:64690, btcnt:244 tick:150
+[2021/02/02 15:05:51.155]     44030/I/NONE  /  7 | [RX]:
+02 80 20 35 00 31 00 40 00 80 07 80 19 00 00 64 02 00 9a 00 00 00 00 00 00 04 95 00 00 00 07 05 07 07 44 ac 00 00 d5 01 72 00 e7 fb 00 00 43 14 d6 03 96 00 00 00 00 01 00 00 
+    44033/I/NONE  /  7 | [RX]:
+02 80 20 11 00 0d 00 40 00 80 0a 80 1a 00 8e 23 80 3f c9 00 00 00 
+    44036/I/AUDFLG/  6 | [AUD][ANALYS]remote playback_info SEQ:154/0 handler_cnt:150
+    44039/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:001a cmdcode=SYNC_TUNE len=12-------
+    44040/I/AUDFLG/  6 | [AUD][ANALYS]app_ibrt_cmd_audio_sync_tune_handler ref_ppb:10010850 156-->201
+    44049/I/AUDFLG/  5 | [AUD][ANALYS]audio sync seq:154/154 average_frames:7/7 undecode:7/7 min:5/5 max:7/7
+    44050/I/NONE  /  5 | audio_sync_tick mobile avg_diff:(abs)11/11 mobile_diff:11
+    44050/I/NONE  /  5 | audio_sync_tick tws_diff:-4us mobile_diff:11us samples:1024 frames:50 refppb:09999200/09999257    44051/I/AUDFLG/  5 | [TUNE] -742
+    44052/I/AUDFLG/  5 | [AUD][DECODER][SYNC] ppb:-742 ratio:09999257
+[2021/02/02 15:05:51.592]     44511/I/AUDFLG/  5 | [AUD][ANALYS][TC] SEQ:179 SUBSEQ:0/0 tstmp:182272 btclk:65619, btcnt:328 tick:175
+[2021/02/02 15:05:51.664]     44574/I/NONE  /  7 | [RX]:
+02 80 20 35 00 31 00 40 00 80 07 80 1b 00 00 c8 02 00 b3 00 00 00 00 00 00 04 ae 00 00 00 07 06 07 07 44 ac 00 00 2a 02 c2 00 88 ff 00 00 e4 17 d6 03 af 00 00 00 00 01 00 00 
+    44588/I/AUDFLG/  6 | [AUD][ANALYS]remote playback_info SEQ:179/0 handler_cnt:175
+[2021/02/02 15:05:51.699]     44607/I/AUDFLG/  5 | [AUD][ANALYS]audio sync filter !!!!!!skip_frame:0 cnt:0/0
+[2021/02/02 15:05:51.990]     44901/I/NONE  /  7 | [RX]:
+02 81 20 07 00 03 00 42 00 60 09 08 
+    44909/I/NONE  /  6 | Received SUSPEND_CMD
+    44909/I/NONE  /  6 | btif_a2dp_set_stream_state status:2 0x20011548/0x20011628 ca=0xc050869
+    44910/I/NONE  /  6 | Get A2DP event 12
+    44910/I/NONE  /  6 | ibrt_ui_log:sniff_checker_stop usr:1
+
+    44911/I/NONE  /  6 | ::A2DP_EVENT_STREAM_SUSPENDED 2  stream_id:0 0 1
+
+    44911/I/AUDFLG/  4 | [handle_process] id 1 [STOP] type 0x1 [SBC]
+    44912/I/AUDFLG/  4 | [HANDLE_STOP] type= 0x1->:[SBC], device id = 0x0
+    44912/I/AUDFLG/  4 | [HANDLE_STOP] media_active = 0x1->:[SBC]
+    44912/I/AUDFLG/  4 | [HANDLE_STOP] curr_active_media = 0x1->:[SBC]
+    44913/I/AUDFLG/  4 | [HANDLE_STOP] SBC STOPPING id:0/0
+    44913/I/AUDFLG/  4 | [MEDIA_TYPE][CLR] 0x1 active_now 0x1 id 0
+    44913/I/AUDFLG/  4 | clear media 0x1 curr media 0x0
+    44914/I/AUDFLG/  4 | [HANDLE_STOP] SBC STOPED!
+    44914/I/AUDFLG/  4 | [HANDLE_STOP] end media_active = 0[]
+    44914/I/AUDFLG/  4 | [HANDLE_STOP] end curr_active_media = 0[]
+    44914/I/AUDFLG/  4 | [CLOSE] current id: 0x8[A2DP_SBC]
+    44915/I/AUDFLG/  4 | [STRM_PLAYER][CLOSE] gStreamplayer: 0x8[A2DP_SBC]
+    44915/I/AUDFLG/  4 | [STRM_PLAYER][CLOSE] player:0x8[A2DP_SBC]
+    44915/I/AUDFLG/  4 | [A2DP_PLAYER] work:1 op:PLAYER_OPER_STOP freq:0 :sample:44100 
+
+    44916/I/NONE  /  4 | audio_prompt_clear_pending_stream stop_id -1 pendingStopOp 0 op 0
+    44916/I/AUDFLG/  4 | [AUD][DECODER][BOOST] freq:2 cnt:5
+    44916/I/NONE  /  4 | User 17 require sysfreq 2
+    44917/I/AUDFLG/  4 | [AUD][DECODER][PREPARSE_STOP] PLAYBACK_STATUS_IDLE cnt:50
+    44917/I/AUDFLG/  4 | [AUD][DECODER][PREPARSE_STOP] list:2 seq:201
+    44917/I/NONE  /  4 | [af_stream_playback_fadeout] ms:10/10 us:23219 sample:441 bit:24 ch:2
+    44917/I/NONE  /  4 | fadeout sample:441
+    44917/I/NONE  /  6 | ibrt_ui_log:restore pscan
+
+    44917/I/NONE  /  6 | pagescan tws connected, slave pscan closed
+    44918/I/NONE  /  6 | j_scan=A2DP_SUSPEND, l_type=NO_LINK_TYPE, mode=0x0, p_mode=0
+    44918/I/NONE  /  6 | ibrt_ui_log:set_access_mode=0, ca=0xc073bfd
+    44918/I/NONE  /  6 | ibrt_ui_log:filter access mode=0, current access mode=0
+    44921/I/AUDFLG/  5 | [AUD][DECODER][PREPARSE_STOP][PLAYBACK]list:1 seq:202
+    44945/I/AUDFLG/  5 | [AUD][DECODER][PREPARSE_STOP][PLAYBACK]list:0 seq:0
+[2021/02/02 15:05:52.054]     44969/I/AUDFLG/  5 | [AUD][DECODER][PREPARSE_STOP][PLAYBACK]list:0 seq:0
+    44973/I/NONE  /  5 | fadeout_process end
+    44974/I/AUDFLG/  4 | [AUTO_SYNC] status:0
+    44974/I/NONE  /  4 | app_tws_ibrt_audio_sync_pid_setup mode:1
+    44974/I/NONE  /  4 | [app_tws_ibrt_audio_sync_mismatch_resume_request][1]->[0]
+    44974/I/AUDFLG/  4 | [AUD][DECODER][SYNC] fix diff reset
+    44974/I/AUDFLG/  4 | [AUD][DECODER][SYNC]reset_data
+    44974/I/NONE  /  4 | app_tws_ibrt_audio_sync_tune_skip_next_cnt cnt:0->50
+    44974/I/AUDFLG/  4 | [AUD][DECODER][STOP]
+    44975/I/AUDFLG/  4 | [AUD][DECODER][DEINIT]PLAYBACK_STATUS_IDLE cnt:50
+    44975/I/AUDFLG/  4 | [AUD][DECODER][DEINIT] STORE_PACKET_STATUS_IDLE cnt:50
+    44975/I/NONE  /  4 | [af_stream_stop] id = 0, stream = 0
+    44976/I/NONE  /  4 | codec_int_stream_stop: stream=0
+    44977/I/NONE  /  4 | codec_hw_stop: stream=0
+    44981/I/AUDFLG/  4 | [A2DP_PLAYER] syspool free size: 5856/88064
+    44982/I/NONE  /  4 | [af_stream_close] id = 0, stream = 0
+    44984/I/NONE  /  4 | codec_int_stream_close: stream=0
+    44984/I/NONE  /  4 | codec_int_stream_restore_chan_vol: stream=0
+    44984/I/NONE  /  4 | codec_int_close: type=0 user_map=0x1
+    44984/I/NONE  /  4 | codec_hw_close: type=0
+    44989/I/AUDFLG/  4 | [STRM_TRIG] stauts_set 3->0
+    44990/I/AUDFLG/  4 | [STRM_TRIG][A2DP][SETTIME] trigger clear
+    44990/I/AUDFLG/  4 | [AUD][DECODER][DEINIT]
+    44990/I/NONE  /  4 | cp_accel_close, task id = 0, cp_state = 2 init 1
+    44990/I/AUDFLG/  4 | [AUD][DECODER][AAC] deinit MEM: total - 40596, used - 0, max_used - 32348.
+    44990/I/AUDFLG/  4 | [AUD][DECODER][DEINIT] heap info: total - 61440, used - 920, max_used - 18820.
+    44991/I/NONE  /  4 | User 17 require sysfreq 0
+    44991/I/AUDFLG/  4 | [STRM_PLAYER][CLOSE] updated to 0x0[]
+    44991/I/AUDFLG/  4 | [STREAM_LIST][RMV] audio list len 1 close_id 0x8[A2DP_SBC]
+    44992/I/AUDFLG/  4 | [STREAM_LIST][EXIST] id 0x8
+    44992/I/AUDFLG/  4 | [STREAM_LIST][RMV] end len:0 ret 0 data 0x20024ee8
+    44992/I/NONE  /  4 | mod_handler[1] ret=-1
+[2021/02/02 15:05:52.177]     45123/I/NONE  /  6 | accept suspend req ret:0
+    45124/I/NONE  /  6 | [TX]:
+02 81 20 06 00 02 00 5f 00 62 09 
+    45125/I/NONE  /  7 | [RX]:
+04 13 05 01 81 00 01 00 
+[2021/02/02 15:05:52.440]     45391/I/NONE  /  7 | [RX]:
+02 80 20 09 00 05 00 40 00 80 1a 80 1c 00 
+    45394/I/NONE  /  6 | ibrt_ui_log:<-----------RCV:001c cmdcode=GET_MOBILE_RSSI len=4-------
+    45394/I/NONE  /  6 | app_tws_ibrt_audio_sync_get_diff_us tws_diff:-4us mobile_diff:11us
+    45395/I/NONE  /  6 | a2dp_audio_get_current_buf_size:6
+    45395/I/NONE  /  6 | ibrt_ui_log:-------TRS:001c RSP cmdcode=GET_MOBILE_RSSI------->
+    45397/I/NONE  /  6 | ibrt_ui_log:TXDONE:0010 cmdcode=TWS_CMD_RSP
+    45398/I/NONE  /  6 | [TX]:
+02 80 20 31 00 2d 00 40 00 80 04 80 10 00 1a 80 1c 00 00 00 81 00 80 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0b 00 00 00 fc ff ff ff 06 00 00 00 
+[2021/02/02 15:05:52.553]     45528/I/NONE  /  7 | [RX]:
+04 13 05 01 80 00 01 00 
+[2021/02/02 15:05:52.874]     45863/I/NONE  /  3 | feed watchdog

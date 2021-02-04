@@ -1,0 +1,635 @@
+MAKE START: 2021-01-27 13:50:30.900988500
+make[1]: Entering directory '/mnt/c/Users/admin/Desktop/best2300a_2500i_ibrt_rc03_V0.5/out/best2500i_ibrt'
+-------------------------------
+OS_DYNAMIC_MEM_SIZE: 15*1024
+CHIP_HAS_CP: 1
+TRACE_BUF_SIZE: 8*1024
+RAMCP_SIZE: 114*1024
+RAMCP_SIZE: 66*1024 
+OTA_BOOT_SIZE: 0
+FLASH_SIZE: 0x200000
+FAST_XRAM_SECTION_SIZE: 
+AUDIO_BUFFER_SIZE: 86*1024
+-------------------------------
+-------------------------------
+REVISION_INFO: :best2500i_ibrt
+-------------------------------
+OTA_CODE_OFFSET: 0
+  CC      apps/common/app_thread.o
+  C++     apps/main/apps.o
+In file included from ../../apps/common/app_thread.c:17:
+../../apps/common/app_thread.c: In function 'app_mailbox_init':
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:51:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+   51 |  MYTRACE_APP_THREAD(1, "Entering %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:55:3: note: in expansion of macro 'MYTRACE_APP_THREAD'
+   55 |   MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |   ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:59:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+   59 |  MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c: In function 'app_mailbox_put':
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:65:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+   65 |  MYTRACE_APP_THREAD(1, "Entering %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:111:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  111 |  MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c: In function 'app_mailbox_free':
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:117:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  117 |  MYTRACE_APP_THREAD(1, "Entering %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:124:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  124 |  MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c: In function 'app_mailbox_get':
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:131:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  131 |  MYTRACE_APP_THREAD(1, "Entering %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:137:3: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  137 |   MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |   ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:140:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  140 |  MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c: In function 'app_thread':
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:146:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  146 |  MYTRACE_APP_THREAD(1, "Entering %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:162:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  162 |  MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c: In function 'app_os_init':
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:167:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  167 |  MYTRACE_APP_THREAD(1, "Entering %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:170:3: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  170 |   MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |   ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:177:3: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  177 |   MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |   ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:180:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  180 |  MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c: In function 'app_set_threadhandle':
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:186:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  186 |  MYTRACE_APP_THREAD(1, "Entering %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:189:3: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  189 |   MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |   ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:194:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  194 |  MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c: In function 'app_os_tid_get':
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:200:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  200 |  MYTRACE_APP_THREAD(1, "Entering %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:201:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  201 |  MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c: In function 'app_is_module_registered':
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:208:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  208 |  MYTRACE_APP_THREAD(1, "Entering %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+../../apps/common/app_thread.c:29:62: error: expected expression before '...' token
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                                              ^~~
+../../platform/hal/hal_trace.h:90:77: note: in definition of macro 'REL_LOG'
+   90 |                                                             TRC_STR(str), ##__VA_ARGS__)
+      |                                                                             ^~~~~~~~~~~
+../../platform/hal/hal_trace.h:167:45: note: in expansion of macro 'TR_INFO'
+  167 | #define TRACE(attr, str, ...)               TR_INFO(attr, str, ##__VA_ARGS__)
+      |                                             ^~~~~~~
+../../platform/hal/hal_trace.h:426:44: note: in expansion of macro 'TRACE'
+  426 | #define TRACE__after(post, attr, str, ...) TRACE##post(attr, str, ##__VA_ARGS__)
+      |                                            ^~~~~
+../../platform/hal/hal_trace.h:427:43: note: in expansion of macro 'TRACE__after'
+  427 | #define TRACE_after(post, attr, str, ...) TRACE__after(post, attr, str, ##__VA_ARGS__)
+      |                                           ^~~~~~~~~~~~
+../../platform/hal/hal_trace.h:428:33: note: in expansion of macro 'TRACE_after'
+  428 | #define MYTRACE(attr, str, ...) TRACE_after(MYPOSTFIX, attr, str, ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+../../apps/common/app_thread.c:29:43: note: in expansion of macro 'MYTRACE'
+   29 | #define MYTRACE_APP_THREAD(attr, str,...) MYTRACE(attr, str, ...)
+      |                                           ^~~~~~~
+../../apps/common/app_thread.c:209:2: note: in expansion of macro 'MYTRACE_APP_THREAD'
+  209 |  MYTRACE_APP_THREAD(1, "Leaving %s", __func__);
+      |  ^~~~~~~~~~~~~~~~~~
+make[3]: *** [../../scripts/build.mk:224: apps/common/app_thread.o] Error 1
+make[2]: *** [../../scripts/build.mk:487: apps/common] Error 2
+make[2]: *** Waiting for unfinished jobs....
+  AR      platform/drivers/norflash/built-in.a
+  C++     apps/audioplayers/digmici2splay.o
+  C++     apps/audioplayers/flacplay.o
+  AR      services/../utils/kfifo/built-in.a
+  C++     apps/audioplayers/voicebtpcmplay_sco_dma_snapshot.o
+  C++     apps/audioplayers/app_audio.o
+make[4]: *** Deleting file 'platform/drivers/norflash/built-in.a'
+make[4]: *** [../../scripts/build.mk:487: platform/cmsis/DSP_Lib/CommonTables] Interrupt
+make[2]: *** [../../scripts/build.mk:487: platform/hal] Interrupt
+make[3]: *** [../../scripts/build.mk:487: rtos/rtx5/rtx_config] Interrupt
+make[4]: *** [../../scripts/build.mk:487: platform/cmsis/DSP_Lib/BasicMathFunctions] Interrupt
+make[2]: *** [../../scripts/build.mk:487: services/app_ibrt] Interrupt
+make[3]: *** [../../scripts/build.mk:487: rtos/rtx5/GCC] Interrupt
+make[2]: *** [../../scripts/build.mk:487: services/audio_process] Interrupt
+make[2]: *** [../../scripts/build.mk:487: services/audioflinger] Interrupt
+make[2]: *** [../../scripts/build.mk:487: services/bt_app] Interrupt
+make[2]: *** [../../scripts/build.mk:487: services/bt_if_enhanced] Interrupt
+make[3]: *** [../../scripts/build.mk:260: apps/audioplayers/msbcplay.o] Interrupt
+make[3]: *** [../../scripts/build.mk:260: apps/audioplayers/digmici2splay.o] Interrupt
+make[3]: *** [../../scripts/build.mk:260: apps/audioplayers/flacplay.o] Interrupt
+make[3]: *** [../../scripts/build.mk:260: apps/main/apps.o] Interrupt
+make[3]: *** [../../scripts/build.mk:260: apps/audioplayers/voicebtpcmplay_sco_dma_snapshot.o] Interrupt
+make[3]: *** [../../scripts/build.mk:260: apps/audioplayers/app_audio.o] Interrupt
+make[2]: *** [../../scripts/build.mk:487: rtos/rtx5] Interrupt
+make[2]: *** [../../scripts/build.mk:487: apps/main] Interrupt
+make[4]: *** [../../scripts/build.mk:420: platform/drivers/norflash/built-in.a] Interrupt
+make[1]: *** [/mnt/c/Users/admin/Desktop/best2300a_2500i_ibrt_rc03_V0.5/Makefile:907: rtos] Interrupt
+make[3]: *** [../../scripts/build.mk:487: platform/drivers/norflash] Interrupt
+  C++     services/app_tws/src/app_tws_if.o
+  C++     apps/audioplayers/wavplay.o
+  CC      platform/drivers/bt/best1305/iqcorrect.o
+  AR      services/audio_dump/built-in.a
+make[4]: *** [../../scripts/build.mk:487: platform/cmsis/DSP_Lib/FilteringFunctions] Interrupt
+make[3]: *** [../../scripts/build.mk:487: platform/cmsis/DSP_Lib] Interrupt
+make[2]: *** [../../scripts/build.mk:487: platform/cmsis] Interrupt
+make[3]: *** [../../scripts/build.mk:260: services/app_tws/src/app_tws_if.o] Interrupt
+make[2]: *** [../../scripts/build.mk:487: services/app_tws] Interrupt
+make[3]: *** [../../scripts/build.mk:420: services/../utils/kfifo/built-in.a] Interrupt
+make[2]: *** [../../scripts/build.mk:487: services/../utils/kfifo] Interrupt
+make[3]: *** [../../scripts/build.mk:260: apps/audioplayers/wavplay.o] Interrupt
+make[2]: *** [../../scripts/build.mk:487: apps/audioplayers] Interrupt
+make[1]: *** [/mnt/c/Users/admin/Desktop/best2300a_2500i_ibrt_rc03_V0.5/Makefile:907: apps] Interrupt
+make[3]: *** [../../scripts/build.mk:420: services/audio_dump/built-in.a] Interrupt
+make[2]: *** [../../scripts/build.mk:487: services/audio_dump] Interrupt
+make[1]: *** [/mnt/c/Users/admin/Desktop/best2300a_2500i_ibrt_rc03_V0.5/Makefile:907: services] Interrupt
+make[5]: *** [../../scripts/build.mk:224: platform/drivers/bt/best1305/iqcorrect.o] Interrupt
+make[4]: *** [../../scripts/build.mk:487: platform/drivers/bt/best1305] Interrupt
+make[3]: *** [../../scripts/build.mk:487: platform/drivers/bt] Interrupt
+make[2]: *** [../../scripts/build.mk:487: platform/drivers] Interrupt
+make[1]: *** [/mnt/c/Users/admin/Desktop/best2300a_2500i_ibrt_rc03_V0.5/Makefile:907: platform] Interrupt
+make: *** [Makefile:257: sub-make] Interrupt
