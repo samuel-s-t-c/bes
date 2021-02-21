@@ -131,6 +131,7 @@ static const char *tws_sync_user2str(TWS_SYNC_USER_E user)
 
 void app_tws_if_init(void)
 {
+	TRACE_CSD(0, "[%s]", __func__);
     // reset the environment
     memset(&twsEnv, 0, sizeof(twsEnv));
     memset(&twsSyncBuf, 0, TWS_SYNC_BUF_SIZE);
@@ -171,6 +172,7 @@ void app_tws_if_init(void)
 #ifdef BTIF_DIP_DEVICE
     app_dip_sync_init();
 #endif
+	TRACE_CSD(0, "[%s] leaving", __func__);
 }
 
 void app_tws_if_role_switch_started_handler(void)

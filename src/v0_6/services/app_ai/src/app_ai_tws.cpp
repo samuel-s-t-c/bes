@@ -326,6 +326,7 @@ void app_ai_tws_sync_info_received_handler(uint8_t *buf, uint16_t length)
 void app_ai_tws_sync_init(void)
 {
 #if defined(IBRT) && defined(__AI_VOICE__)
+	TRACE_CSD(0, "{%s}", __func__);
     TWS_SYNC_USER_T user_app_ai_t = {
         app_ai_tws_sync_info_prepare_handler,
         app_ai_tws_sync_info_received_handler,
@@ -382,6 +383,7 @@ void ai_manager_sync_info_received_rsp_handler(uint8_t *buf, uint16_t length)
 void ai_manager_sync_init(void)
 {
 #if defined(IBRT) && defined(IS_MULTI_AI_ENABLED)
+	TRACE_CSD(0, "{%s}", __func__);
     TWS_SYNC_USER_T user_ai_manager_t = {
         ai_manager_sync_info_prepare_handler,
         ai_manager_sync_info_received_handler,
@@ -441,6 +443,7 @@ static void gsound_connect_sync_info_received_handler(uint8_t *buf, uint16_t len
 void app_ai_tws_gsound_sync_init(void)
 {
 #ifdef IBRT
+	TRACE_CSD(0, "{%s}", __func__);
     TWS_SYNC_USER_T userAiConnect = {
         gsound_connect_sync_info_prepare_handler,
         gsound_connect_sync_info_received_handler,

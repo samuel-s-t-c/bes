@@ -938,7 +938,7 @@ void nv_extension_callback(void* param)
 
 void nv_record_init(void)
 {
-
+	TRACE_CSD(0, "{%s}", __func__);
     nv_mpu_id = mpu_alloc_region();
     if (nv_mpu_id == MPU_INVALID_ID) {
         TRACE(2,"cannot alloc mpu region for NV!!!");

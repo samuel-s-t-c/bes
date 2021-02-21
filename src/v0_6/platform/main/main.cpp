@@ -213,6 +213,7 @@ void debug_ram_info()
     cobuf_print_statistic();
 }
 #endif
+
 int main(void)
 {
     uint8_t sys_case = 0;
@@ -278,7 +279,7 @@ int main(void)
 #endif
     hal_sleep_start_stats(10000, 10000);
     hal_trace_set_log_level(TR_LEVEL_DEBUG);
-#endif
+#endif	/*END* defined(DEBUG)*/
 
     hal_iomux_ispi_access_init();
 

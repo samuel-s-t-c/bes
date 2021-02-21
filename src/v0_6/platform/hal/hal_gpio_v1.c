@@ -120,6 +120,7 @@ enum HAL_GPIO_DIR_T hal_gpio_pin_get_dir(enum HAL_GPIO_PIN_T pin)
 
 void hal_gpio_pin_set_dir(enum HAL_GPIO_PIN_T pin, enum HAL_GPIO_DIR_T dir, uint8_t val_for_out)
 {
+	TRACE_CSD(TR_ATTR_NO_ID|TR_ATTR_NO_TS, "{%s} %d %d %d", __func__, pin, dir, val_for_out);
     int pin_offset = 0;
     int bank = 0, port = 0;
 

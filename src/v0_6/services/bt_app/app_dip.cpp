@@ -116,6 +116,7 @@ void app_dip_sync_info_received_handler(uint8_t *buf, uint16_t length)
 
 void app_dip_sync_init(void)
 {
+	TRACE_CSD(0, "{%s}", __func__);
     TWS_SYNC_USER_T user_app_dip_t = {
         app_dip_sync_info_prepare_handler,
         app_dip_sync_info_received_handler,

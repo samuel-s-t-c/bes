@@ -50,6 +50,7 @@ static void factory_callback(void* param)
 
 void factory_section_init(void)
 {
+	TRACE_CSD(0, "{%s}", __func__);
     enum NORFLASH_API_RET_T result;
     uint32_t sector_size = 0;
     uint32_t block_size = 0;

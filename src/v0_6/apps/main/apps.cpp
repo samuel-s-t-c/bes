@@ -1547,9 +1547,7 @@ extern uint32_t __factory_start[];
 
 int app_init(void)
 {
-	TRACE(0, "Hello, world!");
-	COSONIC_TRACE(COSONIC_TEST_LOG, true, "Hi");
-	COSONIC_TRACE(COSONIC_TEST_LOG, false, "Hi");
+	TRACE_CSD(0, "[%s]", __func__);
     int nRet = 0;
     struct nvrecord_env_t *nvrecord_env;
 #ifdef POWER_ON_ENTER_TWS_PAIRING_ENABLED
@@ -1577,6 +1575,7 @@ int app_init(void)
     TRACE(0,"app_init\n");
 
 #ifdef APP_TRACE_RX_ENABLE
+	TRACE_CSD(0, "APP_TRACE_RX_ENABLE");
     app_trace_rx_open();
     app_bt_cmd_init();
 #endif
@@ -1589,7 +1588,7 @@ extern int rpc_service_setup(void);
 #ifdef IBRT
     // init tws interface
     app_tws_if_init();
-#endif // #ifdef IBRT
+#endif
 
     nv_record_init();
     factory_section_init();
@@ -2058,6 +2057,7 @@ exit:
 #endif // BT_USB_AUDIO_DUAL_MODE
     app_sysfreq_req(APP_SYSFREQ_USER_APP_INIT, APP_SYSFREQ_32K);
 
+	TRACE_CSD(0, "[%s] leaving", __func__);
     return nRet;
 }
 

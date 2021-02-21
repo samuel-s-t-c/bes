@@ -506,3 +506,11 @@ LIB_LDFLAGS += -lstdc++ -lsupc++
 #CFLAGS_IMAGE += -u _printf_float -u _scanf_float
 
 #LDFLAGS_IMAGE += --wrap main
+
+## CSD configurations
+CSD ?= 1
+ifeq ($(CSD),1)
+KBUILD_CFLAGS += -DCSD
+KBUILD_CPPFLAGS += -DCSD
+endif
+## END  CSD

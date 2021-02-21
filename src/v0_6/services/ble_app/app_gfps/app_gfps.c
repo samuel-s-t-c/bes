@@ -1234,6 +1234,7 @@ void gfps_info_received_handler(uint8_t *buf, uint16_t length)
 void app_gfps_tws_sync_init(void)
 {
 #ifdef IBRT
+	TRACE_CSD(0, "{%s}", __func__);
     // TODO: freddie move to isolated ota file
     TWS_SYNC_USER_T userGfps = {
         gfps_info_prepare_handler,

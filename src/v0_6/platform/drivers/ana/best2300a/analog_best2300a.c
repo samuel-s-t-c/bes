@@ -1847,6 +1847,7 @@ int analog_reset(void)
 
 void analog_open(void)
 {
+	TRACE_CSD(0, "[%s]", __func__);
     uint16_t val;
 
     val = REG_CODEC_ADCA_CH_SEL(1) | REG_CODEC_ADCB_CH_SEL(1) | REG_CODEC_ADCC_CH_SEL(1) | REG_CODEC_ADCD_CH_SEL(1);

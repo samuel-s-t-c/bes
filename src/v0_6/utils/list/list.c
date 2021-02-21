@@ -28,6 +28,7 @@ static list_node_t *list_free_node_(list_t *list, list_node_t *node);
 
 int list_init(void)
 {
+	TRACE_CSD(0, "{%s}", __func__);
     if (list_t_mempool == NULL)
         list_t_mempool = osPoolCreate(osPool(list_t_mempool));
 

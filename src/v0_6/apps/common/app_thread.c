@@ -35,6 +35,7 @@ osThreadId app_thread_tid;
 
 static int app_mailbox_init(void)
 {
+	TRACE_CSD(0, "{%s}", __func__);
     app_mailbox = osMailCreate(osMailQ(app_mailbox), NULL);
     if (app_mailbox == NULL)  {
         TRACE(0,"Failed to Create app_mailbox\n");

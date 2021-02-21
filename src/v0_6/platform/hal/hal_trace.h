@@ -415,7 +415,7 @@ TRACE_FUNC_DECLARE(int hal_trace_rx_wakeup(void), return 0);
 /*******  Cosonic log  *******/
 #define COSONIC_LOG
 #ifdef COSONIC_LOG
-	
+
 typedef struct {
 	const char *func_mode;
 	const char *block;
@@ -433,13 +433,13 @@ extern COSONIC_TRACE_CFG_T cosonic_trace_cfg_array[COSONIC_TRACE_CFG_NUM];
 do{\
 	if ((is_cnt))\
 	{\
-		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "COSONIC:   %s   %s   %s   %d   "str,\
+		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF, "COSONIC:   %s   %s   %s   %d   "str,\
 			cosonic_trace_cfg_array[(n)].func_mode,\
 			cosonic_trace_cfg_array[(n)].block,\
 			__func__ ,\
 			__LINE__,\
 	    	##__VA_ARGS__);\
-		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "cnt=%d\n",\
+		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "   cnt=%d\n",\
 			cosonic_trace_cfg_array[(n)].cnt++);\
 	}\
 	else\
@@ -456,6 +456,14 @@ do{\
 #define COSONIC_TRACE(n,is_cnt,str,...) 
 #endif	/*END* !defined(COSONIC_LOG) */
 /*******  *END* Cosonic log   ********/
+
+/*******  CSD  *******/
+#ifdef CSD
+#define TRACE_CSD TRACE
+#else
+#define TRACE_CSD(...)
+#endif
+/*******  *END* CSD   ********/
 
 #ifdef __cplusplus
 }
