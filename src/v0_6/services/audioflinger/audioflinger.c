@@ -1174,6 +1174,7 @@ static void af_codec_anc_boost_delay(uint32_t ms)
 
 uint32_t af_open(void)
 {
+	TRACE_CSD(1, "[%s]", __func__);
     AF_TRACE_DEBUG();
     struct af_stream_cfg_t *role = NULL;
 
@@ -1213,7 +1214,7 @@ uint32_t af_open(void)
         hal_codec_set_dac_dc_offset(dc_l, dc_r);
 #endif
     }
-#endif
+#endif	/*END* AUDIO_OUTPUT_DC_CALIB */
 
 #ifdef AUDIO_OUTPUT_SW_GAIN
     hal_codec_set_sw_output_coef_callback(af_codec_output_gain_changed);

@@ -237,6 +237,7 @@ extern "C" void HciSendCompletePacketCommandRightNow(uint16_t handle,uint8_t num
 
 void gen_bt_addr_for_debug(void)
 {
+	TRACE_CSD(0, "[%s]", __func__);
     static const char host[] = TO_STRING(BUILD_HOSTNAME);
     static const char user[] = TO_STRING(BUILD_USERNAME);
     uint32_t hlen, ulen;
@@ -267,6 +268,7 @@ void gen_bt_addr_for_debug(void)
 
     TRACE(0,"Modified debug BT addr is:");
     DUMP8("%02x ", bt_addr, BTIF_BD_ADDR_SIZE);
+	TRACE_CSD(0, "[%s]*** leaving", __func__);
 }
 
 #if !defined(ENHANCED_STACK)

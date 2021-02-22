@@ -506,6 +506,7 @@ int app_battery_get_info(APP_BATTERY_MV_T *currvolt, uint8_t *currlevel, enum AP
 
 int app_battery_open(void)
 {
+	TRACE_CSD(0, "[%s]", __func__);
     APP_BATTERY_TRACE(3,"%s batt range:%d~%d",__func__, APP_BATTERY_MIN_MV, APP_BATTERY_MAX_MV);
     int nRet = APP_BATTERY_OPEN_MODE_INVALID;
 
@@ -578,6 +579,7 @@ int app_battery_open(void)
             hal_gpio_pin_set_dir((enum HAL_GPIO_PIN_T)app_battery_ext_charger_enable_cfg.pin, HAL_GPIO_DIR_OUT, 1);
         }
     }
+	TRACE_CSD(0, "[%s]*** leaving", __func__);
     return nRet;
 }
 

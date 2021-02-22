@@ -172,7 +172,7 @@ void app_tws_if_init(void)
 #ifdef BTIF_DIP_DEVICE
     app_dip_sync_init();
 #endif
-	TRACE_CSD(0, "[%s] leaving", __func__);
+	TRACE_CSD(0, "[%s]*** leaving", __func__);
 }
 
 void app_tws_if_role_switch_started_handler(void)

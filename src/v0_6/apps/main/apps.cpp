@@ -203,11 +203,13 @@ static enum APP_POWERON_CASE_T g_pwron_case = APP_POWERON_CASE_INVALID;
 #ifndef APP_TEST_MODE
 static uint8_t app_status_indication_init(void)
 {
+	TRACE_CSD(0, "[%s]", __func__);
     struct APP_PWL_CFG_T cfg;
     memset(&cfg, 0, sizeof(struct APP_PWL_CFG_T));
     app_pwl_open();
     app_pwl_setup(APP_PWL_ID_0, &cfg);
     app_pwl_setup(APP_PWL_ID_1, &cfg);
+	TRACE_CSD(0, "[%s]*** leaving", __func__);
     return 0;
 }
 #endif
@@ -645,11 +647,12 @@ const  APP_KEY_HANDLE  pwron_key_handle_cfg[] = {
 static void app_poweron_key_init(void)
 {
     uint8_t i = 0;
-    TRACE(1,"%s",__func__);
-
+    //TRACE(1,"%s",__func__);
+	TRACE_CSD(1,"[%s]",__func__);
     for (i=0; i<(sizeof(pwron_key_handle_cfg)/sizeof(APP_KEY_HANDLE)); i++){
         app_key_handle_registration(&pwron_key_handle_cfg[i]);
     }
+	TRACE_CSD(1,"[%s]*** leaving",__func__);
 }
 
 static uint8_t app_poweron_wait_case(void)
@@ -2057,7 +2060,7 @@ exit:
 #endif // BT_USB_AUDIO_DUAL_MODE
     app_sysfreq_req(APP_SYSFREQ_USER_APP_INIT, APP_SYSFREQ_32K);
 
-	TRACE_CSD(0, "[%s] leaving", __func__);
+	TRACE_CSD(0, "[%s]*** leaving", __func__);
     return nRet;
 }
 

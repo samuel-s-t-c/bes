@@ -299,7 +299,7 @@ export A2DP_DECODER_VER := 2
 
 export IBRT ?= 1
 
-export IBRT_SEARCH_UI ?= 0
+export IBRT_SEARCH_UI ?= 1
 
 export IBRT_UI_V1 ?= 1
 ifeq ($(IBRT_UI_V1),1)

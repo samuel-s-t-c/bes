@@ -107,8 +107,10 @@ int app_mailbox_free(APP_MESSAGE_BLOCK* msg_p)
 
 int app_mailbox_get(APP_MESSAGE_BLOCK** msg_p)
 {
+	TRACE_CSD(0, "[%s]", __func__);
     osEvent evt;
     evt = osMailGet(app_mailbox, osWaitForever);
+	TRACE_CSD(0, "[%s]*** leaving", __func__);
     if (evt.status == osEventMail) {
         *msg_p = (APP_MESSAGE_BLOCK *)evt.value.p;
         return 0;
@@ -119,6 +121,7 @@ int app_mailbox_get(APP_MESSAGE_BLOCK** msg_p)
 static void app_thread(void const *argument)
 {
     while(1){
+		TRACE_CSD(0, "[%s]", __func__);
         APP_MESSAGE_BLOCK *msg_p = NULL;
 
         if (!app_mailbox_get(&msg_p)) {
@@ -136,6 +139,7 @@ static void app_thread(void const *argument)
 
 int app_os_init(void)
 {
+	TRACE_CSD(0, "[%s]", __func__);
     if (app_mailbox_init())
         return -1;
 
@@ -144,6 +148,7 @@ int app_os_init(void)
         TRACE(0,"Failed to Create app_thread\n");
         return 0;
     }
+	TRACE_CSD(0, "[%s]*** leaving", __func__);
     return 0;
 }
 
@@ -152,6 +157,7 @@ int app_set_threadhandle(enum APP_MODUAL_ID_T mod_id, APP_MOD_HANDLER_T handler)
     if (mod_id>=APP_MODUAL_NUM)
         return -1;
 
+	TRACE_CSD(3, "{%s} mod_id=%d handler=%p", __func__, mod_id, handler);
     mod_handler[mod_id] = handler;
     return 0;
 }

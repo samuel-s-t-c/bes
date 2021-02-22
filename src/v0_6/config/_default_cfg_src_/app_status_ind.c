@@ -97,7 +97,8 @@ int app_status_indication_set(APP_STATUS_INDICATION_T status)
     struct APP_PWL_CFG_T cfg0;
     struct APP_PWL_CFG_T cfg1;
 
-    TRACE(2,"%s %d",__func__, status);
+	TRACE_CSD(2,"{%s} %d",__func__, status);
+    //TRACE(2,"%s %d",__func__, status);
 
     if (app_status == status)
         return 0;

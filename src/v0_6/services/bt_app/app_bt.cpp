@@ -3880,11 +3880,13 @@ int app_bt_start_custom_function_in_app_thread(
 
 void app_bt_init(void)
 {
+	TRACE_CSD(0, "[%s]", __func__);
     app_bt_mail_init();
     app_set_threadhandle(APP_MODUAL_BT, app_bt_handle_process);
     btif_me_sec_set_io_cap_rsp_reject_ext(app_bt_profile_connect_openreconnecting);
     app_bt_active_mode_manager_init();
     app_set_threadhandle(APP_MODUAL_CUSTOM_FUNCTION, app_custom_function_process);
+	TRACE_CSD(0, "[%s]*** leaving", __func__);
 }
 
 extern "C" bool app_bt_has_connectivitys(void)

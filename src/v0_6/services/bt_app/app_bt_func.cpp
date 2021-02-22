@@ -507,6 +507,7 @@ static void app_bt_mail_poll(void)
 
 int app_bt_mail_init(void)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     app_bt_mailbox = osMailCreate(osMailQ(app_bt_mailbox), NULL);
     if (app_bt_mailbox == NULL)  {
         TRACE(0,"Failed to Create app_mailbox\n");
