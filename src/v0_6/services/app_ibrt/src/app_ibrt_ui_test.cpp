@@ -759,7 +759,11 @@ void app_ibrt_ui_test_key_init(void)
 
 void app_ibrt_ui_test_init(void)
 {
+#ifdef CSD
+	TRACE_CSD(1,"{%s}", __func__);
+#else
     TRACE(1,"%s", __func__);
+#endif
 
     app_ibrt_ui_box_init(&box_ble_addr);
     app_ibrt_auto_test_init();

@@ -161,6 +161,7 @@ void tx_ramp_new(void)
 
 void bt_drv_extra_config_after_init(void)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     btdrv_ecc_config();
 }
 
@@ -284,6 +285,7 @@ void btdrv_enable_jtag(void)
 
 void btdrv_start_bt(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     hal_sysfreq_req(HAL_SYSFREQ_USER_BT, HAL_CMU_FREQ_26M);
 
 #if INTERSYS_DEBUG
@@ -297,7 +299,7 @@ void btdrv_start_bt(void)
                        BT_CONTROLER_TRACE_TYPE_CONTROLLER |
                        BT_CONTROLER_FILTER_TRACE_TYPE_A2DP_STREAM);
 #endif
-#endif
+#endif	/*END* INTERSYS_DEBUG */
 
 #if defined(BLE_ONLY_ENABLED)
     btdrv_enable_sleep_checker(false);
@@ -404,6 +406,7 @@ void btdrv_start_bt(void)
 #ifdef PCM_PRIVATE_DATA_FLAG
     bt_sco_pri_data_init();
 #endif
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 const uint8_t hci_cmd_enable_dut[] =

@@ -1609,7 +1609,7 @@ void avrcp_set_media_status(uint8_t status)
 
 
 
-#else
+#else	/* !defined(BTIF_AVRCP_ADVANCED_CONTROLLER) */
 void a2dp_init(void)
 {
     for(uint8_t i=0; i<BT_DEVICE_NUM; i++)
@@ -1652,7 +1652,7 @@ extern "C" void avrcp_callback(AvrcpChannel *chnl, const AvrcpCallbackParms *Par
             break;
     }
 }
-#endif
+#endif	/*END* !defined(BTIF_AVRCP_ADVANCED_CONTROLLER) */
 //void avrcp_init(void)
 //{
 //  hal_uart_open(HAL_UART_ID_0,NULL);

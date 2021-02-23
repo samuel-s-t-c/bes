@@ -50,7 +50,7 @@ static void factory_callback(void* param)
 
 void factory_section_init(void)
 {
-	TRACE_CSD(0, "{%s}", __func__);
+	TRACE_CSD(1, "{%s}", __func__);
     enum NORFLASH_API_RET_T result;
     uint32_t sector_size = 0;
     uint32_t block_size = 0;
@@ -76,6 +76,7 @@ void factory_section_init(void)
 
 int factory_section_open(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     factory_section_p = (factory_section_t *)__factory_start;
 
     if (factory_section_p->head.magic != nvrec_dev_magic){
@@ -130,6 +131,7 @@ int factory_section_open(void)
 
     DUMP8("%02x ", bt_addr, 6);
     DUMP8("%02x ", ble_addr, 6);
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 

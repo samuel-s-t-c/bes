@@ -757,6 +757,7 @@ void app_audio_open(void)
     {
         return;
     }
+	TRACE_CSD(1, "[%s]+++", __func__);
     if (g_app_audio_queue_mutex_id == NULL)
     {
         g_app_audio_queue_mutex_id = osMutexCreate((osMutex(g_app_audio_queue_mutex)));
@@ -780,6 +781,7 @@ void app_audio_open(void)
     app_bt_stream_init();
 
     app_audio_init = true;
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void app_audio_close(void)

@@ -102,7 +102,7 @@ static int app_key_handle_process(APP_MESSAGE_BODY *msg_body)
 
 int app_key_handle_registration(const APP_KEY_HANDLE *key_handle)
 {
-	TRACE_CSD(1, "{%s} %p", __func__, key_handle);
+	TRACE_CSD(2, "{%s} %p", __func__, key_handle);
     APP_KEY_HANDLE *dest_key_handle = NULL;
     APP_KEY_TRACE(1,"%s",__func__);
     dest_key_handle = app_key_handle_find(&(key_handle->key_status));
@@ -132,7 +132,7 @@ void app_key_handle_clear(void)
 
 int app_key_open(int checkPwrKey)
 {
-	TRACE_CSD(0, "{%s} %d", __func__, checkPwrKey);
+	TRACE_CSD(2, "{%s} %d", __func__, checkPwrKey);
     APP_KEY_TRACE(2,"%s %p",__func__, app_key_conifg.key_list);
 
     if (app_key_conifg.key_list == NULL)

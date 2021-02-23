@@ -2356,6 +2356,7 @@ void app_audio_manager_open(void)
     {
         return;
     }
+	TRACE_CSD(1, "[%s]+++", __func__);
     bt_meida.media_curr_sbc = BT_DEVICE_NUM;
     bt_meida.media_curr_sco = BT_DEVICE_NUM;
     bt_meida.curr_active_media = 0;
@@ -2366,6 +2367,7 @@ void app_audio_manager_open(void)
 #ifdef MIX_AUDIO_PROMPT_WITH_A2DP_MEDIA_ENABLED
     audio_prompt_init_handler();
 #endif
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void app_audio_manager_close(void)

@@ -544,6 +544,7 @@ int app_bt_ME_SwitchRole(btif_remote_device_t* remDev)
 
 int app_bt_ME_SetConnectionRole(btif_connection_role_t  role)
 {
+	TRACE_CSD(2, "{%s} role=0x%x", __func__, role);
     APP_BT_MAIL* mail;
     app_bt_mail_alloc(&mail);
     mail->src_thread = (uint32_t)osThreadGetId();
@@ -743,6 +744,7 @@ int app_bt_A2DP_CloseStream(a2dp_stream_t *Stream)
 
 int app_bt_A2DP_SetMasterRole(a2dp_stream_t *Stream, BOOL Flag)
 {
+	TRACE_CSD(3, "{%s} stream=%p flag=%d", __func__, Stream, Flag);
     APP_BT_MAIL* mail;
     app_bt_mail_alloc(&mail);
     mail->src_thread = (uint32_t)osThreadGetId();
@@ -812,6 +814,7 @@ int app_bt_HF_EnableSniffMode(hf_chan_handle_t Chan, BOOL Enable)
 
 int app_bt_HF_SetMasterRole(hf_chan_handle_t Chan, BOOL Flag)
 {
+	TRACE_CSD(3, "{%s} chanel=%p flag=%d", __func__, Chan, Flag);
     APP_BT_MAIL* mail;
     app_bt_mail_alloc(&mail);
     mail->src_thread = (uint32_t)osThreadGetId();
@@ -900,6 +903,7 @@ int app_bt_HS_EnableSniffMode(HsChannel *Chan, BOOL Enable)
 int app_bt_start_custom_function_in_bt_thread(
     uint32_t param0, uint32_t param1, uint32_t funcPtr)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     APP_BT_MAIL* mail;
     app_bt_mail_alloc(&mail);
     mail->src_thread = (uint32_t)osThreadGetId();

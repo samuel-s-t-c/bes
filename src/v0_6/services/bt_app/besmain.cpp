@@ -237,7 +237,7 @@ extern "C" void HciSendCompletePacketCommandRightNow(uint16_t handle,uint8_t num
 
 void gen_bt_addr_for_debug(void)
 {
-	TRACE_CSD(0, "[%s]", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     static const char host[] = TO_STRING(BUILD_HOSTNAME);
     static const char user[] = TO_STRING(BUILD_USERNAME);
     uint32_t hlen, ulen;
@@ -268,7 +268,7 @@ void gen_bt_addr_for_debug(void)
 
     TRACE(0,"Modified debug BT addr is:");
     DUMP8("%02x ", bt_addr, BTIF_BD_ADDR_SIZE);
-	TRACE_CSD(0, "[%s]*** leaving", __func__);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 #if !defined(ENHANCED_STACK)
@@ -318,6 +318,7 @@ static void __set_bt_sco_num(void)
 #if defined(__BT_ONE_BRING_TWO__)//&&defined(HFP_NO_PRERMPT)
     sco_num = 1;
 #endif
+	TRACE_CSD(2, "{%s} sco_num=%d", __func__, sco_num);
     bt_set_sco_number(sco_num);
 }
 
@@ -345,6 +346,7 @@ static void stack_ready_callback(int status)
 
 int besmain(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     enum APP_SYSFREQ_FREQ_T sysfreq;
 
 #if !defined(BLE_ONLY_ENABLED)
@@ -353,7 +355,7 @@ int besmain(void)
 #else
     sysfreq = APP_SYSFREQ_52M;
 #endif
-#else
+#else	/* defined(BLE_ONLY_ENABLED) */
     sysfreq = APP_SYSFREQ_26M;
 #endif
 
@@ -366,6 +368,7 @@ int besmain(void)
     add_randomness();
 
 #ifdef __IAG_BLE_INCLUDE__
+	TRACE_CSD(0, "\n__IAG_BLE_INCLUDE__\n")
     bes_ble_init();
 #endif
 
@@ -442,7 +445,7 @@ int besmain(void)
 #endif
     tws_ctrl_thread_init();
     app_ibrt_peripheral_thread_init();
-#endif
+#endif	/*END* defined(IBRT) */
 
 #if defined(APP_LINEIN_A2DP_SOURCE)
     app_source_init();
@@ -459,15 +462,18 @@ int besmain(void)
     //init bt key
     bt_key_init();
 #ifdef TEST_OVER_THE_AIR_ENANBLED
+	TRACE_CSD(0, "\nTEST_OVER_THE_AIR_ENANBLED\n")
     app_tota_init();
 #endif
     osapi_notify_evm();
     while(1) {
         app_sysfreq_req(APP_SYSFREQ_USER_BT_MAIN, APP_SYSFREQ_32K);
         osMessageGet(evm_queue_id, osWaitForever);
+		TRACE_CSD(1, "[%s]+++ bt_thread", __func__);
         app_sysfreq_req(APP_SYSFREQ_USER_BT_MAIN, sysfreq);
         //    BESHCI_LockBuffer();
 #ifdef __LOCK_AUDIO_THREAD__
+		TRACE_CSD(0, "\n__LOCK_AUDIO_THREAD__\n");
         bool stream_a2dp_sbc_isrun = app_bt_stream_isrun(APP_BT_STREAM_A2DP_SBC);
         if (stream_a2dp_sbc_isrun) {
             af_lock_thread();
@@ -509,9 +515,10 @@ void BesbtThread(void const *argument)
 osThreadId besbt_tid;
 void BesbtInit(void)
 {
-
+	TRACE_CSD(1, "[%s]+++", __func__);
     evm_queue_id = osMessageCreate(osMessageQ(evm_queue), NULL);
     /* bt */
     besbt_tid = osThreadCreate(osThread(BesbtThread), NULL);
     TRACE(1,"BesbtThread: %p\n", besbt_tid);
+	TRACE_CSD(1, "[%s]---", __func__);
 }

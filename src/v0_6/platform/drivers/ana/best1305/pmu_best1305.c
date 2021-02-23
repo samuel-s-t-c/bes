@@ -1471,7 +1471,7 @@ int pmu_codec_volt_ramp_down(void)
 
 int BOOT_TEXT_FLASH_LOC pmu_open(void)
 {
-	TRACE_CSD(0, "{%s}", __func__);
+	TRACE_CSD(1, "{%s}", __func__);
 #if defined(PMU_INIT) || (!defined(FPGA) && !defined(PROGRAMMER))
 
     uint16_t val;
@@ -2922,7 +2922,7 @@ static void pmu_wdt_irq_handler(uint16_t irq_status)
 
 void pmu_wdt_set_irq_handler(PMU_WDT_IRQ_HANDLER_T handler)
 {
-	TRACE_CSD(0, "[%s]", __func__);
+	TRACE_CSD(1, "{%s}", __func__);
     uint32_t lock;
     uint16_t val;
 

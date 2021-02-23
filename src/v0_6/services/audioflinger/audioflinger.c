@@ -1023,6 +1023,7 @@ static void af_thread(void const *argument)
         //wait any signal
         evt = osSignalWait(0x0, osWaitForever);
         signals = evt.value.signals;
+		TRACE_CSD(3,"[%s]+++ status = %x, signals = %d", __func__, evt.status, evt.value.signals);
 //        TRACE(3,"[%s] status = %x, signals = %d", __func__, evt.status, evt.value.signals);
 
         if(evt.status == osEventSignal)
@@ -1174,7 +1175,7 @@ static void af_codec_anc_boost_delay(uint32_t ms)
 
 uint32_t af_open(void)
 {
-	TRACE_CSD(1, "[%s]", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     AF_TRACE_DEBUG();
     struct af_stream_cfg_t *role = NULL;
 
@@ -1260,7 +1261,7 @@ uint32_t af_open(void)
     randInit();
 #endif
     af_unlock_thread();
-
+	TRACE_CSD(1, "[%s]---", __func__);
     return AF_RES_SUCCESS;
 }
 

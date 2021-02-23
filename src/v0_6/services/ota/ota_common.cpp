@@ -1674,7 +1674,7 @@ static void _sync_info_received_handler(uint8_t *buf, uint16_t length)
 
 void ota_common_tws_sync_init(void)
 {
-	TRACE_CSD(0, "{%s}", __func__);
+	TRACE_CSD(1, "{%s}", __func__);
     TWS_SYNC_USER_T userOta = {
         _sync_info_prepare_handler,
         _sync_info_received_handler,

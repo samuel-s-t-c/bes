@@ -1242,6 +1242,7 @@ int app_play_audio_get_aud_id(void)
 
 void app_play_audio_set_lang(int L)
 {
+	TRACE_CSD(2, "{%s} lang=%d", __func__, L);
     g_language = L;
 }
 

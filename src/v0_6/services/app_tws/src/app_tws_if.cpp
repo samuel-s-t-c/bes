@@ -131,7 +131,7 @@ static const char *tws_sync_user2str(TWS_SYNC_USER_E user)
 
 void app_tws_if_init(void)
 {
-	TRACE_CSD(0, "[%s]", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     // reset the environment
     memset(&twsEnv, 0, sizeof(twsEnv));
     memset(&twsSyncBuf, 0, TWS_SYNC_BUF_SIZE);
@@ -172,7 +172,7 @@ void app_tws_if_init(void)
 #ifdef BTIF_DIP_DEVICE
     app_dip_sync_init();
 #endif
-	TRACE_CSD(0, "[%s]*** leaving", __func__);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void app_tws_if_role_switch_started_handler(void)
@@ -684,13 +684,14 @@ bool app_tws_is_unknown_side(void)
 
 void app_tws_set_side_from_addr(uint8_t *addr)
 {
+	TRACE_CSD(1 | TR_ATTR_NO_LF, "{%s} ", __func__);
     ASSERT(addr, "Error: address invalid");
     if (addr[0] & 0x1) {
         app_tws_set_side(EAR_SIDE_RIGHT);
-        TRACE(0, "Right earbud");
+        TRACE(0 | TR_ATTR_NO_ID | TR_ATTR_NO_TS, "Right earbud");
     } else {
         app_tws_set_side(EAR_SIDE_LEFT);
-        TRACE(0, "Left earbud");
+        TRACE(0 | TR_ATTR_NO_ID | TR_ATTR_NO_TS, "Left earbud");
     }
 }
 

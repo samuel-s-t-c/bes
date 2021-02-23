@@ -1199,6 +1199,7 @@ void app_bt_role_manager_process_dual_slave(const btif_event_t *Event)
 
 static int app_bt_sniff_manager_init(void)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     btif_sniff_info_t sniffInfo;
     btif_remote_device_t *remDev = NULL;
 
@@ -1812,6 +1813,7 @@ void hfp_reconnect_sco(uint8_t set)
 
 void app_bt_global_handle_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     btif_event_mask_t mask = BTIF_BEM_NO_EVENTS;
     btif_me_init_handler(&app_bt_handler);
     app_bt_handler.callback = app_bt_global_handle;
@@ -1862,6 +1864,7 @@ void app_bt_global_handle_init(void)
     app_bt_sniff_manager_init();
     app_bt_accessmode_timer = osTimerCreate (osTimer(APP_BT_ACCESSMODE_TIMER), osTimerOnce, &app_bt_accessmode_timer_argument);
     bt_sco_recov_timer = osTimerCreate (osTimer(BT_SCO_RECOV_TIMER), osTimerOnce, NULL);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void app_bt_send_request(uint32_t message_id, uint32_t param0, uint32_t param1, uint32_t ptr)
@@ -3866,6 +3869,7 @@ static int app_custom_function_process(APP_MESSAGE_BODY *msg_body)
 int app_bt_start_custom_function_in_app_thread(
                                     uint32_t param0, uint32_t param1, uint32_t funcPtr)
 {
+	TRACE_CSD(1, "{%s} %d", __func__, funcPtr);
     APP_MESSAGE_BLOCK msg;
 
     msg.mod_id = APP_MODUAL_CUSTOM_FUNCTION;
@@ -3880,13 +3884,13 @@ int app_bt_start_custom_function_in_app_thread(
 
 void app_bt_init(void)
 {
-	TRACE_CSD(0, "[%s]", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     app_bt_mail_init();
     app_set_threadhandle(APP_MODUAL_BT, app_bt_handle_process);
     btif_me_sec_set_io_cap_rsp_reject_ext(app_bt_profile_connect_openreconnecting);
     app_bt_active_mode_manager_init();
     app_set_threadhandle(APP_MODUAL_CUSTOM_FUNCTION, app_custom_function_process);
-	TRACE_CSD(0, "[%s]*** leaving", __func__);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 extern "C" bool app_bt_has_connectivitys(void)

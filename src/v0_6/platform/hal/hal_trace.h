@@ -421,13 +421,13 @@ typedef struct {
 	const char *block;
 	int cnt;
 }__attribute__((packed)) COSONIC_TRACE_CFG_T;
-	
+
 typedef enum {
-	COSONIC_TEST_LOG,
+	test_log,
 	COSONIC_TRACE_CFG_NUM,
 } COSONIC_TRACE_CFG_E;
-		
-extern COSONIC_TRACE_CFG_T cosonic_trace_cfg_array[COSONIC_TRACE_CFG_NUM];
+
+extern COSONIC_TRACE_CFG_T cosonic_trace_cfg_array[];
 	
 #define COSONIC_TRACE(n,is_cnt,str,...) \
 do{\
@@ -439,7 +439,7 @@ do{\
 			__func__ ,\
 			__LINE__,\
 	    	##__VA_ARGS__);\
-		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "   cnt=%d\n",\
+		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "   cnt=%d",\
 			cosonic_trace_cfg_array[(n)].cnt++);\
 	}\
 	else\

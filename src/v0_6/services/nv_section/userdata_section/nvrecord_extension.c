@@ -938,7 +938,7 @@ void nv_extension_callback(void* param)
 
 void nv_record_init(void)
 {
-	TRACE_CSD(0, "{%s}", __func__);
+	TRACE_CSD(1, "{%s}", __func__);
     nv_mpu_id = mpu_alloc_region();
     if (nv_mpu_id == MPU_INVALID_ID) {
         TRACE(2,"cannot alloc mpu region for NV!!!");
@@ -950,6 +950,7 @@ void nv_record_init(void)
 
 bt_status_t nv_record_open(SECTIONS_ADP_ENUM section_id)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     nv_record_extension_init();
 #ifdef FLASH_SUSPEND
     hal_sleep_set_sleep_hook(HAL_SLEEP_HOOK_USER_NVRECORD,

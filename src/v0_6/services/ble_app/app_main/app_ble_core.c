@@ -296,7 +296,7 @@ static void ble_sync_info_rsp_received_handler(uint8_t *buf, uint16_t length)
 
 void app_ble_mode_tws_sync_init(void)
 {
-	TRACE_CSD(0, "{%s}", __func__);
+	TRACE_CSD(1, "{%s}", __func__);
     TWS_SYNC_USER_T userBle = {
         ble_sync_info_prepare_handler,
         ble_sync_info_received_handler,

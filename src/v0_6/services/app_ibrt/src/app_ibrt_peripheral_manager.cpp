@@ -48,6 +48,7 @@ static uint8_t app_ibrt_peripheral_mailbox_cnt = 0;
 
 static int app_ibrt_peripheral_mailbox_init(void)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     app_ibrt_peripheral_mailbox = osMailCreate(osMailQ(app_ibrt_peripheral_mailbox), NULL);
     if (app_ibrt_peripheral_mailbox == NULL)  {
         TRACE(0,"Failed to Create app_ibrt_peripheral_mailbox\n");
@@ -97,13 +98,16 @@ int app_ibrt_peripheral_mailbox_free(TWS_PD_MSG_BLOCK* msg_p)
 
 int app_ibrt_peripheral_mailbox_get(TWS_PD_MSG_BLOCK** msg_p)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     if(!msg_p){
         TRACE(0,"msg_p is a null pointer in app_ibrt_peripheral_mailbox_get!");
         return -1;
     }
 
     osEvent evt;
+
     evt = osMailGet(app_ibrt_peripheral_mailbox, osWaitForever);
+	TRACE_CSD(1, "[%s]---", __func__);
     if (evt.status == osEventMail) {
         *msg_p = (TWS_PD_MSG_BLOCK *)evt.value.p;
         return 0;
@@ -183,6 +187,7 @@ void app_ibrt_peripheral_thread(void const *argument)
     while(1){
         TWS_PD_MSG_BLOCK *msg_p = NULL;
         if ((!app_ibrt_peripheral_mailbox_get(&msg_p))&&(!argument)) {
+			TRACE_CSD(1, "[%s]+++", __func__);
             switch(msg_p->msg_body.message_id){
                 case 0:
                     if(msg_p->msg_body.message_ptr){
@@ -317,6 +322,7 @@ void app_ibrt_peripheral_run2(uint32_t ptr, uint32_t param0, uint32_t param1)
 
 void app_ibrt_peripheral_thread_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     if (app_ibrt_peripheral_mailbox_init())
         return;
 
@@ -329,6 +335,7 @@ void app_ibrt_peripheral_thread_init(void)
 #ifdef BES_AUTOMATE_TEST
     app_ibrt_peripheral_heap_init();
 #endif
+	TRACE_CSD(1, "[%s]---", __func__);
     return;
 }
 #endif

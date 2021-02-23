@@ -1132,7 +1132,7 @@ int audio_process_init(void)
 
     hal_cmd_register("cmd", audio_cmd_callback);
     hal_cmd_register("ping", audio_ping_callback);
-#endif
+#endif	/*END* defined __PC_CMD_UART__ */
 
 #ifdef USB_EQ_TUNING
 
@@ -1145,7 +1145,7 @@ int audio_process_init(void)
     hal_cmd_register("cmd", audio_cmd_callback);
     hal_cmd_register("ping", audio_ping_callback);
 
-#endif
+#endif	/*END* defined USB_EQ_TUNING */
 
     // load default cfg
 #ifdef AUDIO_EQ_SW_IIR_UPDATE_CFG

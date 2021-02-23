@@ -165,7 +165,7 @@ static int app_qosfreq_req(enum APP_SYSFREQ_USER_T user, enum APP_SYSFREQ_FREQ_T
 
 int app_sysfreq_req(enum APP_SYSFREQ_USER_T user, enum APP_SYSFREQ_FREQ_T freq)
 {
-	TRACE_CSD(0, "{%s} %d %d", __func__, user, freq);
+	TRACE_CSD(3, "{%s} %d %d", __func__, user, freq);
     int ret;
 
     // if user is qos user

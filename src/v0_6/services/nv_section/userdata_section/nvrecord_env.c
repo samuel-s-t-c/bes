@@ -42,6 +42,7 @@ void nvrecord_rebuild_system_env(struct nvrecord_env_t* pSystemEnv)
 
 int nv_record_env_get(struct nvrecord_env_t **nvrecord_env)
 {
+	TRACE_CSD(3,"{%s} %p %p", __func__, nvrecord_env, nvrecord_extension_p);
     if (NULL == nvrecord_env)
     {
         return -1;
@@ -109,7 +110,9 @@ void nv_record_update_factory_tester_status(uint32_t status)
 
 int nv_record_env_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     nv_record_open(section_usrdata_ddbrecord);
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 #endif // #if defined(NEW_NV_RECORD_ENABLED)

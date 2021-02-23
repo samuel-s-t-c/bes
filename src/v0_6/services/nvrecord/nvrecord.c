@@ -1655,6 +1655,7 @@ int nvrec_dev_get_sn(char *sn)
 
 bool nvrec_dev_data_open(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     uint32_t dev_zone_crc,dev_zone_flsh_crc;
     uint32_t vermagic;
 
@@ -1712,6 +1713,7 @@ bool nvrec_dev_data_open(void)
 	{
 		nvrec_trace(1,"%s: nv rec dev is invalid.", __func__);
 	}
+	TRACE_CSD(1, "[%s]---", __func__);
     return dev_sector_valid;
 }
 

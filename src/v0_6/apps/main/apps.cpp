@@ -203,13 +203,13 @@ static enum APP_POWERON_CASE_T g_pwron_case = APP_POWERON_CASE_INVALID;
 #ifndef APP_TEST_MODE
 static uint8_t app_status_indication_init(void)
 {
-	TRACE_CSD(0, "[%s]", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     struct APP_PWL_CFG_T cfg;
     memset(&cfg, 0, sizeof(struct APP_PWL_CFG_T));
     app_pwl_open();
     app_pwl_setup(APP_PWL_ID_0, &cfg);
     app_pwl_setup(APP_PWL_ID_1, &cfg);
-	TRACE_CSD(0, "[%s]*** leaving", __func__);
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 #endif
@@ -648,11 +648,11 @@ static void app_poweron_key_init(void)
 {
     uint8_t i = 0;
     //TRACE(1,"%s",__func__);
-	TRACE_CSD(1,"[%s]",__func__);
+	TRACE_CSD(1,"[%s]+++",__func__);
     for (i=0; i<(sizeof(pwron_key_handle_cfg)/sizeof(APP_KEY_HANDLE)); i++){
         app_key_handle_registration(&pwron_key_handle_cfg[i]);
     }
-	TRACE_CSD(1,"[%s]*** leaving",__func__);
+	TRACE_CSD(1,"[%s]---",__func__);
 }
 
 static uint8_t app_poweron_wait_case(void)
@@ -677,6 +677,7 @@ static uint8_t app_poweron_wait_case(void)
 
 static void app_wait_stack_ready(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     uint32_t stime, etime;
     stime = hal_sys_timer_get();
     osSignalWait(0x3, 1000);
@@ -684,6 +685,7 @@ static void app_wait_stack_ready(void)
     TRACE(1,"app_wait_stack_ready: wait:%d ms", TICKS_TO_MS(etime - stime));
 
     app_stack_ready_cb();
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 extern "C" int system_shutdown(void);
@@ -1476,6 +1478,7 @@ int btdrv_tportopen(void);
 
 void app_ibrt_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
         app_bt_global_handle_init();
 #if defined(IBRT)
         ibrt_config_t config;
@@ -1496,6 +1499,7 @@ void app_ibrt_init(void)
 #endif
 
 #endif
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 #ifdef GFPS_ENABLED
@@ -1550,8 +1554,11 @@ extern uint32_t __factory_start[];
 
 int app_init(void)
 {
-	TRACE_CSD(0, "[%s]", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     int nRet = 0;
+	COSONIC_TRACE(test_log, 0, "%s", __func__);
+	COSONIC_TRACE(test_log, 1, "%s", __func__);
+	COSONIC_TRACE(test_log, 1, "%s", __func__);
     struct nvrecord_env_t *nvrecord_env;
 #ifdef POWER_ON_ENTER_TWS_PAIRING_ENABLED
     bool need_check_key = false;
@@ -1732,6 +1739,7 @@ extern int rpc_service_setup(void);
 #endif
 
 #ifdef BLE_ENABLE
+	TRACE_CSD(0, "\nBLE_ENABLE\n");
     app_ble_mode_init();
     app_ble_customif_init();
 #ifdef IBRT
@@ -1747,6 +1755,7 @@ extern int rpc_service_setup(void);
     speech_tuning_init();
 #endif
 #ifdef ANC_APP
+	TRACE_CSD(0, "\nANC_APP\n");
     app_anc_open_module();
 #endif
 
@@ -1885,7 +1894,7 @@ extern int rpc_service_setup(void);
         }
     }
 #endif
-    else{
+    else{	/* pwron_case != APP_POWERON_CASE_REBOOT && pwron_case != APP_POWERON_CASE_TEST */
         app_status_indication_set(APP_STATUS_INDICATION_POWERON);
 #ifdef MEDIA_PLAYER_SUPPORT
         app_voice_report(APP_STATUS_INDICATION_POWERON, 0);
@@ -2060,7 +2069,7 @@ exit:
 #endif // BT_USB_AUDIO_DUAL_MODE
     app_sysfreq_req(APP_SYSFREQ_USER_APP_INIT, APP_SYSFREQ_32K);
 
-	TRACE_CSD(0, "[%s]*** leaving", __func__);
+	TRACE_CSD(1, "[%s]---", __func__);
     return nRet;
 }
 

@@ -117,6 +117,7 @@ static uint32_t dbg_bt_setting_ext3_addr=0;
 static uint32_t bt_rx_nosync_info_addr=0;
 void bt_drv_reg_op_global_symbols_init(void)
 {
+	TRACE_CSD(1,"{%s}", __func__);
     bt_ram_start_addr = 0xc0000000;
     if(hal_get_chip_metal_id() == HAL_CHIP_METAL_ID_0)
     {

@@ -59,6 +59,7 @@ void app_overlay_unloadall(void)
 
 void app_overlay_open(void)
 {
+	TRACE_CSD(1, "{%s}", __func__);
 	if (app_overlay_mutex_id == NULL) {
 		app_overlay_mutex_id = osMutexCreate(osMutex(app_overlay_mutex));
 	}

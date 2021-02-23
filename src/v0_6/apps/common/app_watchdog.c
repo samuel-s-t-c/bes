@@ -68,8 +68,8 @@ static void watchdog_ping_handler(void const *unused)
 
 int app_wdt_open(int seconds)
 {
-	TRACE_CSD(TR_ATTR_NO_LF, "[%s]", __func__);
-	TRACE_CSD(TR_ATTR_NO_ID|TR_ATTR_NO_TS, " %d second", seconds);
+	TRACE_CSD(1|TR_ATTR_NO_LF, "{%s}+++", __func__);
+	TRACE_CSD(1|TR_ATTR_NO_ID|TR_ATTR_NO_TS, " %d second", seconds);
     uint32_t lock;
     int ret;
     static int wdt_opened = 0;

@@ -250,7 +250,7 @@ uint32_t hal_iomux_check(const struct HAL_IOMUX_PIN_FUNCTION_MAP *map, uint32_t 
 
 uint32_t hal_iomux_init(const struct HAL_IOMUX_PIN_FUNCTION_MAP *map, uint32_t count)
 {
-	TRACE_CSD(TR_ATTR_NO_ID|TR_ATTR_NO_TS, "{%s} %d", __func__, count);
+	TRACE_CSD(2|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "{%s} %d", __func__, count);
     uint32_t i;
     uint32_t ret;
 

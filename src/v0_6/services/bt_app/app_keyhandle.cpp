@@ -1516,6 +1516,7 @@ void bt_key_handle(void)
 
 void bt_key_init(void)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     Besbt_hook_handler_set(BESBT_HOOK_USER_2, bt_key_handle);
 #ifdef __BT_ONE_BRING_TWO__
     //bt_key_hf_channel_switch_init();
