@@ -585,7 +585,7 @@ int app_battery_open(void)
 
 int app_battery_start(void)
 {
-    APP_BATTERY_TRACE(2,"%s %d",__func__, APP_BATTERY_MEASURE_PERIODIC_FAST_MS);
+    APP_BATTERY_TRACE(2,"{%s} %d",__func__, APP_BATTERY_MEASURE_PERIODIC_FAST_MS);
 
     app_battery_timer_start(APP_BATTERY_MEASURE_PERIODIC_FAST);
 

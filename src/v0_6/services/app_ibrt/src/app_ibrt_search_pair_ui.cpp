@@ -666,6 +666,7 @@ static void box_det_pin_init(void)
 
 void app_ibrt_search_ui_init(bool boxOperation,ibrt_event_type evt_type)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     app_ibrt_ui_t *p_ui_ctrl = app_ibrt_ui_get_ctx();
     if((true==p_ui_ctrl->config.check_plugin_excute_closedbox_event) ||
        (false==boxOperation))
@@ -674,6 +675,7 @@ void app_ibrt_search_ui_init(bool boxOperation,ibrt_event_type evt_type)
     if(false==boxOperation)
     {
 #ifdef BOX_DET_USE_GPIO
+		TRACE_CSD(0, "\nBOX_DET_USE_GPIO\n");
         box_det_pin_init();
 #else
         app_battery_register(app_ibrt_battery_callback);
@@ -686,7 +688,7 @@ void app_ibrt_search_ui_init(bool boxOperation,ibrt_event_type evt_type)
     {
         app_ibrt_ui_judge_scan_type(IBRT_OPEN_BOX_TRIGGER,NO_LINK_TYPE,IBRT_UI_NO_ERROR);
     }
-
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 
@@ -694,6 +696,7 @@ void app_ibrt_search_ui_init(bool boxOperation,ibrt_event_type evt_type)
 
 void app_ibrt_remove_history_paired_device(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     bt_status_t            retStatus;
     btif_device_record_t   record;
     ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
@@ -723,12 +726,14 @@ void app_ibrt_remove_history_paired_device(void)
 
     memset(p_ibrt_ctrl->local_addr.address, 0, BTIF_BD_ADDR_SIZE);
     memset(p_ibrt_ctrl->peer_addr.address, 0, BTIF_BD_ADDR_SIZE);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 
 
 void app_ibrt_enter_limited_mode(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
     app_ibrt_ui_t *p_ibrt_ui = app_ibrt_ui_get_ctx();
 
@@ -738,7 +743,7 @@ void app_ibrt_enter_limited_mode(void)
     app_ibrt_remove_history_paired_device();
     TRACE(0,"ibrt_ui_log:power on enter pairing");
     app_ibrt_ui_judge_scan_type(IBRT_SEARCH_SLAVE_TRIGGER,NO_LINK_TYPE,IBRT_UI_NO_ERROR);
-
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 #endif

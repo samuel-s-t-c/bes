@@ -903,7 +903,7 @@ int app_bt_HS_EnableSniffMode(HsChannel *Chan, BOOL Enable)
 int app_bt_start_custom_function_in_bt_thread(
     uint32_t param0, uint32_t param1, uint32_t funcPtr)
 {
-	TRACE_CSD(1, "{%s}", __func__);
+	TRACE_CSD(4, "{%s} funcptr=0x%x param0=%d param1=%d", __func__, funcPtr, param0, param1);
     APP_BT_MAIL* mail;
     app_bt_mail_alloc(&mail);
     mail->src_thread = (uint32_t)osThreadGetId();

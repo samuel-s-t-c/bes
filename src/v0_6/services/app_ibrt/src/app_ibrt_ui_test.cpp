@@ -750,11 +750,13 @@ int app_ibrt_ui_test_config_load(void *config)
 
 void app_ibrt_ui_test_key_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     app_key_handle_clear();
     for (uint8_t i=0; i<ARRAY_SIZE(app_ibrt_ui_test_key_cfg); i++)
     {
         app_key_handle_registration(&app_ibrt_ui_test_key_cfg[i]);
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void app_ibrt_ui_test_init(void)

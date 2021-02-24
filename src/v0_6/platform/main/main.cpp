@@ -392,7 +392,7 @@ int main(void)
 #endif
             //wait any signal
             evt = osSignalWait(0x0, osWaitForever);
-
+			TRACE_CSD(0, "[main_thread]+++");
             //get role from signal value
             if(evt.status == osEventSignal)
             {

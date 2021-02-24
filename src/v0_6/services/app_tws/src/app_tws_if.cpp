@@ -420,8 +420,8 @@ void app_tws_if_tws_disconnected_handler(void)
 
 void app_tws_if_mobile_connected_handler(uint8_t *addr)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     TRACE(0, "twsif_mobile_connected");
-
 #ifdef IBRT
     if (IBRT_MASTER == app_tws_ibrt_role_get_callback(NULL))
 #endif
@@ -430,6 +430,7 @@ void app_tws_if_mobile_connected_handler(uint8_t *addr)
         // app_tws_if_sync_info(TWS_SYNC_USER_AI_CONNECTION);
         app_tws_if_sync_info(TWS_SYNC_USER_GFPS_INFO);
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void app_tws_if_mobile_disconnected_handler(uint8_t *addr)

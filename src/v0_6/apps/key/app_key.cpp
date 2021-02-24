@@ -127,6 +127,7 @@ int app_key_handle_registration(const APP_KEY_HANDLE *key_handle)
 
 void app_key_handle_clear(void)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     list_clear(app_key_conifg.key_list);
 }
 

@@ -139,7 +139,7 @@ static void app_thread(void const *argument)
 
 int app_os_init(void)
 {
-	TRACE_CSD(1, "[%s]", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     if (app_mailbox_init())
         return -1;
 

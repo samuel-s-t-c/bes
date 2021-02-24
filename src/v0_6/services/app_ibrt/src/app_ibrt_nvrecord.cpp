@@ -41,6 +41,7 @@ Modification : Created function
 *****************************************************************************/
 void app_ibrt_nvrecord_config_load(void *config)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     struct nvrecord_env_t *nvrecord_env;
     ibrt_config_t *ibrt_config = (ibrt_config_t *)config;
     //factory_section_original_btaddr_get(ibrt_config->local_addr.address);
@@ -63,6 +64,7 @@ void app_ibrt_nvrecord_config_load(void *config)
     {
         ibrt_config->nv_role=IBRT_UNKNOW;
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 /*****************************************************************************
 

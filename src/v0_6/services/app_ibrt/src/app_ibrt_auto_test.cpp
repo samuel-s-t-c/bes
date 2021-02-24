@@ -131,6 +131,7 @@ osTimerId   app_auto_test_print_state_timeout_timer_id = NULL;
 void app_ibrt_auto_test_init(void)
 {
 #ifdef BES_AUTOMATE_TEST
+	TRACE_CSD(1, "{%s}", __func__);
     memset((uint8_t *)&auto_test_state_t, 0, sizeof(auto_test_state_t));
     if (app_auto_test_print_state_timeout_timer_id == NULL)
     {

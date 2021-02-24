@@ -481,6 +481,7 @@ int app_ibrt_if_config_keeper_resume(ibrt_config_t *config)
 
 int app_ibrt_if_config_load(ibrt_config_t *config)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     memset(config->mobile_addr.address, 0, BD_ADDR_LEN);
 #ifdef IBRT_SEARCH_UI
     app_ibrt_nvrecord_config_load((void *)config);
@@ -488,6 +489,7 @@ int app_ibrt_if_config_load(ibrt_config_t *config)
 #else
     app_ibrt_ui_test_config_load((void *)config);
 #endif
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 

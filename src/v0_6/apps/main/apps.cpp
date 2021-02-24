@@ -254,6 +254,7 @@ APP_10_SECOND_TIMER_STRUCT app_10_second_array[] =
 
 void app_stop_10_second_timer(uint8_t timer_id)
 {
+	TRACE_CSD(2, "{%s} id=%d", __func__, timer_id);
     APP_10_SECOND_TIMER_STRUCT *timer = &app_10_second_array[timer_id];
 
     timer->timer_en = 0;
@@ -262,6 +263,7 @@ void app_stop_10_second_timer(uint8_t timer_id)
 
 void app_start_10_second_timer(uint8_t timer_id)
 {
+	TRACE_CSD(2, "{%s} id=%d", __func__, timer_id);
     APP_10_SECOND_TIMER_STRUCT *timer = &app_10_second_array[timer_id];
 
     timer->timer_en = 1;
@@ -270,6 +272,7 @@ void app_start_10_second_timer(uint8_t timer_id)
 
 void app_set_10_second_timer(uint8_t timer_id, uint8_t enable, uint8_t period)
 {
+	TRACE_CSD(4, "{%s} id=%d enable=%d period=%d", __func__, timer_id, enable, period);
     APP_10_SECOND_TIMER_STRUCT *timer = &app_10_second_array[timer_id];
 
     timer->timer_en = enable;
@@ -278,6 +281,7 @@ void app_set_10_second_timer(uint8_t timer_id, uint8_t enable, uint8_t period)
 
 void app_10_second_timer_check(void)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     APP_10_SECOND_TIMER_STRUCT *timer = app_10_second_array;
     unsigned int i;
 
@@ -616,6 +620,7 @@ static void app_poweron_finished(APP_KEY_STATUS *status, void *param)
 
 void app_poweron_wait_finished(void)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     if (!g_pwron_finished){
         osSignalWait(0x2, osWaitForever);
     }
@@ -657,6 +662,7 @@ static void app_poweron_key_init(void)
 
 static uint8_t app_poweron_wait_case(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     uint32_t stime = 0, etime = 0;
 
 #ifdef __POWERKEY_CTRL_ONOFF_ONLY__
@@ -670,6 +676,7 @@ static uint8_t app_poweron_wait_case(void)
     }
     TRACE(2,"powon raw case:%d time:%d", g_pwron_case, TICKS_TO_MS(etime - stime));
 #endif
+	TRACE_CSD(1, "[%s]---", __func__);
     return g_pwron_case;
 
 }
@@ -1219,6 +1226,7 @@ const APP_KEY_HANDLE  app_key_handle_cfg[] = {
 void app_key_init(void)
 {
 #if defined(IBRT)
+	TRACE_CSD(1, "{%s}-->{app_ibrt_ui_test_key_init}", __func__);
     app_ibrt_ui_test_key_init();
 #else
     uint8_t i = 0;
@@ -1488,7 +1496,9 @@ void app_ibrt_init(void)
         app_ibrt_if_config_load(&config);
         app_ibrt_customif_ui_start();
 #ifdef IBRT_SEARCH_UI
+		TRACE_CSD(0, "[app_tws_ibrt_start]+++");
         app_tws_ibrt_start(&config, true);
+		TRACE_CSD(0, "[app_tws_ibrt_start]---");
         app_ibrt_search_ui_init(false,IBRT_NONE_EVENT);
 #else
         app_tws_ibrt_start(&config, false);
@@ -1949,16 +1959,16 @@ extern int rpc_service_setup(void);
                     if(false==is_charging_poweron)
                         app_ibrt_enter_limited_mode();
 #endif
-#else
+#else	/* !defined(IBRT) */
                     app_bt_accessmode_set(BTIF_BT_DEFAULT_ACCESS_MODE_PAIR);
-#endif
+#endif	/*END* !defined(IBRT) */
 #ifdef GFPS_ENABLED
                     app_enter_fastpairing_mode();
 #endif
 #if defined(__BTIF_AUTOPOWEROFF__)
                     app_start_10_second_timer(APP_PAIR_TIMER_ID);
 #endif
-#endif
+#endif	/*END* defined( __BTIF_EARPHONE__) */
 #ifdef __THIRDPARTY
                     app_thirdparty_specific_lib_event_handle(THIRDPARTY_FUNC_NO2,THIRDPARTY_BT_DISCOVERABLE);
 #endif
@@ -1980,16 +1990,16 @@ extern int rpc_service_setup(void);
                             app_ibrt_ui_event_entry(IBRT_FETCH_OUT_EVENT);
                         }
                     }
-#elif defined(IS_MULTI_AI_ENABLED)
+#elif defined(IS_MULTI_AI_ENABLED)	/* !defined(IBRT_SEARCH_UI) */
                     //when ama and bisto switch, earphone need reconnect with peer, master need reconnect with phone
                     //app_ibrt_ui_event_entry(IBRT_OPEN_BOX_EVENT);
                     //TRACE(1,"ibrt_ui_log:power on %d fetch out", nvrecord_env->ibrt_mode.mode);
                     //app_ibrt_ui_event_entry(IBRT_FETCH_OUT_EVENT);
 #endif
-#else
+#else	/* !defined(IBRT) */
                     app_bt_accessmode_set(BTIF_BAM_NOT_ACCESSIBLE);
-#endif
-#endif
+#endif	/*END* !defined(IBRT) */
+#endif	/*END* defined( __BTIF_EARPHONE__ ) && !defined(__EARPHONE_STAY_BOTH_SCAN__) */
                 case APP_POWERON_CASE_REBOOT:
                 case APP_POWERON_CASE_ALARM:
                 default:
@@ -2023,7 +2033,7 @@ extern int rpc_service_setup(void);
 #ifdef RB_CODEC
             rb_ctl_init();
 #endif
-        }else{
+        }else{	/* !(pwron_case != APP_POWERON_CASE_INVALID && pwron_case != APP_POWERON_CASE_DITHERING) */
             af_close();
             app_key_close();
             nRet = -1;

@@ -104,6 +104,7 @@ void app_ibrt_customif_ui_vender_event_handler_ind(uint8_t evt_type, uint8_t *bu
 }
 void app_ibrt_customif_ui_global_handler_ind(ibrt_link_type_e link_type, uint8_t evt_type, uint8_t status)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     ibrt_ctrl_t *p_ibrt_ctrl = app_ibrt_if_get_bt_ctrl_ctx();
 
     switch (evt_type)
@@ -189,6 +190,7 @@ void app_ibrt_customif_ui_global_handler_ind(ibrt_link_type_e link_type, uint8_t
         default:
             break;
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 void app_ibrt_customif_open_box_complete_ind(void)
 {
@@ -608,6 +610,7 @@ void app_ibrt_customif_ui_pairing_clear(trigger_pairing_mode_type_e trigger_type
 
 int app_ibrt_customif_ui_start(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     ibrt_ui_config_t config;
 
     // zero init the config
@@ -798,7 +801,7 @@ int app_ibrt_customif_ui_start(void)
     {
         app_ibrt_if_sniff_checker_init(config.delay_ms_exit_sniff);
     }
-
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 

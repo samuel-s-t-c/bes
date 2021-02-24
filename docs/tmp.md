@@ -22,6 +22,10 @@ DMA
 
 * delay函数: `osDelay`
 
+KEY
+
+* `app_ibrt_ui_test_key_cfg`
+
 NORFLASH
 
 * sleep hook: 
@@ -40,12 +44,23 @@ TWS
     * `TWS_CMD_CUSTOMER`->`app_ibrt_customif_cmd_table_get`
     * `TWS_CMD_IBRT_OTA`->`app_ibrt_ota_tws_cmd_table_get`
     * `TWS_CMD_OTA`->`app_ibrt_ota_cmd_table_get`
+  * ui,  `app_ibrt_customif_ui_start`
+    * `app_ibrt_customif_ui_global_handler_ind`
+    * `app_ibrt_customif_ui_vender_event_handler_ind`
+    * `app_ibrt_customif_ui_global_event_update`
+    * `app_ibrt_customif_mobile_connected_ind`
+    * `app_ibrt_customif_ibrt_connected_ind`
+    * `app_ibrt_customif_tws_connected_ind`
+    * `app_ibrt_customif_profile_state_change_ind`
+    * `app_ibrt_customif_connect_mobile_needed_ind`
+    * `app_ibrt_customif_ui_pairing_set`
+    * `app_ibrt_customif_ui_pairing_clear`
 
 BT
 
 * `app_bt_global_handle_hook_handler`
   * `APP_BT_GOLBAL_HANDLE_HOOK_USER_0`->`app_bt_manager_ibrt_role_process`
-  * 
+* `app_bt_global_handle`
 
 THREAD
 
@@ -64,6 +79,7 @@ THREAD
     * `BESBT_HOOK_USER_1`->`app_bt_mail_poll`
     * `BESBT_HOOK_USER_2`->`bt_key_handle`
 * `app_ibrt_peripheral_thread`
+* `tws_ctrl_thread`: 
 
 MAILBOX
 
@@ -87,7 +103,10 @@ TIMER(os)
 * `APP_BT_ACCESSMODE_TIMER`
   * 一次性
   * 处理函数`app_bt_accessmode_timehandler(&app_bt_accessmode_timer_argument)`
-
 * `BT_SCO_RECOV_TIMER`
   * 一次性
   * 处理函数`bt_sco_recov_timer_handler(NULL)`
+* `APP_BOX_HANDLE`
+
+  * 一次性
+  * 处理函数`app_box_handle_timehandler(&box_event)`
