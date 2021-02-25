@@ -680,6 +680,7 @@ bool app_tws_is_right_side(void)
 
 bool app_tws_is_unknown_side(void)
 {
+	TRACE_CSD(2, "{%s} %d", __func__, (app_tws_side == EAR_SIDE_UNKNOWN));
     return (app_tws_side == EAR_SIDE_UNKNOWN);
 }
 

@@ -116,6 +116,7 @@ void app_btmap_connected_callback(void* param, void* map_session)
 
 void app_btmap_sms_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);	
     TRACE(1,"%s", __func__);
     int i = 0;
     btif_map_initialize();
@@ -124,6 +125,7 @@ void app_btmap_sms_init(void)
     for (i = 0; i < BT_DEVICE_NUM; ++i) {
         app_bt_device.map_session_handle[i] = btif_map_create_session();
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void app_btmap_sms_open(BT_DEVICE_ID_T id, bt_bdaddr_t *remote)

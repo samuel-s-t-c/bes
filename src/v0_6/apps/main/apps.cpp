@@ -649,6 +649,7 @@ const  APP_KEY_HANDLE  pwron_key_handle_cfg[] = {
 #endif
 
 #ifndef APP_TEST_MODE
+// 开机时电源键的初始化
 static void app_poweron_key_init(void)
 {
     uint8_t i = 0;

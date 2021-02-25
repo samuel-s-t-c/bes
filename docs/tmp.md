@@ -1,6 +1,12 @@
+1 30 下午
+
+1 31 上午 下午
+
 TRACE_CSD(1, "[%s]+++", __func__);
 
 TRACE_CSD(1, "[%s]---", __func__);
+
+TRACE_CSD(1, "{%s}", __func__);
 
 PMU
 
@@ -78,6 +84,7 @@ THREAD
   * user与对应的hook: `bt_hook_handler`数组
     * `BESBT_HOOK_USER_1`->`app_bt_mail_poll`
     * `BESBT_HOOK_USER_2`->`bt_key_handle`
+    * `BESBT_HOOK_USER_3`->`app_hfp_battery_report_proc`
 * `app_ibrt_peripheral_thread`
 * `tws_ctrl_thread`: 
 

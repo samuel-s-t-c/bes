@@ -207,6 +207,7 @@ void app_ai_if_mobile_connect_handle(bt_bdaddr_t *_addr)
 
 void app_ai_voice_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
 #ifdef __AI_VOICE__
     uint32_t ai_spec = app_ai_if_get_ai_spec();
 
@@ -251,6 +252,7 @@ void app_ai_voice_init(void)
 
     app_ai_if_mempool_init();
 #endif
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 static bool isMusicOrPromptOnGoing = false;

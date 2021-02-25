@@ -266,9 +266,10 @@ void app_start_ble_adv_for_test(void);
 
 static inline int app_bt_mail_process(APP_BT_MAIL* mail_p)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     bt_status_t status = BT_STS_LAST_CODE;
     if (mail_p->request_id != CMGR_SetSniffTimer_req){
-        TRACE(3,"[BT_FUNC] src_thread:0x%08x call request_id=%x->:%s", mail_p->src_thread, mail_p->request_id,app_bt_func_table_str[mail_p->request_id]);
+        TRACE(3,"[BT_FUNC] src_thread:0x%08x call request_id=%d->:%s", mail_p->src_thread, mail_p->request_id,app_bt_func_table_str[mail_p->request_id]);
     }
     switch (mail_p->request_id) {
         case Me_switch_sco_req:
@@ -451,6 +452,7 @@ static inline int app_bt_mail_process(APP_BT_MAIL* mail_p)
     if (mail_p->request_id != CMGR_SetSniffTimer_req){
         TRACE(2,"[BT_FUNC] exit request_id:%d :status:%d", mail_p->request_id, status);
     }
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 
@@ -486,6 +488,7 @@ static inline int app_bt_mail_free(APP_BT_MAIL* mail_p)
 
 static inline int app_bt_mail_get(APP_BT_MAIL** mail_p)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     osEvent evt;
     evt = osMailGet(app_bt_mailbox, 0);
     if (evt.status == osEventMail) {
@@ -497,12 +500,14 @@ static inline int app_bt_mail_get(APP_BT_MAIL** mail_p)
 
 static void app_bt_mail_poll(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     APP_BT_MAIL *mail_p = NULL;
     if (!app_bt_mail_get(&mail_p)){
         app_bt_mail_process(mail_p);
         app_bt_mail_free(mail_p);
         osapi_notify_evm();
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 int app_bt_mail_init(void)
@@ -599,6 +604,7 @@ int app_bt_ME_ControlSleepMode(bool isEnabled)
     return 0;
 }
 
+// 发送app_bt_mail邮件, 以请求设置accessiable mode
 int app_bt_ME_SetAccessibleMode(btif_accessible_mode_t mode, const btif_access_mode_info_t *info)
 {
 #if defined(BLE_ONLY_ENABLED)

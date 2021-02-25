@@ -383,6 +383,7 @@ void app_avrcp_get_capabilities_retry_callback(void const *param)
 
 void a2dp_init(void)
 {
+	TRACE_CSD(1, "{%s} %d", __func__, __LINE__);
      btif_a2dp_init();
      for(int i =0; i< BT_DEVICE_NUM; i++ ){
          app_bt_device.a2dp_stream[i] = btif_a2dp_alloc_stream();
@@ -1612,6 +1613,7 @@ void avrcp_set_media_status(uint8_t status)
 #else	/* !defined(BTIF_AVRCP_ADVANCED_CONTROLLER) */
 void a2dp_init(void)
 {
+	TRACE_CSD(1, "{%s} %d", __func__, __LINE__);
     for(uint8_t i=0; i<BT_DEVICE_NUM; i++)
     {
         a2dp_channel_num[i] = BTIF_SBC_CHNL_MODE_STEREO;

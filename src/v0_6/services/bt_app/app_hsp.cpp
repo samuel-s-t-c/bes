@@ -167,7 +167,7 @@ XaStatus app_hs_handle_cmd(HsChannel *Chan,uint8_t cmd_type)
 // because hfp and hsp can not exist simultaneously , so we do not need to alloc 2 cmd pool!
 void app_hsp_init(void)
 {
-
+	TRACE_CSD(1, "[%s]+++", __func__);
 
     app_hsp_hscommand_mempool_init();
 
@@ -181,6 +181,7 @@ void app_hsp_init(void)
         app_bt_device.hs_conn_flag[i] = 0;
         app_bt_device.hs_voice_en[i] = 0;
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 

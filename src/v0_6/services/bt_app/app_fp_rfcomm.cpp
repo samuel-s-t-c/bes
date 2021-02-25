@@ -682,7 +682,7 @@ void app_fp_rfcomm_send(uint8_t *ptrData, uint32_t length)
 
 bt_status_t app_fp_rfcomm_init(void)
 {
-    TRACE(1,"%s",__func__);
+    TRACE_CSD(1, "[%s]+++", __func__);
     bt_status_t stat = BT_STS_SUCCESS;
 
     if (!fp_rfcomm_service.isRfcommInitialized)
@@ -719,7 +719,7 @@ bt_status_t app_fp_rfcomm_init(void)
     {
         TRACE(0,"already initialized.");
     }
-
+	TRACE_CSD(1, "[%s]---", __func__);
     return stat;
 }
 

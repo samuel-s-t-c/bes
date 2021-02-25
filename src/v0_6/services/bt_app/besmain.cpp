@@ -170,12 +170,14 @@ int Besbt_hook_handler_set(enum BESBT_HOOK_USER_T user, BESBT_HOOK_HANDLER handl
 
 static void Besbt_hook_proc(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     uint8_t i;
     for (i=0; i<BESBT_HOOK_USER_QTY; i++){
         if (bt_hook_handler[i]){
             bt_hook_handler[i]();
         }
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 extern struct BT_DEVICE_T  app_bt_device;
@@ -290,6 +292,7 @@ static void __set_local_dev_name(void)
 
 static void add_randomness(void)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     uint32_t generatedSeed = hal_sys_timer_get();
 
     //avoid bt address collision low probability
@@ -326,6 +329,7 @@ static void __set_bt_sco_num(void)
 void app_notify_stack_ready(uint8_t ready_flag);
 static void stack_ready_callback(int status)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     dev_addr_name devinfo;
 
     devinfo.btd_addr = bt_get_local_address();
@@ -341,6 +345,7 @@ static void stack_ready_callback(int status)
     bt_stack_config((const unsigned char*)devinfo.localname, strlen(devinfo.localname) + 1);
 
     app_notify_stack_ready(STACK_READY_BT);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 #endif /* ENHANCED_STACK */
 
@@ -375,19 +380,29 @@ int besmain(void)
     btif_set_btstack_chip_config(bt_drv_get_btstack_chip_config());
 
     /* bes stack init */
+	TRACE_CSD(0, "[bt_stack_initilize]+++");
     bt_stack_initilize();
-
+	TRACE_CSD(0, "[bt_stack_initilize]---");
+	
 #if defined(ENHANCED_STACK)
+	TRACE_CSD(0, "[bt_stack_register_ready_callback]+++");
     bt_stack_register_ready_callback(stack_ready_callback);
+	TRACE_CSD(0, "[bt_stack_register_ready_callback]---");
+	TRACE_CSD(0, "[btif_sdp_init]+++");
     btif_sdp_init();
+	TRACE_CSD(0, "[btif_sdp_init]---");
 #endif
 
 #if defined(ENHANCED_STACK)
+	TRACE_CSD(0, "[btif_cmgr_handler_init]+++");
     btif_cmgr_handler_init();
+	TRACE_CSD(0, "[btif_cmgr_handler_init]---");
 #endif
 
     a2dp_init();
+	TRACE_CSD(0, "[btif_avrcp_init]+++");
     btif_avrcp_init(&app_bt_device);
+	TRACE_CSD(0, "[btif_avrcp_init]---");
 
 #ifdef __AI_VOICE__
     app_ai_voice_init();
@@ -414,7 +429,9 @@ int besmain(void)
     bt_pairing_init(pair_handler_func);
     bt_authing_init(auth_handler_func);
 
+	TRACE_CSD(0, "[a2dp_hid_init]+++");
     a2dp_hid_init();
+	TRACE_CSD(0, "[a2dp_hid_init]---");
     a2dp_codec_init();
 
 #ifdef BTIF_DIP_DEVICE
@@ -429,11 +446,11 @@ int besmain(void)
     nvrec_dev_localname_addr_init(&devinfo);
     */
 #else
-
     register_hci_delete_con_send_complete_cmd_callback(HciSendCompletePacketCommandRightNow);
 
     __set_local_dev_name();
 #endif
+
 #if defined(IBRT)
     app_ibrt_set_cmdhandle(TWS_CMD_IBRT, app_ibrt_cmd_table_get);
     app_ibrt_set_cmdhandle(TWS_CMD_CUSTOMER, app_ibrt_customif_cmd_table_get);
@@ -459,12 +476,15 @@ int besmain(void)
 #else
     bt_stack_config();
 #endif
+
     //init bt key
     bt_key_init();
+
 #ifdef TEST_OVER_THE_AIR_ENANBLED
 	TRACE_CSD(0, "\nTEST_OVER_THE_AIR_ENANBLED\n")
     app_tota_init();
 #endif
+	
     osapi_notify_evm();
     while(1) {
         app_sysfreq_req(APP_SYSFREQ_USER_BT_MAIN, APP_SYSFREQ_32K);
@@ -479,10 +499,14 @@ int besmain(void)
             af_lock_thread();
         }
 #endif
+		TRACE_CSD(0,"[bt_process_stack_events]+++");
         bt_process_stack_events();
+		TRACE_CSD(0,"[bt_process_stack_events]---");
 
 #ifdef __IAG_BLE_INCLUDE__
+		TRACE_CSD(0,"[bes_ble_schedule]+++");
         bes_ble_schedule();
+		TRACE_CSD(0,"[bes_ble_schedule]---");
 #endif
 
         Besbt_hook_proc();
@@ -493,6 +517,7 @@ int besmain(void)
         }
 #endif
         // BESHCI_UNLockBuffer();
+        TRACE_CSD(0, "{BESHCI_Poll}");
         BESHCI_Poll();
 
 #if defined(IBRT)

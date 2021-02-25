@@ -159,10 +159,12 @@ static void a2dp_get_codec_info(btif_dev_it_e dev_num, uint8_t *codec)
 
 int a2dp_codec_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     a2dp_codec_source_init();
     a2dp_codec_sink_init();
     btif_a2dp_get_codec_info_func(a2dp_get_codec_info);
     btif_a2dp_set_codec_info_func(a2dp_set_codec_info);
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 

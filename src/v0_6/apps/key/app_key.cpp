@@ -133,7 +133,7 @@ void app_key_handle_clear(void)
 
 int app_key_open(int checkPwrKey)
 {
-	TRACE_CSD(2, "{%s} %d", __func__, checkPwrKey);
+	TRACE_CSD(2, "[%s]+++ %d", __func__, checkPwrKey);
     APP_KEY_TRACE(2,"%s %p",__func__, app_key_conifg.key_list);
 
     if (app_key_conifg.key_list == NULL)
@@ -144,7 +144,9 @@ int app_key_open(int checkPwrKey)
 
     app_set_threadhandle(APP_MODUAL_KEY, app_key_handle_process);
 
-    return hal_key_open(checkPwrKey, key_event_process);
+	int ret = hal_key_open(checkPwrKey, key_event_process);
+	TRACE_CSD(1, "[%s]---", __func__);
+    return ret;
 }
 
 int app_key_close(void)

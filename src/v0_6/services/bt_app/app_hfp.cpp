@@ -321,6 +321,7 @@ int app_hfp_battery_report(uint8_t level)
 
 void app_hfp_battery_report_proc(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     osapi_lock_stack();
 
     if(report_battery_level != 0xff)
@@ -329,6 +330,7 @@ void app_hfp_battery_report_proc(void)
         report_battery_level = 0xff;
     }
     osapi_unlock_stack();
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 bt_status_t app_hfp_send_at_command(const char *cmd)
@@ -1987,6 +1989,7 @@ void btapp_sco_switch_set_pcm(void)
 
 void app_hfp_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     hfp_hfcommand_mempool_init();
 #if defined(ENHANCED_STACK)
     btif_hfp_initialize();
@@ -2015,6 +2018,7 @@ void app_hfp_init(void)
     set_sco_switch_cmd_callback = btapp_sco_switch_set_pcm;
 #endif
     app_hfp_mute_upstream(chan_id_flag.id, true);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void app_hfp_enable_audio_link(bool isEnable)

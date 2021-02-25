@@ -1,0 +1,1 @@
+* app thread的`app_bt_handle_process`

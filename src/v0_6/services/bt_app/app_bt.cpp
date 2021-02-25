@@ -1867,6 +1867,7 @@ void app_bt_global_handle_init(void)
 	TRACE_CSD(1, "[%s]---", __func__);
 }
 
+// 发送关于APP_MODUAL_BT的APP_MESSAGE_BLOCK邮件
 void app_bt_send_request(uint32_t message_id, uint32_t param0, uint32_t param1, uint32_t ptr)
 {
     APP_MESSAGE_BLOCK msg;
@@ -5032,6 +5033,7 @@ static uint32_t bt_link_active_mode_bits[MAX_ACTIVE_MODE_MANAGED_LINKS];
 
 void app_bt_active_mode_manager_init(void)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     memset(bt_link_active_mode_bits, 0, sizeof(bt_link_active_mode_bits));
 }
 

@@ -136,7 +136,9 @@ void app_dip_sync_dip_info(void)
 
 void app_dip_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     btif_dip_init(app_dip_callback);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 #endif

@@ -24,10 +24,13 @@
 
 void pair_handler_func(enum pair_event evt, const btif_event_t *event)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     switch(evt) {
     case PAIR_EVENT_NUMERIC_REQ:
+		TRACE_CSD(TR_ATTR_NO_ID|TR_ATTR_NO_TS, "PAIR_EVENT_NUMERIC_REQ");
         break;
     case PAIR_EVENT_COMPLETE:
+		TRACE_CSD(TR_ATTR_NO_ID|TR_ATTR_NO_TS, "PAIR_EVENT_COMPLETE");
 #if defined(_AUTO_TEST_)
         AUTO_TEST_SEND("Pairing ok.");
 #endif
@@ -42,7 +45,7 @@ void pair_handler_func(enum pair_event evt, const btif_event_t *event)
             app_voice_report(APP_STATUS_INDICATION_PAIRFAIL,0);
         }
 #endif
-#endif
+#endif	/*END* !defined(FPGA) */
 #if defined(IBRT)
     if (app_ibrt_if_is_audio_active()){
         TRACE(0,"!!!!!!!!!! flash_touch");
@@ -58,10 +61,12 @@ void pair_handler_func(enum pair_event evt, const btif_event_t *event)
     default:
         break;
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void auth_handler_func(void)
 {
+	TRACE_CSD(1, "{%s} currently do nothing", __func__);
     /*currently do nothing*/
     return;
 }

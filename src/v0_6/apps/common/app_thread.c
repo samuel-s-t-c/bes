@@ -117,19 +117,60 @@ int app_mailbox_get(APP_MESSAGE_BLOCK** msg_p)
     }
     return -1;
 }
-
+const char *app_modual_t_str[] =
+{
+	"KEY",
+	"AUDIO",
+	"BATTERY",
+	"BT",
+	"FM",
+	"SD",
+	"LINEIN",
+	"USEHOST",
+	"USEDEVICE",
+	"WATCHDOG",
+	"AUDIO_MANAGE",
+	"ANC",
+	"SMART_MIC",
+#ifdef __PC_CMD_UART__
+	"CMD",
+#endif
+#ifdef TILE_DATAPATH
+	"TILE",
+#endif
+	"MIC",
+#ifdef VOICE_DETECTOR_EN
+	"VOICE_DETECTOR",
+#endif
+	"CUSTOM_FUNCTION",
+	"OHTER",
+	"WNR",
+};
+const char *appmod2str(uint16_t status)
+{
+	const char *str = NULL;
+	if (status >= 0 && status < APP_MODUAL_NUM)
+	{
+		str = app_modual_t_str[status];
+	}
+	else
+	{
+		str = "UNKNOWN";
+	}
+	return str;
+}
 static void app_thread(void const *argument)
 {
     while(1){
         APP_MESSAGE_BLOCK *msg_p = NULL;
 
         if (!app_mailbox_get(&msg_p)) {
-			TRACE_CSD(1, "[%s]+++", __func__);
+			TRACE_CSD(2, "[%s]+++ mod=%s", __func__, appmod2str((uint16_t)msg_p->mod_id));
             if (msg_p->mod_id < APP_MODUAL_NUM) {
                 if (mod_handler[msg_p->mod_id]) {
                     int ret = mod_handler[msg_p->mod_id](&(msg_p->msg_body));
-                    //if (ret)
-                        TRACE(2,"mod_handler[%d] ret=%d", msg_p->mod_id, ret);
+                    if (ret)
+                    	TRACE(1,"ret=%d", ret);
                 }
             }
             app_mailbox_free(msg_p);

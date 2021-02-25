@@ -689,6 +689,7 @@ bool voicepathInitializated = false;
 
 void app_voicepath_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     if (!voicepathInitializated)
     {
         bool isEnable = true;
@@ -730,6 +731,7 @@ void app_voicepath_init(void)
     {
         TRACE(0, "already initialized");
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 #if !defined(GSOUND_HOTWORD_EXTERNAL)
