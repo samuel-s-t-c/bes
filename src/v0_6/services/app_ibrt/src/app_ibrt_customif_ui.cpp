@@ -45,23 +45,28 @@ extern "C" void app_anc_sync_status(void);
 #endif
 void app_ibrt_customif_ui_vender_event_handler_ind(uint8_t evt_type, uint8_t *buffer, uint8_t length)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     uint8_t subcode = evt_type;
     POSSIBLY_UNUSED ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
 
     switch (subcode)
     {
         case HCI_DBG_SNIFFER_INIT_CMP_EVT_SUBCODE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HCI_DBG_SNIFFER_INIT_CMP_EVT_SUBCODE>");
             break;
 
         case HCI_DBG_IBRT_CONNECTED_EVT_SUBCODE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HCI_DBG_IBRT_CONNECTED_EVT_SUBCODE>");
             app_tws_if_ibrt_connected_handler();
             break;
 
         case HCI_DBG_IBRT_DISCONNECTED_EVT_SUBCODE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HCI_DBG_IBRT_DISCONNECTED_EVT_SUBCODE>");
             app_tws_if_ibrt_disconnected_handler();
             break;
 
         case HCI_DBG_IBRT_SWITCH_COMPLETE_EVT_SUBCODE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HCI_DBG_IBRT_SWITCH_COMPLETE_EVT_SUBCODE>");
 
             /*
              *  New Master do some special action,such as update battery to phone,
@@ -81,37 +86,48 @@ void app_ibrt_customif_ui_vender_event_handler_ind(uint8_t evt_type, uint8_t *bu
             break;
 
         case HCI_NOTIFY_CURRENT_ADDR_EVT_CODE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HCI_NOTIFY_CURRENT_ADDR_EVT_CODE>");
             break;
 
         case HCI_DBG_TRACE_WARNING_EVT_CODE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HCI_DBG_TRACE_WARNING_EVT_CODE>");
             break;
 
         case HCI_SCO_SNIFFER_STATUS_EVT_CODE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HCI_SCO_SNIFFER_STATUS_EVT_CODE>");
             break;
 
         case HCI_DBG_RX_SEQ_ERROR_EVT_SUBCODE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HCI_DBG_RX_SEQ_ERROR_EVT_SUBCODE>");
             break;
 
         case HCI_LL_MONITOR_EVT_CODE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HCI_LL_MONITOR_EVT_CODE>");
             break;
 
         case HCI_GET_TWS_SLAVE_MOBILE_RSSI_CODE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HCI_GET_TWS_SLAVE_MOBILE_RSSI_CODE>");
             break;
 
         default:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<Vendor event code>=%d", subcode);
             break;
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 void app_ibrt_customif_ui_global_handler_ind(ibrt_link_type_e link_type, uint8_t evt_type, uint8_t status)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
     ibrt_ctrl_t *p_ibrt_ctrl = app_ibrt_if_get_bt_ctrl_ctx();
 
+	const char* str = "BTIF_BTEVENT_LINK_CONNECT_IND";
     switch (evt_type)
     {
         case BTIF_BTEVENT_LINK_CONNECT_CNF:// An outgoing ACL connection is up
+        str = "BTIF_BTEVENT_LINK_CONNECT_CNF";
         //fall through
         case BTIF_BTEVENT_LINK_CONNECT_IND://An incoming ACL connection is up
+        TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>", str);
             if (MOBILE_LINK == link_type)
             {
                 if (BTIF_BEC_NO_ERROR == status)
@@ -122,6 +138,7 @@ void app_ibrt_customif_ui_global_handler_ind(ibrt_link_type_e link_type, uint8_t
             }
             break;
         case BTIF_BTEVENT_LINK_DISCONNECT:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_LINK_DISCONNECT>");
             if (!app_tws_ibrt_mobile_link_connected())
             {
                 app_ibrt_if_sniff_checker_reset();
@@ -141,14 +158,17 @@ void app_ibrt_customif_ui_global_handler_ind(ibrt_link_type_e link_type, uint8_t
 
             break;
         case BTIF_STACK_LINK_DISCONNECT_COMPLETE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_STACK_LINK_DISCONNECT_COMPLETE>");
             app_status_indication_set(APP_STATUS_INDICATION_DISCONNECTED);
             break;
 
         case BTIF_BTEVENT_ROLE_CHANGE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_ROLE_CHANGE>");
             break;
 
         case BTIF_BTEVENT_BES_AUD_CONNECTED:
         {
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_BES_AUD_CONNECTED>");
             //tws link callback when besaud connection complete
             if (BTIF_BEC_NO_ERROR == status)
             {
@@ -178,16 +198,20 @@ void app_ibrt_customif_ui_global_handler_ind(ibrt_link_type_e link_type, uint8_t
         break;
 
         case BTIF_BTEVENT_BES_AUD_DISCONNECTED:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_BES_AUD_DISCONNECTED>");
             app_tws_if_tws_disconnected_handler();
             break;
 
         case BTIF_BTEVENT_ENCRYPTION_CHANGE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_ENCRYPTION_CHANGE>");
             break;
 
         case BTIF_BTEVENT_MODE_CHANGE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_MODE_CHANGE>");
             break;
 
         default:
+			TRACE_CSD(1|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<?> %d", evt_type);
             break;
     }
 	TRACE_CSD(1, "[%s]---", __func__);
@@ -220,30 +244,38 @@ void app_ibrt_customif_ui_global_event_update(ibrt_event_type evt_type, ibrt_ui_
         ibrt_ui_state_e new_state,ibrt_action_e   action,\
         ibrt_ui_error_e status)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     switch (new_state)
     {
         case IBRT_UI_IDLE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS|TR_ATTR_NO_LF, "<IBRT_UI_IDLE>");
             if (IBRT_UI_IDLE != old_state)
             {
                 //callback when UI event completed
                 switch (evt_type)
                 {
                     case IBRT_OPEN_BOX_EVENT:
+						TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_OPEN_BOX_EVENT>");
                         app_ibrt_customif_open_box_complete_ind();
                         break;
                     case IBRT_FETCH_OUT_EVENT:
+						TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_FETCH_OUT_EVENT>");
                         app_ibrt_customif_fetch_out_complete_ind();
                         break;
                     case IBRT_PUT_IN_EVENT:
+						TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_PUT_IN_EVENT>");
                         app_ibrt_customif_put_in_complete_ind();
                         break;
                     case IBRT_CLOSE_BOX_EVENT:
+						TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_CLOSE_BOX_EVENT>");
                         app_ibrt_customif_close_box_complete_ind();
                         break;
                     case IBRT_WEAR_UP_EVENT:
+						TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_WEAR_UP_EVENT>");
                         app_ibrt_customif_wear_up_complete_ind();
                         break;
                     case IBRT_WEAR_DOWN_EVENT:
+						TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_WEAR_DOWN_EVENT>");
                         app_ibrt_customif_wear_down_complete_ind();
                         break;
                     default:
@@ -253,44 +285,58 @@ void app_ibrt_customif_ui_global_event_update(ibrt_event_type evt_type, ibrt_ui_
             break;
 
         case IBRT_UI_IDLE_WAIT:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UI_IDLE_WAIT>");
             break;
 
         case IBRT_UI_W4_TWS_CONNECTION:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UI_W4_TWS_CONNECTION>");
             break;
 
         case IBRT_UI_W4_TWS_INFO_EXCHANGE_COMPLETE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UI_W4_TWS_INFO_EXCHANGE_COMPLETE>");
             break;
 
         case IBRT_UI_W4_TWS_BT_MSS_COMPLETE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UI_W4_TWS_BT_MSS_COMPLETE>");
             break;
 
         case IBRT_UI_W4_SET_ENV_COMPLETE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UI_W4_SET_ENV_COMPLETE>");
             break;
 
         case IBRT_UI_W4_MOBILE_CONNECTION:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UI_W4_MOBILE_CONNECTION>");
             break;
 
         case IBRT_UI_W4_MOBILE_MSS_COMPLETE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UI_W4_MOBILE_MSS_COMPLETE>");
             break;
 
         case IBRT_UI_W4_MOBILE_ENTER_ACTIVE_MODE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UI_W4_MOBILE_ENTER_ACTIVE_MODE>");
             break;
 
         case IBRT_UI_W4_START_IBRT_COMPLETE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UI_W4_START_IBRT_COMPLETE>");
             break;
 
         case IBRT_UI_W4_IBRT_DATA_EXCHANGE_COMPLETE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UI_W4_IBRT_DATA_EXCHANGE_COMPLETE>");
             break;
 
         case IBRT_UI_W4_TWS_SWITCH_COMPLETE:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UI_W4_TWS_SWITCH_COMPLETE>");
             break;
 
         case IBRT_UI_W4_SM_STOP:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UI_W4_SM_STOP>");
             break;
 
         default:
+			TRACE_CSD(1|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<?> %d", new_state);
             break;
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 /*
 * custom tws switch interface
@@ -349,25 +395,32 @@ bool app_ibrt_customif_connect_mobile_needed_ind(void)
 
 void app_ibrt_customif_mobile_connected_ind(bt_bdaddr_t * addr)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
 #ifdef BLE_ENABLE
     app_ble_refresh_adv_state(BLE_ADVERTISING_INTERVAL);
 #endif
 
     app_ibrt_if_config_keeper_mobile_update(addr);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void app_ibrt_customif_ibrt_connected_ind(bt_bdaddr_t * addr)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     app_ibrt_if_config_keeper_mobile_update(addr);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void app_ibrt_customif_tws_connected_ind(bt_bdaddr_t * addr)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     app_ibrt_if_config_keeper_tws_update(addr);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void app_ibrt_customif_profile_state_change_ind(uint32_t profile,uint8_t connected)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
     TRACE(2,"custom if profle=%x state change to =%x",profile,connected);
 
@@ -555,7 +608,7 @@ void app_ibrt_customif_profile_state_change_ind(uint32_t profile,uint8_t connect
             TRACE(1,"unknown profle=%x state change",profile);
             break;
     }
-
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 int app_ibrt_fill_debug_info(char* buf, unsigned int buf_len)

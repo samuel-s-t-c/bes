@@ -143,6 +143,7 @@ void app_bt_manager_ibrt_role_process(const btif_event_t *Event);
 void app_ibrt_search_ui_init(bool boxOperation,ibrt_event_type evt_type);
 void app_ibrt_enter_limited_mode(void);
 void app_ibrt_reconfig_btAddr_from_nv();
+void app_ibrt_remove_history_paired_device(void);
 #endif
 
 void app_ibrt_ui_automate_test_cmd_handler(uint8_t group_code, uint8_t operation_code, uint8_t *param, uint8_t param_len);

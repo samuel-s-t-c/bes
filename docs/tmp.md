@@ -1,12 +1,10 @@
-1 30 下午
-
-1 31 上午 下午
-
 TRACE_CSD(1, "[%s]+++", __func__);
 
 TRACE_CSD(1, "[%s]---", __func__);
 
 TRACE_CSD(1, "{%s}", __func__);
+
+TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<>");
 
 PMU
 
@@ -40,7 +38,13 @@ NORFLASH
 * mpu: 
   * `mpu_setup`,`mpu_table`配置表
 
-TWS
+BT
+
+* `app_bt_global_handle`
+
+* `app_bt_global_handle_hook_handler`
+  * `APP_BT_GOLBAL_HANDLE_HOOK_USER_0`->`app_bt_manager_ibrt_role_process`
+* `app_bt_handle_process`
 
 * IBRT:
   * 宏`IBRT`,  宏`IBRT_SEARCH_UI`
@@ -61,12 +65,6 @@ TWS
     * `app_ibrt_customif_connect_mobile_needed_ind`
     * `app_ibrt_customif_ui_pairing_set`
     * `app_ibrt_customif_ui_pairing_clear`
-
-BT
-
-* `app_bt_global_handle_hook_handler`
-  * `APP_BT_GOLBAL_HANDLE_HOOK_USER_0`->`app_bt_manager_ibrt_role_process`
-* `app_bt_global_handle`
 
 THREAD
 

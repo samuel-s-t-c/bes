@@ -1948,8 +1948,10 @@ extern int rpc_service_setup(void);
 #endif
             switch (pwron_case) {
                 case APP_POWERON_CASE_CALIB:
+					TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_POWERON_CASE_CALIB>");
                     break;
                 case APP_POWERON_CASE_BOTHSCAN:
+					TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_POWERON_CASE_BOTHSCAN>");
                     app_status_indication_set(APP_STATUS_INDICATION_BOTHSCAN);
 #ifdef MEDIA_PLAYER_SUPPORT
                     app_voice_report(APP_STATUS_INDICATION_BOTHSCAN,0);
@@ -1975,6 +1977,7 @@ extern int rpc_service_setup(void);
 #endif
                     break;
                 case APP_POWERON_CASE_NORMAL:
+					TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_POWERON_CASE_NORMAL>");
 #if defined( __BTIF_EARPHONE__ ) && !defined(__EARPHONE_STAY_BOTH_SCAN__)
 #if defined(IBRT)
 #ifdef IBRT_SEARCH_UI

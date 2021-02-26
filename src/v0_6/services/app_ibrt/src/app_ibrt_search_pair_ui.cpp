@@ -78,6 +78,7 @@ static osTimerId app_box_handle_timer = NULL;
 
 static void app_box_handle_timehandler(void const *param)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     uint8_t *box_event_ptr=(uint8_t *)param;
     uint8_t boxStatus=*box_event_ptr;
     TRACE(1,"box event:%d",boxStatus);
@@ -85,7 +86,7 @@ static void app_box_handle_timehandler(void const *param)
     app_ibrt_if_event_entry(boxStatus);
     if(IBRT_IN_BOX_CLOSED==boxStatus)
         app_ibrt_search_ui_init(true,boxStatus);
-
+	TRACE_CSD(1, "[%s]---	", __func__);
 }
 
 static void app_tws_inquiry_timeout_handler(void const *param)
@@ -523,6 +524,7 @@ void app_start_tws_serching_direactly()
 
 static void app_ibrt_battery_handle_process_normal(uint32_t status,  union APP_BATTERY_MSG_PRAMS prams)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     app_ibrt_ui_t *p_ui_ctrl = app_ibrt_ui_get_ctx();
 
 
@@ -573,25 +575,28 @@ static void app_ibrt_battery_handle_process_normal(uint32_t status,  union APP_B
             break;
 
     }
-
+	TRACE_CSD(1, "[%s]---", __func__);
 
 }
 
 
 void app_ibrt_battery_callback(APP_BATTERY_MV_T currvolt, uint8_t currlevel,enum APP_BATTERY_STATUS_T curstatus,uint32_t status, union APP_BATTERY_MSG_PRAMS prams)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
+	const char* str = "APP_BATTERY_STATUS_CHARGING";
     switch (curstatus)
     {
         case APP_BATTERY_STATUS_NORMAL:
+			str = "APP_BATTERY_STATUS_NORMAL";
         case APP_BATTERY_STATUS_CHARGING:
+			TRACE_CSD(1|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>", str);
             app_ibrt_battery_handle_process_normal(status,prams);
             break;
 
         default:
             break;
     }
-
-
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 #ifdef BOX_DET_USE_GPIO
@@ -670,7 +675,9 @@ void app_ibrt_search_ui_init(bool boxOperation,ibrt_event_type evt_type)
     app_ibrt_ui_t *p_ui_ctrl = app_ibrt_ui_get_ctx();
     if((true==p_ui_ctrl->config.check_plugin_excute_closedbox_event) ||
        (false==boxOperation))
+    {
         p_ui_ctrl->box_state        = IBRT_IN_BOX_OPEN;
+    }
 
     if(false==boxOperation)
     {
@@ -699,7 +706,7 @@ void app_ibrt_remove_history_paired_device(void)
 	TRACE_CSD(1, "[%s]+++", __func__);
     bt_status_t            retStatus;
     btif_device_record_t   record;
-    ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
+    ibrt_ctrl_t *          p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
     int                    paired_dev_count = nv_record_get_paired_dev_count();
 
     TWSCON_DBLOG(0,"Remove all history tws nv records.");
