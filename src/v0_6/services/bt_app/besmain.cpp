@@ -249,7 +249,7 @@ void gen_bt_addr_for_debug(void)
     hlen = strlen(host);
     ulen = strlen(user);
 
-    TRACE(0,"Configured BT addr is:");
+    TRACE(0|TR_ATTR_NO_LF,"Configured BT addr is:");
     DUMP8("%02x ", bt_addr, BTIF_BD_ADDR_SIZE);
 
     j = 0;
@@ -268,7 +268,7 @@ void gen_bt_addr_for_debug(void)
         }
     }
 
-    TRACE(0,"Modified debug BT addr is:");
+    TRACE(0|TR_ATTR_NO_LF,"Modified debug BT addr is:");
     DUMP8("%02x ", bt_addr, BTIF_BD_ADDR_SIZE);
 	TRACE_CSD(1, "[%s]---", __func__);
 }

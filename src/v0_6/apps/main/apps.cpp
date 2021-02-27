@@ -1567,9 +1567,6 @@ int app_init(void)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
     int nRet = 0;
-	COSONIC_TRACE(test_log, 0, "%s", __func__);
-	COSONIC_TRACE(test_log, 1, "%s", __func__);
-	COSONIC_TRACE(test_log, 1, "%s", __func__);
     struct nvrecord_env_t *nvrecord_env;
 #ifdef POWER_ON_ENTER_TWS_PAIRING_ENABLED
     bool need_check_key = false;
@@ -1627,8 +1624,10 @@ extern int rpc_service_setup(void);
         goto exit;
     }
 #if OS_HAS_CPU_STAT
+		TRACE_CSD(0, "{osTimerCreate}-->(cpu_usage_timer) cpu_usage_timer_id")
         cpu_usage_timer_id = osTimerCreate(osTimer(cpu_usage_timer), osTimerPeriodic, NULL);
         if (cpu_usage_timer_id != NULL) {
+			TRACE_CSD(0,"{osTimerStart} (cpu_usage_timer) CPU_USAGE_TIMER_TMO_VALUE")
             osTimerStart(cpu_usage_timer_id, CPU_USAGE_TIMER_TMO_VALUE);
         }
 #endif
@@ -1647,6 +1646,7 @@ extern int rpc_service_setup(void);
     hal_sw_bootmode_set(HAL_SW_BOOTMODE_TEST_MODE | HAL_SW_BOOTMODE_TEST_NOSIGNALINGMODE);
 #endif
 
+	// 死机重启
     if (hal_sw_bootmode_get() & HAL_SW_BOOTMODE_REBOOT_FROM_CRASH){
         hal_sw_bootmode_clear(HAL_SW_BOOTMODE_REBOOT_FROM_CRASH);
         TRACE(0,"Crash happened!!!");
@@ -1655,6 +1655,7 @@ extern int rpc_service_setup(void);
     #endif
     }
 
+	// 重启
     if (hal_sw_bootmode_get() & HAL_SW_BOOTMODE_REBOOT){
         hal_sw_bootmode_clear(HAL_SW_BOOTMODE_REBOOT);
         pwron_case = APP_POWERON_CASE_REBOOT;
@@ -1670,6 +1671,7 @@ extern int rpc_service_setup(void);
 #endif
     }
 
+	// 测试模式
     if (hal_sw_bootmode_get() & HAL_SW_BOOTMODE_TEST_MODE){
         hal_sw_bootmode_clear(HAL_SW_BOOTMODE_TEST_MODE);
         pwron_case = APP_POWERON_CASE_TEST;
@@ -2044,7 +2046,7 @@ extern int rpc_service_setup(void);
         }
     }
 exit:
-
+	TRACE_CSD(0, "Exit\n");
 #ifdef IS_MULTI_AI_ENABLED
     app_ai_tws_clear_reboot_box_state();
 #endif

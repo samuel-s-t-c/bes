@@ -1907,6 +1907,7 @@ enum PMU_POWER_ON_CAUSE_T pmu_get_power_on_cause(void)
 
 void pmu_charger_init(void)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     unsigned short readval_cfg;
     uint32_t lock;
 

@@ -507,15 +507,22 @@ int app_battery_get_info(APP_BATTERY_MV_T *currvolt, uint8_t *currlevel, enum AP
 int app_battery_open(void)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
-    APP_BATTERY_TRACE(3,"%s batt range:%d~%d",__func__, APP_BATTERY_MIN_MV, APP_BATTERY_MAX_MV);
+	TRACE_CSD(2|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "Battery range:%d~%d",APP_BATTERY_MIN_MV,APP_BATTERY_MAX_MV);
+    //APP_BATTERY_TRACE(3,"%s batt range:%d~%d",__func__, APP_BATTERY_MIN_MV, APP_BATTERY_MAX_MV);
     int nRet = APP_BATTERY_OPEN_MODE_INVALID;
 
     if (app_battery_timer == NULL)
+    {
+		TRACE_CSD(0, "{osTimerCreate}-->(APP_BATTERY) app_battery_timer");
         app_battery_timer = osTimerCreate (osTimer(APP_BATTERY), osTimerPeriodic, NULL);
+    }
 
     if (app_battery_pluginout_debounce_timer == NULL)
+    {
+		TRACE_CSD(0, "{osTimerCreate}-->(APP_BATTERY_PLUGINOUT_DEBOUNCE) app_battery_pluginout_debounce_timer");
         app_battery_pluginout_debounce_timer = osTimerCreate (osTimer(APP_BATTERY_PLUGINOUT_DEBOUNCE), osTimerOnce, &app_battery_pluginout_debounce_ctx);
-
+    }
+	TRACE_CSD(0, "(app_battery_measure) configuring");
     app_battery_measure.status = APP_BATTERY_STATUS_NORMAL;
 #ifdef __INTERCONNECTION__
     app_battery_measure.currentBatteryInfo = APP_BATTERY_DEFAULT_INFO;
@@ -822,10 +829,11 @@ static void app_battery_pluginout_debounce_handler(void const *param)
 
 int app_battery_charger_indication_open(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     enum APP_BATTERY_CHARGER_T status = APP_BATTERY_CHARGER_QTY;
     uint8_t cnt = 0;
 
-    APP_BATTERY_TRACE(1,"%s",__func__);
+    //APP_BATTERY_TRACE(1,"%s",__func__);
 
     pmu_charger_init();
 
@@ -847,7 +855,7 @@ int app_battery_charger_indication_open(void)
     }
 
     pmu_charger_set_irq_handler(app_battery_charger_handler);
-
+	TRACE_CSD(1, "[%s]---", __func__);
     return status;
 }
 

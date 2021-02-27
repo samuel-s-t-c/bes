@@ -80,6 +80,7 @@ static void app_pwl_timehandler(void const *param)
 int app_pwl_open(void)
 {
 #if (CFG_HW_PWL_NUM > 0)
+	TRACE_CSD(1, "[%s]+++", __func__);
     uint8_t i;
     APP_PWL_TRACE(1,"%s",__func__);
     for (i=0;i<APP_PWL_ID_QTY;i++){
@@ -88,10 +89,13 @@ int app_pwl_open(void)
         hal_iomux_init((struct HAL_IOMUX_PIN_FUNCTION_MAP *)&cfg_hw_pinmux_pwl[i], 1);
         hal_gpio_pin_set_dir((enum HAL_GPIO_PIN_T)cfg_hw_pinmux_pwl[i].pin, HAL_GPIO_DIR_OUT, 0);
     }
+	TRACE_CSD(0, "{osTimerCreate}-->(APP_PWL_TIMER0) app_pwl[APP_PWL_ID_0].timer");
     app_pwl[APP_PWL_ID_0].timer = osTimerCreate (osTimer(APP_PWL_TIMER0), osTimerOnce, &app_pwl[APP_PWL_ID_0]);
 #if (CFG_HW_PWL_NUM == 2)
+	TRACE_CSD(0, "{osTimerCreate}-->(APP_PWL_TIMER1) app_pwl[APP_PWL_ID_1].timer");
     app_pwl[APP_PWL_ID_1].timer = osTimerCreate (osTimer(APP_PWL_TIMER1), osTimerOnce, &app_pwl[APP_PWL_ID_1]);
 #endif
+	TRACE_CSD(1, "[%s]---", __func__);
 #endif
     return 0;
 }
@@ -143,7 +147,9 @@ int app_pwl_start(enum APP_PWL_ID_T id)
 int app_pwl_setup(enum APP_PWL_ID_T id, struct APP_PWL_CFG_T *cfg)
 {
 #if (CFG_HW_PWL_NUM > 0)
+	TRACE_CSD(1, "[%s]+++", __func__);
     if (cfg == NULL || id >= APP_PWL_ID_QTY) {
+		TRACE_CSD(1, "[%s]--- MSG_WARN:wrong argument", __func__);
         return -1;
     }
     APP_PWL_TRACE(2,"%s %d",__func__, id);
@@ -151,8 +157,9 @@ int app_pwl_setup(enum APP_PWL_ID_T id, struct APP_PWL_CFG_T *cfg)
     hal_gpio_pin_set_dir((enum HAL_GPIO_PIN_T)cfg_hw_pinmux_pwl[id].pin, HAL_GPIO_DIR_OUT, cfg->startlevel?1:0);
     app_pwl[id].id = id;
     memcpy(&(app_pwl[id].config), cfg, sizeof(struct APP_PWL_CFG_T));
-
+	TRACE_CSD(1, "{osTimerStop}-->((app_pwl[%d].timer)", id);
     osTimerStop(app_pwl[id].timer);
+	TRACE_CSD(1, "[%s]---", __func__);
 #endif
     return 0;
 }

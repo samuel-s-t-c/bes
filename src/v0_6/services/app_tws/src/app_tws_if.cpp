@@ -133,12 +133,14 @@ void app_tws_if_init(void)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
     // reset the environment
+    TRACE_CSD(0, "Reset the environment:(twsEnv)(twsSyncBuf)");
     memset(&twsEnv, 0, sizeof(twsEnv));
     memset(&twsSyncBuf, 0, TWS_SYNC_BUF_SIZE);
 
     // init the tws sync buffer mutex
     if (NULL == twsSyncBufMutexId)
     {
+		TRACE_CSD(0, "{osMutexCreate}-->(twsSyncBufMutex)");
         twsSyncBufMutexId = osMutexCreate(osMutex(twsSyncBufMutex));
     }
 
@@ -252,11 +254,13 @@ void app_tws_if_tws_role_switch_complete_handler(uint8_t newRole)
 
 void app_tws_if_register_sync_user(uint8_t id, TWS_SYNC_USER_T *user)
 {
+	TRACE_CSD(2, "{%s} id=%d", __func__, id);
     memcpy(&twsEnv.syncUser[id], user, sizeof(TWS_SYNC_USER_T));
 }
 
 void app_tws_if_deregister_sync_user(uint8_t id)
 {
+	TRACE_CSD(2, "{%s} id=%d", __func__, id);
     memset(&twsEnv.syncUser[id], 0, sizeof(TWS_SYNC_USER_T));
 }
 

@@ -423,7 +423,8 @@ typedef struct {
 }__attribute__((packed)) COSONIC_TRACE_CFG_T;
 
 typedef enum {
-	test_log,
+	CLOG_BT,
+	CLOG_INIT,
 	COSONIC_TRACE_CFG_NUM,
 } COSONIC_TRACE_CFG_E;
 
@@ -433,18 +434,18 @@ extern COSONIC_TRACE_CFG_T cosonic_trace_cfg_array[];
 do{\
 	if ((is_cnt))\
 	{\
-		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF, "COSONIC:   %s   %s   %s   %d   "str,\
+		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF, "CLOG:<%s><%s>[%s] %d "str,\
 			cosonic_trace_cfg_array[(n)].func_mode,\
 			cosonic_trace_cfg_array[(n)].block,\
 			__func__ ,\
 			__LINE__,\
 	    	##__VA_ARGS__);\
-		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "   cnt=%d",\
+		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "|cnt=%d",\
 			cosonic_trace_cfg_array[(n)].cnt++);\
 	}\
 	else\
 	{\
-		TRACE(0, "COSONIC:   %s   %s   %s   %d   "str,\
+		TRACE(0, "CLOG:<%s><%s>[%s] %d "str,\
 			cosonic_trace_cfg_array[(n)].func_mode,\
 			cosonic_trace_cfg_array[(n)].block,\
 			__func__ ,\
@@ -455,6 +456,7 @@ do{\
 #else	/* !defined(COSONIC_LOG) */
 #define COSONIC_TRACE(n,is_cnt,str,...) 
 #endif	/*END* !defined(COSONIC_LOG) */
+#define CLOG COSONIC_TRACE
 /*******  *END* Cosonic log   ********/
 
 /*******  CSD  *******/

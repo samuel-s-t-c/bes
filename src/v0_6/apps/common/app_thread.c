@@ -35,13 +35,15 @@ osThreadId app_thread_tid;
 
 static int app_mailbox_init(void)
 {
-	TRACE_CSD(1, "{%s}", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
+	TRACE_CSD(0, "{osMailCreate}-->(app_mailbox)");
     app_mailbox = osMailCreate(osMailQ(app_mailbox), NULL);
     if (app_mailbox == NULL)  {
-        TRACE(0,"Failed to Create app_mailbox\n");
+        TRACE(0,"Erros:Failed to Create app_mailbox\n");
         return -1;
     }
     app_mailbox_cnt = 0;
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 
@@ -183,10 +185,10 @@ int app_os_init(void)
 	TRACE_CSD(1, "[%s]+++", __func__);
     if (app_mailbox_init())
         return -1;
-
+	TRACE_CSD(0, "{osThreadCreate}-->(app_thread)");
     app_thread_tid = osThreadCreate(osThread(app_thread), NULL);
     if (app_thread_tid == NULL)  {
-        TRACE(0,"Failed to Create app_thread\n");
+        TRACE(0,"Error:Failed to Create app_thread\n");
         return 0;
     }
 	TRACE_CSD(1, "[%s]---", __func__);
@@ -196,9 +198,12 @@ int app_os_init(void)
 int app_set_threadhandle(enum APP_MODUAL_ID_T mod_id, APP_MOD_HANDLER_T handler)
 {
     if (mod_id>=APP_MODUAL_NUM)
+    {
+		TRACE_CSD(3, "{%s} MSG_WARN:wrong mod_id!!");
         return -1;
+    }
 
-	TRACE_CSD(3, "{%s} mod_id=%d handler=%p", __func__, mod_id, handler);
+	TRACE_CSD(3, "{%s} mod_id=%d[%s] handler=%p", __func__, mod_id, appmod2str(mod_id), handler);
     mod_handler[mod_id] = handler;
     return 0;
 }

@@ -2950,7 +2950,7 @@ int hal_trace_crash_dump_printf(uint32_t attr, const char *fmt, ...)
 #ifdef COSONIC_LOG
 
 COSONIC_TRACE_CFG_T cosonic_trace_cfg_array[COSONIC_TRACE_CFG_NUM] = {
-	[test_log]={"TEST", "STATUSMACHINE",0},	
+	[CLOG_BT]={"BT", "",0},	
 };
 	
 #endif	/*END* defined(COSONIC_LOG) */

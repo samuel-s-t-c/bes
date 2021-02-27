@@ -326,7 +326,7 @@ void app_ai_tws_sync_info_received_handler(uint8_t *buf, uint16_t length)
 void app_ai_tws_sync_init(void)
 {
 #if defined(IBRT) && defined(__AI_VOICE__)
-	TRACE_CSD(1, "{%s}", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     TWS_SYNC_USER_T user_app_ai_t = {
         app_ai_tws_sync_info_prepare_handler,
         app_ai_tws_sync_info_received_handler,
@@ -334,19 +334,22 @@ void app_ai_tws_sync_init(void)
         NULL,
         NULL,
     };
-
+	TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<TWS_SYNC_USER_AI_INFO> registering");
     app_tws_if_register_sync_user(TWS_SYNC_USER_AI_INFO, &user_app_ai_t);
 
     if(NULL == app_ai_role_switch_timer_id)
     {
+		TRACE_CSD(0, "{osTimerCreate}-->(APP_AI_ROLE_SWITCH_TIMER) app_ai_role_switch_timer_id");
         app_ai_role_switch_timer_id =
             osTimerCreate(osTimer(APP_AI_ROLE_SWITCH_TIMER), osTimerOnce, NULL);
     }
     if(NULL == app_ai_ble_disc_timer_id)
     {
+		TRACE_CSD(0, "{osTimerCreate}-->(APP_AI_BLE_DISC_TIMER) app_ai_ble_disc_timer_id");
         app_ai_ble_disc_timer_id =
             osTimerCreate(osTimer(APP_AI_BLE_DISC_TIMER), osTimerOnce, NULL);
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 #endif
 }
 
@@ -383,7 +386,7 @@ void ai_manager_sync_info_received_rsp_handler(uint8_t *buf, uint16_t length)
 void ai_manager_sync_init(void)
 {
 #if defined(IBRT) && defined(IS_MULTI_AI_ENABLED)
-	TRACE_CSD(1, "{%s}", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     TWS_SYNC_USER_T user_ai_manager_t = {
         ai_manager_sync_info_prepare_handler,
         ai_manager_sync_info_received_handler,
@@ -391,8 +394,9 @@ void ai_manager_sync_init(void)
         ai_manager_sync_info_received_rsp_handler,
         ai_manager_sync_info_received_rsp_handler,
     };
-
+	TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<TWS_SYNC_USER_AI_MANAGER> registering");
     app_tws_if_register_sync_user(TWS_SYNC_USER_AI_MANAGER, &user_ai_manager_t);
+	TRACE_CSD(1, "[%s]---", __func__);
 #endif
 }
 
@@ -443,7 +447,7 @@ static void gsound_connect_sync_info_received_handler(uint8_t *buf, uint16_t len
 void app_ai_tws_gsound_sync_init(void)
 {
 #ifdef IBRT
-	TRACE_CSD(1, "{%s}", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     TWS_SYNC_USER_T userAiConnect = {
         gsound_connect_sync_info_prepare_handler,
         gsound_connect_sync_info_received_handler,
@@ -451,8 +455,9 @@ void app_ai_tws_gsound_sync_init(void)
         NULL,
         NULL,
     };
-
+	TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<TWS_SYNC_USER_AI_CONNECTION> registering");
     app_tws_if_register_sync_user(TWS_SYNC_USER_AI_CONNECTION, &userAiConnect);
+	TRACE_CSD(1, "[%s]---", __func__);
 #endif
 }
 

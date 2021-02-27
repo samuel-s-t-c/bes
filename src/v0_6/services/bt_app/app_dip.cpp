@@ -116,7 +116,7 @@ void app_dip_sync_info_received_handler(uint8_t *buf, uint16_t length)
 
 void app_dip_sync_init(void)
 {
-	TRACE_CSD(1, "{%s}", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     TWS_SYNC_USER_T user_app_dip_t = {
         app_dip_sync_info_prepare_handler,
         app_dip_sync_info_received_handler,
@@ -124,8 +124,9 @@ void app_dip_sync_init(void)
         NULL,
         NULL,
     };
-
+	TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<TWS_SYNC_USER_DIP> registering");
     app_tws_if_register_sync_user(TWS_SYNC_USER_DIP, &user_app_dip_t);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void app_dip_sync_dip_info(void)

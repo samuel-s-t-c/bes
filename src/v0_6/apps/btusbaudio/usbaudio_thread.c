@@ -118,6 +118,7 @@ static void usb_enqueue_cmd(uint32_t data)
 
 int usb_os_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     osThreadId usb_tid;
 
     USBAUDIO_DEBUG("%s,%d",__func__,__LINE__);
@@ -132,7 +133,7 @@ int usb_os_init(void)
 	}
 
     usb_audio_set_enqueue_cmd_callback(usb_enqueue_cmd);
-
+	TRACE_CSD(1, "[%s]---", __func__);
 	return 0;
 }
 

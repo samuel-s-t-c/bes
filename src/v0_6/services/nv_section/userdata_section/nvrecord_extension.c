@@ -346,6 +346,7 @@ void nv_record_post_write_operation(uint32_t lock)
 
 static void nv_record_extension_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     uint32_t lock;
     bool main_is_valid = false;
     bool bak_is_valid = false;
@@ -353,6 +354,7 @@ static void nv_record_extension_init(void)
 
     if(nvrec_init)
     {
+		TRACE_CSD(1, "[%s]--- MSG_INFO:already done!", __func__);
         return;
     }
     _user_data_main_start = (uint32_t)__userdata_start;
@@ -467,6 +469,7 @@ static void nv_record_extension_init(void)
         nv_record_extension_flush(false);
     }
     TRACE(2,"%s,done.", __func__);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 NV_EXTENSION_RECORD_T* nv_record_get_extension_entry_ptr(void)
@@ -938,7 +941,7 @@ void nv_extension_callback(void* param)
 
 void nv_record_init(void)
 {
-	TRACE_CSD(1, "{%s}", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     nv_mpu_id = mpu_alloc_region();
     if (nv_mpu_id == MPU_INVALID_ID) {
         TRACE(2,"cannot alloc mpu region for NV!!!");
@@ -946,19 +949,23 @@ void nv_record_init(void)
     nv_record_open(section_usrdata_ddbrecord);
 
     nv_custom_parameter_section_init();
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 bt_status_t nv_record_open(SECTIONS_ADP_ENUM section_id)
 {
-	TRACE_CSD(1, "{%s}", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     nv_record_extension_init();
 #ifdef FLASH_SUSPEND
+	TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HAL_SLEEP_HOOK_USER_NVRECORD> set hook");
     hal_sleep_set_sleep_hook(HAL_SLEEP_HOOK_USER_NVRECORD,
                 nv_record_flash_flush_in_sleep);
 #else
+	TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HAL_DEEP_SLEEP_HOOK_USER_NVRECORD> set hook");
     hal_sleep_set_deep_sleep_hook(HAL_DEEP_SLEEP_HOOK_USER_NVRECORD,
                 nv_record_flash_flush_in_sleep);
 #endif
+	TRACE_CSD(1, "[%s]---", __func__);
     return BT_STS_SUCCESS;
 }
 
