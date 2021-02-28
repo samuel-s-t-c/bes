@@ -31,16 +31,16 @@ int list_init(void)
 	TRACE_CSD(1, "[%s]+++", __func__);
     if (list_t_mempool == NULL)
     {
-		TRACE_CSD(0, "{osPoolCreate}-->(list_t_mempool)");
+		TRACE_CSD(0, "MSG_INFO:{osPoolCreate}-->(list_t_mempool)");
         list_t_mempool = osPoolCreate(osPool(list_t_mempool));
     }
 
     if (list_node_t_mempool == NULL)
     {
-		TRACE_CSD(0, "{osPoolCreate}-->(list_node_t_mempool)");
+		TRACE_CSD(0, "MSG_INFO:{osPoolCreate}-->(list_node_t_mempool)");
         list_node_t_mempool = osPoolCreate(osPool(list_node_t_mempool));
     }
-	TRACE_CSD(1, "[%s]+++", __func__);
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 

@@ -89,7 +89,7 @@ int app_pwl_open(void)
         hal_iomux_init((struct HAL_IOMUX_PIN_FUNCTION_MAP *)&cfg_hw_pinmux_pwl[i], 1);
         hal_gpio_pin_set_dir((enum HAL_GPIO_PIN_T)cfg_hw_pinmux_pwl[i].pin, HAL_GPIO_DIR_OUT, 0);
     }
-	TRACE_CSD(0, "{osTimerCreate}-->(APP_PWL_TIMER0) app_pwl[APP_PWL_ID_0].timer");
+	TRACE_CSD(0, "MSG_INFO:{osTimerCreate}-->(APP_PWL_TIMER0) app_pwl[APP_PWL_ID_0].timer");
     app_pwl[APP_PWL_ID_0].timer = osTimerCreate (osTimer(APP_PWL_TIMER0), osTimerOnce, &app_pwl[APP_PWL_ID_0]);
 #if (CFG_HW_PWL_NUM == 2)
 	TRACE_CSD(0, "{osTimerCreate}-->(APP_PWL_TIMER1) app_pwl[APP_PWL_ID_1].timer");

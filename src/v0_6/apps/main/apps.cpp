@@ -649,7 +649,7 @@ const  APP_KEY_HANDLE  pwron_key_handle_cfg[] = {
 #endif
 
 #ifndef APP_TEST_MODE
-// 开机时电源键的初始化
+// 注册"开机时电源键事件"对应的处理函数
 static void app_poweron_key_init(void)
 {
     uint8_t i = 0;
@@ -1497,9 +1497,9 @@ void app_ibrt_init(void)
         app_ibrt_if_config_load(&config);
         app_ibrt_customif_ui_start();
 #ifdef IBRT_SEARCH_UI
-		TRACE_CSD(0, "[app_tws_ibrt_start]+++");
+		TRACE_CSD(0, "MSG_INFO:[app_tws_ibrt_start]+++");
         app_tws_ibrt_start(&config, true);
-		TRACE_CSD(0, "[app_tws_ibrt_start]---");
+		TRACE_CSD(0, "MSG_INFO:[app_tws_ibrt_start]---");
         app_ibrt_search_ui_init(false,IBRT_NONE_EVENT);
 #else
         app_tws_ibrt_start(&config, false);
@@ -1593,7 +1593,7 @@ int app_init(void)
     TRACE(0,"app_init\n");
 
 #ifdef APP_TRACE_RX_ENABLE
-	TRACE_CSD(0, "APP_TRACE_RX_ENABLE");
+	TRACE_CSD(0, "MSG_INFO:APP_TRACE_RX_ENABLE");
     app_trace_rx_open();
     app_bt_cmd_init();
 #endif
@@ -1624,10 +1624,10 @@ extern int rpc_service_setup(void);
         goto exit;
     }
 #if OS_HAS_CPU_STAT
-		TRACE_CSD(0, "{osTimerCreate}-->(cpu_usage_timer) cpu_usage_timer_id")
+		TRACE_CSD(0, "MSG_INFO:{osTimerCreate}-->(cpu_usage_timer) cpu_usage_timer_id")
         cpu_usage_timer_id = osTimerCreate(osTimer(cpu_usage_timer), osTimerPeriodic, NULL);
         if (cpu_usage_timer_id != NULL) {
-			TRACE_CSD(0,"{osTimerStart} (cpu_usage_timer) CPU_USAGE_TIMER_TMO_VALUE")
+			TRACE_CSD(0,"MSG_INFO:{osTimerStart} (cpu_usage_timer) CPU_USAGE_TIMER_TMO_VALUE")
             osTimerStart(cpu_usage_timer_id, CPU_USAGE_TIMER_TMO_VALUE);
         }
 #endif
@@ -1684,7 +1684,7 @@ extern int rpc_service_setup(void);
     usb_os_init();
 #endif
     nRet = app_battery_open();
-    TRACE(1,"BATTERY %d",nRet);
+    TRACE(1,"APP_BATTERY_OPEN_MODE %d",nRet);
     if (pwron_case != APP_POWERON_CASE_TEST){
 #ifdef USER_REBOOT_PLAY_MUSIC_AUTO
         TRACE(0,"hal_sw_bootmode_clear HAL_SW_BOOTMODE_LOCAL_PLAYER!!!!!!");
@@ -1692,11 +1692,13 @@ extern int rpc_service_setup(void);
 #endif
         switch (nRet) {
             case APP_BATTERY_OPEN_MODE_NORMAL:
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_OPEN_MODE_NORMAL>");
                 nRet = 0;
                 break;
             case APP_BATTERY_OPEN_MODE_CHARGING:
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_OPEN_MODE_CHARGING>");
                 app_status_indication_set(APP_STATUS_INDICATION_CHARGING);
-                TRACE(0,"CHARGING!");
+                TRACE(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"CHARGING!");
                 app_battery_start();
 
                 app_key_open(false);
@@ -1709,6 +1711,7 @@ extern int rpc_service_setup(void);
 #endif
                 break;
             case APP_BATTERY_OPEN_MODE_CHARGING_PWRON:
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_OPEN_MODE_CHARGING_PWRON>");
                 TRACE(0,"CHARGING PWRON!");
 #ifdef IBRT_SEARCH_UI
                 is_charging_poweron=true;
@@ -1717,6 +1720,7 @@ extern int rpc_service_setup(void);
                 nRet = 0;
                 break;
             case APP_BATTERY_OPEN_MODE_INVALID:
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_OPEN_MODE_INVALID>");
             default:
                 nRet = -1;
                 goto exit;
@@ -1725,7 +1729,7 @@ extern int rpc_service_setup(void);
     }
 
     if (app_key_open(need_check_key)){
-        TRACE(0,"PWR KEY DITHER!");
+        TRACE(0,"MSG_INFO:PWR KEY DITHER!");
         nRet = -1;
         goto exit;
     }
@@ -2046,7 +2050,7 @@ extern int rpc_service_setup(void);
         }
     }
 exit:
-	TRACE_CSD(0, "Exit\n");
+	TRACE_CSD(0, "MSG_INFO:Exit\n");
 #ifdef IS_MULTI_AI_ENABLED
     app_ai_tws_clear_reboot_box_state();
 #endif

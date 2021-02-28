@@ -1091,21 +1091,25 @@ static void hal_key_boot_handler(void *param)
             }
         }
     }
+
     if (pwr_key.debounce || pwr_key.dither || pwr_key.pressed) {
-        if (pwr_key.pressed) {
+        if (pwr_key.pressed && key_status.time_updown) {	//DEBUG_BES_BUG
             if (key_status.event == HAL_KEY_EVENT_NONE) {
                 if (time - key_status.time_updown >= KEY_INIT_DOWN_THRESHOLD) {
+					TRACE_CSD(0, "<HAL_KEY_EVENT_INITDOWN>");
                     key_status.event = HAL_KEY_EVENT_INITDOWN;
                     send_key_event(HAL_KEY_CODE_PWR, key_status.event);
                 }
             } else if (key_status.event == HAL_KEY_EVENT_INITDOWN) {
                 if (time - key_status.time_updown >= KEY_INIT_LONGPRESS_THRESHOLD) {
+					TRACE_CSD(0, "<HAL_KEY_EVENT_INITLONGPRESS>");
                     key_status.cnt_repeat = 0;
                     key_status.event = HAL_KEY_EVENT_INITLONGPRESS;
                     send_key_event(HAL_KEY_CODE_PWR, key_status.event);
                 }
             } else if (key_status.event == HAL_KEY_EVENT_INITLONGPRESS) {
                 if (time - key_status.time_updown >= KEY_INIT_LONGLONGPRESS_THRESHOLD) {
+					TRACE_CSD(0, "<HAL_KEY_EVENT_INITLONGLONGPRESS>");
                     key_status.event = HAL_KEY_EVENT_INITLONGLONGPRESS;
                     send_key_event(HAL_KEY_CODE_PWR, key_status.event);
                 }
@@ -1114,8 +1118,10 @@ static void hal_key_boot_handler(void *param)
         hal_key_debounce_timer_restart();
     } else {
         if (key_status.event == HAL_KEY_EVENT_NONE || key_status.event == HAL_KEY_EVENT_INITDOWN) {
+			TRACE_CSD(0, "<HAL_KEY_EVENT_INITUP>");
             send_key_event(HAL_KEY_CODE_PWR, HAL_KEY_EVENT_INITUP);
         }
+		TRACE_CSD(0, "<HAL_KEY_EVENT_INITFINISHED>");
         send_key_event(HAL_KEY_CODE_PWR, HAL_KEY_EVENT_INITFINISHED);
 
         hwtimer_update(debounce_timer, hal_key_debounce_handler, NULL);
@@ -1153,7 +1159,8 @@ int hal_key_open(int checkPwrKey, int (* cb)(uint32_t, uint8_t))
             do {
                 hal_sys_timer_delay(MS_TO_TICKS(20));
                 if (!hal_pwrkey_startup_pressed()) {
-                    HAL_KEY_TRACE(0,"pwr_key init DITHERING");
+                    //HAL_KEY_TRACE(0,"hal_key_open:pwr_key init DITHERING");
+                    TRACE_CSD(0, "hal_key_open: pwr_key init DITHERING");
                     nRet = -1;
                     goto _exit;
                 }

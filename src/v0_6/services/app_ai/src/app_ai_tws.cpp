@@ -339,13 +339,13 @@ void app_ai_tws_sync_init(void)
 
     if(NULL == app_ai_role_switch_timer_id)
     {
-		TRACE_CSD(0, "{osTimerCreate}-->(APP_AI_ROLE_SWITCH_TIMER) app_ai_role_switch_timer_id");
+		TRACE_CSD(0, "MSG_INFO:{osTimerCreate}-->(APP_AI_ROLE_SWITCH_TIMER) app_ai_role_switch_timer_id");
         app_ai_role_switch_timer_id =
             osTimerCreate(osTimer(APP_AI_ROLE_SWITCH_TIMER), osTimerOnce, NULL);
     }
     if(NULL == app_ai_ble_disc_timer_id)
     {
-		TRACE_CSD(0, "{osTimerCreate}-->(APP_AI_BLE_DISC_TIMER) app_ai_ble_disc_timer_id");
+		TRACE_CSD(0, "MSG_INFO:{osTimerCreate}-->(APP_AI_BLE_DISC_TIMER) app_ai_ble_disc_timer_id");
         app_ai_ble_disc_timer_id =
             osTimerCreate(osTimer(APP_AI_BLE_DISC_TIMER), osTimerOnce, NULL);
     }

@@ -242,6 +242,7 @@ void app_battery_irqhandler(uint16_t irq_val, HAL_GPADC_MV_T volt)
 
 static void app_battery_timer_start(enum APP_BATTERY_MEASURE_PERIODIC_T periodic)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     uint32_t periodic_millisec = 0;
 
     if (app_battery_measure.periodic != periodic){
@@ -249,19 +250,29 @@ static void app_battery_timer_start(enum APP_BATTERY_MEASURE_PERIODIC_T periodic
         switch (periodic)
         {
             case APP_BATTERY_MEASURE_PERIODIC_FAST:
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_MEASURE_PERIODIC_FAST>");
                 periodic_millisec = APP_BATTERY_MEASURE_PERIODIC_FAST_MS;
                 break;
             case APP_BATTERY_MEASURE_PERIODIC_CHARGING:
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_MEASURE_PERIODIC_CHARGING>");
                 periodic_millisec = APP_BATTERY_CHARGING_PERIODIC_MS;
                 break;
             case APP_BATTERY_MEASURE_PERIODIC_NORMAL:
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_MEASURE_PERIODIC_NORMAL>");
                 periodic_millisec = APP_BATTERY_MEASURE_PERIODIC_NORMAL_MS;
             default:
                 break;
         }
+		TRACE_CSD(0,"MSG_INFO:{osTimerStop} (app_battery_timer)");
         osTimerStop(app_battery_timer);
+		TRACE_CSD(1,"MSG_INFO:{osTimerStart} (app_battery_timer) %dms", periodic_millisec);
         osTimerStart(app_battery_timer, periodic_millisec);
     }
+	else
+	{
+		TRACE_CSD(0, "MSG_INFO:Same config.");
+	}
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 static void app_battery_timer_handler(void const *param)
@@ -507,19 +518,19 @@ int app_battery_get_info(APP_BATTERY_MV_T *currvolt, uint8_t *currlevel, enum AP
 int app_battery_open(void)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
-	TRACE_CSD(2|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "Battery range:%d~%d",APP_BATTERY_MIN_MV,APP_BATTERY_MAX_MV);
+	TRACE_CSD(2|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "MSG_INFO: range:%d~%d",APP_BATTERY_MIN_MV,APP_BATTERY_MAX_MV);
     //APP_BATTERY_TRACE(3,"%s batt range:%d~%d",__func__, APP_BATTERY_MIN_MV, APP_BATTERY_MAX_MV);
     int nRet = APP_BATTERY_OPEN_MODE_INVALID;
 
     if (app_battery_timer == NULL)
     {
-		TRACE_CSD(0, "{osTimerCreate}-->(APP_BATTERY) app_battery_timer");
+		TRACE_CSD(0, "MSG_INFO:{osTimerCreate}-->(APP_BATTERY) app_battery_timer");
         app_battery_timer = osTimerCreate (osTimer(APP_BATTERY), osTimerPeriodic, NULL);
     }
 
     if (app_battery_pluginout_debounce_timer == NULL)
     {
-		TRACE_CSD(0, "{osTimerCreate}-->(APP_BATTERY_PLUGINOUT_DEBOUNCE) app_battery_pluginout_debounce_timer");
+		TRACE_CSD(0, "MSG_INFO:{osTimerCreate}-->(APP_BATTERY_PLUGINOUT_DEBOUNCE) app_battery_pluginout_debounce_timer");
         app_battery_pluginout_debounce_timer = osTimerCreate (osTimer(APP_BATTERY_PLUGINOUT_DEBOUNCE), osTimerOnce, &app_battery_pluginout_debounce_ctx);
     }
 	TRACE_CSD(0, "(app_battery_measure) configuring");
@@ -545,6 +556,7 @@ int app_battery_open(void)
     app_battery_measure.charger_status.slope_1000_index = 0;
     app_battery_measure.charger_status.cnt = 0;
 
+	TRACE_CSD(0,"MSG_INFO:{app_set_threadhandle} <APP_MODUAL_BATTERY>:(app_battery_handle_process)");
     app_set_threadhandle(APP_MODUAL_BATTERY, app_battery_handle_process);
 
     if (app_battery_ext_charger_detecter_cfg.pin != HAL_IOMUX_PIN_NUM)
@@ -592,8 +604,8 @@ int app_battery_open(void)
 
 int app_battery_start(void)
 {
-    APP_BATTERY_TRACE(2,"{%s} %d",__func__, APP_BATTERY_MEASURE_PERIODIC_FAST_MS);
-
+    //APP_BATTERY_TRACE(2,"{%s} %d",__func__, APP_BATTERY_MEASURE_PERIODIC_FAST_MS);
+	TRACE_CSD(0, "{app_battery_start}-->{app_battery_timer_start}");
     app_battery_timer_start(APP_BATTERY_MEASURE_PERIODIC_FAST);
 
     return 0;
@@ -774,6 +786,7 @@ static enum APP_BATTERY_CHARGER_T app_battery_charger_forcegetstatus(void)
 static void app_battery_charger_handler(enum PMU_CHARGER_STATUS_T status)
 {
     TRACE(2,"%s: status=%d", __func__, status);
+	TRACE_CSD(0, "MSG_INFO:{pmu_charger_set_irq_handler}-->(NULL)");
     pmu_charger_set_irq_handler(NULL);
     app_battery_event_process(APP_BATTERY_STATUS_PLUGINOUT,
                               (status == PMU_CHARGER_PLUGIN) ? APP_BATTERY_CHARGER_PLUGIN : APP_BATTERY_CHARGER_PLUGOUT);
@@ -853,7 +866,7 @@ int app_battery_charger_indication_open(void)
             status = APP_BATTERY_CHARGER_PLUGIN;
         }
     }
-
+	TRACE_CSD(0, "MSG_INFO:{pmu_charger_set_irq_handler}-->(app_battery_charger_handler)");
     pmu_charger_set_irq_handler(app_battery_charger_handler);
 	TRACE_CSD(1, "[%s]---", __func__);
     return status;

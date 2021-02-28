@@ -3909,6 +3909,7 @@ void app_bt_init(void)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
     app_bt_mail_init();
+	TRACE_CSD(0,"MSG_INFO:{app_set_threadhandle} <APP_MODUAL_BT>:(app_bt_handle_process)");
     app_set_threadhandle(APP_MODUAL_BT, app_bt_handle_process);
     btif_me_sec_set_io_cap_rsp_reject_ext(app_bt_profile_connect_openreconnecting);
     app_bt_active_mode_manager_init();

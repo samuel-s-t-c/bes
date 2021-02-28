@@ -133,15 +133,22 @@ void app_key_handle_clear(void)
 
 int app_key_open(int checkPwrKey)
 {
-	TRACE_CSD(2, "[%s]+++ %d", __func__, checkPwrKey);
-    APP_KEY_TRACE(2,"%s %p",__func__, app_key_conifg.key_list);
+	TRACE_CSD(3, "[%s]+++ %s app_key_config.key_list=%p", __func__, checkPwrKey?"true":"false", app_key_conifg.key_list);
+    //APP_KEY_TRACE(2,"%s %p",__func__, app_key_conifg.key_list);
 
     if (app_key_conifg.key_list == NULL)
+    {
+		TRACE_CSD(0, "MSG_INFO:{list_new} app_key_handle_free NULL NULL");
         app_key_conifg.key_list = list_new(app_key_handle_free, NULL, NULL);
+    }
 
     if (app_key_handle_mempool == NULL)
+    {
+		TRACE_CSD(0, "MSG_INFO:{osPoolCreate}-->(app_key_handle_mempool)");
         app_key_handle_mempool = osPoolCreate(osPool(app_key_handle_mempool));
+    }
 
+	TRACE_CSD(0,"MSG_INFO:{app_set_threadhandle} <APP_MODUAL_KEY>:(app_key_handle_process)");
     app_set_threadhandle(APP_MODUAL_KEY, app_key_handle_process);
 
 	int ret = hal_key_open(checkPwrKey, key_event_process);

@@ -512,14 +512,16 @@ static void app_bt_mail_poll(void)
 
 int app_bt_mail_init(void)
 {
-	TRACE_CSD(1, "{%s}", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
+	TRACE_CSD(0, "MSG_INFO:{osMailCreate}-->(app_bt_mailbox) app_bt_mailbox");
     app_bt_mailbox = osMailCreate(osMailQ(app_bt_mailbox), NULL);
     if (app_bt_mailbox == NULL)  {
-        TRACE(0,"Failed to Create app_mailbox\n");
+        TRACE(0,"MSG_ERROR:Failed to Create app_mailbox\n");
         return -1;
     }
+	TRACE_CSD(0,"MSG_INFO:{Besbt_hook_handler_set} <BESBT_HOOK_USER_1>:(app_bt_mail_poll)");
     Besbt_hook_handler_set(BESBT_HOOK_USER_1, app_bt_mail_poll);
-
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 

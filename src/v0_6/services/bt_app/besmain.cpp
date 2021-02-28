@@ -380,29 +380,29 @@ int besmain(void)
     btif_set_btstack_chip_config(bt_drv_get_btstack_chip_config());
 
     /* bes stack init */
-	TRACE_CSD(0, "[bt_stack_initilize]+++");
+	TRACE_CSD(0, "MSG_INFO:[bt_stack_initilize]+++");
     bt_stack_initilize();
-	TRACE_CSD(0, "[bt_stack_initilize]---");
+	TRACE_CSD(0, "MSG_INFO:[bt_stack_initilize]---");
 	
 #if defined(ENHANCED_STACK)
-	TRACE_CSD(0, "[bt_stack_register_ready_callback]+++");
+	TRACE_CSD(0, "MSG_INFO:[bt_stack_register_ready_callback]+++");
     bt_stack_register_ready_callback(stack_ready_callback);
-	TRACE_CSD(0, "[bt_stack_register_ready_callback]---");
-	TRACE_CSD(0, "[btif_sdp_init]+++");
+	TRACE_CSD(0, "MSG_INFO:[bt_stack_register_ready_callback]---");
+	TRACE_CSD(0, "MSG_INFO:[btif_sdp_init]+++");
     btif_sdp_init();
-	TRACE_CSD(0, "[btif_sdp_init]---");
+	TRACE_CSD(0, "MSG_INFO:[btif_sdp_init]---");
 #endif
 
 #if defined(ENHANCED_STACK)
-	TRACE_CSD(0, "[btif_cmgr_handler_init]+++");
+	TRACE_CSD(0, "MSG_INFO:[btif_cmgr_handler_init]+++");
     btif_cmgr_handler_init();
-	TRACE_CSD(0, "[btif_cmgr_handler_init]---");
+	TRACE_CSD(0, "MSG_INFO:[btif_cmgr_handler_init]---");
 #endif
 
     a2dp_init();
-	TRACE_CSD(0, "[btif_avrcp_init]+++");
+	TRACE_CSD(0, "MSG_INFO:[btif_avrcp_init]+++");
     btif_avrcp_init(&app_bt_device);
-	TRACE_CSD(0, "[btif_avrcp_init]---");
+	TRACE_CSD(0, "MSG_INFO:[btif_avrcp_init]---");
 
 #ifdef __AI_VOICE__
     app_ai_voice_init();
@@ -481,7 +481,7 @@ int besmain(void)
     bt_key_init();
 
 #ifdef TEST_OVER_THE_AIR_ENANBLED
-	TRACE_CSD(0, "\nTEST_OVER_THE_AIR_ENANBLED\n")
+	TRACE_CSD(0, "\nMSG_INFO:TEST_OVER_THE_AIR_ENANBLED\n")
     app_tota_init();
 #endif
 	
@@ -493,20 +493,20 @@ int besmain(void)
         app_sysfreq_req(APP_SYSFREQ_USER_BT_MAIN, sysfreq);
         //    BESHCI_LockBuffer();
 #ifdef __LOCK_AUDIO_THREAD__
-		TRACE_CSD(0, "\n__LOCK_AUDIO_THREAD__\n");
+		TRACE_CSD(0, "\nMSG_INFO:__LOCK_AUDIO_THREAD__\n");
         bool stream_a2dp_sbc_isrun = app_bt_stream_isrun(APP_BT_STREAM_A2DP_SBC);
         if (stream_a2dp_sbc_isrun) {
             af_lock_thread();
         }
 #endif
-		TRACE_CSD(0,"[bt_process_stack_events]+++");
+		TRACE_CSD(0,"MSG_INFO:[bt_process_stack_events]+++");
         bt_process_stack_events();
-		TRACE_CSD(0,"[bt_process_stack_events]---");
+		TRACE_CSD(0,"MSG_INFO:[bt_process_stack_events]---");
 
 #ifdef __IAG_BLE_INCLUDE__
-		TRACE_CSD(0,"[bes_ble_schedule]+++");
+		TRACE_CSD(0,"MSG_INFO:[bes_ble_schedule]+++");
         bes_ble_schedule();
-		TRACE_CSD(0,"[bes_ble_schedule]---");
+		TRACE_CSD(0,"MSG_INFO:[bes_ble_schedule]---");
 #endif
 
         Besbt_hook_proc();
@@ -517,7 +517,7 @@ int besmain(void)
         }
 #endif
         // BESHCI_UNLockBuffer();
-        TRACE_CSD(0, "{BESHCI_Poll}");
+        TRACE_CSD(0, "MSG_INFO:{BESHCI_Poll}");
         BESHCI_Poll();
 
 #if defined(IBRT)

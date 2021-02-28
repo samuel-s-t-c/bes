@@ -199,7 +199,7 @@ int app_set_threadhandle(enum APP_MODUAL_ID_T mod_id, APP_MOD_HANDLER_T handler)
 {
     if (mod_id>=APP_MODUAL_NUM)
     {
-		TRACE_CSD(3, "{%s} MSG_WARN:wrong mod_id!!");
+		TRACE_CSD(1, "{%s} MSG_WARN:wrong mod_id!!", __func__);
         return -1;
     }
 
