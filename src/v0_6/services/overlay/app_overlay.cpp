@@ -59,10 +59,12 @@ void app_overlay_unloadall(void)
 
 void app_overlay_open(void)
 {
-	TRACE_CSD(1, "{%s}", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
 	if (app_overlay_mutex_id == NULL) {
+		TRACE_CSD(0, "MSG_INFO:{osMutexCreate}-->(app_overlay_mutex) app_overlay_mutex_id");
 		app_overlay_mutex_id = osMutexCreate(osMutex(app_overlay_mutex));
 	}
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void app_overlay_close(void)

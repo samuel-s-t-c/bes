@@ -1719,6 +1719,7 @@ bool nvrec_dev_data_open(void)
 
 bool nvrec_dev_localname_addr_init(dev_addr_name *dev)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     uint32_t *p_devdata_cache = __factory_start;
     size_t name_len = 0;
     if(true == dev_sector_valid)
@@ -1761,7 +1762,7 @@ bool nvrec_dev_localname_addr_init(dev_addr_name *dev)
     nvrec_trace(2,"localname=%s, namelen=%d", dev->localname, strlen(dev->localname));
     if (dev->ble_name)
         nvrec_trace(2,"blename=%s, namelen=%d", dev->ble_name, strlen(dev->ble_name));
-
+	TRACE_CSD(1, "[%s]---", __func__);
     return dev_sector_valid;
 }
 

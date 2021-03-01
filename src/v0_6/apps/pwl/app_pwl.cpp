@@ -157,7 +157,7 @@ int app_pwl_setup(enum APP_PWL_ID_T id, struct APP_PWL_CFG_T *cfg)
     hal_gpio_pin_set_dir((enum HAL_GPIO_PIN_T)cfg_hw_pinmux_pwl[id].pin, HAL_GPIO_DIR_OUT, cfg->startlevel?1:0);
     app_pwl[id].id = id;
     memcpy(&(app_pwl[id].config), cfg, sizeof(struct APP_PWL_CFG_T));
-	TRACE_CSD(1, "{osTimerStop}-->((app_pwl[%d].timer)", id);
+	TRACE_CSD(1, "MSG_INFO:{osTimerStop}-->((app_pwl[%d].timer)", id);
     osTimerStop(app_pwl[id].timer);
 	TRACE_CSD(1, "[%s]---", __func__);
 #endif
@@ -170,7 +170,7 @@ int app_pwl_stop(enum APP_PWL_ID_T id)
     if (id >= APP_PWL_ID_QTY) {
         return -1;
     }
-
+	TRACE_CSD(1,"MSG_INFO:{osTimerStop} (app_pwl[%d].timer)",id);
     osTimerStop(app_pwl[id].timer);
     hal_gpio_pin_clr((enum HAL_GPIO_PIN_T)cfg_hw_pinmux_pwl[id].pin);
 #endif

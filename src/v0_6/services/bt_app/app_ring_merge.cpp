@@ -256,6 +256,7 @@ int app_ring_merge_init(void)
 {
     if (app_ring_merge_mutex_id == NULL)
     {
+		TRACE_CSD(0, "MSG_INFO:{osMutexCreate}-->(app_ring_merge_mutex) app_ring_merge_mutex_id");
         app_ring_merge_mutex_id = osMutexCreate((osMutex(app_ring_merge_mutex)));
     }
 

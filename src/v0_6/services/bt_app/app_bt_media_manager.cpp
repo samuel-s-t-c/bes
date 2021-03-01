@@ -2360,6 +2360,7 @@ void app_audio_manager_open(void)
     bt_meida.media_curr_sbc = BT_DEVICE_NUM;
     bt_meida.media_curr_sco = BT_DEVICE_NUM;
     bt_meida.curr_active_media = 0;
+	TRACE_CSD(0, "MSG_INFO:{app_set_threadhandle} <APP_MODUAL_AUDIO_MANAGE>:(app_audio_manager_handle_process)");
     app_set_threadhandle(APP_MODUAL_AUDIO_MANAGE, app_audio_manager_handle_process);
     app_bt_stream_register_a2dp_param_callback(app_audio_manager_get_a2dp_codec_type);
     app_audio_manager_init = true;

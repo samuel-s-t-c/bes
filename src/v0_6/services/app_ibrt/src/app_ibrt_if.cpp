@@ -503,6 +503,7 @@ int app_ibrt_if_reconfig(ibrt_config_t *config)
 
 int app_ibrt_if_ui_reconfig(ibrt_ui_config_t *config)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     app_ibrt_ui_t *p_ibrt_ui = app_ibrt_ui_get_ctx();
 
     p_ibrt_ui->config = *config;
@@ -512,6 +513,7 @@ int app_ibrt_if_ui_reconfig(ibrt_ui_config_t *config)
 
 int app_ibrt_core_if_reconfig(ibrt_core_config_t *config)
 {
+	TRACE_CSD(1, "{%s}", __func__);
     ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
 
     p_ibrt_ctrl->config = *config;
@@ -521,6 +523,7 @@ int app_ibrt_core_if_reconfig(ibrt_core_config_t *config)
 
 int app_ibrt_if_config(ibrt_ui_config_t *ui_config)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     app_ibrt_if_ui_reconfig(ui_config);
 
     ibrt_core_config_t core_config;
@@ -541,7 +544,7 @@ int app_ibrt_if_config(ibrt_ui_config_t *ui_config)
     core_config.delay_ms_exit_sniff = ui_config->delay_ms_exit_sniff;
     core_config.audio_sync_mismatch_resume_version = ui_config->audio_sync_mismatch_resume_version;
     app_ibrt_core_if_reconfig(&core_config);
-
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 

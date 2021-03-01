@@ -48,13 +48,17 @@ static uint8_t app_ibrt_peripheral_mailbox_cnt = 0;
 
 static int app_ibrt_peripheral_mailbox_init(void)
 {
-	TRACE_CSD(1, "{%s}", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
+	TRACE_CSD(0, "MSG_INFO:{osMailCreate}-->(app_ibrt_peripheral_mailbox) app_ibrt_peripheral_mailbox");
     app_ibrt_peripheral_mailbox = osMailCreate(osMailQ(app_ibrt_peripheral_mailbox), NULL);
     if (app_ibrt_peripheral_mailbox == NULL)  {
-        TRACE(0,"Failed to Create app_ibrt_peripheral_mailbox\n");
+        //TRACE(0,"Failed to Create app_ibrt_peripheral_mailbox\n");
+		TRACE_CSD(0,"MSG_ERROR:Failed to Create app_ibrt_peripheral_mailbox\n");
+		TRACE_CSD(1, "[%s]---", __func__);
         return -1;
     }
     app_ibrt_peripheral_mailbox_cnt = 0;
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 
@@ -121,7 +125,8 @@ static heap_handle_t app_ibrt_peripheral_heap;
 uint8_t app_ibrt_peripheral_buf[APP_IBRT_PERIPHERAL_BUF_SIZE];
 bool app_ibrt_auto_test_started = false;
 void app_ibrt_peripheral_heap_init(void)
-{
+{	
+	TRACE_CSD(1, "{%s}", __func__);
     app_ibrt_auto_test_started = true;
     app_ibrt_peripheral_heap = heap_register(app_ibrt_peripheral_buf, APP_IBRT_PERIPHERAL_BUF_SIZE);
 }
@@ -324,11 +329,16 @@ void app_ibrt_peripheral_thread_init(void)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
     if (app_ibrt_peripheral_mailbox_init())
+    {	
+		TRACE_CSD(1, "[%s]---", __func__);
         return;
-
+    }
+	TRACE_CSD(0, "MSG_INFO:{osThreadCreate}-->(app_ibrt_peripheral_thread) app_ibrt_peripheral_tid");
     app_ibrt_peripheral_tid = osThreadCreate(osThread(app_ibrt_peripheral_thread), NULL);
     if (app_ibrt_peripheral_tid == NULL)  {
-        TRACE(0,"Failed to Create app_ibrt_peripheral_thread\n");
+        //TRACE(0,"Failed to Create app_ibrt_peripheral_thread\n");
+        TRACE_CSD(0,"MSG_ERROR:Failed to Create app_ibrt_peripheral_thread\n");
+		TRACE_CSD(1, "[%s]---", __func__);
         return;
     }
 

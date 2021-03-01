@@ -685,14 +685,19 @@ void app_ibrt_search_ui_init(bool boxOperation,ibrt_event_type evt_type)
 		TRACE_CSD(0, "\nBOX_DET_USE_GPIO\n");
         box_det_pin_init();
 #else
+		TRACE_CSD(0, "MSG_INFO:{app_battery_register} (app_ibrt_battery_callback)");
         app_battery_register(app_ibrt_battery_callback);
 #endif
 
         if (app_box_handle_timer == NULL)
+        {
+			TRACE_CSD(0, "MSG_INFO:{osTimerCreate}-->(APP_BOX_HANDLE) app_box_handle_timer");
             app_box_handle_timer = osTimerCreate(osTimer(APP_BOX_HANDLE), osTimerOnce, &box_event);
+        }
     }
     else if(evt_type !=IBRT_IN_BOX_CLOSED)
     {
+		TRACE_CSD(0, "MSG_INFO:{app_ibrt_ui_judge_scan_type} (IBRT_OPEN_BOX_TRIGGER,NO_LINK_TYPE,IBRT_UI_NO_ERROR)");
         app_ibrt_ui_judge_scan_type(IBRT_OPEN_BOX_TRIGGER,NO_LINK_TYPE,IBRT_UI_NO_ERROR);
     }
 	TRACE_CSD(1, "[%s]---", __func__);
@@ -709,7 +714,7 @@ void app_ibrt_remove_history_paired_device(void)
     ibrt_ctrl_t *          p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
     int                    paired_dev_count = nv_record_get_paired_dev_count();
 
-    TWSCON_DBLOG(0,"Remove all history tws nv records.");
+    //TWSCON_DBLOG(0,"Remove all history tws nv records.");
     TWSCON_DBLOG(0,"Master addr:");
     DUMP8("%02x ",p_ibrt_ctrl->local_addr.address, BTIF_BD_ADDR_SIZE);
     TWSCON_DBLOG(0,"Slave addr:");

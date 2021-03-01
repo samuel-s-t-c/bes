@@ -130,6 +130,7 @@ bool app_factorymode_get(void)
 
 void app_factorymode_set(bool set)
 {
+	TRACE_CSD(2, "{%s} %s", __func__, set ? "true" : "false");
     isInFactoryMode = set;
 }
 void bt_drv_reg_op_key_gen_after_reset(bool enable);

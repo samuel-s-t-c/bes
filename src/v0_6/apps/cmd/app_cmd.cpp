@@ -45,11 +45,14 @@ static int app_cmd_handle_process(APP_MESSAGE_BODY *msg_body)
 
 void app_cmd_open(void)
 {
-	APP_CMD_TRACE(1,"%s",__func__);
-
+	//APP_CMD_TRACE(1,"%s",__func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
+	TRACE_CSD(0,"MSG_INFO:{app_set_threadhandle} <APP_MODUAL_CMD>:(app_cmd_handle_process)");
     app_set_threadhandle(APP_MODUAL_CMD, app_cmd_handle_process);
+	TRACE_CSD(0, "MSG_INFO:{hal_cmd_set_callback} (cmd_event_process)");
 	hal_cmd_set_callback(cmd_event_process);
     hal_cmd_open();
+	TRACE_CSD(1, "[%s]---", __func__);
     return;
 }
 

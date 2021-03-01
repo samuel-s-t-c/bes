@@ -478,6 +478,7 @@ void app_audio_list_create()
 {
     if (app_audio_conifg.audio_list == NULL)
     {
+		TRACE_CSD(0, "MSG_INFO:{list_new}-->(app_audio_conifg.audio_list) (app_audio_handle_free NULL NULL)");
         app_audio_conifg.audio_list = list_new(app_audio_handle_free, NULL, NULL);
     }
 }
@@ -760,6 +761,7 @@ void app_audio_open(void)
 	TRACE_CSD(1, "[%s]+++", __func__);
     if (g_app_audio_queue_mutex_id == NULL)
     {
+		TRACE_CSD(0, "MSG_INFO:{osMutexCreate}-->(g_app_audio_queue_mutex) g_app_audio_queue_mutex_id");
         g_app_audio_queue_mutex_id = osMutexCreate((osMutex(g_app_audio_queue_mutex)));
     }
     else
@@ -768,7 +770,10 @@ void app_audio_open(void)
     }
 
     if (app_audio_status_mempool == NULL)
+    {
+		TRACE_CSD(0, "MSG_INFO:{osPoolCreate}-->(app_audio_status_mempool) app_audio_status_mempool");
         app_audio_status_mempool = osPoolCreate(osPool(app_audio_status_mempool));
+    }
     ASSERT(app_audio_status_mempool, "[%s] ERROR: app_audio_status_mempool != NULL", __func__);
 
 #ifdef __AUDIO_QUEUE_SUPPORT__
@@ -776,6 +781,7 @@ void app_audio_open(void)
 #endif
     app_ring_merge_init();
 
+	TRACE_CSD(0, "MSG_INFO:{app_set_threadhandle} <APP_MODUAL_AUDIO>:(app_audio_handle_process)");
     app_set_threadhandle(APP_MODUAL_AUDIO, app_audio_handle_process);
 
     app_bt_stream_init();

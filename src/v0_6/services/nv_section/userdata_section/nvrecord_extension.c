@@ -957,11 +957,11 @@ bt_status_t nv_record_open(SECTIONS_ADP_ENUM section_id)
 	TRACE_CSD(1, "[%s]+++", __func__);
     nv_record_extension_init();
 #ifdef FLASH_SUSPEND
-	TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HAL_SLEEP_HOOK_USER_NVRECORD> set hook");
+	TRACE_CSD(0,"{hal_sleep_set_deep_sleep_hook} <HAL_SLEEP_HOOK_USER_NVRECORD>:(nv_record_flash_flush_in_sleep)");
     hal_sleep_set_sleep_hook(HAL_SLEEP_HOOK_USER_NVRECORD,
                 nv_record_flash_flush_in_sleep);
 #else
-	TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HAL_DEEP_SLEEP_HOOK_USER_NVRECORD> set hook");
+	TRACE_CSD(0,"{hal_sleep_set_deep_sleep_hook} <HAL_DEEP_SLEEP_HOOK_USER_NVRECORD>:(nv_record_flash_flush_in_sleep)");
     hal_sleep_set_deep_sleep_hook(HAL_DEEP_SLEEP_HOOK_USER_NVRECORD,
                 nv_record_flash_flush_in_sleep);
 #endif

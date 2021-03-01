@@ -1095,6 +1095,7 @@ int audio_cfg_burn_callback(uint8_t *buf, uint32_t  len)
 
 int audio_process_init(void)
 {
+	TRACE_CSD(1, "{%s}", __func__);
 #ifdef __PC_CMD_UART__
     hal_cmd_init();
 

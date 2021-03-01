@@ -322,8 +322,8 @@ int signal_send_to_main_thread(uint32_t signals);
 uint8_t stack_ready_flag = 0;
 void app_notify_stack_ready(uint8_t ready_flag)
 {
-    TRACE(2,"app_notify_stack_ready %d %d", stack_ready_flag, ready_flag);
-
+    //TRACE(2,"app_notify_stack_ready %d %d", stack_ready_flag, ready_flag);
+	TRACE_CSD(2,"{app_notify_stack_ready} %d %d", stack_ready_flag, ready_flag);
     stack_ready_flag |= ready_flag;
 
 #ifdef __IAG_BLE_INCLUDE__
@@ -352,7 +352,8 @@ bool app_is_stack_ready(void)
 
 static void app_stack_ready_cb(void)
 {
-    TRACE(0,"stack init done");
+	TRACE_CSD(1, "{%s}", __func__);
+    //TRACE(0,"stack init done");
 #ifdef BLE_ENABLE
     app_ble_stub_user_init();
     app_ble_start_connectable_adv(BLE_ADVERTISING_INTERVAL);
@@ -672,6 +673,7 @@ static uint8_t app_poweron_wait_case(void)
     TRACE(1,"poweron_wait_case enter:%d", g_pwron_case);
     if (g_pwron_case == APP_POWERON_CASE_INVALID){
         stime = hal_sys_timer_get();
+		TRACE_CSD(1,"MSG_INFO:{osSignalWait} (0x2) (POWERON_PRESSMAXTIME_THRESHOLD_MS %dms)", POWERON_PRESSMAXTIME_THRESHOLD_MS);
         osSignalWait(0x2, POWERON_PRESSMAXTIME_THRESHOLD_MS);
         etime = hal_sys_timer_get();
     }
@@ -688,6 +690,7 @@ static void app_wait_stack_ready(void)
 	TRACE_CSD(1, "[%s]+++", __func__);
     uint32_t stime, etime;
     stime = hal_sys_timer_get();
+	TRACE_CSD(0,"MSG_INFO:{osSignalWait} (0x3) (1000ms)");
     osSignalWait(0x3, 1000);
     etime = hal_sys_timer_get();
     TRACE(1,"app_wait_stack_ready: wait:%d ms", TICKS_TO_MS(etime - stime));
@@ -1491,21 +1494,24 @@ void app_ibrt_init(void)
         app_bt_global_handle_init();
 #if defined(IBRT)
         ibrt_config_t config;
+		TRACE_CSD(0,"MSG_INFO:{app_tws_ibrt_init}");
         app_tws_ibrt_init();
+		TRACE_CSD(0,"MSG_INFO:{app_ibrt_ui_init}");
         app_ibrt_ui_init();
         app_ibrt_ui_test_init();
         app_ibrt_if_config_load(&config);
         app_ibrt_customif_ui_start();
 #ifdef IBRT_SEARCH_UI
-		TRACE_CSD(0, "MSG_INFO:[app_tws_ibrt_start]+++");
+		TRACE_CSD(0, "MSG_INFO:{app_tws_ibrt_start} true");
         app_tws_ibrt_start(&config, true);
-		TRACE_CSD(0, "MSG_INFO:[app_tws_ibrt_start]---");
         app_ibrt_search_ui_init(false,IBRT_NONE_EVENT);
 #else
+		TRACE_CSD(0, "MSG_INFO:{app_tws_ibrt_start} false");
         app_tws_ibrt_start(&config, false);
 #endif
 
 #ifdef POWER_ON_ENTER_TWS_PAIRING_ENABLED
+		TRACE_CSD(0, "MSG_INFO:{app_ibrt_ui_event_entry} IBRT_TWS_PAIRING_EVENT");
         app_ibrt_ui_event_entry(IBRT_TWS_PAIRING_EVENT);
 #endif
 
@@ -1788,12 +1794,16 @@ extern int rpc_service_setup(void);
 
     // TODO: freddie->unify all of the OTA modules
 #if defined(IBRT_OTA)
+	TRACE_CSD(0, "MSG_INFO:[ota_flash_init]+++");
     ota_flash_init();
+	TRACE_CSD(0, "MSG_INFO:[ota_flash_init]---");
 #endif
 
 #ifdef OTA_ENABLED
     /// init OTA common module
+    TRACE_CSD(0, "MSG_INFO:[ota_common_init_handler]+++");
     ota_common_init_handler();
+	TRACE_CSD(0, "MSG_INFO:[ota_common_init_handler]---");
 #endif // OTA_ENABLED
 
 #ifdef IBRT
@@ -1814,6 +1824,7 @@ extern int rpc_service_setup(void);
         BesbtInit();
         app_wait_stack_ready();
         bt_drv_extra_config_after_init();
+		TRACE_CSD(0,"MSG_INFO:{bt_generate_ecdh_key_pair}");
         bt_generate_ecdh_key_pair();
         app_bt_start_custom_function_in_bt_thread((uint32_t)0,
             0, (uint32_t)app_ibrt_init);
@@ -1822,8 +1833,8 @@ extern int rpc_service_setup(void);
     app_ble_force_switch_adv(BLE_SWITCH_USER_IBRT, true);
 #endif
     app_sysfreq_req(APP_SYSFREQ_USER_APP_INIT, APP_SYSFREQ_52M);
-    TRACE(1,"\n\n\nbt_stack_init_done:%d\n\n\n", pwron_case);
-
+    //TRACE(1,"\n\n\nbt_stack_init_done:%d\n\n\n", pwron_case);
+	TRACE_CSD(1,"MSG_INFO:bt_stack_init_done %d", pwron_case);
     if (pwron_case == APP_POWERON_CASE_REBOOT){
 
         app_status_indication_set(APP_STATUS_INDICATION_POWERON);
@@ -1862,13 +1873,14 @@ extern int rpc_service_setup(void);
             app_ibrt_ui_event_entry(box_action|IBRT_SKIP_FALSE_TRIGGER_MASK);
         }
 #endif
-#else
+#else	/* !defined(IBRT) */
         app_bt_accessmode_set(BTIF_BAM_NOT_ACCESSIBLE);
 #endif
 
         app_key_init();
         app_battery_start();
 #if defined(__BTIF_EARPHONE__) && defined(__BTIF_AUTOPOWEROFF__)
+		TRACE_CSD(0,"MSG_INFO:{app_start_10_second_timer} <APP_POWEROFF_TIMER_ID>");
         app_start_10_second_timer(APP_POWEROFF_TIMER_ID);
 #endif
 

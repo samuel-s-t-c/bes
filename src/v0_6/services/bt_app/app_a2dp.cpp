@@ -383,7 +383,7 @@ void app_avrcp_get_capabilities_retry_callback(void const *param)
 
 void a2dp_init(void)
 {
-	TRACE_CSD(1, "{%s} %d", __func__, __LINE__);
+	TRACE_CSD(1, "[%s]+++", __func__);
      btif_a2dp_init();
      for(int i =0; i< BT_DEVICE_NUM; i++ ){
          app_bt_device.a2dp_stream[i] = btif_a2dp_alloc_stream();
@@ -459,7 +459,7 @@ void a2dp_init(void)
         app_avrcp_get_capabilities_ctx1.delay_timer = osTimerCreate(osTimer(APP_AVRCP_GET_CAPABILITIES1), osTimerOnce, (void *)&app_avrcp_get_capabilities_ctx1);
     }
 #endif
-
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 static bool a2dp_bdaddr_from_id(uint8_t id, bt_bdaddr_t *bd_addr) {

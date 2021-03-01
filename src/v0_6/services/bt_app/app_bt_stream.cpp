@@ -405,12 +405,14 @@ static void app_bt_stream_trigger_timeout_cb(void const *n)
 
 static int app_bt_stream_trigger_checker_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     if (app_bt_stream_trigger_timeout_id == NULL){
         app_bt_stream_trigger_enable = false;
         app_bt_stream_trigger_checker = 0;
+		TRACE_CSD(0, "MSG_INFO:{osTimerCreate}-->(APP_BT_STREAM_TRIGGER_TIMEOUT) app_bt_stream_trigger_timeout_id");
         app_bt_stream_trigger_timeout_id = osTimerCreate(osTimer(APP_BT_STREAM_TRIGGER_TIMEOUT), osTimerOnce, NULL);
     }
-
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 
@@ -7539,6 +7541,7 @@ void app_bt_stream_hfpvolume_reset(void)
 
 void app_bt_stream_volume_ptr_update(uint8_t *bdAddr)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     static struct btdevice_volume stream_volume = {NVRAM_ENV_STREAM_VOLUME_A2DP_VOL_DEFAULT,NVRAM_ENV_STREAM_VOLUME_HFP_VOL_DEFAULT};
 
 #ifndef FPGA
@@ -7563,7 +7566,7 @@ void app_bt_stream_volume_ptr_update(uint8_t *bdAddr)
     }
     current_btdevice_volume.a2dp_vol=btdevice_volume_p->a2dp_vol;
     current_btdevice_volume.hfp_vol=btdevice_volume_p->hfp_vol;
-
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 struct btdevice_volume * app_bt_stream_volume_get_ptr(void)
@@ -8201,6 +8204,7 @@ void store_encode_frame2buff()
 
 int app_bt_stream_init(void)
 {
+	TRACE_CSD(0, "{osPoolCreate}-->{app_bt_stream_trigger_checker_init}");
     app_bt_stream_trigger_checker_init();
     return 0;
 }

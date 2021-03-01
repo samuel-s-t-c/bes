@@ -173,6 +173,7 @@ static void Besbt_hook_proc(void)
 	TRACE_CSD(1, "[%s]+++", __func__);
     uint8_t i;
     for (i=0; i<BESBT_HOOK_USER_QTY; i++){
+		TRACE_CSD(1,"MSG_INFO:bt_hook_handler[%d]",i);
         if (bt_hook_handler[i]){
             bt_hook_handler[i]();
         }
@@ -363,8 +364,9 @@ int besmain(void)
 #else	/* defined(BLE_ONLY_ENABLED) */
     sysfreq = APP_SYSFREQ_26M;
 #endif
-
+	TRACE_CSD(0, "MSG_INFO:[BESHCI_Open]+++");
     BESHCI_Open();
+	TRACE_CSD(0, "MSG_INFO:[BESHCI_Open]---");
 #if defined( TX_RX_PCM_MASK)
     if(btdrv_is_pcm_mask_enable()==1)
         hal_intersys_mic_open(HAL_INTERSYS_ID_1,store_encode_frame2buff);
@@ -376,7 +378,7 @@ int besmain(void)
 	TRACE_CSD(0, "\n__IAG_BLE_INCLUDE__\n")
     bes_ble_init();
 #endif
-
+	TRACE_CSD(0, "MSG_INFO:{btif_set_btstack_chip_config}");
     btif_set_btstack_chip_config(bt_drv_get_btstack_chip_config());
 
     /* bes stack init */
@@ -385,9 +387,8 @@ int besmain(void)
 	TRACE_CSD(0, "MSG_INFO:[bt_stack_initilize]---");
 	
 #if defined(ENHANCED_STACK)
-	TRACE_CSD(0, "MSG_INFO:[bt_stack_register_ready_callback]+++");
+	TRACE_CSD(0, "MSG_INFO:{bt_stack_register_ready_callback}-->(stack_ready_callback)");
     bt_stack_register_ready_callback(stack_ready_callback);
-	TRACE_CSD(0, "MSG_INFO:[bt_stack_register_ready_callback]---");
 	TRACE_CSD(0, "MSG_INFO:[btif_sdp_init]+++");
     btif_sdp_init();
 	TRACE_CSD(0, "MSG_INFO:[btif_sdp_init]---");
@@ -426,12 +427,14 @@ int besmain(void)
 #endif
 
     /* pair callback init */
+	TRACE_CSD(0, "MSG_INFO:{bt_pairing_init}-->(pair_handler_func)");
     bt_pairing_init(pair_handler_func);
+	TRACE_CSD(0, "MSG_INFO:{bt_authing_init}-->(auth_handler_func)");
     bt_authing_init(auth_handler_func);
 
-	TRACE_CSD(0, "[a2dp_hid_init]+++");
+	TRACE_CSD(0, "MSG_INFO:[a2dp_hid_init]+++");
     a2dp_hid_init();
-	TRACE_CSD(0, "[a2dp_hid_init]---");
+	TRACE_CSD(0, "MSG_INFO:[a2dp_hid_init]---");
     a2dp_codec_init();
 
 #ifdef BTIF_DIP_DEVICE
@@ -452,14 +455,19 @@ int besmain(void)
 #endif
 
 #if defined(IBRT)
+	TRACE_CSD(0,"MSG_INFO:{app_ibrt_set_cmdhandle} <TWS_CMD_IBRT>:(app_ibrt_cmd_table_get)");
     app_ibrt_set_cmdhandle(TWS_CMD_IBRT, app_ibrt_cmd_table_get);
+	TRACE_CSD(0,"MSG_INFO:{app_ibrt_set_cmdhandle} <TWS_CMD_CUSTOMER>:(app_ibrt_customif_cmd_table_get)");
     app_ibrt_set_cmdhandle(TWS_CMD_CUSTOMER, app_ibrt_customif_cmd_table_get);
 #if defined(IBRT_OTA) || defined(__GMA_OTA_TWS__) || defined(BISTO_ENABLED)
+	TRACE_CSD(0,"MSG_INFO:{app_ibrt_set_cmdhandle} <TWS_CMD_IBRT_OTA>:(app_ibrt_ota_tws_cmd_table_get)");
     app_ibrt_set_cmdhandle(TWS_CMD_IBRT_OTA, app_ibrt_ota_tws_cmd_table_get);
 #endif
 #ifdef __INTERACTION__
+	TRACE_CSD(0,"MSG_INFO:{app_ibrt_set_cmdhandle} <TWS_CMD_OTA>:(app_ibrt_ota_cmd_table_get)");
     app_ibrt_set_cmdhandle(TWS_CMD_OTA, app_ibrt_ota_cmd_table_get);
 #endif
+	TRACE_CSD(0, "MSG_INFO:{tws_ctrl_thread_init}");
     tws_ctrl_thread_init();
     app_ibrt_peripheral_thread_init();
 #endif	/*END* defined(IBRT) */
@@ -474,6 +482,7 @@ int besmain(void)
     bt_stack_config();
     */
 #else
+	TRACE_CSD(1, "MSG_INFO:{%s}", __func__);
     bt_stack_config();
 #endif
 
@@ -499,14 +508,12 @@ int besmain(void)
             af_lock_thread();
         }
 #endif
-		TRACE_CSD(0,"MSG_INFO:[bt_process_stack_events]+++");
+		TRACE_CSD(0,"MSG_INFO:{bt_process_stack_events}");
         bt_process_stack_events();
-		TRACE_CSD(0,"MSG_INFO:[bt_process_stack_events]---");
 
 #ifdef __IAG_BLE_INCLUDE__
-		TRACE_CSD(0,"MSG_INFO:[bes_ble_schedule]+++");
+		TRACE_CSD(0,"MSG_INFO:{bes_ble_schedule}");
         bes_ble_schedule();
-		TRACE_CSD(0,"MSG_INFO:[bes_ble_schedule]---");
 #endif
 
         Besbt_hook_proc();
@@ -521,9 +528,13 @@ int besmain(void)
         BESHCI_Poll();
 
 #if defined(IBRT)
+		TRACE_CSD(0, "MSG_INFO:{app_ibrt_data_send_handler}");
         app_ibrt_data_send_handler();
+		TRACE_CSD(0, "MSG_INFO:{app_ibrt_data_receive_handler}");
         app_ibrt_data_receive_handler();
+		TRACE_CSD(0, "MSG_INFO:{app_ibrt_ui_controller_dbg_state_checker}");
         app_ibrt_ui_controller_dbg_state_checker();
+		TRACE_CSD(0, "MSG_INFO:{app_ibrt_ui_stop_ibrt_condition_checker}");
         app_ibrt_ui_stop_ibrt_condition_checker();
 #endif
         app_check_pending_stop_sniff_op();
@@ -535,15 +546,17 @@ int besmain(void)
 
 void BesbtThread(void const *argument)
 {
+	TRACE_CSD(1, "{%s}-->{besmain}", __func__);
     besmain();
 }
 osThreadId besbt_tid;
 void BesbtInit(void)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
+	TRACE_CSD(0, "MSG_INFO:{osMessageCreate}-->(evm_queue) evm_queue_id");
     evm_queue_id = osMessageCreate(osMessageQ(evm_queue), NULL);
     /* bt */
+	TRACE_CSD(0, "MSG_INFO:{osThreadCreate}-->(BesbtThread) besbt_tid");
     besbt_tid = osThreadCreate(osThread(BesbtThread), NULL);
-    TRACE(1,"BesbtThread: %p\n", besbt_tid);
 	TRACE_CSD(1, "[%s]---", __func__);
 }

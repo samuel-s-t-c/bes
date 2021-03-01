@@ -461,7 +461,7 @@ do{\
 
 /*******  CSD  *******/
 #ifdef CSD
-#define TRACE_CSD TRACE
+#define TRACE_CSD(attr, str, ...) TRACE(attr|TR_ATTR_IMM, str, ##__VA_ARGS__)
 #else
 #define TRACE_CSD(...)
 #endif

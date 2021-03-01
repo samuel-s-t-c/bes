@@ -838,11 +838,13 @@ static void send_thread(const void *arg)
 #endif
 void app_source_init(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     //register the bt global handler
     a2dp_source_handler.callback = bt_a2dp_source_call_back;
     btif_me_register_global_handler(&a2dp_source_handler);
     btif_me_set_event_mask(&a2dp_source_handler, BTIF_BEM_LINK_DISCONNECT|BTIF_BEM_ROLE_CHANGE|BTIF_BEM_INQUIRY_RESULT|
             BTIF_BEM_INQUIRY_COMPLETE|BTIF_BEM_INQUIRY_CANCELED|BTIF_BEM_LINK_CONNECT_CNF|BTIF_BEM_LINK_CONNECT_IND);
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 ///////init the a2dp source feature
 void app_a2dp_source_init(void)

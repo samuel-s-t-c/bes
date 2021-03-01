@@ -97,7 +97,7 @@ int app_status_indication_set(APP_STATUS_INDICATION_T status)
     struct APP_PWL_CFG_T cfg0;
     struct APP_PWL_CFG_T cfg1;
 
-	TRACE_CSD(3,"{%s} %d%s",__func__, status, status2str((uint16_t)status));
+	TRACE_CSD(3,"[%s]+++ %d%s",__func__, status, status2str((uint16_t)status));
     //TRACE(2,"%s %d",__func__, status);
 
     if (app_status == status)
@@ -297,5 +297,6 @@ int app_status_indication_set(APP_STATUS_INDICATION_T status)
         default:
             break;
     }
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }

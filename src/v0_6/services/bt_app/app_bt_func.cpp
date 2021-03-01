@@ -204,6 +204,7 @@ static btif_remote_device_t* pendingRemoteDevToExitSniffMode[COUNT_OF_PENDING_RE
 static uint8_t  maskOfRemoteDevPendingForExitingSniffMode = 0;
 void app_check_pending_stop_sniff_op(void)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     if (maskOfRemoteDevPendingForExitingSniffMode > 0)
     {
         for (uint8_t index = 0;index < COUNT_OF_PENDING_REMOTE_DEV_TO_EXIT_SNIFF_MODE;index++)
@@ -234,6 +235,7 @@ void app_check_pending_stop_sniff_op(void)
             osapi_notify_evm();
         }
     }
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 static void app_add_pending_stop_sniff_op(btif_remote_device_t* remDev)
@@ -488,13 +490,16 @@ static inline int app_bt_mail_free(APP_BT_MAIL* mail_p)
 
 static inline int app_bt_mail_get(APP_BT_MAIL** mail_p)
 {
-	TRACE_CSD(1, "{%s}", __func__);
+	TRACE_CSD(1, "[%s]+++", __func__);
     osEvent evt;
     evt = osMailGet(app_bt_mailbox, 0);
     if (evt.status == osEventMail) {
+		TRACE_CSD(0, "<osEventMail> Get APP_BT_MAIL");
         *mail_p = (APP_BT_MAIL *)evt.value.p;
+		TRACE_CSD(1, "[%s]---", __func__);
         return 0;
     }
+	TRACE_CSD(1, "[%s]---", __func__);
     return -1;
 }
 
@@ -551,7 +556,7 @@ int app_bt_ME_SwitchRole(btif_remote_device_t* remDev)
 
 int app_bt_ME_SetConnectionRole(btif_connection_role_t  role)
 {
-	TRACE_CSD(2, "{%s} role=0x%x", __func__, role);
+	TRACE_CSD(2, "{%s} btif_connection_role_t=0x%x", __func__, role);
     APP_BT_MAIL* mail;
     app_bt_mail_alloc(&mail);
     mail->src_thread = (uint32_t)osThreadGetId();

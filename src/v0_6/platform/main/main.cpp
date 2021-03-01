@@ -111,6 +111,7 @@ int system_reset(void)
 
 int signal_send_to_main_thread(uint32_t signals)
 {
+	TRACE_CSD(2, "{%s} (%d)", __func__, signals);
     osSignalSet(main_thread_tid, signals);
     return 0;
 }

@@ -1176,12 +1176,14 @@ static void af_codec_anc_boost_delay(uint32_t ms)
 uint32_t af_open(void)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
-    AF_TRACE_DEBUG();
+	//Commented Out by CSD
+    //AF_TRACE_DEBUG();
     struct af_stream_cfg_t *role = NULL;
 
 #ifdef RTOS
     if (audioflinger_mutex_id == NULL)
     {
+		TRACE_CSD(0, "MSG_INFO:{osMutexCreate}-->(audioflinger_mutex)");
         audioflinger_mutex_id = osMutexCreate((osMutex(audioflinger_mutex)));
     }
 #endif
@@ -1215,7 +1217,7 @@ uint32_t af_open(void)
         hal_codec_set_dac_dc_offset(dc_l, dc_r);
 #endif
     }
-#endif	/*END* AUDIO_OUTPUT_DC_CALIB */
+#endif	/*END* defined(AUDIO_OUTPUT_DC_CALIB) */
 
 #ifdef AUDIO_OUTPUT_SW_GAIN
     hal_codec_set_sw_output_coef_callback(af_codec_output_gain_changed);
@@ -1253,8 +1255,10 @@ uint32_t af_open(void)
     }
 
 #ifdef RTOS
+	TRACE_CSD(0, "MSG_INFO:{osThreadCreate}-->(af_thread) af_thread_tid");
     af_thread_tid = osThreadCreate(osThread(af_thread), NULL);
     af_default_priority = af_get_priority();
+	TRACE_CSD(0, "MSG_INFO:{osSignalSet} (af_thread_tid) (0x0)");
     osSignalSet(af_thread_tid, 0x0);
 #endif
 #ifdef __RAND_FROM_MIC__

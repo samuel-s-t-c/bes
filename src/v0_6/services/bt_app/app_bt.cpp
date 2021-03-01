@@ -1838,12 +1838,16 @@ void app_bt_global_handle_init(void)
 	TRACE_CSD(1, "[%s]+++", __func__);
     btif_event_mask_t mask = BTIF_BEM_NO_EVENTS;
     btif_me_init_handler(&app_bt_handler);
+	TRACE_CSD(0, "MSG_INFO:app_bt_handler.callback = app_bt_global_handle");
     app_bt_handler.callback = app_bt_global_handle;
+	TRACE_CSD(0,"MSG_INFO:{btif_me_register_global_handler} (app_bt_handler)");
     btif_me_register_global_handler(&app_bt_handler);
 #if defined(IBRT)
+	TRACE_CSD(0,"MSG_INFO:{btif_me_register_accept_handler} (app_bt_handler)");
     btif_me_register_accept_handler(&app_bt_handler);
 #endif
 #ifdef IBRT_SEARCH_UI
+	TRACE_CSD(0,"MSG_INFO:{app_bt_global_handle_hook_set} <APP_BT_GOLBAL_HANDLE_HOOK_USER_0>:(app_bt_manager_ibrt_role_process)");
     app_bt_global_handle_hook_set(APP_BT_GOLBAL_HANDLE_HOOK_USER_0,app_bt_manager_ibrt_role_process);
 #endif
 
@@ -1882,9 +1886,12 @@ void app_bt_global_handle_init(void)
         HS_SetMasterRole(&app_bt_device.hs_channel[i], FALSE);
 #endif
     }
+	TRACE_CSD(0,"MSG_INFO:{btif_me_set_event_mask}");
     btif_me_set_event_mask(&app_bt_handler, mask);
     app_bt_sniff_manager_init();
+	TRACE_CSD(0, "MSG_INFO:{osTimerCreate}-->(APP_BT_ACCESSMODE_TIMER) app_bt_accessmode_timer");
     app_bt_accessmode_timer = osTimerCreate (osTimer(APP_BT_ACCESSMODE_TIMER), osTimerOnce, &app_bt_accessmode_timer_argument);
+	TRACE_CSD(0, "MSG_INFO:{osTimerCreate}-->(BT_SCO_RECOV_TIMER) bt_sco_recov_timer");
     bt_sco_recov_timer = osTimerCreate (osTimer(BT_SCO_RECOV_TIMER), osTimerOnce, NULL);
 	TRACE_CSD(1, "[%s]---", __func__);
 }
@@ -1906,13 +1913,16 @@ extern void app_start_10_second_timer(uint8_t timer_id);
 
 static int app_bt_handle_process(APP_MESSAGE_BODY *msg_body)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     btif_accessible_mode_t old_access_mode;
 
     switch (msg_body->message_id)
     {
         case APP_BT_REQ_ACCESS_MODE_SET:
+			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BT_REQ_ACCESS_MODE_SET>");
             old_access_mode = g_bt_access_mode;
-            app_bt_accessmode_set(msg_body->message_Param0);
+			//Commented Out by CSD
+            //app_bt_accessmode_set(msg_body->message_Param0);
             if (msg_body->message_Param0 == BTIF_BAM_GENERAL_ACCESSIBLE &&
                 old_access_mode != BTIF_BAM_GENERAL_ACCESSIBLE)
             {
@@ -1921,6 +1931,7 @@ static int app_bt_handle_process(APP_MESSAGE_BODY *msg_body)
 #ifdef MEDIA_PLAYER_SUPPORT
                 app_voice_report(APP_STATUS_INDICATION_BOTHSCAN, 0);
 #endif
+				TRACE_CSD(0, "{app_start_10_second_timer} <APP_PAIR_TIMER_ID>");
                 app_start_10_second_timer(APP_PAIR_TIMER_ID);
 #endif
             }
@@ -1934,7 +1945,7 @@ static int app_bt_handle_process(APP_MESSAGE_BODY *msg_body)
         default:
             break;
     }
-
+	TRACE_CSD(1, "[%s]---", __func__);
     return 0;
 }
 
@@ -3911,8 +3922,10 @@ void app_bt_init(void)
     app_bt_mail_init();
 	TRACE_CSD(0,"MSG_INFO:{app_set_threadhandle} <APP_MODUAL_BT>:(app_bt_handle_process)");
     app_set_threadhandle(APP_MODUAL_BT, app_bt_handle_process);
+	TRACE_CSD(0,"MSG_INFO:{btif_me_sec_set_io_cap_rsp_reject_ext}-->(app_bt_profile_connect_openreconnecting)");
     btif_me_sec_set_io_cap_rsp_reject_ext(app_bt_profile_connect_openreconnecting);
     app_bt_active_mode_manager_init();
+	TRACE_CSD(0,"MSG_INFO:{app_set_threadhandle} <APP_MODUAL_CUSTOM_FUNCTION>:(app_custom_function_process)");
     app_set_threadhandle(APP_MODUAL_CUSTOM_FUNCTION, app_custom_function_process);
 	TRACE_CSD(1, "[%s]---", __func__);
 }

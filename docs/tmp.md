@@ -6,11 +6,13 @@ TRACE_CSD(1, "{%s}", __func__);
 
 TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<>");
 
-TRACE_CSD(0,"{} <>:()");
+TRACE_CSD(0,"MSG_INFO:{} <>:()");
 
-TRACE_CSD(0, "{osPoolCreate}-->(app_key_handle_mempool)");
+TRACE_CSD(0, "MSG_INFO:{osPoolCreate}-->(app_key_handle_mempool)");
 
 DEGUB_BES_BUG
+
+Commented Out by CSD
 
 PMU
 

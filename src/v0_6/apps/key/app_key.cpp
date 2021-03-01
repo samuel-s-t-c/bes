@@ -138,7 +138,7 @@ int app_key_open(int checkPwrKey)
 
     if (app_key_conifg.key_list == NULL)
     {
-		TRACE_CSD(0, "MSG_INFO:{list_new} app_key_handle_free NULL NULL");
+		TRACE_CSD(0, "MSG_INFO:{list_new}-->(app_key_conifg.key_list) (app_key_handle_free NULL NULL)");
         app_key_conifg.key_list = list_new(app_key_handle_free, NULL, NULL);
     }
 

@@ -161,7 +161,7 @@ void tx_ramp_new(void)
 
 void bt_drv_extra_config_after_init(void)
 {
-	TRACE_CSD(1, "{%s}", __func__);
+	TRACE_CSD(1, "{%s}-->{btdrv_ecc_config}", __func__);
     btdrv_ecc_config();
 }
 
