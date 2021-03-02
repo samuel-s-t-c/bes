@@ -242,10 +242,18 @@ typedef struct
         .cb = _cb, \
     }
 
+#ifdef CSD
+#define APP_AUTO_OFF_TIMEOUT_IN_SECOND (1800)
+#define APP_PAIRING_TIMEOUT_IN_SECOND (120)
+#else
+#define APP_AUTO_OFF_TIMEOUT_IN_SECOND (900)
+#define APP_PAIRING_TIMEOUT_IN_SECOND (60)
+
+#endif
 APP_10_SECOND_TIMER_STRUCT app_10_second_array[] =
 {
-    INIT_APP_TIMER(APP_PAIR_TIMER_ID, 0, 0, 6, PairingTransferToConnectable),
-    INIT_APP_TIMER(APP_POWEROFF_TIMER_ID, 0, 0, 90, CloseEarphone),
+    INIT_APP_TIMER(APP_PAIR_TIMER_ID, 0, 0, APP_PAIRING_TIMEOUT_IN_SECOND/10, PairingTransferToConnectable),
+    INIT_APP_TIMER(APP_POWEROFF_TIMER_ID, 0, 0, APP_AUTO_OFF_TIMEOUT_IN_SECOND/10, CloseEarphone),
 #ifdef GFPS_ENABLED
     INIT_APP_TIMER(APP_FASTPAIR_LASTING_TIMER_ID, 0, 0, APP_FAST_PAIRING_TIMEOUT_IN_SECOND/10,
         app_fast_pairing_timeout_timehandler),

@@ -21,16 +21,16 @@
 #define  IBRT_UI_CLOSE_BOX_EVENT_WAIT_RESPONSE_TIMEOUT              (400)//ms
 #define  IBRT_UI_MOBILE_RECONNECT_WAIT_READY_TIMEOUT                (1000)//ms
 #define  IBRT_UI_TWS_RECONNECT_WAIT_READY_TIMEOUT                   (500)//ms
-#define  IBRT_UI_RECONNECT_MOBILE_WAIT_RESPONSE_TIMEOUT             (5000)//5s
+#define  IBRT_UI_RECONNECT_MOBILE_WAIT_RESPONSE_TIMEOUT             (2000)//ms
 #define  IBRT_UI_RECONNECT_IBRT_WAIT_RESPONSE_TIMEOUT               (300)//ms
 #define  IBRT_UI_NV_SLAVE_RECONNECT_TWS_WAIT_RESPONSE_TIMEOUT       (1000)//ms
 #define  IBRT_UI_NV_MASTER_RECONNECT_TWS_WAIT_RESPONSE_TIMEOUT      (300)//ms
-#define  IBRT_UI_DISABLE_BT_SCAN_TIMEOUT                            (150000)//5min
+#define  IBRT_UI_DISABLE_BT_SCAN_TIMEOUT                            (120000)//2min
 #define  IBRT_UI_STOP_IBRT_TIMEOUT                                  (3000000)//40min
 
 
-#define  IBRT_UI_OPEN_RECONNECT_MOBILE_MAX_TIMES            (0)
-#define  IBRT_UI_OPEN_RECONNECT_TWS_MAX_TIMES               (0)
+#define  IBRT_UI_OPEN_RECONNECT_MOBILE_MAX_TIMES            (1)//开盒回连的最大MOBILE回连次数
+#define  IBRT_UI_OPEN_RECONNECT_TWS_MAX_TIMES               (1)//开盒回连的最大TWS回连次数
 #define  IBRT_UI_RECONNECT_MOBILE_MAX_TIMES                 (20)
 #define  IBRT_UI_RECONNECT_TWS_MAX_TIMES                    (20)
 #define  IBRT_UI_RECONNECT_IBRT_MAX_TIMES                   (1)

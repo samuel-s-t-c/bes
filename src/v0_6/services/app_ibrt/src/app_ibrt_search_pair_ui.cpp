@@ -746,7 +746,7 @@ void app_ibrt_remove_history_paired_device(void)
 void app_ibrt_enter_limited_mode(void)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
-#ifndef CSD
+
     ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
     app_ibrt_ui_t *p_ibrt_ui = app_ibrt_ui_get_ctx();
 
@@ -754,7 +754,6 @@ void app_ibrt_enter_limited_mode(void)
     p_ibrt_ui->box_state = IBRT_OUT_BOX;
 
     app_ibrt_remove_history_paired_device();
-#endif
     //TRACE(0,"ibrt_ui_log:power on enter pairing");
     CLOG(CLOG_TWS, 0, "PAIRING");
     app_ibrt_ui_judge_scan_type(IBRT_SEARCH_SLAVE_TRIGGER,NO_LINK_TYPE,IBRT_UI_NO_ERROR);
