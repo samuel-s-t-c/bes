@@ -109,8 +109,7 @@ TIMER(os)
   * 处理函数`app_battery_timer_handler`
 
 * `APP_BATTERY_PLUGINOUT_DEBOUNCE`
-
-  * 一次性
+* 一次性
   * 处理函数`app_battery_pluginout_debounce_handler(&app_battery_pluginout_debounce_ctx)`
 
 

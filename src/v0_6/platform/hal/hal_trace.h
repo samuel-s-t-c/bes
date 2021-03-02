@@ -424,6 +424,7 @@ typedef struct {
 
 typedef enum {
 	CLOG_BT,
+	CLOG_TWS,
 	CLOG_INIT,
 	COSONIC_TRACE_CFG_NUM,
 } COSONIC_TRACE_CFG_E;

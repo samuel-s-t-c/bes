@@ -436,11 +436,13 @@ void app_ibrt_ui_test_key_io_event(APP_KEY_STATUS *status, void *param)
             if (status->code== APP_KEY_CODE_FN1)
             {
 				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN1>");
+				TRACE_CSD(0, "OPEN BOX");
                 app_ibrt_if_event_entry(IBRT_OPEN_BOX_EVENT);
             }
             else if (status->code== APP_KEY_CODE_FN2)
             {
 				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN2>");
+				TRACE_CSD(0, "FETCH OUT");
                 app_ibrt_if_event_entry(IBRT_FETCH_OUT_EVENT);
             }
             break;
@@ -450,11 +452,13 @@ void app_ibrt_ui_test_key_io_event(APP_KEY_STATUS *status, void *param)
             if (status->code== APP_KEY_CODE_FN1)
             {
 				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN1>");
+				TRACE_CSD(0, "CLOSE BOX");
                 app_ibrt_if_event_entry(IBRT_CLOSE_BOX_EVENT);
             }
             else if (status->code== APP_KEY_CODE_FN2)
             {
 				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN2>");
+				TRACE_CSD(0, "PUT IN");
                 app_ibrt_if_event_entry(IBRT_PUT_IN_EVENT);
             }
             break;
@@ -464,6 +468,7 @@ void app_ibrt_ui_test_key_io_event(APP_KEY_STATUS *status, void *param)
 			if (status->code == APP_KEY_CODE_FN1)
 			{
 				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN1>");
+				TRACE_CSD(0, "SEARCHING SLAVE");
 				struct nvrecord_env_t* nvrecord_env;
 				nv_record_env_get(&nvrecord_env);
 				if (IBRT_UNKNOW == nvrecord_env->ibrt_mode.mode)
@@ -474,6 +479,7 @@ void app_ibrt_ui_test_key_io_event(APP_KEY_STATUS *status, void *param)
 			else if (status->code == APP_KEY_CODE_FN2)
 			{
 				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN2>");
+				TRACE_CSD(0, "REMOVE ALL RECORD");
 				struct nvrecord_env_t* nvrecord_env;
 				nv_record_env_get(&nvrecord_env);
 				nvrecord_env->ibrt_mode.mode = IBRT_UNKNOW;

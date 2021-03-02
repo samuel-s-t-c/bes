@@ -2003,12 +2003,16 @@ extern int rpc_service_setup(void);
                     {
                         if(IBRT_UNKNOW == nvrecord_env->ibrt_mode.mode)
                         {
-                            TRACE(0,"ibrt_ui_log:power on unknow mode");
+							TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UNKNOW>");
+
+                            //TRACE(0,"ibrt_ui_log:power on unknow mode");
                             app_ibrt_enter_limited_mode();
                         }
                         else
                         {
-                            TRACE(1,"ibrt_ui_log:power on %d fetch out", nvrecord_env->ibrt_mode.mode);
+							TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>", nvrecord_env->ibrt_mode.mode ? "IBRT_SLAVE" : "IBRT_MASTER");
+                            //TRACE(1,"ibrt_ui_log:power on %d fetch out", nvrecord_env->ibrt_mode.mode);
+                            CLOG(CLOG_TWS, 0,"RECONNECTING");
                             app_ibrt_ui_event_entry(IBRT_FETCH_OUT_EVENT);
                         }
                     }

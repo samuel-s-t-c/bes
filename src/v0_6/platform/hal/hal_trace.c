@@ -2951,6 +2951,8 @@ int hal_trace_crash_dump_printf(uint32_t attr, const char *fmt, ...)
 
 COSONIC_TRACE_CFG_T cosonic_trace_cfg_array[COSONIC_TRACE_CFG_NUM] = {
 	[CLOG_BT]={"BT", "",0},	
+	[CLOG_TWS]={"TWS", "", 0},
+	[CLOG_INIT]={"INIT", "", 0},
 };
 	
 #endif	/*END* defined(COSONIC_LOG) */

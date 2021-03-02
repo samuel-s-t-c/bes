@@ -175,7 +175,7 @@ bt_status_t nv_record_enum_dev_records(unsigned short index,btif_device_record_t
 {
     btif_device_record_t *recaddr = NULL;
 
-    if((NULL == nvrecord_extension_p) || (index >= nvrecord_extension_p->bt_pair_info.pairedDevNum))
+    if((NULL == nvrecord_extension_p) || (index >= nvrecord_extension_p->bt_pair_info.pairedDevNum))// DEBUG_BES_BUG
     {
         return BT_STS_FAILED;
     }
