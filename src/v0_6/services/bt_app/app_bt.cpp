@@ -4947,6 +4947,8 @@ bool app_bt_ibrt_reconnect_mobile_profile_flag_get(void)
 
 void app_bt_ibrt_reconnect_mobile_profile(bt_bdaddr_t mobile_addr)
 {
+	
+	TRACE_CSD(1, "[%s]+++", __func__);	
     nvrec_btdevicerecord *mobile_record = NULL;
 
     bt_profile_manager[BT_DEVICE_ID_1].reconnect_mode = bt_profile_reconnect_null;
@@ -5011,6 +5013,8 @@ void app_bt_ibrt_reconnect_mobile_profile(bt_bdaddr_t mobile_addr)
         //app_bt_HF_CreateServiceLink(bt_profile_manager[BT_DEVICE_ID_1].chan, &(bt_profile_manager[BT_DEVICE_ID_1].rmt_addr));
     }
     //osTimerStart(bt_profile_manager[BT_DEVICE_ID_1].connect_timer, APP_IBRT_RECONNECT_TIMEOUT_MS);
+    
+	TRACE_CSD(1, "[%s]---", __func__);	
 }
 #endif
 

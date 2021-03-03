@@ -740,8 +740,55 @@ void app_ibrt_remove_history_paired_device(void)
     memset(p_ibrt_ctrl->peer_addr.address, 0, BTIF_BD_ADDR_SIZE);
 	TRACE_CSD(1, "[%s]---", __func__);
 }
+#ifdef CSD
+enum {
+	REMOVE_TWS_RECORD,
+	REMOVE_MOBILE_RECORD,
+	REMOVE_ALL_RECORD,
+};
+void app_ibrt_remove_record(uint8_t opt)
+{
+	bt_status_t            retStatus;
+    btif_device_record_t   record;
+    ibrt_ctrl_t *          p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
+    int                    paired_dev_count = nv_record_get_paired_dev_count();
 
-
+	for (int32_t index = paired_dev_count - 1; index >= 0; index--)
+    {
+        retStatus = nv_record_enum_dev_records(index, &record);
+        if (BT_STS_SUCCESS == retStatus)
+        {
+            switch(opt)
+            {
+				case REMOVE_TWS_RECORD:
+		            if (!memcmp(record.bdAddr.address, p_ibrt_ctrl->local_addr.address, BTIF_BD_ADDR_SIZE) ||
+		                !memcmp(record.bdAddr.address, p_ibrt_ctrl->peer_addr.address, BTIF_BD_ADDR_SIZE))
+		            {
+		                nv_record_ddbrec_delete(&record.bdAddr);
+		            }
+					break;
+				case REMOVE_MOBILE_RECORD:
+					if (memcmp(record.bdAddr.address, p_ibrt_ctrl->local_addr.address, BTIF_BD_ADDR_SIZE) &&
+		                memcmp(record.bdAddr.address, p_ibrt_ctrl->peer_addr.address, BTIF_BD_ADDR_SIZE))
+		            {
+		                nv_record_ddbrec_delete(&record.bdAddr);
+		            }
+					break;
+				case REMOVE_ALL_RECORD:
+					nv_record_ddbrec_delete(&record.bdAddr);
+					break;
+				default:
+					break;
+            }
+        }
+    }
+	if (opt == REMOVE_ALL_RECORD || opt == REMOVE_TWS_RECORD)
+	{
+		memset(p_ibrt_ctrl->local_addr.address, 0, BTIF_BD_ADDR_SIZE);
+    	memset(p_ibrt_ctrl->peer_addr.address, 0, BTIF_BD_ADDR_SIZE);
+	}
+}
+#endif /*END* defined(CSD) */
 
 void app_ibrt_enter_limited_mode(void)
 {

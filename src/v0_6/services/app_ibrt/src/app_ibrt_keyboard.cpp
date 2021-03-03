@@ -46,20 +46,36 @@ extern void app_ibrt_simulate_charger_plug_out_test(void);
 #ifdef IBRT_SEARCH_UI
 void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
 {
+	TRACE_CSD(1, "[%s]+++", __func__);
     ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
-    TRACE(3,"%s %d,%d",__func__, status->code, status->event);
+    //TRACE(3,"%s %d,%d",__func__, status->code, status->event);
 
-
+#ifndef CSD
     if (APP_KEY_CODE_GOOGLE != status->code)
     {
+#endif
         switch(status->event)
         {
+#ifdef CSD
+			case APP_KEY_EVENT_DOWN:
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><DOWN>");
+				break;
+#endif
             case APP_KEY_EVENT_CLICK:
+#ifdef CSD
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><CLICK>");
+				break;
+#else	
                 app_tws_if_handle_click();
                 break;
+#endif
 
             case APP_KEY_EVENT_DOUBLECLICK:
-                TRACE(0,"double kill");
+#ifdef CSD
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><DOUBLECLICK>");
+				break;
+#else
+				TRACE(0,"double kill");
                 if(IBRT_UNKNOW==p_ibrt_ctrl->current_role)
                 {
                     app_start_tws_serching_direactly();
@@ -72,9 +88,15 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
                     bt_key_handle_func_doubleclick();
 #endif
                 }
-                break;
+				break;
+#endif
+
 
             case APP_KEY_EVENT_LONGPRESS:
+#ifdef CSD
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><LONGPRESS>");
+				break;
+#else
                 // dont use this key for customer release due to
                 // it is auto triggered by circuit of 3s high-level voltage.
 #if 0
@@ -93,36 +115,68 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
                 app_ibrt_simulate_charger_plug_out_test();
 #endif
                 break;
+#endif
 
             case APP_KEY_EVENT_TRIPLECLICK:
+#ifdef CSD
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><TRIPLECLICK>");
+				break;
+#else
             #ifdef TILE_DATAPATH
                 app_tile_key_handler(status,NULL);
             #else
                 app_otaMode_enter(NULL,NULL);
             #endif
                 break;
-            case HAL_KEY_EVENT_LONGLONGPRESS:
+#endif
+            case APP_KEY_EVENT_LONGLONGPRESS://DEBUG_BES_BUG
+#ifdef CSD
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><LONGLONGPRESS>");
+				break;
+#else
                 TRACE(0,"long long press");
                 app_shutdown();
                 break;
+#endif
 
             case APP_KEY_EVENT_ULTRACLICK:
+#ifdef CSD
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><ULTRACLICK>");
+				break;
+#else
                 TRACE(0,"ultra kill");
-                break;
+                break;			
+#endif
+
 
             case APP_KEY_EVENT_RAMPAGECLICK:
-                TRACE(0,"rampage kill!you are crazy!");
+#ifdef CSD
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><RAMPAGECLICK>");
+				break;
+#else
+				TRACE(0,"rampage kill!you are crazy!");
                 break;
+#endif
+
+
 
             case APP_KEY_EVENT_UP:
-                break;
+#ifdef CSD
+				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><UP>");
+				break;
+#else
+				break;
+#endif                
         }
+#ifndef CSD
     }
+#endif
 
 #ifdef TILE_DATAPATH
     if(APP_KEY_CODE_TILE == status->code)
         app_tile_key_handler(status,NULL);
 #endif
+	TRACE_CSD(1, "[%s]---", __func__);
 }
 #endif
 

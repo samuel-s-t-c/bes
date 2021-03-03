@@ -608,6 +608,40 @@ void app_ibrt_ui_test_voice_assistant_key(APP_KEY_STATUS *status, void *param)
 #endif
 }
 
+#ifdef CSD
+const APP_KEY_HANDLE app_ibrt_ui_key_cfg[] =
+{
+	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_UP}, "", app_ibrt_search_ui_handle_key, NULL},
+	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_DOWN}, "", app_ibrt_search_ui_handle_key, NULL},
+	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_CLICK}, "", app_ibrt_search_ui_handle_key, NULL},
+	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_DOUBLECLICK}, "", app_ibrt_search_ui_handle_key, NULL},
+	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_TRIPLECLICK}, "", app_ibrt_search_ui_handle_key, NULL},
+	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_ULTRACLICK}, "", app_ibrt_search_ui_handle_key, NULL},
+	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_RAMPAGECLICK}, "", app_ibrt_search_ui_handle_key, NULL},
+	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_LONGPRESS}, "", app_ibrt_search_ui_handle_key, NULL},
+	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_LONGLONGPRESS]}, "", app_ibrt_search_ui_handle_key, NULL},
+
+	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_UP}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_DOWN}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_CLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_DOUBLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_TRIPLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_ULTRACLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_RAMPAGECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_LONGPRESS}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_LONGLONGPRESS]}, "", app_ibrt_ui_test_key_io_event, NULL},
+
+	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_UP}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_DOWN}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_CLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_DOUBLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_TRIPLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_ULTRACLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_RAMPAGECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_LONGPRESS}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_LONGLONGPRESS]}, "", app_ibrt_ui_test_key_io_event, NULL},
+};
+#else	/* !defined(CSD) */
 const APP_KEY_HANDLE  app_ibrt_ui_test_key_cfg[] =
 {
 #if defined(__AI_VOICE__) || defined(BISTO_ENABLED)
@@ -649,7 +683,7 @@ const APP_KEY_HANDLE  app_ibrt_ui_test_key_cfg[] =
     {{APP_KEY_CODE_FN2,APP_KEY_EVENT_DOUBLECLICK},"app_ibrt_ui_test_key", app_ibrt_search_ui_gpio_key_handle, NULL},
     {{APP_KEY_CODE_FN1,APP_KEY_EVENT_LONGPRESS},"app_ibrt_ui_test_key",app_ibrt_search_ui_gpio_key_handle, NULL},
 #endif
-#else
+#else	/* !(defined(CHIP_BEST1400) || defined(CHIP_BEST1402)) */
 #ifdef IBRT_SEARCH_UI
 #ifdef TPORTS_KEY_COEXIST
     {{APP_KEY_CODE_FN1,APP_KEY_EVENT_CLICK},"app_ibrt_ui_test_key", app_ibrt_search_ui_gpio_key_handle, NULL},
@@ -693,7 +727,7 @@ const APP_KEY_HANDLE  app_ibrt_ui_test_key_cfg[] =
     #endif
     */
 };
-
+#endif /*END* !defined(CSD) */
 /*
 * customer addr config here
 */
