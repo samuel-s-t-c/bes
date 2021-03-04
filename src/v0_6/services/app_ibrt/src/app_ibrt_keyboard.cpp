@@ -47,7 +47,7 @@ extern void app_ibrt_simulate_charger_plug_out_test(void);
 void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
-    ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
+    //ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
     //TRACE(3,"%s %d,%d",__func__, status->code, status->event);
 
 #ifndef CSD

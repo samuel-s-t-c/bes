@@ -90,7 +90,9 @@ void app_bt_accessmode_set(  btif_accessible_mode_t mode);
 void app_bt_send_request(uint32_t message_id, uint32_t param0, uint32_t param1, uint32_t ptr);
 
 void app_bt_init(void);
-
+#ifdef CSD
+int app_bt_state_display(void);
+#endif
 int app_bt_state_checker(void);
 
 void *app_bt_profile_active_store_ptr_get(uint8_t *bdAddr);

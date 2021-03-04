@@ -705,7 +705,7 @@ void app_ibrt_search_ui_init(bool boxOperation,ibrt_event_type evt_type)
 
 
 
-// 清除TWS记录
+// Remove tws record
 void app_ibrt_remove_history_paired_device(void)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);

@@ -424,6 +424,7 @@ typedef struct {
 
 typedef enum {
 	CLOG_BT,
+	CLOG_BT_STATUS,
 	CLOG_TWS,
 	CLOG_INIT,
 	CLOG_KEY,
@@ -436,23 +437,24 @@ extern COSONIC_TRACE_CFG_T cosonic_trace_cfg_array[];
 do{\
 	if ((is_cnt))\
 	{\
-		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF, "CLOG:<%s><%s>[%s] %d "str,\
+		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF, "CLOG:<%s><%s>"str,\
 			cosonic_trace_cfg_array[(n)].func_mode,\
 			cosonic_trace_cfg_array[(n)].block,\
-			__func__ ,\
-			__LINE__,\
 	    	##__VA_ARGS__);\
-		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "|cnt=%d",\
-			cosonic_trace_cfg_array[(n)].cnt++);\
+		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "|cnt=%d [%s]%d",\
+			cosonic_trace_cfg_array[(n)].cnt++,\
+			__func__ ,\
+			__LINE__);\
 	}\
 	else\
 	{\
-		TRACE(0, "CLOG:<%s><%s>[%s] %d "str,\
+		TRACE(TR_ATTR_NO_LF, "CLOG:<%s><%s>"str,\
 			cosonic_trace_cfg_array[(n)].func_mode,\
 			cosonic_trace_cfg_array[(n)].block,\
+			##__VA_ARGS__);\
+		TRACE(TR_ATTR_NO_TS|TR_ATTR_NO_ID, "|[%s]%d",\
 			__func__ ,\
-			__LINE__,\
-		   	##__VA_ARGS__);\
+			__LINE__);\
 	}\
 }while(0)
 #else	/* !defined(COSONIC_LOG) */

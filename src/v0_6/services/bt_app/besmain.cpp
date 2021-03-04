@@ -170,15 +170,13 @@ int Besbt_hook_handler_set(enum BESBT_HOOK_USER_T user, BESBT_HOOK_HANDLER handl
 
 static void Besbt_hook_proc(void)
 {
-	TRACE_CSD(1, "[%s]+++", __func__);
     uint8_t i;
     for (i=0; i<BESBT_HOOK_USER_QTY; i++){
-		TRACE_CSD(1,"MSG_INFO:bt_hook_handler[%d]",i);
         if (bt_hook_handler[i]){
+			TRACE_CSD(1,"MSG_INFO:bt_hook_handler[%d]",i);
             bt_hook_handler[i]();
         }
     }
-	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 extern struct BT_DEVICE_T  app_bt_device;
@@ -508,7 +506,6 @@ int besmain(void)
             af_lock_thread();
         }
 #endif
-		TRACE_CSD(0,"MSG_INFO:{bt_process_stack_events}");
         bt_process_stack_events();
 
 #ifdef __IAG_BLE_INCLUDE__
@@ -524,17 +521,12 @@ int besmain(void)
         }
 #endif
         // BESHCI_UNLockBuffer();
-        TRACE_CSD(0, "MSG_INFO:{BESHCI_Poll}");
         BESHCI_Poll();
 
 #if defined(IBRT)
-		TRACE_CSD(0, "MSG_INFO:{app_ibrt_data_send_handler}");
         app_ibrt_data_send_handler();
-		TRACE_CSD(0, "MSG_INFO:{app_ibrt_data_receive_handler}");
         app_ibrt_data_receive_handler();
-		TRACE_CSD(0, "MSG_INFO:{app_ibrt_ui_controller_dbg_state_checker}");
         app_ibrt_ui_controller_dbg_state_checker();
-		TRACE_CSD(0, "MSG_INFO:{app_ibrt_ui_stop_ibrt_condition_checker}");
         app_ibrt_ui_stop_ibrt_condition_checker();
 #endif
         app_check_pending_stop_sniff_op();

@@ -1,3 +1,7 @@
+# 开机流程
+
+
+
 # 蓝牙
 
 `<APP_MODUAL_BT>:(app_bt_handle_process)`: app_thread中用于处理bt相关的模块

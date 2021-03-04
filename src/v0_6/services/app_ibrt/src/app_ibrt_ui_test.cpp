@@ -428,7 +428,11 @@ void app_ibrt_ui_test_key(APP_KEY_STATUS *status, void *param)
 
 void app_ibrt_ui_test_key_io_event(APP_KEY_STATUS *status, void *param)
 {
+#ifdef CSD
+	TRACE(1,"[%s]+++", __func__);
+#else
     TRACE(3,"%s %d,%d",__func__, status->code, status->event);
+#endif
     switch(status->event)
     {
         case APP_KEY_EVENT_CLICK:
@@ -484,7 +488,7 @@ void app_ibrt_ui_test_key_io_event(APP_KEY_STATUS *status, void *param)
 				nv_record_env_get(&nvrecord_env);
 				nvrecord_env->ibrt_mode.mode = IBRT_UNKNOW;
 				nv_record_env_set(nvrecord_env);
-				app_ibrt_remove_history_paired_device();
+				nv_record_flash_flush();
 				app_shutdown();
 			}
             break;
@@ -506,7 +510,12 @@ void app_ibrt_ui_test_key_io_event(APP_KEY_STATUS *status, void *param)
 
         case APP_KEY_EVENT_RAMPAGECLICK:
             break;
+		default:
+			break;
     }
+#ifdef CSD
+		TRACE(1,"[%s]---", __func__);
+#endif
 }
 
 void app_ibrt_ui_test_key_custom_event(APP_KEY_STATUS *status, void *param)
@@ -609,37 +618,29 @@ void app_ibrt_ui_test_voice_assistant_key(APP_KEY_STATUS *status, void *param)
 }
 
 #ifdef CSD
-const APP_KEY_HANDLE app_ibrt_ui_key_cfg[] =
+const APP_KEY_HANDLE app_ibrt_ui_test_key_cfg[] =
 {
-	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_UP}, "", app_ibrt_search_ui_handle_key, NULL},
-	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_DOWN}, "", app_ibrt_search_ui_handle_key, NULL},
 	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_CLICK}, "", app_ibrt_search_ui_handle_key, NULL},
 	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_DOUBLECLICK}, "", app_ibrt_search_ui_handle_key, NULL},
 	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_TRIPLECLICK}, "", app_ibrt_search_ui_handle_key, NULL},
 	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_ULTRACLICK}, "", app_ibrt_search_ui_handle_key, NULL},
 	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_RAMPAGECLICK}, "", app_ibrt_search_ui_handle_key, NULL},
 	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_LONGPRESS}, "", app_ibrt_search_ui_handle_key, NULL},
-	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_LONGLONGPRESS]}, "", app_ibrt_search_ui_handle_key, NULL},
+	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_LONGLONGPRESS}, "", app_ibrt_search_ui_handle_key, NULL},
 
-	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_UP}, "", app_ibrt_ui_test_key_io_event, NULL},
-	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_DOWN}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_CLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_DOUBLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_TRIPLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_ULTRACLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
-	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_RAMPAGECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_LONGPRESS}, "", app_ibrt_ui_test_key_io_event, NULL},
-	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_LONGLONGPRESS]}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_LONGLONGPRESS}, "", app_ibrt_ui_test_key_io_event, NULL},
 
-	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_UP}, "", app_ibrt_ui_test_key_io_event, NULL},
-	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_DOWN}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_CLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_DOUBLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_TRIPLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_ULTRACLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
-	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_RAMPAGECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_LONGPRESS}, "", app_ibrt_ui_test_key_io_event, NULL},
-	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_LONGLONGPRESS]}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_LONGLONGPRESS}, "", app_ibrt_ui_test_key_io_event, NULL},
 };
 #else	/* !defined(CSD) */
 const APP_KEY_HANDLE  app_ibrt_ui_test_key_cfg[] =

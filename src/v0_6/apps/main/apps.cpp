@@ -1237,13 +1237,8 @@ const APP_KEY_HANDLE  app_key_handle_cfg[] = {
 #ifdef CSD
 void app_key_init(void)
 {
-	TRACE_CSD(1, "[%s]+++", __func__);
-    app_key_handle_clear();
-    for (uint8_t i=0; i<ARRAY_SIZE(app_ibrt_ui_test_key_cfg); i++)
-    {
-        app_key_handle_registration(&app_ibrt_ui_test_key_cfg[i]);
-    }
-	TRACE_CSD(1, "[%s]---", __func__);
+	TRACE_CSD(1, "{%s}-->{app_ibrt_ui_test_key_init}", __func__);
+    app_ibrt_ui_test_key_init();
 }
 #else	/* !defined(CSD) */
 void app_key_init(void)
@@ -2086,7 +2081,7 @@ extern int rpc_service_setup(void);
         }
     }
 exit:
-	TRACE_CSD(0, "MSG_INFO:Exit\n");
+	TRACE_CSD(0, "\nMSG_INFO:app_init exit\n");
 #ifdef IS_MULTI_AI_ENABLED
     app_ai_tws_clear_reboot_box_state();
 #endif
