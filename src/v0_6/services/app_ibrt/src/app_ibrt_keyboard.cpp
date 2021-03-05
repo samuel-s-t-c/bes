@@ -64,6 +64,7 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
             case APP_KEY_EVENT_CLICK:
 #ifdef CSD
 				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><CLICK>");
+				app_ibrt_if_enter_freeman_pairing();
 				break;
 #else	
                 app_tws_if_handle_click();

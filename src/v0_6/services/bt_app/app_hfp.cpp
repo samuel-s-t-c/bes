@@ -321,11 +321,11 @@ int app_hfp_battery_report(uint8_t level)
 
 void app_hfp_battery_report_proc(void)
 {
-	TRACE_CSD(1, "{%s}", __func__);
     osapi_lock_stack();
 
     if(report_battery_level != 0xff)
     {
+		TRACE_CSD(1, "{%s}", __func__);
         app_hfp_battery_report(report_battery_level);
         report_battery_level = 0xff;
     }

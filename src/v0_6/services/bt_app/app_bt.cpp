@@ -573,12 +573,16 @@ int app_bt_ibrt_profile_checker(const char *str,
 #ifdef CSD
 int app_bt_state_display(void)
 {
-	CLOG(CLOG_BT_STATUS,0,"");
+	CLOG(CLOG_BT_STATUS,0,"app_bt_state_display");
 	btif_remote_device_t *remDev = NULL;
     btif_cmgr_handler_t *cmgrHandler;
 	osapi_lock_stack();
 #if defined(IBRT)
     ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
+	CLOG(CLOG_BT_STATUS,1,"mobile_link:%s tws_link:%s snoop_link:%s",
+		(app_tws_ibrt_mobile_link_connected())?"connected":"disconnected",
+		(app_tws_ibrt_tws_link_connected())?"connected":"disconnected",
+		(app_tws_ibrt_slave_ibrt_link_connected())?"connected":"disconnected");
     if (app_tws_ibrt_mobile_link_connected())
     {
 		CLOG(CLOG_BT_STATUS,1,"");

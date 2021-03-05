@@ -129,15 +129,16 @@ int nv_record_enum_latest_two_paired_dev(btif_device_record_t* record1,btif_devi
 
 static void nv_record_print_dev_record(const btif_device_record_t* record)
 {
-    TRACE(0,"nv record bdAddr = ");
+	TRACE(1,"%s",__func__);
+    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF,"bdAddr = ");
     DUMP8("%02x ",record->bdAddr.address,sizeof(record->bdAddr.address));
-    TRACE(0,"record_trusted = ");
+    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF,"record_trusted = ");
     DUMP8("%d ",&record->trusted,sizeof((uint8_t)record->trusted));
-    TRACE(0,"record_linkKey = ");
+    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF,"record_linkKey = ");
     DUMP8("%02x ",record->linkKey,sizeof(record->linkKey));
-    TRACE(0,"record_keyType = ");
+    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF,"record_keyType = ");
     DUMP8("%x ",&record->keyType,sizeof(record->keyType));
-    TRACE(0,"record_pinLen = ");
+    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF,"record_pinLen = ");
     DUMP8("%x ",&record->pinLen,sizeof(record->pinLen));
 }
 
@@ -171,6 +172,7 @@ void nv_record_all_ddbrec_print(void)
 /*
 this function should be surrounded by OS_LockStack and OS_UnlockStack when call.
 */
+// 根据索引获取对应的已配对设备记录
 bt_status_t nv_record_enum_dev_records(unsigned short index,btif_device_record_t* record)
 {
     btif_device_record_t *recaddr = NULL;

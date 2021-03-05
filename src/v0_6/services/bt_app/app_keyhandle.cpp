@@ -1498,11 +1498,10 @@ void bt_key_send(APP_KEY_STATUS *status)
 
 void bt_key_handle(void)
 {
-	TRACE_CSD(1, "[%s]+++", __func__);
     osapi_lock_stack();
     if(bt_key.code != 0xff)
     {
-        TRACE(3,"%s code:%d evt:%d",__func__, bt_key.code, bt_key.event);
+        TRACE(3,"{%s} code:%d evt:%d",__func__, bt_key.code, bt_key.event);
         switch(bt_key.code)
         {
             case BTAPP_FUNC_KEY:
@@ -1539,7 +1538,6 @@ void bt_key_handle(void)
         bt_key.code = 0xff;
     }
     osapi_unlock_stack();
-	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 void bt_key_init(void)

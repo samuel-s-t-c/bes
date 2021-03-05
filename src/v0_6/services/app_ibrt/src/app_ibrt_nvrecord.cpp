@@ -39,6 +39,7 @@ Author       : bestechnic
 Modification : Created function
 
 *****************************************************************************/
+//从nvrecord中加载ibrt配置到`config`指针中
 void app_ibrt_nvrecord_config_load(void *config)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
@@ -82,6 +83,7 @@ Author       : bestechnic
 Modification : Created function
 
 *****************************************************************************/
+//根据`bd_ddr`找到对应的nvrec_btdevicerecord指针,并赋值`*record`
 int app_ibrt_nvrecord_find(const bt_bdaddr_t *bd_ddr, nvrec_btdevicerecord **record)
 {
     return nv_record_btdevicerecord_find(bd_ddr, record);
@@ -102,6 +104,7 @@ Author       : bestechnic
 Modification : Created function
 
 *****************************************************************************/
+//更新nvrecord的tws连接状态(成功或失败)
 void app_ibrt_nvrecord_update_ibrt_mode_tws(bool status)
 {
     struct nvrecord_env_t *nvrecord_env;
@@ -127,6 +130,7 @@ void app_ibrt_nvrecord_update_ibrt_mode_tws(bool status)
  Modification : Created function
 
 *****************************************************************************/
+// 获取最近两个已配对的手机设备蓝牙地址
 int app_ibrt_nvrecord_get_latest_mobiles_addr(bt_bdaddr_t *mobile_addr1, bt_bdaddr_t* mobile_addr2)
 {
     btif_device_record_t record;
@@ -159,7 +163,7 @@ int app_ibrt_nvrecord_get_latest_mobiles_addr(bt_bdaddr_t *mobile_addr1, bt_bdad
 
     return found_mobile_addr_count;
 }
-
+//获取最近的第(index+1)个已配对手机设备的蓝牙地址
 int app_ibrt_nvrecord_choice_mobile_addr(bt_bdaddr_t *mobile_addr, uint8_t index)
 {
     btif_device_record_t record;
@@ -207,6 +211,7 @@ int app_ibrt_nvrecord_choice_mobile_addr(bt_bdaddr_t *mobile_addr, uint8_t index
  Modification : Created function
 
 *****************************************************************************/
+//获取最近已配对手机设备的蓝牙地址
 bt_status_t app_ibrt_nvrecord_get_mobile_addr(bt_bdaddr_t *mobile_addr)
 {
 #if !defined(FPGA)
@@ -215,7 +220,7 @@ bt_status_t app_ibrt_nvrecord_get_mobile_addr(bt_bdaddr_t *mobile_addr)
     btif_device_record_t record;
     ibrt_link_type_e link_type;
 
-    uint8_t null_addr[6] = {0};
+    uint8_t null_addr[BTIF_BD_ADDR_SIZE] = {0};//DEBUG_BES_BUG
     ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
     int record_num = nv_record_enum_latest_two_paired_dev(&record1, &record2);
 
@@ -277,6 +282,7 @@ bt_status_t app_ibrt_nvrecord_get_mobile_addr(bt_bdaddr_t *mobile_addr)
  Modification : Created function
 
 *****************************************************************************/
+//移除所有手机记录
 void app_ibrt_nvrecord_delete_all_mobile_record(void)
 {
     btif_device_record_t record = {0};
@@ -309,6 +315,7 @@ void app_ibrt_nvrecord_delete_all_mobile_record(void)
  Modification : Created function
 
 *****************************************************************************/
+//重建nvrecord
 void app_ibrt_nvrecord_rebuild(void)
 {
     struct nvrecord_env_t *nvrecord_env;

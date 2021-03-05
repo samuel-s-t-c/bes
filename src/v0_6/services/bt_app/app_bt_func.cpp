@@ -500,14 +500,12 @@ static inline int app_bt_mail_get(APP_BT_MAIL** mail_p)
 
 static void app_bt_mail_poll(void)
 {
-	TRACE_CSD(1, "[%s]+++", __func__);
     APP_BT_MAIL *mail_p = NULL;
     if (!app_bt_mail_get(&mail_p)){
         app_bt_mail_process(mail_p);
         app_bt_mail_free(mail_p);
         osapi_notify_evm();
     }
-	TRACE_CSD(1, "[%s]---", __func__);
 }
 
 int app_bt_mail_init(void)
