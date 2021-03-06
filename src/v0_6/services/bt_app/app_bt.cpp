@@ -1699,8 +1699,11 @@ void app_bt_global_handle(const btif_event_t *Event)
 #endif
             }
 
-            TRACE(4,"[BTEVENT] CONNECT_IND/CNF evt:%d errCode:0x%0x newRole:%d activeCons:%d",btif_me_get_callback_event_type(Event),
-                  btif_me_get_callback_event_err_code(Event),btif_me_get_callback_event_rem_dev_role (Event), btif_me_get_activeCons());
+            TRACE(4,"[BTEVENT] CONNECT_IND/CNF evt:%d errCode:0x%0x newRole:%d activeCons:%d",
+            	  btif_me_get_callback_event_type(Event),
+                  btif_me_get_callback_event_err_code(Event),
+                  btif_me_get_callback_event_rem_dev_role (Event),
+                  btif_me_get_activeCons());
             DUMP8("%02x ", btif_me_get_callback_event_rem_dev_bd_addr(Event), BTIF_BD_ADDR_SIZE);
 
 #if defined(__BTIF_EARPHONE__) && defined(__BTIF_AUTOPOWEROFF__)  && !defined(FPGA)
@@ -1808,9 +1811,11 @@ void app_bt_global_handle(const btif_event_t *Event)
             break;
         case BTIF_BTEVENT_ACCESSIBLE_CHANGE:
 			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"<BTIF_BTEVENT_ACCESSIBLE_CHANGE>");
-            TRACE(3,"[BTEVENT] ACCESSIBLE_CHANGE evt:%d errCode:0x%0x aMode=0x%0x", btif_me_get_callback_event_type(Event),
+            TRACE(3,"[BTEVENT] ACCESSIBLE_CHANGE evt:%d errCode:0x%0x aMode=0x%0x curMode=0x%0x",
+                  btif_me_get_callback_event_type(Event),
                   btif_me_get_callback_event_err_code(Event),
-                  btif_me_get_callback_event_a_mode(Event));
+                  btif_me_get_callback_event_a_mode(Event),
+                  btif_me_get_callback_event_mode_change_curMode(Event));
 #if !defined(IBRT)
             if (app_is_access_mode_set_pending())
             {
@@ -1860,14 +1865,11 @@ void app_bt_global_handle(const btif_event_t *Event)
     }
 
 #ifdef MULTIPOINT_DUAL_SLAVE
-	//Commented Out by CSD
-    //app_bt_role_manager_process_dual_slave(Event);
+	app_bt_role_manager_process_dual_slave(Event);
 #else
-	//Commented Out by CSD
-    //app_bt_role_manager_process(Event);
+    app_bt_role_manager_process(Event);
 #endif
-	//Commented Out by CSD
-    //app_bt_accessible_manager_process(Event);
+    app_bt_accessible_manager_process(Event);
 #if !defined(IBRT)
     app_bt_sniff_manager_process(Event);
 #endif

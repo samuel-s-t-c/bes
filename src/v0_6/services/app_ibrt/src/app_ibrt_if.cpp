@@ -550,7 +550,8 @@ int app_ibrt_if_config(ibrt_ui_config_t *ui_config)
 
 int app_ibrt_if_event_entry(ibrt_event_type event)
 {
-    TRACE(1,"ibrt_ui_log:custom event entry enter=%s", g_log_event_str[event]);
+	CLOG(CLOG_IBRT_UI,true,"<%s>",g_log_event_str[event]);
+    //TRACE(1,"ibrt_ui_log:custom event entry enter=%s", g_log_event_str[event]);
     //int status = app_ibrt_ui_event_entry(event);
 
     app_bt_start_custom_function_in_bt_thread((uint32_t)event, 0, (uint32_t)app_ibrt_ui_event_entry);
@@ -668,6 +669,7 @@ bool app_ibrt_if_is_audio_active(void)
     return ((state == BTIF_AVDTP_STRM_STATE_STREAMING) || \
             btapp_hfp_is_sco_active());
 }
+//判断ibrt事件是否与盒子状态符合
 bool app_ibrt_if_false_trigger_protect(ibrt_event_type evt_type)
 {
     app_ibrt_ui_t *p_ui_ctrl = app_ibrt_ui_get_ctx();

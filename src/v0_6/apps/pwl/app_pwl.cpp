@@ -156,7 +156,6 @@ int app_pwl_setup(enum APP_PWL_ID_T id, struct APP_PWL_CFG_T *cfg)
     app_pwl[id].id = id;
     memcpy(&(app_pwl[id].config), cfg, sizeof(struct APP_PWL_CFG_T));
     osTimerStop(app_pwl[id].timer);
-	TRACE_CSD(1, "[%s]---", __func__);
 #endif
     return 0;
 }

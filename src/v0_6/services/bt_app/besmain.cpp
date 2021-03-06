@@ -505,14 +505,12 @@ int besmain(void)
             af_lock_thread();
         }
 #endif
-		TRACE_CSD(0,"MSG_INFO:{bt_process_stack_events}");
         bt_process_stack_events();
 
 #ifdef __IAG_BLE_INCLUDE__
 		TRACE_CSD(0,"MSG_INFO:{bes_ble_schedule}");
         bes_ble_schedule();
 #endif
-		TRACE_CSD(0,"MSG_INFO:{Besbt_hook_proc}");
         Besbt_hook_proc();
 
 #ifdef __LOCK_AUDIO_THREAD__

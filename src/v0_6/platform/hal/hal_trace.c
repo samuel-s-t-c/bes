@@ -2953,6 +2953,7 @@ COSONIC_TRACE_CFG_T cosonic_trace_cfg_array[COSONIC_TRACE_CFG_NUM] = {
 	[CLOG_BT]={"BT", "",0},	
 	[CLOG_BT_STATUS]={"BT", "STATUS",0},
 	[CLOG_TWS]={"TWS", "", 0},
+	[CLOG_IBRT_UI]={"IBRT","UI",0},
 	[CLOG_INIT]={"INIT", "", 0},
 	[CLOG_KEY]={"KEY","",0},
 };

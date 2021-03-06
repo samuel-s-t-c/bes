@@ -298,7 +298,7 @@ void app_bt_inquiry_call_back(const btif_event_t* event)
             DUMP8("%02x ", btif_me_get_callback_event_inq_result_bd_addr_addr(event), 6);
             TWSCON_DBLOG(1,"inqmode = %x",btif_me_get_callback_event_inq_result_inq_mode(event));
             DUMP8("%02x ", btif_me_get_callback_event_inq_result_ext_inq_resp(event), 20);
-            ///check the uap and nap if equal ,get the name for tws slave
+            //check the uap and nap if equal ,get the name for tws slave
             TRACE(1,"##RSSI:%d",(int8_t)btif_me_get_callback_event_rssi(event));
             TRACE(6,"local %02x %02x %02x %02x %02x %02x\n",
                   p_ibrt_ctrl->local_addr.address[0],
@@ -324,9 +324,10 @@ void app_bt_inquiry_call_back(const btif_event_t* event)
                     TWSCON_DBLOG(0,"<2>");
                     uint8_t *eir = (uint8_t *)btif_me_get_callback_event_inq_result_ext_inq_resp(event);
                     //device_name_len = ME_GetExtInqData(eir,0x09,device_name,sizeof(device_name));
-                    device_name_len = btif_me_get_ext_inq_data(eir,0x09,device_name,sizeof(device_name));
+                    device_name_len = btif_me_get_ext_inq_data(eir,BTIF_EIR_REM_NAME_WHOLE,device_name,sizeof(device_name));// DEBUG_BES_BUG
                     if(device_name_len>0)
                     {
+						device_name[device_name_len] = '\0';//DEBUG_BES_BUG
                         TWSCON_DBLOG(3,"<3> search name len %d %s local name %s\n", device_name_len, device_name, bt_get_local_name());
                         ////if name is the same as the local name so we think the device is the tws slave
                         if(!memcmp(device_name,bt_get_local_name(),device_name_len))
