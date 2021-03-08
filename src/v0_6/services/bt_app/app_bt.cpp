@@ -812,7 +812,7 @@ int app_bt_state_checker(void)
 
 static uint8_t app_bt_get_devId_from_RemDev(  btif_remote_device_t* remDev)
 {
-    uint8_t connectedDevId = 0;
+    uint8_t connectedDevId = BT_DEVICE_NUM;//DEBUG_BES_BUG
     for (uint8_t devId = 0; devId < BT_DEVICE_NUM; devId++)
     {
         if ( btif_me_enumerate_remote_devices(devId) == remDev)
@@ -3002,8 +3002,10 @@ void hfp_reconnecting_timer_stop_callback(const btif_event_t *event)
     bt_bdaddr_t *hfp_remote = NULL;
     remote = btif_me_get_callback_event_rem_dev_bd_addr(event);
     if(remote != NULL){
+		TRACE_CSD(1, "event bd addr: %s", (char*)remote);
         for(i = 0; i<BT_DEVICE_NUM;i++){
             hfp_remote= &bt_profile_manager[i].rmt_addr;
+			TRACE_CSD(1, "bt_profile_manager bd addr: %s", (char*)hfp_remote);
             if(!strcmp((char*)hfp_remote,(char*)remote)){
                 id=i;
                 TRACE(2,"%s: find bt device num = %d",__func__,id);
@@ -3012,8 +3014,14 @@ void hfp_reconnecting_timer_stop_callback(const btif_event_t *event)
         }
     }
     if(i<BT_DEVICE_NUM){
-        TRACE(3,"%s: hfp_connect=%d,reconnect_mode=%d,reconnect_cnt=%d",__func__,bt_profile_manager[id].hfp_connect,bt_profile_manager[id].reconnect_mode,bt_profile_manager[id].reconnect_cnt);
-        if((bt_profile_manager[id].reconnect_mode != bt_profile_reconnect_null)&& bt_profile_manager[id].reconnect_cnt != 0){
+        TRACE(3,"%s: hfp_connect=%d,reconnect_mode=%d,reconnect_cnt=%d",
+			  __func__,
+			  bt_profile_manager[id].hfp_connect,
+			  bt_profile_manager[id].reconnect_mode,
+			  bt_profile_manager[id].reconnect_cnt);
+        if((bt_profile_manager[id].reconnect_mode != bt_profile_reconnect_null)
+			&& bt_profile_manager[id].reconnect_cnt != 0)
+		{
             bt_profile_manager[id].reconnect_mode = bt_profile_reconnect_null;
             bt_profile_manager[id].saved_reconnect_mode = bt_profile_reconnect_null;
             bt_profile_manager[id].reconnect_cnt = 0;

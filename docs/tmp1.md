@@ -4,6 +4,10 @@
 
 # 蓝牙
 
+常用的配置
+
+* `IBRT_MAX_SEARCH_TIME`
+
 `<APP_MODUAL_BT>:(app_bt_handle_process)`: app_thread中用于处理bt相关的模块
 
 `g_bt_access_mode`

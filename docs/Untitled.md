@@ -83,3 +83,35 @@ ibrt_ui_log:enter=IDLE, exit=TWS_CONNECTION
 j_scan=CONNECT_TWS, l_type=TWS_LINK, mode=0x2, p_mod=0
 ```
 
+# app_ibrt_ui_judge_scan_type
+
+```
+app_ibrt_ui_judge_scan_type(IBRT_SEARCH_SLAVE_TRIGGER,NO_LINK_TYPE,IBRT_UI_NO_ERROR);
+
+LOG:
+ibrt_ui_log:set_access_mode=0, ca=0xc03fcf7
+ibrt_ui_log:filter access mode=0, current access mode=0
+j_scan=SEARCH_SLAVE, l_type=NO_LINK_TYPE, mode=0x13, p_mode=0
+ibrt_ui_log:set_access_mode=19, ca=0xc0470c7
+write_scan_enable=3
+ibrt_ui_log:btif_me_set_accessible_mode status:02
+
+[app_bt_global_handle]+++
+[BTEVENT] btif_event_type_t = 10
+<BTIF_BTEVENT_ACCESSIBLE_CHANGE>
+[BTEVENT] ACCESSIBLE_CHANGE evt:10 errCode:0x0 aMode=0x3
+[app_bt_global_handle_hook]+++
+[app_bt_global_handle_hook]---
+[app_tws_ibrt_global_callback]+++
+ibrt_ui_log:accessible_change dest:255 curr:3 err:00
+BT_REG_OP: LC_STATE=0x0
+ibrt_ui_log:link_type=0, evtcode=10, status=0x0
+[app_ibrt_customif_ui_global_handler_ind]+++
+<?> 10
+[app_ibrt_customif_ui_global_handler_ind]---
+[app_tws_ibrt_global_callback]---
+[app_bt_global_handle]---
+```
+
+
+
