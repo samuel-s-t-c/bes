@@ -530,7 +530,8 @@ int app_battery_open(void)
 
     if (app_battery_pluginout_debounce_timer == NULL)
     {
-		TRACE_CSD(0, "MSG_INFO:{osTimerCreate}-->(APP_BATTERY_PLUGINOUT_DEBOUNCE) app_battery_pluginout_debounce_timer");
+		TRACE_CSD(0|TR_ATTR_NO_LF, "MSG_INFO:{osTimerCreate}-->(APP_BATTERY_PLUGINOUT_DEBOUNCE)");
+		TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS," app_battery_pluginout_debounce_timer");
         app_battery_pluginout_debounce_timer = osTimerCreate (osTimer(APP_BATTERY_PLUGINOUT_DEBOUNCE), osTimerOnce, &app_battery_pluginout_debounce_ctx);
     }
 	TRACE_CSD(0, "(app_battery_measure) configuring");

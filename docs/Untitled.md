@@ -112,6 +112,3 @@ ibrt_ui_log:link_type=0, evtcode=10, status=0x0
 [app_tws_ibrt_global_callback]---
 [app_bt_global_handle]---
 ```
-
-
-

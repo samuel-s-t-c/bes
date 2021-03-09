@@ -130,15 +130,15 @@ int nv_record_enum_latest_two_paired_dev(btif_device_record_t* record1,btif_devi
 static void nv_record_print_dev_record(const btif_device_record_t* record)
 {
 	TRACE(1,"%s",__func__);
-    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF,"bdAddr = ");
+    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID,"bdAddr = ");
     DUMP8("%02x ",record->bdAddr.address,sizeof(record->bdAddr.address));
-    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF,"record_trusted = ");
+    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID,"record_trusted = ");
     DUMP8("%d ",&record->trusted,sizeof((uint8_t)record->trusted));
-    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF,"record_linkKey = ");
+    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID,"record_linkKey = ");
     DUMP8("%02x ",record->linkKey,sizeof(record->linkKey));
-    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF,"record_keyType = ");
+    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID,"record_keyType = ");
     DUMP8("%x ",&record->keyType,sizeof(record->keyType));
-    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID|TR_ATTR_NO_LF,"record_pinLen = ");
+    TRACE(0|TR_ATTR_NO_TS|TR_ATTR_NO_ID,"record_pinLen = ");
     DUMP8("%x ",&record->pinLen,sizeof(record->pinLen));
 }
 

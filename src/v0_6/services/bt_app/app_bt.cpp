@@ -812,17 +812,17 @@ int app_bt_state_checker(void)
 
 static uint8_t app_bt_get_devId_from_RemDev(  btif_remote_device_t* remDev)
 {
-    uint8_t connectedDevId = BT_DEVICE_NUM;//DEBUG_BES_BUG
+    uint8_t connectedDevId = 0;
     for (uint8_t devId = 0; devId < BT_DEVICE_NUM; devId++)
     {
         if ( btif_me_enumerate_remote_devices(devId) == remDev)
         {
-            TRACE(2, "%s %d", __func__, devId);
+            //TRACE(2, "%s %d", __func__, devId);
             connectedDevId = devId;
             break;
         }
     }
-
+	TRACE(2, "%s %d", __func__, connectedDevId);
     return connectedDevId;
 }
 void app_bt_accessible_manager_process(const btif_event_t *Event)
@@ -3002,10 +3002,14 @@ void hfp_reconnecting_timer_stop_callback(const btif_event_t *event)
     bt_bdaddr_t *hfp_remote = NULL;
     remote = btif_me_get_callback_event_rem_dev_bd_addr(event);
     if(remote != NULL){
-		TRACE_CSD(1, "event bd addr: %s", (char*)remote);
+		TRACE_CSD(6, "event bd addr: %02x %02x %02x %02x %02x %02x",
+			      remote->address[0], remote->address[1], remote->address[2],
+			      remote->address[3], remote->address[4], remote->address[5]);
         for(i = 0; i<BT_DEVICE_NUM;i++){
             hfp_remote= &bt_profile_manager[i].rmt_addr;
-			TRACE_CSD(1, "bt_profile_manager bd addr: %s", (char*)hfp_remote);
+			TRACE_CSD(1, "bt_profile_manager bd addr: %02x %02x %02x %02x %02x %02x",
+			      hfp_remote->address[0], hfp_remote->address[1], hfp_remote->address[2],
+			      hfp_remote->address[3], hfp_remote->address[4], hfp_remote->address[5]);
             if(!strcmp((char*)hfp_remote,(char*)remote)){
                 id=i;
                 TRACE(2,"%s: find bt device num = %d",__func__,id);

@@ -115,9 +115,12 @@ void app_ibrt_customif_ui_vender_event_handler_ind(uint8_t evt_type, uint8_t *bu
     }
 	TRACE_CSD(1, "[%s]---", __func__);
 }
+extern bool is_open_reconnect;
+static const char* link2str[4] =
+{"NO_LINK_TYPE", "SNOOP_LINK", "MOBILE_LINK", "TWS_LINK"};
 void app_ibrt_customif_ui_global_handler_ind(ibrt_link_type_e link_type, uint8_t evt_type, uint8_t status)
 {
-	TRACE_CSD(1, "[%s]+++", __func__);
+	TRACE_CSD(4, "[%s]+++ %d %d %d", __func__, link_type, evt_type, status);
     ibrt_ctrl_t *p_ibrt_ctrl = app_ibrt_if_get_bt_ctrl_ctx();
 
 	const char* str = "BTIF_BTEVENT_LINK_CONNECT_IND";
@@ -127,14 +130,23 @@ void app_ibrt_customif_ui_global_handler_ind(ibrt_link_type_e link_type, uint8_t
         str = "BTIF_BTEVENT_LINK_CONNECT_CNF";
         //fall through
         case BTIF_BTEVENT_LINK_CONNECT_IND://An incoming ACL connection is up
-        TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>", str);
+        TRACE_CSD(2|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s><%s>", str, link2str[(int)link_type]);
             if (MOBILE_LINK == link_type)
             {
                 if (BTIF_BEC_NO_ERROR == status)
                 {
+					is_open_reconnect = false;
                     app_status_indication_set(APP_STATUS_INDICATION_CONNECTED);
                     app_tws_if_mobile_connected_handler(p_ibrt_ctrl->mobile_addr.address);
-                }
+                }/*
+				else if(is_open_reconnect && BTIF_BEC_CONNECTION_TIMEOUT == status)
+				{
+					if ((p_ibrt_ctrl->current_role == IBRT_MASTER))
+					{
+						is_open_reconnect = false;
+						app_ibrt_ui_judge_scan_type(IBRT_ENTER_PAIRING_MODE_TRIGGER, TWS_LINK, BTIF_BEC_NO_ERROR);
+					}
+				}*/
             }
             break;
         case BTIF_BTEVENT_LINK_DISCONNECT:

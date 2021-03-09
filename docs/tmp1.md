@@ -24,6 +24,8 @@
 
 `app_bt_global_handle_hook_set(APP_BT_GOLBAL_HANDLE_HOOK_USER_0,app_bt_manager_ibrt_role_process);`
 
+`app_bt_inquiry_call_back`: tws搜索的回调函数
+
 # 按键
 
 说明

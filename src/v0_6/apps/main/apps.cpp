@@ -1584,6 +1584,7 @@ extern uint32_t __aud_start[];
 extern uint32_t __userdata_start[];
 extern uint32_t __factory_start[];
 
+bool is_open_reconnect = false;
 int app_init(void)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
@@ -1875,6 +1876,7 @@ extern int rpc_service_setup(void);
             }
             else
             {
+				is_open_reconnect = (nvrecord_env->ibrt_mode.mode == IBRT_MASTER);
                 TRACE(1,"ibrt_ui_log:power on %d fetch out", nvrecord_env->ibrt_mode.mode);
                 app_ibrt_ui_event_entry(IBRT_FETCH_OUT_EVENT);
             }
