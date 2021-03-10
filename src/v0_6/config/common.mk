@@ -2639,7 +2639,7 @@ ifeq ($(OTA_ENABLE),1)
 ifeq ($(FPGA),1)
 export OTA_CODE_OFFSET ?= 0
 else
-export OTA_CODE_OFFSET ?= 0x18000
+export OTA_CODE_OFFSET ?= 0x20000
 endif
 KBUILD_CPPFLAGS += -DOTA_ENABLE
 # //TODO  need clear 

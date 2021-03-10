@@ -138,15 +138,17 @@ void app_ibrt_customif_ui_global_handler_ind(ibrt_link_type_e link_type, uint8_t
 					is_open_reconnect = false;
                     app_status_indication_set(APP_STATUS_INDICATION_CONNECTED);
                     app_tws_if_mobile_connected_handler(p_ibrt_ctrl->mobile_addr.address);
-                }/*
-				else if(is_open_reconnect && BTIF_BEC_CONNECTION_TIMEOUT == status)
+                }
+				else if(is_open_reconnect && BTIF_BEC_PAGE_TIMEOUT == status)
 				{
 					if ((p_ibrt_ctrl->current_role == IBRT_MASTER))
 					{
 						is_open_reconnect = false;
-						app_ibrt_ui_judge_scan_type(IBRT_ENTER_PAIRING_MODE_TRIGGER, TWS_LINK, BTIF_BEC_NO_ERROR);
+						TRACE(0,"MOBILE PAIRING");
+						//app_ibrt_ui_judge_scan_type(IBRT_ENTER_PAIRING_MODE_TRIGGER, NO_LINK_TYPE, BTIF_BEC_NO_ERROR);
+						app_ibrt_ui_event_entry(IBRT_TWS_PAIRING_EVENT);
 					}
-				}*/
+				}
             }
             break;
         case BTIF_BTEVENT_LINK_DISCONNECT:

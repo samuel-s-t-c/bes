@@ -327,7 +327,7 @@ export SPEECH_CODEC ?= 1
 export MIX_AUDIO_PROMPT_WITH_A2DP_MEDIA_ENABLED ?= 1
 export IOS_MFI ?= 0
 
-export FLASH_SIZE ?= 0x200000
+export FLASH_SIZE ?= 0x400000
 export FLASH_SUSPEND ?= 1
 
 export HOST_GEN_ECDH_KEY ?= 1

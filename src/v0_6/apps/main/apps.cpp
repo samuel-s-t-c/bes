@@ -588,7 +588,6 @@ extern "C" int app_voice_stop(APP_STATUS_INDICATION_T status, uint8_t device_id)
 }
 
 #endif
-
 static void app_poweron_normal(APP_KEY_STATUS *status, void *param)
 {
     TRACE(3,"%s %d,%d",__func__, status->code, status->event);
@@ -598,6 +597,7 @@ static void app_poweron_normal(APP_KEY_STATUS *status, void *param)
 }
 
 #if !defined(BLE_ONLY_ENABLED)
+#ifndef CSD
 static void app_poweron_scan(APP_KEY_STATUS *status, void *param)
 {
     TRACE(3,"%s %d,%d",__func__, status->code, status->event);
@@ -605,6 +605,7 @@ static void app_poweron_scan(APP_KEY_STATUS *status, void *param)
 
     signal_send_to_main_thread(0x2);
 }
+#endif
 #endif
 
 #ifdef __ENGINEER_MODE_SUPPORT__
@@ -642,9 +643,15 @@ const  APP_KEY_HANDLE  pwron_key_handle_cfg[] = {
 };
 #elif defined(__ENGINEER_MODE_SUPPORT__)
 const  APP_KEY_HANDLE  pwron_key_handle_cfg[] = {
-    {{APP_KEY_CODE_PWR,APP_KEY_EVENT_INITUP},           "power on: normal"     , app_poweron_normal, NULL},
+#ifndef CSD
+	{{APP_KEY_CODE_PWR,APP_KEY_EVENT_INITUP},           "power on: normal"     , app_poweron_normal, NULL},
+#endif
 #if !defined(BLE_ONLY_ENABLED)
+#ifdef CSD
+	{{APP_KEY_CODE_PWR,APP_KEY_EVENT_INITLONGPRESS},    "power on: normal"  , app_poweron_normal  , NULL},
+#else
     {{APP_KEY_CODE_PWR,APP_KEY_EVENT_INITLONGPRESS},    "power on: both scan"  , app_poweron_scan  , NULL},
+#endif
     {{APP_KEY_CODE_PWR,APP_KEY_EVENT_INITLONGLONGPRESS},"power on: factory mode", app_poweron_factorymode  , NULL},
 #endif
     {{APP_KEY_CODE_PWR,APP_KEY_EVENT_INITFINISHED},     "power on: finished"   , app_poweron_finished  , NULL},
@@ -2029,7 +2036,8 @@ extern int rpc_service_setup(void);
                         {
 							TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>", nvrecord_env->ibrt_mode.mode ? "IBRT_SLAVE" : "IBRT_MASTER");
                             //TRACE(1,"ibrt_ui_log:power on %d fetch out", nvrecord_env->ibrt_mode.mode);
-                            CLOG(CLOG_TWS, 0,"RECONNECTING");
+                            CLOG(CLOG_TWS, 0,"RECONNECTING");							
+							is_open_reconnect = (nvrecord_env->ibrt_mode.mode == IBRT_MASTER);
                             app_ibrt_ui_event_entry(IBRT_FETCH_OUT_EVENT);
                         }
                     }

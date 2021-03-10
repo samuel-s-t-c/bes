@@ -74,10 +74,18 @@ typedef uint32_t                            GPIO_MAP_T;
 #define CFG_SW_KEY_DBLCLICK_THRESH_MS       400
 #endif
 #ifndef CFG_SW_KEY_INIT_DOWN_THRESH_MS
+#ifdef CSD
+#define CFG_SW_KEY_INIT_DOWN_THRESH_MS      200
+#else
 #define CFG_SW_KEY_INIT_DOWN_THRESH_MS      200
 #endif
+#endif
 #ifndef CFG_SW_KEY_INIT_LPRESS_THRESH_MS
+#ifdef CSD
+#define CFG_SW_KEY_INIT_LPRESS_THRESH_MS    1000
+#else
 #define CFG_SW_KEY_INIT_LPRESS_THRESH_MS    3000
+#endif
 #endif
 #ifndef CFG_SW_KEY_INIT_LLPRESS_THRESH_MS
 #define CFG_SW_KEY_INIT_LLPRESS_THRESH_MS   10000
@@ -1094,6 +1102,7 @@ static void hal_key_boot_handler(void *param)
 
     if (pwr_key.debounce || pwr_key.dither || pwr_key.pressed) {
         if (pwr_key.pressed && key_status.time_updown) {	//DEBUG_BES_BUG
+        	TRACE_CSD(2, "%s %d", __func__, time - key_status.time_updown);
             if (key_status.event == HAL_KEY_EVENT_NONE) {
                 if (time - key_status.time_updown >= KEY_INIT_DOWN_THRESHOLD) {
 					TRACE_CSD(0, "<HAL_KEY_EVENT_INITDOWN>");
@@ -1117,7 +1126,8 @@ static void hal_key_boot_handler(void *param)
         }
         hal_key_debounce_timer_restart();
     } else {
-        if (key_status.event == HAL_KEY_EVENT_NONE || key_status.event == HAL_KEY_EVENT_INITDOWN) {
+        if (key_status.event == HAL_KEY_EVENT_NONE || key_status.event == HAL_KEY_EVENT_INITDOWN)
+		{
 			TRACE_CSD(0, "<HAL_KEY_EVENT_INITUP>");
             send_key_event(HAL_KEY_CODE_PWR, HAL_KEY_EVENT_INITUP);
         }

@@ -44,6 +44,21 @@ extern void app_ibrt_simulate_charger_plug_out_test(void);
 
 
 #ifdef IBRT_SEARCH_UI
+#ifdef CSD
+#include "app_ibrt_ui.h"
+static void csd_foo(void)
+{
+	int i, j;
+	for (i = 0; i < IBRT_TRIGGER_NUM; ++i)
+	{
+		for(j = 0; j <= TWS_LINK; ++j)
+		{
+			app_ibrt_ui_judge_scan_type((ibrt_ui_trigger_scan_e)i, (ibrt_link_type_e)j, BTIF_BEC_NO_ERROR);
+			osDelay(2000);
+		}
+	}
+}
+#endif
 void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
 {
 	TRACE_CSD(1, "[%s]+++", __func__);
@@ -64,7 +79,6 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
             case APP_KEY_EVENT_CLICK:
 #ifdef CSD
 				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><CLICK>");
-				app_ibrt_if_enter_freeman_pairing();
 				break;
 #else	
                 app_tws_if_handle_click();
@@ -74,6 +88,7 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
             case APP_KEY_EVENT_DOUBLECLICK:
 #ifdef CSD
 				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><DOUBLECLICK>");
+				csd_foo();
 				break;
 #else
 				TRACE(0,"double kill");

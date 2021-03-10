@@ -93,7 +93,11 @@ void btdrv_function_patch_init_common(uint32_t * patch, uint32_t patch_size, boo
 
     //select patch data by meta id
     enum HAL_CHIP_METAL_ID_T metal_id = hal_get_chip_metal_id();
-    if (metal_id == HAL_CHIP_METAL_ID_0)
+	#ifdef CSD
+    if (metal_id == HAL_CHIP_METAL_ID_0 || metal_id == HAL_CHIP_METAL_ID_1)
+	#else
+	if (metal_id == HAL_CHIP_METAL_ID_0)
+	#endif
     {
         bt_patch_data = patch;
         bt_patch_size = patch_size;
@@ -156,7 +160,11 @@ void btdrv_function_patch_init_common(uint32_t * patch, uint32_t patch_size, boo
 void btdrv_function_patch_init(void)
 {
     enum HAL_CHIP_METAL_ID_T metal_id = hal_get_chip_metal_id();
-    if (metal_id == HAL_CHIP_METAL_ID_0)
+	#ifdef CSD
+    if (metal_id == HAL_CHIP_METAL_ID_0 ||metal_id == HAL_CHIP_METAL_ID_1)
+	#else
+	if (metal_id == HAL_CHIP_METAL_ID_0)
+	#endif
     {
         btdrv_set_pacth_filter(&bes2500i_t0_filter_tbl);
         btdrv_function_patch_init_common((uint32_t *)bt_patch_1305_t0,sizeof(bt_patch_1305_t0), btdrv_patch_is_filter);
