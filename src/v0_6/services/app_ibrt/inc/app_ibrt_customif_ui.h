@@ -29,8 +29,8 @@
 #define  IBRT_UI_STOP_IBRT_TIMEOUT                                  (3000000)//40min
 
 
-#define  IBRT_UI_OPEN_RECONNECT_MOBILE_MAX_TIMES            (1)//开盒回连的最大MOBILE回连次数
-#define  IBRT_UI_OPEN_RECONNECT_TWS_MAX_TIMES               (1)//开盒回连的最大TWS回连次数
+#define  IBRT_UI_OPEN_RECONNECT_MOBILE_MAX_TIMES            (1)//
+#define  IBRT_UI_OPEN_RECONNECT_TWS_MAX_TIMES               (1)//
 #define  IBRT_UI_RECONNECT_MOBILE_MAX_TIMES                 (10)
 #define  IBRT_UI_RECONNECT_TWS_MAX_TIMES                    (10)
 #define  IBRT_UI_RECONNECT_IBRT_MAX_TIMES                   (1)

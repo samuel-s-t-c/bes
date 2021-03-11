@@ -4,9 +4,14 @@
 
 # 蓝牙
 
-常用的配置
+## TWS
 
-* `IBRT_MAX_SEARCH_TIME`
+TWS配对的时长: `IBRT_MAX_SEARCH_TIME`乘以`MAX_TWS_INQUIRY_TIMES`
+
+* `IBRT_MAX_SEARCH_TIME` : 单次IBRT搜索的时长
+* `MAX_TWS_INQUIRY_TIMES`:  进行IBRT搜索的次数
+
+## 待整理
 
 `<APP_MODUAL_BT>:(app_bt_handle_process)`: app_thread中用于处理bt相关的模块
 
