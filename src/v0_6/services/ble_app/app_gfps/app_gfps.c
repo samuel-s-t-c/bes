@@ -1243,7 +1243,7 @@ void app_gfps_tws_sync_init(void)
         NULL,
         NULL,
     };
-	TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<TWS_SYNC_USER_GFPS_INFO> registering")
+	TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<TWS_SYNC_USER_GFPS_INFO> registering");
     app_tws_if_register_sync_user(TWS_SYNC_USER_GFPS_INFO, &userGfps);
 	TRACE_CSD(1, "[%s]---", __func__);
 #endif    

@@ -1,0 +1,1526 @@
+<!DOCTYPE html><html><head>
+      <title>release_note</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///C:\Users\biao\.atom\packages\markdown-preview-enhanced\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <ul>
+<li><a href="#feature-list">feature list</a></li>
+<li><a href="#sdk-07">SDK 0.7</a>
+<ul>
+<li><a href="#new-functionality">New Functionality</a></li>
+<li><a href="#changes">Changes</a>
+<ul>
+<li><a href="#ai">AI</a></li>
+</ul>
+</li>
+<li><a href="#bug-fixes">Bug Fixes</a>
+<ul>
+<li><a href="#driver">driver</a></li>
+<li><a href="#controller">controller</a></li>
+</ul>
+</li>
+<li><a href="#known-issues">Known Issues</a></li>
+<li><a href="#misc">MISC</a></li>
+<li><a href="#ota">OTA</a>
+<ul>
+<li><a href="#todo">TODO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sdk-06">SDK 0.6</a>
+<ul>
+<li><a href="#new-functionality-1">New Functionality</a></li>
+<li><a href="#changes-1">Changes</a></li>
+<li><a href="#bug-fixes-1">Bug Fixes</a>
+<ul>
+<li><a href="#driver-1">driver</a></li>
+<li><a href="#controller-1">controller</a></li>
+</ul>
+</li>
+<li><a href="#known-issues-1">Known Issues</a></li>
+</ul>
+</li>
+<li><a href="#sdk-05">SDK 0.5</a>
+<ul>
+<li><a href="#new-functionality-2">New Functionality</a></li>
+<li><a href="#changes-2">Changes</a></li>
+<li><a href="#bug-fixes-2">Bug Fixes</a></li>
+<li><a href="#known-issues-2">Known Issues</a></li>
+</ul>
+</li>
+<li><a href="#sdk-04">SDK 0.4</a>
+<ul>
+<li><a href="#new-functionality-3">New Functionality</a></li>
+<li><a href="#ota-1">OTA</a></li>
+<li><a href="#changes-3">Changes</a></li>
+<li><a href="#bug-fixes-3">Bug Fixes</a></li>
+<li><a href="#known-issues-3">Known Issues</a></li>
+<li><a href="#misc-1">MISC</a></li>
+</ul>
+</li>
+<li><a href="#sdk-03">sdk 0.3</a>
+<ul>
+<li><a href="#new-functionality-4">New Functionality</a></li>
+<li><a href="#changes-4">Changes</a></li>
+<li><a href="#bug-fixes-4">Bug Fixes</a></li>
+<li><a href="#known-issues-4">Known Issues</a></li>
+<li><a href="#todo-list">TODO list</a></li>
+</ul>
+</li>
+<li><a href="#sdk02">SDK0.2</a>
+<ul>
+<li><a href="#new-function">new function</a></li>
+<li><a href="#bug-fixes-5">Bug Fixes</a></li>
+<li><a href="#changes-5">Changes</a></li>
+<li><a href="#optimization">Optimization</a></li>
+<li><a href="#bisto">BISTO</a></li>
+<li><a href="#misc-2">MISC</a></li>
+</ul>
+</li>
+<li><a href="#sdk-01">SDK 0.1</a>
+<ul>
+<li><a href="#known-issues-5">known issues</a></li>
+<li><a href="#main-ram-flash-info">main ram flash info</a></li>
+<li><a href="#test-report">test report</a>
+<ul>
+<li><a href="#ui-test-report">UI test report</a></li>
+<li><a href="#rf-power-test-report">rf/ power test report</a></li>
+<li><a href="#auto-test">auto test</a></li>
+</ul>
+</li>
+<li><a href="#misc-3">misc</a></li>
+<li><a href="#todo-list-1">TODO list</a></li>
+</ul>
+</li>
+</ul>
+<h1 class="mume-header" id="feature-list">feature list</h1>
+
+<ol>
+<li>suport chip (update 2021.03.09):
+<ul>
+<li>1303:
+<ol>
+<li>2500Z-62(4.5*6.2)</li>
+<li>2500YA-62(3.6*6.7)</li>
+</ol>
+</li>
+<li>1305
+<ol>
+<li>2500IU(40 60 NO ANC)</li>
+<li>2500IZ(40 60)</li>
+<li>WT250U(1M NO ANC NO 2mic ENC)</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>suport AI:AMA GVA(BISTO + GFPS)</li>
+<li>ANC(FF/FB) ,Hybird ANC</li>
+<li>suport codec type : SBC, AAC,  LHDC(need license)</li>
+<li>suport profile info:  see QDID for more detail</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Host part</th>
+<th>QDID</th>
+<th>A2DP</th>
+<th>AVRCP</th>
+<th>AVCTP</th>
+<th>GAVDP</th>
+<th>AVDTP</th>
+<th>HFP</th>
+<th>HSP</th>
+<th>SPP</th>
+<th>RFCOMM</th>
+<th>MESH</th>
+<th>MESH MODEL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dual mode host subsystem 5.2</td>
+<td>147315</td>
+<td>1.3(1.3.2)</td>
+<td>1.6(1.6.2)</td>
+<td>1.4</td>
+<td>1.3</td>
+<td>1.3</td>
+<td>1.7(1.7.2)</td>
+<td></td>
+<td>1.2</td>
+<td>1.2</td>
+<td>1.0(1.0.1)</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>Dual mode host 5.2</td>
+<td>152741</td>
+<td>1.3(1.3.2)</td>
+<td>1.6(1.6.2)</td>
+<td>1.4</td>
+<td>1.3</td>
+<td>1.3</td>
+<td>1.7(1.7.2)</td>
+<td></td>
+<td>1.2</td>
+<td>1.2</td>
+<td>1.0(1.0.1)</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 class="mume-header" id="sdk-07">SDK 0.7</h1>
+
+<h2 class="mume-header" id="new-functionality">New Functionality</h2>
+
+<ol>
+<li>add  DUT AT test code .
+<ul>
+<li>disable default</li>
+</ul>
+</li>
+<li>support DAC DC and gain auto calib;
+<ul>
+<li>AUDIO_OUTPUT_DC_AUTO_CALIB</li>
+</ul>
+</li>
+<li>enable sw rssi adjust function, disable rx nosyc rxgain adjust</li>
+<li>add sco noise trigger tws roleswitch .
+<ul>
+<li>disable default .</li>
+<li>no test yet</li>
+</ul>
+</li>
+<li>[1305]update driver to suport metal id =1</li>
+</ol>
+<h2 class="mume-header" id="changes">Changes</h2>
+
+<ol>
+<li>enable sync agc default
+<ul>
+<li>NEW_SWAGC_MODE</li>
+</ul>
+</li>
+<li>allown mobile incoming connect durning tws connting.</li>
+<li>default enable TWS PROMPT SYNC</li>
+<li>change voice report trigger time in sniff mode .fix prompt trigger time calculation error.</li>
+<li>default enable FA AGC __FIX_FA_RX_GAIN___</li>
+<li>clean app layer stack locks.</li>
+</ol>
+<h3 class="mume-header" id="ai">AI</h3>
+
+<ol>
+<li>change  GSOUND_RECONNECT_AFTER_ROLE_SWITCH_DELA_MS to 1.2s</li>
+<li>default:alexa use sbc codec instead of opus</li>
+</ol>
+<h2 class="mume-header" id="bug-fixes">Bug Fixes</h2>
+
+<h3 class="mume-header" id="driver">driver</h3>
+
+<ol>
+<li>enhance xtal drv
+<ul>
+<li>1303 1305  rf_init_tbl_1</li>
+<li>1305 pmu_rf_ana_init</li>
+</ul>
+</li>
+<li>HCI   rx continue error after flow control
+<ul>
+<li>hal_intersys.c</li>
+</ul>
+</li>
+<li>RX IQ CAL
+<ul>
+<li>fix system setup speed bug .</li>
+<li>add read iq rx calib value from NV after first run .</li>
+</ul>
+</li>
+<li>[1303] remap VMIC 3
+<ul>
+<li>config Vmic3 to use vmic3  in init .</li>
+</ul>
+</li>
+<li>[1305] fix 2500IUC charger issue when battery below 2.8V</li>
+<li>[1303] support MPU1802
+<ul>
+<li>build use PMU_1802=1</li>
+<li>chip 2500Z/Y-<strong>62</strong></li>
+<li>fix GPADC</li>
+<li>support sgl wire commuication code
+<ul>
+<li>define PMU_1802 &amp; SINGLE_WIRE_UART_PMU_1802</li>
+<li>default disable .</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>[1305] Losts of  SWAGC  optimization
+<ul>
+<li>Less carton</li>
+<li>optimize RF interference</li>
+<li>change AGC CFG (btdrv_rf_env_2500i/REG_EB_VAL-REG_F2_VAL)</li>
+<li>sw_rssi_work_mode</li>
+<li>sw_rssi_id</li>
+</ul>
+</li>
+</ol>
+<h3 class="mume-header" id="controller">controller</h3>
+
+<ol>
+<li>[1305] ibrt role switch resulting lmp reponse timeout problem</li>
+<li>[1305] tws 08 disconnect problem</li>
+<li>[1305] signle bud discard afh problem</li>
+<li>[1305] update testmode patch for repair lpo problem</li>
+<li>[1305] fix BTC cannot enter sleep in some cases
+<ul>
+<li>Can&apos;t sleep successfully every time , &gt;1ma sleep power consumption.</li>
+</ul>
+</li>
+<li>[1305] fix tws 08 disconnect when TWS RSSI changes quickly
+<ul>
+<li>eg :Suddenly covered  ears with  hands.</li>
+</ul>
+</li>
+<li>[1303] Fix phone call continuous glitch after out of range.</li>
+<li>[1303] fix ble connection update fail after channel map update end</li>
+<li>[1303] stop tws acl schedule if overstep the minimum duration</li>
+<li>[1303] Fix sleep check logic cause bt clock changed issue</li>
+<li>sync agc
+<ul>
+<li>Optimize RSSI algorithm</li>
+</ul>
+</li>
+<li>1305:ensure BT system clock</li>
+</ol>
+<h2 class="mume-header" id="known-issues">Known Issues</h2>
+
+<h2 class="mume-header" id="misc">MISC</h2>
+
+<ol>
+<li>use pmu_reboot API to shutdown or reboot ,DO NOT use hal_cmu_reset_set directly.</li>
+</ol>
+<h2 class="mume-header" id="ota">OTA</h2>
+
+<h3 class="mume-header" id="todo">TODO</h3>
+
+<ol>
+<li>all OTA bin need test and  update base on this SDK .
+<ul>
+<li>1303
+<ul>
+<li>single OTA 2M</li>
+<li>dual ota 4M</li>
+<li>sgl DFU 2M 4M</li>
+<li>1303 with 1802 ota bin all above.</li>
+</ul>
+</li>
+<li>1305
+<ul>
+<li>single OTA 1/2 M</li>
+<li>dual ota 4M</li>
+<li>sgl DFU 1/2/4 M</li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+</ol>
+<h1 class="mume-header" id="sdk-06">SDK 0.6</h1>
+
+<h2 class="mume-header" id="new-functionality-1">New Functionality</h2>
+
+<ol>
+<li>add reconnect TDD noise cfg
+<ul>
+<li>default disable __RECONN_CONFIG_FOR_TDD_NOISE__</li>
+<li>The instantaneous current is too large, which may pull down the battery voltage of some hardware</li>
+</ul>
+</li>
+<li>add API to config the TX PWR for paging process
+<ul>
+<li>bt_drv_rf_config_tx_pwr_for_page</li>
+</ul>
+</li>
+<li>add IQ RX cal for 1305
+<ul>
+<li>RX_IQ_CAL</li>
+<li>Improve received C/I</li>
+</ul>
+</li>
+</ol>
+<h2 class="mume-header" id="changes-1">Changes</h2>
+
+<ol>
+<li>
+<p>default enable ANC in AI target.</p>
+</li>
+<li>
+<p>increase SPP_DEVICE_NUM for MAI with ANC.</p>
+</li>
+<li>
+<p>enable ANC wiht CP</p>
+</li>
+<li>
+<p>update bisto parts.</p>
+</li>
+<li>
+<p>update OS_TIMER_NUM to 12</p>
+</li>
+<li>
+<p>update ai RTX5 system ram</p>
+</li>
+<li>
+<p>1303: close BT sync agc default</p>
+</li>
+<li>
+<p>[RAM slink]</p>
+<ul>
+<li>AAC_MEMPOOL_SIZE change to 32K</li>
+<li>FAST_XRAM_SECTION_SIZE to 0x8500 for anc target (first test)</li>
+</ul>
+</li>
+<li></li>
+</ol>
+<h2 class="mume-header" id="bug-fixes-1">Bug Fixes</h2>
+
+<ol>
+<li>
+<p>fix A2DP HFP codec max output</p>
+<ul>
+<li>SDK0.5 max vol use error codec_dac_vol  value .</li>
+</ul>
+</li>
+<li>
+<p>fix issue sync_trigger seq less than current frame seq when set_trigger_time</p>
+<ul>
+<li>app_bt_stream.cpp app_bt_stream_ibrt_auto_synchronize_initsync_dataind_cb</li>
+</ul>
+</li>
+<li>
+<p>Fix the Caton caused by synchronize_packet failed</p>
+<ul>
+<li>app_bt_stream_ibrt_set_trigger_time</li>
+</ul>
+</li>
+<li>
+<p>fix discard different samples when set_trigger_time</p>
+<ul>
+<li>app_bt_stream_trigger_checker_handler</li>
+</ul>
+</li>
+<li>
+<p>fix frame mismatch due to discard samples when single earphone join</p>
+<ul>
+<li>is_need_discards_samples</li>
+</ul>
+</li>
+<li>
+<p>ibrt sync set default factor reference when tws switch</p>
+</li>
+<li>
+<p>clear sco tx buffer when bt sco player off</p>
+<ul>
+<li>bt_sco_player</li>
+</ul>
+</li>
+<li>
+<p>fix ble memory malloc err.</p>
+<ul>
+<li>ble stack</li>
+</ul>
+</li>
+<li>
+<p>fix charger detecter and enable pin init.</p>
+<ul>
+<li>app_battery.cpp</li>
+</ul>
+</li>
+<li>
+<p>fix SW_TYPE</p>
+<ul>
+<li>can&apos;t change BLE name and addr when download</li>
+<li>root makefile</li>
+</ul>
+</li>
+<li>
+<p>fix ai SDP cobuf</p>
+</li>
+<li>
+<p>fix prompt miss mix when out of audio queue list</p>
+<ul>
+<li>audio_prompt_sbc.cpp</li>
+</ul>
+</li>
+<li>
+<p>A2DP fix codec type error</p>
+<ul>
+<li>a2dp_ibrt_sync_set_status</li>
+</ul>
+</li>
+<li>
+<p>Fix a bug about 1305 DAC IIR EQ</p>
+<ul>
+<li>hw_codec_iir_process.h</li>
+</ul>
+</li>
+<li>
+<p>optimized calib process: if the trace port is UART0, the trace func should be turn off before using UART0 communication</p>
+</li>
+<li>
+<p>fix TWS response timeout due to duplicate opcode</p>
+<ul>
+<li>app_tws_ibrt_cmd_handler.h</li>
+</ul>
+</li>
+<li>
+<p>fix avdtp reconfig codec</p>
+<ul>
+<li>bt profile .</li>
+</ul>
+</li>
+<li>
+<p>improve xtal driver for 1303.</p>
+</li>
+</ol>
+<h3 class="mume-header" id="driver-1">driver</h3>
+
+<ol>
+<li>1305: modify BT/BLE tx gain</li>
+<li>1305: update btdrv_txpower_calib</li>
+<li>RF improve logen phase nosie</li>
+<li>DIG decrease dig gain to improve ACP</li>
+<li>fix GPIO 00 - 03 input error .
+<ul>
+<li>bt_drv_rfconfig.c tstbuf</li>
+</ul>
+</li>
+<li>fix ANC sleep noise
+<ul>
+<li>hal_cmu_best1305/2300a.c</li>
+<li>Avoid auto-gating osc/oscx2 when in sys sleep mode</li>
+</ul>
+</li>
+<li>init the max TX POWER for page process.
+<ul>
+<li>bt_drv_tx_pwr_init</li>
+</ul>
+</li>
+<li>1303: optimize tx pwr init
+<ul>
+<li>bt_drv_tx_pwr_init</li>
+</ul>
+</li>
+<li>enhance tx dac dig driving for Tx EVM abnormal
+<ul>
+<li>rf_init_tbl_1</li>
+</ul>
+</li>
+<li>1305 analog: reduce noise floor by 175[13] = 1</li>
+</ol>
+<h3 class="mume-header" id="controller-1">controller</h3>
+
+<ol>
+<li>update patch
+<ul>
+<li>Fix phone call continuous glitch after out of range.</li>
+<li>fix ble connection update fail after channel map update end</li>
+<li>stop tws acl schedule if overstep the minimum duration</li>
+<li>Fix sleep check logic cause bt clock changed issue</li>
+<li>1305:fix the issue that SCO Codec type error due to error report by BTC report.</li>
+</ul>
+</li>
+</ol>
+<h2 class="mume-header" id="known-issues-1">Known Issues</h2>
+
+<ol>
+<li>Playing music current is being optimized</li>
+<li>&lt;1303_1305_UI_test_report_sdk0.6_bugs.xlsx&gt;</li>
+</ol>
+<h1 class="mume-header" id="sdk-05">SDK 0.5</h1>
+
+<h2 class="mume-header" id="new-functionality-2">New Functionality</h2>
+
+<ol>
+<li>add 2500i MAI PTT(push to talk) support</li>
+<li>support single communicationfor 1305(2500i)
+<ul>
+<li>communication_svr.cpp for demo.</li>
+</ul>
+</li>
+</ol>
+<h2 class="mume-header" id="changes-2">Changes</h2>
+
+<ol>
+<li>lots of change for RAM MAP
+<ul>
+<li>SDP RAM
+<ul>
+<li>sdp rsp ram as dynamic using cobuf</li>
+<li>SDP_CTRL_NUM  to 3 .</li>
+</ul>
+</li>
+<li>OS_DYNAMIC_MEM_SIZE
+<ol>
+<li>if there is any &quot;RtxMemoryAlloc fail&quot;assert try to increase</li>
+<li>Is up to customer UI(eg APP timer) ,the default SDK test passed .</li>
+</ol>
+</li>
+<li>TWS_CTRL_MAILBOX_MAX
+<ol>
+<li>see log of <mark>mail_count</mark></li>
+</ol>
+</li>
+<li>default use SBC in rom .
+<ol>
+<li>ROM_UTILS_ON ?= 1</li>
+</ol>
+</li>
+<li>cobuf num and size
+<ol>
+<li>enable BES_DEBUG_RAM to debug</li>
+<li>see cobuf statistics for shut down</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>update hw_codec_iir_process_best1305.c</li>
+<li>improve freq to 104M when a2dp_audio_init</li>
+<li>1305: improved the calibration performance of transmit IQ</li>
+<li>clean all platform driver</li>
+<li>update recover missing sbc packet
+<ul>
+<li>a2dp_decoder.</li>
+</ul>
+</li>
+<li>1305:improve the robustness of IQ calibration</li>
+</ol>
+<h2 class="mume-header" id="bug-fixes-2">Bug Fixes</h2>
+
+<ol>
+<li>AI: gsound ble memory malloc</li>
+<li>driver 1305: Solve the problem of low RX performance of individual chips at low temperature and insufficient gain of some signal points of individual chips at room temperature</li>
+<li>1305:btdrv: Disable regfile retention to avoid retention state swtich timing error&quot;</li>
+<li>1305 : fix VOC test api use</li>
+<li>Fix 1305 cvsd issue
+<ul>
+<li>app_bt_stream</li>
+</ul>
+</li>
+<li>fix can&apos;t sleep .</li>
+<li>ota: fix ota mode .custom_parameter overlaps .ota_upgrade_log
+<ul>
+<li>erase anc param ...</li>
+</ul>
+</li>
+</ol>
+<h2 class="mume-header" id="known-issues-2">Known Issues</h2>
+
+<ol>
+<li>GPIO p00 - p03 input.</li>
+<li>debug tool for RSSI app get  rssi info .</li>
+<li>codec max output</li>
+<li>more UI bugs &lt;1303_1305_UI_test_report_sdk0.5_bugs.xlsx&gt;</li>
+</ol>
+<h1 class="mume-header" id="sdk-04">SDK 0.4</h1>
+
+<h2 class="mume-header" id="new-functionality-3">New Functionality</h2>
+
+<ol>
+<li>add 2500i ANC support</li>
+<li>add playback fade out
+<ul>
+<li>AF_STREAM_ID_0_PLAYBACK_FADEOUT</li>
+<li>default enable .</li>
+</ul>
+</li>
+<li>add reconnect current flat feature to  avoid TDD reconnect noise.
+<ul>
+<li>btdrv_reconn</li>
+</ul>
+</li>
+<li>improve the problem of Rx BER bit error rate at low temperature
+<ul>
+<li>rf_init_tbl_1</li>
+</ul>
+</li>
+</ol>
+<h2 class="mume-header" id="ota-1">OTA</h2>
+
+<ol>
+<li>2500i_dual_ota_v0.1_b8e21e5b43_v0.1_offset0x18000_4M.bin
+<ul>
+<li>suport ibrt ota(OTA_ENABLE)</li>
+<li>suport app_otaMode_enter with dual backup</li>
+</ul>
+</li>
+<li>2500i_dual_ota_v0.1_b8e21e5b43_v0.1_offset0x20000_4M_debug.bin
+<ul>
+<li>ota boot  with debug trace</li>
+</ul>
+</li>
+<li>2500i_single_ota_v0.1_b8e21e5b43_v0.1_offset0x18000_2M.bin
+<ul>
+<li>suport app_otaMode_enter without dual backup</li>
+</ul>
+</li>
+</ol>
+<h2 class="mume-header" id="changes-3">Changes</h2>
+
+<ol>
+<li>Increase system frequency to 104M(if current frequency is less then 104M) when start ibrt for 4s .</li>
+<li>Optimize 2500i cp ram map</li>
+</ol>
+<h2 class="mume-header" id="bug-fixes-3">Bug Fixes</h2>
+
+<ol>
+<li>fix DUT test connect error</li>
+<li>fix 2500i: close CP error (A2DP/sco_CP_ACCEL)
+<ul>
+<li>disable cp mcu but the cp RAM  is still being used.</li>
+</ul>
+</li>
+<li>fix voice report mute
+<ul>
+<li>codec_dac_vol</li>
+</ul>
+</li>
+<li>fix 2500i: TX_IQ_CAL</li>
+<li>2500i:hal: Fix adc ch remap cfg
+<ul>
+<li>dual mic drv</li>
+</ul>
+</li>
+</ol>
+<h2 class="mume-header" id="known-issues-3">Known Issues</h2>
+
+<ol>
+<li>close/open A2DP/SCO has slight pop
+<ul>
+<li>fixing.</li>
+</ul>
+</li>
+<li>honor 20 speech tx sco noise.
+<ul>
+<li>fixing.</li>
+</ul>
+</li>
+<li>when phone playing ep reconnect ,probability of a pop sound.
+<ul>
+<li>fixing.</li>
+</ul>
+</li>
+</ol>
+<h2 class="mume-header" id="misc-1">MISC</h2>
+
+<ol>
+<li>In debug mode, ensure that the log loss is small enough(trace LOSTxxx) if you want to send log to BES.
+<ul>
+<li>TRACE_BUF_SIZE</li>
+</ul>
+</li>
+<li>OS_DYNAMIC_MEM_SIZE is for RTX5 system os , if there is some assert trace like&quot;RtxMemoryBlockAlloc fail&quot; ,Increase memory size of OS_DYNAMIC_MEM_SIZE</li>
+<li>More RAM is being optimized. Currently, if RAM is lacking, you can turn off the dual core for functional development.
+<ul>
+<li>disable A2DP_CP_ACCEL and SCO_CP_ACCEL</li>
+</ul>
+</li>
+<li>Don&apos;t support ibrt OTA if flash size less then 4MB.
+<ul>
+<li>app_otaMode_enter</li>
+</ul>
+</li>
+</ol>
+<h1 class="mume-header" id="sdk-03">sdk 0.3</h1>
+
+<h2 class="mume-header" id="new-functionality-4">New Functionality</h2>
+
+<ol>
+<li>ADD 1305(2500i)chip support</li>
+</ol>
+<h2 class="mume-header" id="changes-4">Changes</h2>
+
+<ol>
+<li>Memory optimization.</li>
+</ol>
+<h2 class="mume-header" id="bug-fixes-4">Bug Fixes</h2>
+
+<h2 class="mume-header" id="known-issues-4">Known Issues</h2>
+
+<ol>
+<li>voice_report error .</li>
+<li>all issues in sdk 0.2</li>
+<li>During the playback of music/phone, the playback is not stable enough immediately after reconnecting</li>
+<li>idle power consumption</li>
+</ol>
+<h2 class="mume-header" id="todo-list">TODO list</h2>
+
+<ol>
+<li>1303(2500a) not test on this version(sdk 0.2 tested).</li>
+<li>ota not test yet
+<ul>
+<li>single ota not test</li>
+<li>dld single line DFU not finised</li>
+</ul>
+</li>
+<li>The ram map has changed a lot, but the ram/flash map does not update the statistics information</li>
+<li>The test report is not organized</li>
+</ol>
+<h1 class="mume-header" id="sdk02">SDK0.2</h1>
+
+<h2 class="mume-header" id="new-function">new function</h2>
+
+<ol>
+<li>
+<p>add patch version info</p>
+<ul>
+<li>btdrv_function_patch_init :</li>
+</ul>
+<pre data-role="codeBlock" data-info="c" class="language-c"> <span class="token function">BT_DRV_TRACE</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">&quot;patch version:%d&quot;</span><span class="token punctuation">,</span><span class="token operator">*</span><span class="token punctuation">(</span>uint32_t <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span>PATCH_VERSION_ADDR<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre></li>
+<li>
+<p>add wnr sync function.</p>
+<ul>
+<li>apps/anc/src/...</li>
+<li>ANC_WNR_ENABLED</li>
+</ul>
+</li>
+<li>
+<p>add avrcp get capability company id rsp</p>
+</li>
+<li>
+<p>media play: add MEDIA_PLAY_24BIT for 24bit playback support</p>
+</li>
+</ol>
+<h2 class="mume-header" id="bug-fixes-5">Bug Fixes</h2>
+
+<ol>
+<li>DUT test mode can&apos;t connect to CBT
+<ul>
+<li>bt_patch_1303_t0_testmode.h</li>
+</ul>
+</li>
+<li>fix MC</li>
+<li>fixed bug of lack start timer for l2cap disconnect timer
+<ul>
+<li>services/bt_profiles_enhanced/...</li>
+</ul>
+</li>
+<li>fix reconnect mobile failed
+<ul>
+<li>mobile disconnect during tws data exchange.</li>
+<li>services/ibrt_ui/...</li>
+</ul>
+</li>
+<li>clear sco tx buffer if bt_sco_player is off
+<ul>
+<li>bt_sco_player</li>
+</ul>
+</li>
+<li>fix send sdp rsp if max attr bytes too small
+<ul>
+<li>services/bt_profiles_enhanced/...</li>
+</ul>
+</li>
+<li>Clear pending stop A2DP/SCO flag set by prompt mixing when A2DP/SCO play request is received.
+<ul>
+<li>services/bt_app/app_bt_media_manager.cpp</li>
+<li>BUG will cause silence</li>
+</ul>
+</li>
+<li>fix GMA OTA crash</li>
+<li>fix set AFH error
+<ul>
+<li>bt_patch_1303_t0.h</li>
+</ul>
+</li>
+<li>fix clock management bug in tota<br>
+bug: always use high frequency, and can&apos;t change to sleep mode</li>
+<li>fixed bug of wait connect HFP timeout event through peer device has not HFP supported</li>
+<li>fix cvsd prompt merge
+<ul>
+<li>we assume overlap length should be within a single sbc frame</li>
+</ul>
+</li>
+<li>fix open PC_CMD_UART crash</li>
+<li>fix build info err
+<ul>
+<li>error SW_TYPE=OTA</li>
+<li>can&apos;t config BLE addr when download because of error build info.</li>
+</ul>
+</li>
+<li>fix unsniff 08 disconnect.
+<ul>
+<li>bt_patch_1303_t0.h</li>
+</ul>
+</li>
+<li>disconnect avrcp channel with along a2dp disconnected
+<ul>
+<li>the profiles are not disconnected clean with some pixel phone</li>
+<li>it dont disc avrcp channel due to this channel is created by earbuds</li>
+</ul>
+</li>
+<li>fix reconnect volume not the same between left and ringht ep .</li>
+</ol>
+<h2 class="mume-header" id="changes-5">Changes</h2>
+
+<ol>
+<li>update start ibrt error handle</li>
+<li>refactor tota connect and encode
+<ul>
+<li>service/tota/...</li>
+</ul>
+</li>
+<li>limit sdp rsp packet size.
+<ul>
+<li>services/bt_profiles_enhanced/...</li>
+</ul>
+</li>
+<li>add role switch limit time
+<ul>
+<li>reconnect to mobile -&gt;do MSS -&gt;MSS_RETRY_COUNTER_MAX</li>
+<li>old way : Keep trying MSS until  succeed</li>
+</ul>
+</li>
+<li>app_ibrt_if_event_entry run in  bt thread</li>
+<li>update toto to v2 version</li>
+<li>disallow into sniff mode when TOTA SPP connected.</li>
+</ol>
+<h2 class="mume-header" id="optimization">Optimization</h2>
+
+<ol>
+<li>improve aac llc decode</li>
+<li>optimize the SW ACG in sniff mode.
+<ul>
+<li>bt_patch_1303_t0.h</li>
+</ul>
+</li>
+</ol>
+<h2 class="mume-header" id="bisto">BISTO</h2>
+
+<ol>
+<li>fix bisto out of call fail
+<ul>
+<li>services/bt_profiles_enhanced/...</li>
+</ul>
+</li>
+</ol>
+<h2 class="mume-header" id="misc-2">MISC</h2>
+
+<ol>
+<li>2500IUC 20/40 1M/2Mflash don&apos;t support OTA_ENABLE USE SIGNAL_OTA</li>
+<li><font color="red">Do not </font>use 3.3V uart connect to 2500 serial chip (1.8V uart).</li>
+<li>2500iuc/IZ  download tool version must &gt;= 1.24.</li>
+</ol>
+<h1 class="mume-header" id="sdk-01">SDK 0.1</h1>
+
+<ol>
+<li>first release SDK</li>
+<li>best2300a_ibrt_rc03_V0.1_20200924_5c6e54f2e1</li>
+</ol>
+<h2 class="mume-header" id="known-issues-5">known issues</h2>
+
+<ol>
+<li>reference to &lt;1303_ibrt_UI_testreport_sdk0.1.xlsx&gt;</li>
+</ol>
+<h2 class="mume-header" id="main-ram-flash-info">main ram flash info</h2>
+
+<ol>
+<li>bash on make T=best2300a_ibrt_anc IBRT_SEARCH_UI=1 NEW_SWAGC_MODE=1 DEBUG=1 TWS_PROMPT_SYNC=1 MIX_AUDIO_PROMPT_WITH_A2DP_MEDIA_ENABLED=1 OTA_ENABLE=1  -j</li>
+<li>more detail see  map and list file .</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>OUTPUT_SECTION</th>
+<th>SIZE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.ARM.exidx</td>
+<td>8</td>
+</tr>
+<tr>
+<td>.audio</td>
+<td>65536</td>
+</tr>
+<tr>
+<td>.boot_bss_sram</td>
+<td>140</td>
+</tr>
+<tr>
+<td>.boot_data_sram</td>
+<td>756</td>
+</tr>
+<tr>
+<td>.boot_struct</td>
+<td>16</td>
+</tr>
+<tr>
+<td>.boot_text_flash</td>
+<td>4132</td>
+</tr>
+<tr>
+<td>.boot_text_sram</td>
+<td>8160</td>
+</tr>
+<tr>
+<td>.bss</td>
+<td>250880</td>
+</tr>
+<tr>
+<td>.build_info</td>
+<td>220</td>
+</tr>
+<tr>
+<td>.code_start_addr</td>
+<td>12</td>
+</tr>
+<tr>
+<td>.cp_bss_sram</td>
+<td>35612</td>
+</tr>
+<tr>
+<td>.cp_data_sram</td>
+<td>3120</td>
+</tr>
+<tr>
+<td>.cp_ram_last_dummy</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.cp_text_sram</td>
+<td>2784</td>
+</tr>
+<tr>
+<td>.custom_parameter</td>
+<td>4096</td>
+</tr>
+<tr>
+<td>.data</td>
+<td>4208</td>
+</tr>
+<tr>
+<td>.factory</td>
+<td>4096</td>
+</tr>
+<tr>
+<td>.fast_text_sram</td>
+<td>73376</td>
+</tr>
+<tr>
+<td>.heap</td>
+<td>4100</td>
+</tr>
+<tr>
+<td>.overlay_data0</td>
+<td>700</td>
+</tr>
+<tr>
+<td>.overlay_data1</td>
+<td>1864</td>
+</tr>
+<tr>
+<td>.overlay_data2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.overlay_data3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.overlay_data4</td>
+<td>47536</td>
+</tr>
+<tr>
+<td>.overlay_data5</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.overlay_data6</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.overlay_data7</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.overlay_data_last</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.overlay_text0</td>
+<td>15488</td>
+</tr>
+<tr>
+<td>.overlay_text1</td>
+<td>504</td>
+</tr>
+<tr>
+<td>.overlay_text2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.overlay_text3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.overlay_text4</td>
+<td>63584</td>
+</tr>
+<tr>
+<td>.overlay_text5</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.overlay_text6</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.overlay_text7</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.overlay_text_last</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.reboot_custom_param</td>
+<td>112</td>
+</tr>
+<tr>
+<td>.reboot_param</td>
+<td>64</td>
+</tr>
+<tr>
+<td>.reserved</td>
+<td>4096</td>
+</tr>
+<tr>
+<td>.rodata</td>
+<td>415052</td>
+</tr>
+<tr>
+<td>.sram_bss</td>
+<td>4</td>
+</tr>
+<tr>
+<td>.sram_data</td>
+<td>30368</td>
+</tr>
+<tr>
+<td>.sram_text</td>
+<td>46496</td>
+</tr>
+<tr>
+<td>.stack_dummy</td>
+<td>4096</td>
+</tr>
+<tr>
+<td>.text</td>
+<td>387372</td>
+</tr>
+<tr>
+<td>.userdata</td>
+<td>8192</td>
+</tr>
+<tr>
+<td>.vector_table</td>
+<td>320</td>
+</tr>
+<tr>
+<td>.vector_table_cp</td>
+<td>320</td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="test-report">test report</h2>
+
+<h3 class="mume-header" id="ui-test-report">UI test report</h3>
+
+<ol>
+<li>reference to &lt;1303_ibrt_UI_testreport_sdk0.1.xlsx&gt;</li>
+<li>build info :make T=best2300a_ibrt_anc IBRT_SEARCH_UI=1 NEW_SWAGC_MODE=1 DEBUG=1 TWS_PROMPT_SYNC=1 MIX_AUDIO_PROMPT_WITH_A2DP_MEDIA_ENABLED=1 OTA_ENABLE=1  -j</li>
+</ol>
+<h3 class="mume-header" id="rf-power-test-report">rf/ power test report</h3>
+
+<ol>
+<li>&lt;1303_ibrt_anc_rf_power_testreport_sdk0.1.xlsx&gt;</li>
+</ol>
+<ul>
+<li></li>
+</ul>
+<h3 class="mume-header" id="auto-test">auto test</h3>
+
+<table>
+<thead>
+<tr>
+<th>Test case</th>
+<th>Purpose</th>
+<th>Result</th>
+<th>Fail reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auto_case_01</td>
+<td>Master out box then slave out box</td>
+<td>Pass</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto_case_02</td>
+<td>Slave out box then master out box</td>
+<td>Pass</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto_case_03</td>
+<td>[Role switch]Master in box then slave in box</td>
+<td>Pass</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto_case_04</td>
+<td>Master and phone connected then slave out of box</td>
+<td>Pass</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto_case_05</td>
+<td>Master play music then slave pause</td>
+<td>Pass</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto_case_06</td>
+<td>Slave play music then master pause</td>
+<td>Pass</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto_case_07</td>
+<td>[A2DP State - Role switch]Master in box, trigger tws switch, then new slave out</td>
+<td>Pass</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto_case_08</td>
+<td>Master accept incoming call, slave end call</td>
+<td>Pass</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto_case_09</td>
+<td>Master redial last call then slave end call</td>
+<td>Pass</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto_case_10</td>
+<td>[eSco state]Do role switch</td>
+<td>Pass</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto_case_15</td>
+<td>Play/stop music from phone side</td>
+<td>Pass</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="misc-3">misc</h2>
+
+<ol>
+<li>Using a non-1.8V serial port to connect headphones for testing will affect the RF performance. (test case only)</li>
+<li>1303_ibrt_anc_rf_power_testreport_sdk0.1.xlsx 1303_ibrt_UI_testreport_sdk0.1.xlsx There will be some differences between the bin used for testing report  and the bin of SDK because there will be regression tests for BUG fixes</li>
+<li>SDK test use gcc version info :
+<ul>
+<li>win: (GNU Arm Embedded Toolchain 9-2020-q2-update) 9.3.1 20200408 (release)</li>
+<li>linux: (GNU Arm Embedded Toolchain 9-2020-q2-update) 9.3.1 20200408 (release)</li>
+</ul>
+</li>
+</ol>
+<h2 class="mume-header" id="todo-list-1">TODO list</h2>
+
+<ol>
+<li>test report of all support ai.</li>
+<li>test  SCMS-T</li>
+<li>If you have functional requirements, please feedback to me</li>
+</ol>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

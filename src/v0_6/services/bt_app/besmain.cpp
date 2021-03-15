@@ -372,7 +372,7 @@ int besmain(void)
     add_randomness();
 
 #ifdef __IAG_BLE_INCLUDE__
-	TRACE_CSD(0, "\n__IAG_BLE_INCLUDE__\n")
+	TRACE_CSD(0, "\n__IAG_BLE_INCLUDE__\n");
     bes_ble_init();
 #endif
 	TRACE_CSD(0, "MSG_INFO:{btif_set_btstack_chip_config}");
@@ -487,7 +487,7 @@ int besmain(void)
     bt_key_init();
 
 #ifdef TEST_OVER_THE_AIR_ENANBLED
-	TRACE_CSD(0, "\nMSG_INFO:TEST_OVER_THE_AIR_ENANBLED\n")
+	TRACE_CSD(0, "\nMSG_INFO:TEST_OVER_THE_AIR_ENANBLED\n");
     app_tota_init();
 #endif
 	

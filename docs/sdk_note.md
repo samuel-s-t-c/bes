@@ -1,3 +1,9 @@
+# Makefile
+
+语音助手
+
+
+
 # 开机流程
 
 
@@ -10,6 +16,10 @@ TWS配对的时长: `IBRT_MAX_SEARCH_TIME`乘以`MAX_TWS_INQUIRY_TIMES`
 
 * `IBRT_MAX_SEARCH_TIME` : 单次IBRT搜索的时长
 * `MAX_TWS_INQUIRY_TIMES`:  进行IBRT搜索的次数
+
+## BLE
+
+
 
 ## 待整理
 

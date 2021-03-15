@@ -1682,7 +1682,7 @@ void ota_common_tws_sync_init(void)
         NULL,
         NULL,
     };
-	TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<TWS_SYNC_USER_OTA> registering")
+	TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<TWS_SYNC_USER_OTA> registering");
     app_tws_if_register_sync_user(TWS_SYNC_USER_OTA, &userOta);
 	TRACE_CSD(1, "[%s]---", __func__);
 }
