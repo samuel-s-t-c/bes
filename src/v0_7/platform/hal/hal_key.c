@@ -77,7 +77,11 @@ typedef uint32_t                            GPIO_MAP_T;
 #define CFG_SW_KEY_INIT_DOWN_THRESH_MS      200
 #endif
 #ifndef CFG_SW_KEY_INIT_LPRESS_THRESH_MS
+#ifdef CSD
+#define CFG_SW_KEY_INIT_LPRESS_THRESH_MS    800
+#else
 #define CFG_SW_KEY_INIT_LPRESS_THRESH_MS    3000
+#endif
 #endif
 #ifndef CFG_SW_KEY_INIT_LLPRESS_THRESH_MS
 #define CFG_SW_KEY_INIT_LLPRESS_THRESH_MS   10000
@@ -1092,20 +1096,24 @@ static void hal_key_boot_handler(void *param)
         }
     }
     if (pwr_key.debounce || pwr_key.dither || pwr_key.pressed) {
-        if (pwr_key.pressed) {
+        if (pwr_key.pressed && key_status.time_updown) {	//DEBUG_BES_BUG
+        	DLOG(2, "%s %d", __func__, time - key_status.time_updown);
             if (key_status.event == HAL_KEY_EVENT_NONE) {
                 if (time - key_status.time_updown >= KEY_INIT_DOWN_THRESHOLD) {
+					DLOG(0, "<HAL_KEY_EVENT_INITDOWN>");
                     key_status.event = HAL_KEY_EVENT_INITDOWN;
                     send_key_event(HAL_KEY_CODE_PWR, key_status.event);
                 }
             } else if (key_status.event == HAL_KEY_EVENT_INITDOWN) {
                 if (time - key_status.time_updown >= KEY_INIT_LONGPRESS_THRESHOLD) {
+					DLOG(0, "<HAL_KEY_EVENT_INITLONGPRESS>");
                     key_status.cnt_repeat = 0;
                     key_status.event = HAL_KEY_EVENT_INITLONGPRESS;
                     send_key_event(HAL_KEY_CODE_PWR, key_status.event);
                 }
             } else if (key_status.event == HAL_KEY_EVENT_INITLONGPRESS) {
                 if (time - key_status.time_updown >= KEY_INIT_LONGLONGPRESS_THRESHOLD) {
+					DLOG(0, "<HAL_KEY_EVENT_INITLONGLONGPRESS>");
                     key_status.event = HAL_KEY_EVENT_INITLONGLONGPRESS;
                     send_key_event(HAL_KEY_CODE_PWR, key_status.event);
                 }
@@ -1113,9 +1121,12 @@ static void hal_key_boot_handler(void *param)
         }
         hal_key_debounce_timer_restart();
     } else {
-        if (key_status.event == HAL_KEY_EVENT_NONE || key_status.event == HAL_KEY_EVENT_INITDOWN) {
+        if (key_status.event == HAL_KEY_EVENT_NONE || key_status.event == HAL_KEY_EVENT_INITDOWN)
+		{
+			DLOG(0, "<HAL_KEY_EVENT_INITUP>");
             send_key_event(HAL_KEY_CODE_PWR, HAL_KEY_EVENT_INITUP);
         }
+		DLOG(0, "<HAL_KEY_EVENT_INITFINISHED>");
         send_key_event(HAL_KEY_CODE_PWR, HAL_KEY_EVENT_INITFINISHED);
 
         hwtimer_update(debounce_timer, hal_key_debounce_handler, NULL);

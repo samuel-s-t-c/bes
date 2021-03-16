@@ -686,7 +686,7 @@ HFCALL_MACHINE_ENUM app_get_hfcall_machine(void)
 
 void bt_key_handle_func_click(void)
 {
-	TRACE_CSD(1, "[%s]+++", __func__);
+	DLOG(1, "[%s]+++", __func__);
     //TRACE(0,"%s enter",__func__);
 
     HFCALL_MACHINE_ENUM hfcall_machine = app_get_hfcall_machine();
@@ -694,34 +694,34 @@ void bt_key_handle_func_click(void)
     {
         case HFCALL_MACHINE_CURRENT_IDLE:
         {
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS|TR_ATTR_NO_LF, "<HFCALL_MACHINE_CURRENT_IDLE>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS|TR_ATTR_NO_LF, "<HFCALL_MACHINE_CURRENT_IDLE>");
             if(app_bt_device.a2dp_play_pause_flag == 0){
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<AVRCP_KEY_PLAY>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<AVRCP_KEY_PLAY>");
                 a2dp_handleKey(AVRCP_KEY_PLAY);
             }else{
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<AVRCP_KEY_PAUSE>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<AVRCP_KEY_PAUSE>");
                 a2dp_handleKey(AVRCP_KEY_PAUSE);
             }
         }
         break;                          
         case HFCALL_MACHINE_CURRENT_INCOMMING:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HFCALL_MACHINE_CURRENT_INCOMMING><HFP_KEY_ANSWER_CALL>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HFCALL_MACHINE_CURRENT_INCOMMING><HFP_KEY_ANSWER_CALL>");
            hfp_handle_key(HFP_KEY_ANSWER_CALL);
         break;                    
         case HFCALL_MACHINE_CURRENT_OUTGOING:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HFCALL_MACHINE_CURRENT_OUTGOING><HFP_KEY_HANGUP_CALL>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HFCALL_MACHINE_CURRENT_OUTGOING><HFP_KEY_HANGUP_CALL>");
             hfp_handle_key(HFP_KEY_HANGUP_CALL);
         break;                  
         case HFCALL_MACHINE_CURRENT_CALLING:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HFCALL_MACHINE_CURRENT_CALLING><HFP_KEY_HANGUP_CALL>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HFCALL_MACHINE_CURRENT_CALLING><HFP_KEY_HANGUP_CALL>");
             hfp_handle_key(HFP_KEY_HANGUP_CALL);
         break;                  
         case HFCALL_MACHINE_CURRENT_3WAY_INCOMMING:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HFCALL_MACHINE_CURRENT_3WAY_INCOMMING><HFP_KEY_THREEWAY_HANGUP_AND_ANSWER>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HFCALL_MACHINE_CURRENT_3WAY_INCOMMING><HFP_KEY_THREEWAY_HANGUP_AND_ANSWER>");
             hfp_handle_key(HFP_KEY_THREEWAY_HANGUP_AND_ANSWER);
         break;                  
         case HFCALL_MACHINE_CURRENT_3WAY_HOLD_CALLING:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HFCALL_MACHINE_CURRENT_3WAY_HOLD_CALLING><HFP_KEY_THREEWAY_HOLD_AND_ANSWER>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HFCALL_MACHINE_CURRENT_3WAY_HOLD_CALLING><HFP_KEY_THREEWAY_HOLD_AND_ANSWER>");
             hfp_handle_key(HFP_KEY_THREEWAY_HOLD_AND_ANSWER);
         break;   
 #ifdef __BT_ONE_BRING_TWO__              
@@ -775,7 +775,7 @@ void bt_key_handle_func_click(void)
 #if HF_CUSTOM_FEATURE_SUPPORT & HF_CUSTOM_FEATURE_SIRI_REPORT
     open_siri_flag = 0;
 #endif
-	TRACE_CSD(1, "[%s]---", __func__);
+	DLOG(1, "[%s]---", __func__);
     return;
 }
 void bt_key_handle_func_doubleclick(void)
@@ -960,29 +960,30 @@ void bt_key_handle_func_longpress(void)
 
 void bt_key_handle_func_key(enum APP_KEY_EVENT_T event)
 {
-	TRACE_CSD(1, "[%s]", __func__);
+	DLOG(1, "[%s]", __func__);
 	const char *str = "APP_KEY_EVENT_CLICK";
     switch (event) {
         case  APP_KEY_EVENT_UP:
 			str = "APP_KEY_EVENT_UP";
+			// fall through
         case  APP_KEY_EVENT_CLICK:
-			TRACE_CSD(1|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>", str);
+			DLOG(1|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>", str);
             bt_key_handle_func_click();
             break;
         case  APP_KEY_EVENT_DOUBLECLICK:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_EVENT_DOUBLECLICK>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_EVENT_DOUBLECLICK>");
             bt_key_handle_func_doubleclick();
             break;
         case  APP_KEY_EVENT_LONGPRESS:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_EVENT_DOUBLECLICK>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_EVENT_DOUBLECLICK>");
             bt_key_handle_func_longpress();
             break;
         default:
-			TRACE_CSD(1|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<unregister func key event> %x", event);
+			DLOG(1|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<unregister func key event> %x", event);
             //TRACE(0,"unregister func key event=%x", event);
             break;
     }
-	TRACE_CSD(1, "[%s]---", __func__);
+	DLOG(1, "[%s]---", __func__);
 }
 
 #if 0
@@ -1500,7 +1501,7 @@ void bt_key_handle(void)
         switch(bt_key.code)
         {
             case BTAPP_FUNC_KEY:
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTAPP_FUNC_KEY>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTAPP_FUNC_KEY>");
 #if defined(APP_LINEIN_A2DP_SOURCE)||defined(APP_I2S_A2DP_SOURCE)
 				if(app_bt_device.src_or_snk==BT_DEVICE_SRC)
 				{
@@ -1513,21 +1514,21 @@ void bt_key_handle(void)
 				}
                 break;
             case BTAPP_VOLUME_UP_KEY:
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTAPP_VOLUME_UP_KEY>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTAPP_VOLUME_UP_KEY>");
                 bt_key_handle_up_key((enum APP_KEY_EVENT_T)bt_key.event);
                 break;
             case BTAPP_VOLUME_DOWN_KEY:
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTAPP_VOLUME_DOWN_KEY>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTAPP_VOLUME_DOWN_KEY>");
                 bt_key_handle_down_key((enum APP_KEY_EVENT_T)bt_key.event);
                 break;
 #ifdef SUPPORT_SIRI
             case BTAPP_RELEASE_KEY:
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTAPP_RELEASE_KEY>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTAPP_RELEASE_KEY>");
                 bt_key_handle_siri_key((enum APP_KEY_EVENT_T)bt_key.event);
                 break;
 #endif
             default:
-                TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<Undefined key>");
+                DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<Undefined key>");
                 break;
         }
         bt_key.code = 0xff;

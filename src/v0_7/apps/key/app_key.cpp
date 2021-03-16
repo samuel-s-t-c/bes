@@ -88,7 +88,7 @@ static int app_key_handle_process(APP_MESSAGE_BODY *msg_body)
     APP_KEY_GET_CODE(msg_body->message_id, key_status.code);
     APP_KEY_GET_EVENT(msg_body->message_id, key_status.event);
 
-    APP_KEY_TRACE(3,"%s code:%d event:%d",__func__,key_status.code, key_status.event);
+    DLOG(3,"%s code:%d event:%d",__func__,key_status.code, key_status.event);
 
     key_event_cnt--;
 

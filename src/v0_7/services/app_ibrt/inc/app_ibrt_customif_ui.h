@@ -30,10 +30,10 @@
 #define  IBRT_UI_STOP_IBRT_TIMEOUT                                  (3000000)//40min
 
 
-#define  IBRT_UI_OPEN_RECONNECT_MOBILE_MAX_TIMES            (0)
-#define  IBRT_UI_OPEN_RECONNECT_TWS_MAX_TIMES               (0)
-#define  IBRT_UI_RECONNECT_MOBILE_MAX_TIMES                 (20)
-#define  IBRT_UI_RECONNECT_TWS_MAX_TIMES                    (20)
+#define  IBRT_UI_OPEN_RECONNECT_MOBILE_MAX_TIMES            (1)
+#define  IBRT_UI_OPEN_RECONNECT_TWS_MAX_TIMES               (1)
+#define  IBRT_UI_RECONNECT_MOBILE_MAX_TIMES                 (8)
+#define  IBRT_UI_RECONNECT_TWS_MAX_TIMES                    (8)
 #define  IBRT_UI_RECONNECT_IBRT_MAX_TIMES                   (1)
 
 #define  IBRT_UI_LONG_POLL_INTERVAL                         (0x68)

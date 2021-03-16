@@ -487,7 +487,7 @@ static inline int app_bt_mail_get(APP_BT_MAIL** mail_p)
     osEvent evt;
     evt = osMailGet(app_bt_mailbox, 0);
     if (evt.status == osEventMail) {
-		TRACE_CSD(0, "<osEventMail> Get a APP_BT_MAIL");
+		DLOG(0, "<osEventMail> Get a APP_BT_MAIL");
         *mail_p = (APP_BT_MAIL *)evt.value.p;
         return 0;
     }

@@ -436,43 +436,51 @@ void app_ibrt_ui_test_key_io_event(APP_KEY_STATUS *status, void *param)
     switch(status->event)
     {
         case APP_KEY_EVENT_CLICK:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS|TR_ATTR_NO_LF, "<APP_KEY_EVENT_CLICK>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS|TR_ATTR_NO_LF, "<APP_KEY_EVENT_CLICK>");
             if (status->code== APP_KEY_CODE_FN1)
             {
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN1>");
-				TRACE_CSD(0, "OPEN BOX");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN1>");
+				DLOG(0, "OPEN BOX");
                 app_ibrt_if_event_entry(IBRT_OPEN_BOX_EVENT);
             }
             else if (status->code== APP_KEY_CODE_FN2)
             {
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN2>");
-				TRACE_CSD(0, "FETCH OUT");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN2>");
+				DLOG(0, "FETCH OUT");
                 app_ibrt_if_event_entry(IBRT_FETCH_OUT_EVENT);
             }
+			else if (status->code  == APP_KEY_CODE_FN3)
+			{
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN3>");
+			}
             break;
 
         case APP_KEY_EVENT_DOUBLECLICK:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS|TR_ATTR_NO_LF, "<APP_KEY_EVENT_DOUBLECLICK>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS|TR_ATTR_NO_LF, "<APP_KEY_EVENT_DOUBLECLICK>");
             if (status->code== APP_KEY_CODE_FN1)
             {
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN1>");
-				TRACE_CSD(0, "CLOSE BOX");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN1>");
+				DLOG(0, "CLOSE BOX");
                 app_ibrt_if_event_entry(IBRT_CLOSE_BOX_EVENT);
             }
             else if (status->code== APP_KEY_CODE_FN2)
             {
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN2>");
-				TRACE_CSD(0, "PUT IN");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN2>");
+				DLOG(0, "PUT IN");
                 app_ibrt_if_event_entry(IBRT_PUT_IN_EVENT);
             }
+			else if (status->code  == APP_KEY_CODE_FN3)
+			{
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN3>");
+			} 
             break;
 
         case APP_KEY_EVENT_LONGPRESS:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS|TR_ATTR_NO_LF, "<APP_KEY_EVENT_LONGPRESS>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS|TR_ATTR_NO_LF, "<APP_KEY_EVENT_LONGPRESS>");
 			if (status->code == APP_KEY_CODE_FN1)
 			{
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN1>");
-				TRACE_CSD(0, "SEARCHING SLAVE");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN1>");
+				DLOG(0, "SEARCHING SLAVE");
 				struct nvrecord_env_t* nvrecord_env;
 				nv_record_env_get(&nvrecord_env);
 				if (IBRT_UNKNOW == nvrecord_env->ibrt_mode.mode)
@@ -482,8 +490,8 @@ void app_ibrt_ui_test_key_io_event(APP_KEY_STATUS *status, void *param)
 			}
 			else if (status->code == APP_KEY_CODE_FN2)
 			{
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN2>");
-				TRACE_CSD(0, "REMOVE ALL RECORD");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN2>");
+				DLOG(0, "REMOVE ALL RECORD");
 				struct nvrecord_env_t* nvrecord_env;
 				nv_record_env_get(&nvrecord_env);
 				nvrecord_env->ibrt_mode.mode = IBRT_UNKNOW;
@@ -491,25 +499,31 @@ void app_ibrt_ui_test_key_io_event(APP_KEY_STATUS *status, void *param)
 				nv_record_flash_flush();
 				app_shutdown();
 			}
-            break;
-
-        case APP_KEY_EVENT_TRIPLECLICK:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS|TR_ATTR_NO_LF, "<APP_KEY_EVENT_TRIPLECLICK>");
-			if (status->code == APP_KEY_CODE_FN1)
+			else if (status->code  == APP_KEY_CODE_FN3)
 			{
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN1>");
-				app_ibrt_if_enter_freeman_pairing();
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN3>");
 			}
             break;
 
-        case HAL_KEY_EVENT_LONGLONGPRESS:
+        case APP_KEY_EVENT_TRIPLECLICK:
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS|TR_ATTR_NO_LF, "<APP_KEY_EVENT_TRIPLECLICK>");
+			if (status->code == APP_KEY_CODE_FN1)
+			{
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN1>");
+				app_ibrt_if_enter_freeman_pairing();
+			}
+			else if (status->code  == APP_KEY_CODE_FN2)
+			{
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN2>");
+			}
+			else if (status->code  == APP_KEY_CODE_FN3)
+			{
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_KEY_CODE_FN3>");
+			}
             break;
 
-        case APP_KEY_EVENT_ULTRACLICK:
-            break;
-
-        case APP_KEY_EVENT_RAMPAGECLICK:
-            break;
+		default:
+			break;
     }
 #ifdef CSD
 		TRACE(1,"[%s]---", __func__);
@@ -621,24 +635,22 @@ const APP_KEY_HANDLE app_ibrt_ui_test_key_cfg[] =
 	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_CLICK}, "", app_ibrt_search_ui_handle_key, NULL},
 	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_DOUBLECLICK}, "", app_ibrt_search_ui_handle_key, NULL},
 	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_TRIPLECLICK}, "", app_ibrt_search_ui_handle_key, NULL},
-	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_ULTRACLICK}, "", app_ibrt_search_ui_handle_key, NULL},
-	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_RAMPAGECLICK}, "", app_ibrt_search_ui_handle_key, NULL},
 	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_LONGPRESS}, "", app_ibrt_search_ui_handle_key, NULL},
-	{{APP_KEY_CODE_PWR, APP_KEY_EVENT_LONGLONGPRESS}, "", app_ibrt_search_ui_handle_key, NULL},
 
 	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_CLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_DOUBLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_TRIPLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
-	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_ULTRACLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_LONGPRESS}, "", app_ibrt_ui_test_key_io_event, NULL},
-	{{APP_KEY_CODE_FN1, APP_KEY_EVENT_LONGLONGPRESS}, "", app_ibrt_ui_test_key_io_event, NULL},
 
 	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_CLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_DOUBLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_TRIPLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
-	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_ULTRACLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
 	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_LONGPRESS}, "", app_ibrt_ui_test_key_io_event, NULL},
-	{{APP_KEY_CODE_FN2, APP_KEY_EVENT_LONGLONGPRESS}, "", app_ibrt_ui_test_key_io_event, NULL},
+
+	{{APP_KEY_CODE_FN3, APP_KEY_EVENT_CLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN3, APP_KEY_EVENT_DOUBLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN3, APP_KEY_EVENT_TRIPLECLICK}, "", app_ibrt_ui_test_key_io_event, NULL},
+	{{APP_KEY_CODE_FN3, APP_KEY_EVENT_LONGPRESS}, "", app_ibrt_ui_test_key_io_event, NULL},
 };
 #else	/* !defined(CSD) */
 const APP_KEY_HANDLE  app_ibrt_ui_test_key_cfg[] =

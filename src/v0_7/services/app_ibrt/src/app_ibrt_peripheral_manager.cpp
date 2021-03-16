@@ -97,7 +97,7 @@ int app_ibrt_peripheral_mailbox_free(TWS_PD_MSG_BLOCK* msg_p)
 
 int app_ibrt_peripheral_mailbox_get(TWS_PD_MSG_BLOCK** msg_p)
 {
-	TRACE_CSD(1, "[%s]+++", __func__);
+	DLOG(1, "[%s]+++", __func__);
     if(!msg_p){
         TRACE(0,"msg_p is a null pointer in app_ibrt_peripheral_mailbox_get!");
         return -1;
@@ -105,7 +105,7 @@ int app_ibrt_peripheral_mailbox_get(TWS_PD_MSG_BLOCK** msg_p)
 
     osEvent evt;
     evt = osMailGet(app_ibrt_peripheral_mailbox, osWaitForever);
-	TRACE_CSD(1, "[%s]---", __func__);
+	DLOG(1, "[%s]---", __func__);
     if (evt.status == osEventMail) {
         *msg_p = (TWS_PD_MSG_BLOCK *)evt.value.p;
         return 0;
@@ -185,7 +185,7 @@ void app_ibrt_peripheral_thread(void const *argument)
     while(1){
         TWS_PD_MSG_BLOCK *msg_p = NULL;
         if ((!app_ibrt_peripheral_mailbox_get(&msg_p))&&(!argument)) {
-			TRACE_CSD(1, "[%s]+++", __func__);
+			DLOG(1, "[%s]+++", __func__);
             switch(msg_p->msg_body.message_id){
                 case 0:
                     if(msg_p->msg_body.message_ptr){

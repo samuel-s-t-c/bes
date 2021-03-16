@@ -1498,16 +1498,16 @@ extern void a2dp_update_music_link(void);
 btif_handler app_bt_handler;
 void app_bt_global_handle(const btif_event_t *Event)
 {
-	TRACE_CSD(1, "[%s]+++", __func__);
-	TRACE_CSD(1,"[BTEVENT] btif_event_type_t = %d", btif_me_get_callback_event_type(Event));
+	DLOG(1, "[%s]+++", __func__);
+	DLOG(1,"[BTEVENT] btif_event_type_t = %d", btif_me_get_callback_event_type(Event));
     switch (btif_me_get_callback_event_type(Event))
     {
         case BTIF_BTEVENT_HCI_INITIALIZED:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_HCI_INITIALIZED>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_HCI_INITIALIZED>");
             break;
 #if defined(IBRT)
         case BTIF_BTEVENT_HCI_COMMAND_SENT:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_HCI_COMMAND_SENT> ---");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_HCI_COMMAND_SENT> ---");
             return;
 #else
         case BTIF_BTEVENT_HCI_COMMAND_SENT:
@@ -1522,7 +1522,7 @@ void app_bt_global_handle(const btif_event_t *Event)
             return;
 #endif
         case BTIF_BTEVENT_AUTHENTICATED:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_AUTHENTICATED>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_AUTHENTICATED>");
             TRACE(1,"[BTEVENT] HANDER AUTH btif_error_code=%x", btif_me_get_callback_event_err_code(Event));
             //after authentication completes, re-enable sniff mode.
             if(btif_me_get_callback_event_err_code(Event) == BTIF_BEC_NO_ERROR)
@@ -1571,7 +1571,7 @@ void app_bt_global_handle(const btif_event_t *Event)
             hfp_reconnecting_timer_stop_callback(Event);
             //fall through
         case BTIF_BTEVENT_LINK_CONNECT_CNF:
-			TRACE_CSD(1|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>", str);
+			DLOG(1|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>", str);
 #ifdef __BT_ONE_BRING_TWO__
             if(bt_drv_reg_op_get_reconnecting_flag())
             {
@@ -1633,7 +1633,7 @@ void app_bt_global_handle(const btif_event_t *Event)
             break;
         case BTIF_BTEVENT_LINK_DISCONNECT:
         {
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_LINK_DISCONNECT>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<BTIF_BTEVENT_LINK_DISCONNECT>");
             connectedMobile = btif_me_get_callback_event_rem_dev( Event);
             uint8_t disconnectedDevId = app_bt_get_devId_from_RemDev(connectedMobile);
             connectedMobile = NULL;
@@ -1699,20 +1699,20 @@ void app_bt_global_handle(const btif_event_t *Event)
             break;
         }
         case BTIF_BTEVENT_ROLE_CHANGE:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"<BTIF_BTEVENT_ROLE_CHANGE>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"<BTIF_BTEVENT_ROLE_CHANGE>");
             TRACE(3,"[BTEVENT] ROLE_CHANGE eType:0x%x errCode:0x%x newRole:%d activeCons:%d", btif_me_get_callback_event_type(Event),
                   btif_me_get_callback_event_err_code(Event), btif_me_get_callback_event_role_change_new_role(Event), btif_me_get_activeCons());
             break;
         case BTIF_BTEVENT_MODE_CHANGE:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"<BTIF_BTEVENT_MODE_CHANGE>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"<BTIF_BTEVENT_MODE_CHANGE>");
             TRACE(4,"[BTEVENT] MODE_CHANGE evt:%d errCode:0x%0x curMode=0x%0x, interval=%d ",btif_me_get_callback_event_type(Event),
                   btif_me_get_callback_event_err_code(Event), btif_me_get_callback_event_mode_change_curMode(Event),
                   btif_me_get_callback_event_mode_change_interval(Event));
             DUMP8("%02x ", btif_me_get_callback_event_rem_dev_bd_addr(Event), BTIF_BD_ADDR_SIZE);
             break;
         case BTIF_BTEVENT_ACCESSIBLE_CHANGE:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"<BTIF_BTEVENT_ACCESSIBLE_CHANGE>");
-            TRACE(3,"[BTEVENT] ACCESSIBLE_CHANGE evt:%d errCode:0x%0x aMode=0x%0x curMode=0x%0x",
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"<BTIF_BTEVENT_ACCESSIBLE_CHANGE>");
+            TRACE(3,"[BTEVENT] ACCESSIBLE_CHANGE evt:%d errCode:0x%0x aMode=0x%0x",
                   btif_me_get_callback_event_type(Event),
                   btif_me_get_callback_event_err_code(Event),
                   btif_me_get_callback_event_a_mode(Event));
@@ -1732,7 +1732,7 @@ void app_bt_global_handle(const btif_event_t *Event)
             break;
         case BTIF_BTEVENT_LINK_POLICY_CHANGED:
         {
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"<BTIF_BTEVENT_LINK_POLICY_CHANGED>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"<BTIF_BTEVENT_LINK_POLICY_CHANGED>");
             BT_SET_LINKPOLICY_REQ_T* pReq = app_bt_pop_pending_set_linkpolicy();
             if (NULL != pReq)
             {
@@ -1742,14 +1742,14 @@ void app_bt_global_handle(const btif_event_t *Event)
         }
         case BTIF_BTEVENT_DEFAULT_LINK_POLICY_CHANGED:
         {
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"<BTIF_BTEVENT_DEFAULT_LINK_POLICY_CHANGED>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"<BTIF_BTEVENT_DEFAULT_LINK_POLICY_CHANGED>");
             TRACE(0,"[BTEVENT] DEFAULT_LINK_POLICY_CHANGED-->BT_STACK_INITIALIZED");
             app_notify_stack_ready(STACK_READY_BT);
             break;
         }
         case BTIF_BTEVENT_NAME_RESULT:
         {
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"<BTIF_BTEVENT_NAME_RESULT>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS,"<BTIF_BTEVENT_NAME_RESULT>");
             uint8_t* ptrName;
             uint8_t nameLen;
             nameLen = btif_me_get_callback_event_remote_dev_name(Event, &ptrName);
@@ -1778,7 +1778,7 @@ void app_bt_global_handle(const btif_event_t *Event)
 #if defined(IBRT)
     app_tws_ibrt_global_callback(Event);
 #endif
-	TRACE_CSD(1, "[%s]---", __func__);
+	DLOG(1, "[%s]---", __func__);
 }
 
 #include "app_bt_media_manager.h"
@@ -1901,13 +1901,13 @@ extern void app_start_10_second_timer(uint8_t timer_id);
 
 static int app_bt_handle_process(APP_MESSAGE_BODY *msg_body)
 {
-	TRACE_CSD(1, "[%s]+++", __func__);
+	DLOG(1, "[%s]+++", __func__);
     btif_accessible_mode_t old_access_mode;
 
     switch (msg_body->message_id)
     {
         case APP_BT_REQ_ACCESS_MODE_SET:
-			TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BT_REQ_ACCESS_MODE_SET>");
+			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BT_REQ_ACCESS_MODE_SET>");
             old_access_mode = g_bt_access_mode;
             app_bt_accessmode_set(msg_body->message_Param0);
             if (msg_body->message_Param0 == BTIF_BAM_GENERAL_ACCESSIBLE &&
@@ -1918,7 +1918,7 @@ static int app_bt_handle_process(APP_MESSAGE_BODY *msg_body)
 #ifdef MEDIA_PLAYER_SUPPORT
                 app_voice_report(APP_STATUS_INDICATION_BOTHSCAN, 0);
 #endif
-				TRACE_CSD(0, "{app_start_10_second_timer} <APP_PAIR_TIMER_ID>");
+				DLOG(0, "{app_start_10_second_timer} <APP_PAIR_TIMER_ID>");
                 app_start_10_second_timer(APP_PAIR_TIMER_ID);
 #endif
             }
@@ -1932,7 +1932,7 @@ static int app_bt_handle_process(APP_MESSAGE_BODY *msg_body)
         default:
             break;
     }
-	TRACE_CSD(1, "[%s]---", __func__);
+	DLOG(1, "[%s]---", __func__);
     return 0;
 }
 

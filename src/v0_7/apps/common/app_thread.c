@@ -106,10 +106,8 @@ int app_mailbox_free(APP_MESSAGE_BLOCK* msg_p)
 
 int app_mailbox_get(APP_MESSAGE_BLOCK** msg_p)
 {
-	TRACE_CSD(1, "[%s]+++", __func__);
     osEvent evt;
     evt = osMailGet(app_mailbox, osWaitForever);
-	TRACE_CSD(1, "[%s]---", __func__);
     if (evt.status == osEventMail) {
         *msg_p = (APP_MESSAGE_BLOCK *)evt.value.p;
         return 0;

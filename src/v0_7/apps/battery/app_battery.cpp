@@ -242,7 +242,7 @@ void app_battery_irqhandler(uint16_t irq_val, HAL_GPADC_MV_T volt)
 
 static void app_battery_timer_start(enum APP_BATTERY_MEASURE_PERIODIC_T periodic)
 {
-	TRACE_CSD(2, "{%s} %d", __func__, periodic);
+	DLOG(2, "{%s} %d", __func__, periodic);
     uint32_t periodic_millisec = 0;
 
     if (app_battery_measure.periodic != periodic){
@@ -586,7 +586,7 @@ int app_battery_open(void)
 int app_battery_start(void)
 {
     //APP_BATTERY_TRACE(2,"{%s} %d",__func__, APP_BATTERY_MEASURE_PERIODIC_FAST_MS);
-	TRACE_CSD(1, "{app_battery_start}-->{app_battery_timer_start} APP_BATTERY_MEASURE_PERIODIC_FAST=%d",APP_BATTERY_MEASURE_PERIODIC_FAST);
+	DLOG(1, "{app_battery_start}-->{app_battery_timer_start} APP_BATTERY_MEASURE_PERIODIC_FAST=%d",APP_BATTERY_MEASURE_PERIODIC_FAST);
     app_battery_timer_start(APP_BATTERY_MEASURE_PERIODIC_FAST);
 
     return 0;

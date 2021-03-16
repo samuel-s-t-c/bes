@@ -44,9 +44,32 @@ extern void app_ibrt_simulate_charger_plug_out_test(void);
 
 
 #ifdef IBRT_SEARCH_UI
+#ifdef CSD
+static void csd_timer_handler(void const* param)
+{
+	app_ibrt_ui_judge_scan_type(IBRT_FREEMAN_PAIR_TRIGGER, NO_LINK_TYPE, BTIF_BEC_NO_ERROR);
+	app_ibrt_if_enter_freeman_pairing();
+}
+osTimerDef(CSD_TIMER, csd_timer_handler);
+osTimerId csd_timer;
+static void csd_foo(void)
+{
+	if (csd_timer == NULL)
+	{
+		csd_timer = osTimerCreate(osTimer(CSD_TIMER), osTimerOnce, NULL);
+	}
+	ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
+	if(IBRT_UNKNOW==p_ibrt_ctrl->current_role)
+	{
+		app_start_tws_serching_direactly();
+	}
+	osTimerStop(csd_timer);
+	osTimerStart(csd_timer, 5000);
+}
+#endif
 void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
 {
-	TRACE_CSD(1, "[%s]+++", __func__);
+	DLOG(1, "[%s]+++", __func__);
     //ibrt_ctrl_t *p_ibrt_ctrl = app_tws_ibrt_get_bt_ctrl_ctx();
     //TRACE(3,"%s %d,%d",__func__, status->code, status->event);
 
@@ -55,14 +78,9 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
     {
         switch(status->event)
         {
-#ifdef CSD
-			case APP_KEY_EVENT_DOWN:
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><DOWN>");
-				break;
-#endif
             case APP_KEY_EVENT_CLICK:
 #ifdef CSD
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><CLICK>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><CLICK>");
 				break;
 #else	
                 app_tws_if_handle_click();
@@ -71,7 +89,7 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
 
             case APP_KEY_EVENT_DOUBLECLICK:
 #ifdef CSD
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><DOUBLECLICK>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><DOUBLECLICK>");
 				csd_foo();
 				break;
 #else
@@ -94,7 +112,7 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
 
             case APP_KEY_EVENT_LONGPRESS:
 #ifdef CSD
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><LONGPRESS>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><LONGPRESS>");
 				break;
 #else
                 // dont use this key for customer release due to
@@ -119,7 +137,8 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
 
             case APP_KEY_EVENT_TRIPLECLICK:
 #ifdef CSD
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><TRIPLECLICK>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><TRIPLECLICK>");
+				app_shutdown();
 				break;
 #else
             #ifdef TILE_DATAPATH
@@ -131,7 +150,7 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
 #endif
             case APP_KEY_EVENT_LONGLONGPRESS://DEBUG_BES_BUG
 #ifdef CSD
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><LONGLONGPRESS>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><LONGLONGPRESS>");
 				break;
 #else
                 TRACE(0,"long long press");
@@ -141,7 +160,7 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
 
             case APP_KEY_EVENT_ULTRACLICK:
 #ifdef CSD
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><ULTRACLICK>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><ULTRACLICK>");
 				break;
 #else
                 TRACE(0,"ultra kill");
@@ -151,7 +170,7 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
 
             case APP_KEY_EVENT_RAMPAGECLICK:
 #ifdef CSD
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><RAMPAGECLICK>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><RAMPAGECLICK>");
 				break;
 #else
 				TRACE(0,"rampage kill!you are crazy!");
@@ -162,7 +181,7 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
 
             case APP_KEY_EVENT_UP:
 #ifdef CSD
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><UP>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<PWR><UP>");
 				break;
 #else
 				break;
@@ -174,7 +193,7 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
     if(APP_KEY_CODE_TILE == status->code)
         app_tile_key_handler(status,NULL);
 #endif
-	TRACE_CSD(1, "[%s]---", __func__);
+	DLOG(1, "[%s]---", __func__);
 }
 #endif
 

@@ -328,7 +328,7 @@ uint8_t stack_ready_flag = 0;
 void app_notify_stack_ready(uint8_t ready_flag)
 {
     //TRACE(2,"app_notify_stack_ready %d %d", stack_ready_flag, ready_flag);
-	TRACE_CSD(2,"{app_notify_stack_ready} %d %d", stack_ready_flag, ready_flag);
+	DLOG(2,"{app_notify_stack_ready} %d %d", stack_ready_flag, ready_flag);
     stack_ready_flag |= ready_flag;
 
 #ifdef __IAG_BLE_INCLUDE__
@@ -357,7 +357,7 @@ bool app_is_stack_ready(void)
 
 static void app_stack_ready_cb(void)
 {
-	TRACE_CSD(1, "{%s}", __func__);
+	DLOG(1, "{%s}", __func__);
     //TRACE(0,"stack init done");
 #ifdef BLE_ENABLE
     app_ble_stub_user_init();
@@ -675,7 +675,7 @@ static void app_poweron_key_init(void)
 {
     uint8_t i = 0;
     //TRACE(1,"%s",__func__);
-	TRACE_CSD(1,"{%s}",__func__);
+	DLOG(1,"{%s}",__func__);
     for (i=0; i<(sizeof(pwron_key_handle_cfg)/sizeof(APP_KEY_HANDLE)); i++){
         app_key_handle_registration(&pwron_key_handle_cfg[i]);
     }
@@ -703,16 +703,16 @@ static uint8_t app_poweron_wait_case(void)
 
 static void app_wait_stack_ready(void)
 {
-	TRACE_CSD(1, "[%s]+++", __func__);
+	DLOG(1, "[%s]+++", __func__);
     uint32_t stime, etime;
     stime = hal_sys_timer_get();
-	TRACE_CSD(0,"MSG_INFO:{osSignalWait} (0x3) (1000ms)");
+	DLOG(0,"MSG_INFO:{osSignalWait} (0x3) (1000ms)");
     osSignalWait(0x3, 1000);
     etime = hal_sys_timer_get();
     TRACE(1,"app_wait_stack_ready: wait:%d ms", TICKS_TO_MS(etime - stime));
 
     app_stack_ready_cb();
-	TRACE_CSD(1, "[%s]---", __func__);
+	DLOG(1, "[%s]---", __func__);
 }
 
 extern "C" int system_shutdown(void);
@@ -1581,7 +1581,7 @@ extern uint32_t __factory_start[];
 bool is_open_reconnect = false;
 int app_init(void)
 {
-	TRACE_CSD(1, "[%s]+++", __func__);
+	DLOG(1, "[%s]+++", __func__);
     int nRet = 0;
     struct nvrecord_env_t *nvrecord_env;
 #ifdef POWER_ON_ENTER_TWS_PAIRING_ENABLED
@@ -1717,11 +1717,11 @@ extern int rpc_service_setup(void);
 #endif
         switch (nRet) {
             case APP_BATTERY_OPEN_MODE_NORMAL:
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_OPEN_MODE_NORMAL>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_OPEN_MODE_NORMAL>");
                 nRet = 0;
                 break;
             case APP_BATTERY_OPEN_MODE_CHARGING:
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_OPEN_MODE_CHARGING>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_OPEN_MODE_CHARGING>");
                 app_status_indication_set(APP_STATUS_INDICATION_CHARGING);
                 //TRACE(0,"CHARGING!");
                 app_battery_start();
@@ -1736,7 +1736,7 @@ extern int rpc_service_setup(void);
 #endif
                 break;
             case APP_BATTERY_OPEN_MODE_CHARGING_PWRON:
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_OPEN_MODE_CHARGING_PWRON>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_OPEN_MODE_CHARGING_PWRON>");
                 //TRACE(0,"CHARGING PWRON!");
 #ifdef IBRT_SEARCH_UI
                 is_charging_poweron=true;
@@ -1745,7 +1745,8 @@ extern int rpc_service_setup(void);
                 nRet = 0;
                 break;
             case APP_BATTERY_OPEN_MODE_INVALID:
-				TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_OPEN_MODE_INVALID>");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_BATTERY_OPEN_MODE_INVALID>");
+				//fall through 
             default:
                 nRet = -1;
                 goto exit;
@@ -1867,13 +1868,20 @@ extern int rpc_service_setup(void);
         {
             if(IBRT_UNKNOW == nvrecord_env->ibrt_mode.mode)
             {
-                TRACE(0,"ibrt_ui_log:power on unknow mode");
+				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UNKNOW>");
+                //TRACE(0,"ibrt_ui_log:power on unknow mode");
                 app_ibrt_enter_limited_mode();
+				if (app_tws_is_right_side())
+				{
+					app_start_tws_serching_direactly();
+				}
             }
             else
             {
 				is_open_reconnect = (nvrecord_env->ibrt_mode.mode == IBRT_MASTER);
-                TRACE(1,"ibrt_ui_log:power on %d fetch out", nvrecord_env->ibrt_mode.mode);
+				DLOG(1|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>",
+					 is_open_reconnect?"IBRT_MASTER":"IBRT_SLAVE");
+                //TRACE(1,"ibrt_ui_log:power on %d fetch out", nvrecord_env->ibrt_mode.mode);
                 app_ibrt_ui_event_entry(IBRT_FETCH_OUT_EVENT);
             }
         }
@@ -1978,10 +1986,10 @@ extern int rpc_service_setup(void);
 #endif
             switch (pwron_case) {
                 case APP_POWERON_CASE_CALIB:
-					TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_POWERON_CASE_CALIB>");
+					DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_POWERON_CASE_CALIB>");
                     break;
                 case APP_POWERON_CASE_BOTHSCAN:
-					TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_POWERON_CASE_BOTHSCAN>");
+					DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_POWERON_CASE_BOTHSCAN>");
                     app_status_indication_set(APP_STATUS_INDICATION_BOTHSCAN);
 #ifdef MEDIA_PLAYER_SUPPORT
                     app_voice_report(APP_STATUS_INDICATION_BOTHSCAN,0);
@@ -2007,7 +2015,7 @@ extern int rpc_service_setup(void);
 #endif
                     break;
                 case APP_POWERON_CASE_NORMAL:
-					TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_POWERON_CASE_NORMAL>");
+					DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<APP_POWERON_CASE_NORMAL>");
 #if defined( __BTIF_EARPHONE__ ) && !defined(__EARPHONE_STAY_BOTH_SCAN__)
 #if defined(IBRT)
 #ifdef IBRT_SEARCH_UI
@@ -2015,17 +2023,21 @@ extern int rpc_service_setup(void);
                     {
                         if(IBRT_UNKNOW == nvrecord_env->ibrt_mode.mode)
                         {
-							TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UNKNOW>");
+							DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UNKNOW>");
 
                             //TRACE(0,"ibrt_ui_log:power on unknow mode");
                             app_ibrt_enter_limited_mode();
+							if (app_tws_is_right_side())
+							{
+								app_start_tws_serching_direactly();
+							}
                         }
                         else
                         {
-							TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>", nvrecord_env->ibrt_mode.mode ? "IBRT_SLAVE" : "IBRT_MASTER");
+							DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>", nvrecord_env->ibrt_mode.mode ? "IBRT_SLAVE" : "IBRT_MASTER");
                             //TRACE(1,"ibrt_ui_log:power on %d fetch out", nvrecord_env->ibrt_mode.mode);						
 							is_open_reconnect = (nvrecord_env->ibrt_mode.mode == IBRT_MASTER);
-							TRACE_CSD(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_FETCH_OUT_EVENT>");
+							DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_FETCH_OUT_EVENT>");
                             app_ibrt_ui_event_entry(IBRT_FETCH_OUT_EVENT);
                         }
                     }
@@ -2080,7 +2092,7 @@ extern int rpc_service_setup(void);
         }
     }
 exit:
-	TRACE_CSD(0, "\nMSG_INFO:app_init exit\n");
+	DLOG(0, "\nMSG_INFO:app_init exit\n");
 #ifdef IS_MULTI_AI_ENABLED
     app_ai_tws_clear_reboot_box_state();
 #endif
@@ -2119,7 +2131,7 @@ exit:
 #endif // BT_USB_AUDIO_DUAL_MODE
     app_sysfreq_req(APP_SYSFREQ_USER_APP_INIT, APP_SYSFREQ_32K);
 
-	TRACE_CSD(1, "[%s]---", __func__);
+	DLOG(1, "[%s]---", __func__);
     return nRet;
 }
 
