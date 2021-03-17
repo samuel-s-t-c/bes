@@ -415,7 +415,6 @@ TRACE_FUNC_DECLARE(int hal_trace_rx_wakeup(void), return 0);
 //==============================================================================
 // Cosonic log
 //==============================================================================
-#define COSONIC_LOG
 #ifdef COSONIC_LOG
 
 typedef struct {
@@ -468,7 +467,7 @@ do{\
 //==============================================================================
 // Debug log
 //==============================================================================
-#ifdef CSD
+#ifdef COSONIC_DEBUG
 #define DLOG(attr, str, ...) TRACE(attr, str, ##__VA_ARGS__)
 #else
 #define DLOG(...)

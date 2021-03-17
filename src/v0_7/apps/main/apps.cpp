@@ -251,7 +251,6 @@ typedef struct
 #else
 #define APP_AUTO_OFF_TIMEOUT_IN_SECOND (900)
 #define APP_PAIRING_TIMEOUT_IN_SECOND (60)
-
 #endif
 APP_10_SECOND_TIMER_STRUCT app_10_second_array[] =
 {
@@ -603,7 +602,7 @@ static void app_poweron_normal(APP_KEY_STATUS *status, void *param)
 }
 
 #if !defined(BLE_ONLY_ENABLED)
-#ifndef CSD
+#ifndef CSD_PWRON
 static void app_poweron_scan(APP_KEY_STATUS *status, void *param)
 {
     TRACE(3,"%s %d,%d",__func__, status->code, status->event);
@@ -648,11 +647,11 @@ const  APP_KEY_HANDLE  pwron_key_handle_cfg[] = {
 };
 #elif defined(__ENGINEER_MODE_SUPPORT__)
 const  APP_KEY_HANDLE  pwron_key_handle_cfg[] = {
-#ifndef CSD
+#ifndef CSD_PWRON
 	{{APP_KEY_CODE_PWR,APP_KEY_EVENT_INITUP},           "power on: normal"     , app_poweron_normal, NULL},
 #endif
 #if !defined(BLE_ONLY_ENABLED)
-#ifdef CSD
+#ifdef CSD_PWRON
 	{{APP_KEY_CODE_PWR,APP_KEY_EVENT_INITLONGPRESS},    "power on: normal"  , app_poweron_normal  , NULL},
 #else
     {{APP_KEY_CODE_PWR,APP_KEY_EVENT_INITLONGPRESS},    "power on: both scan"  , app_poweron_scan  , NULL},
@@ -1577,8 +1576,9 @@ extern uint32_t __custom_parameter_start[];
 extern uint32_t __aud_start[];
 extern uint32_t __userdata_start[];
 extern uint32_t __factory_start[];
-
+#ifdef CSD_RECONNECT
 bool is_open_reconnect = false;
+#endif
 int app_init(void)
 {
 	DLOG(1, "[%s]+++", __func__);
@@ -1871,16 +1871,20 @@ extern int rpc_service_setup(void);
 				DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_UNKNOW>");
                 //TRACE(0,"ibrt_ui_log:power on unknow mode");
                 app_ibrt_enter_limited_mode();
+                #ifdef CSD_PWRON
 				if (app_tws_is_right_side())
 				{
 					app_start_tws_serching_direactly();
 				}
+				#endif
             }
             else
             {
+            	#ifdef CSD_RECONNECT
 				is_open_reconnect = (nvrecord_env->ibrt_mode.mode == IBRT_MASTER);
 				DLOG(1|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>",
 					 is_open_reconnect?"IBRT_MASTER":"IBRT_SLAVE");
+				#endif
                 //TRACE(1,"ibrt_ui_log:power on %d fetch out", nvrecord_env->ibrt_mode.mode);
                 app_ibrt_ui_event_entry(IBRT_FETCH_OUT_EVENT);
             }
@@ -2027,16 +2031,21 @@ extern int rpc_service_setup(void);
 
                             //TRACE(0,"ibrt_ui_log:power on unknow mode");
                             app_ibrt_enter_limited_mode();
+							#ifdef CSD_PWRON
 							if (app_tws_is_right_side())
 							{
 								app_start_tws_serching_direactly();
 							}
+							#endif
                         }
                         else
                         {
-							DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>", nvrecord_env->ibrt_mode.mode ? "IBRT_SLAVE" : "IBRT_MASTER");
-                            //TRACE(1,"ibrt_ui_log:power on %d fetch out", nvrecord_env->ibrt_mode.mode);						
+            				#ifdef CSD_RECONNECT
 							is_open_reconnect = (nvrecord_env->ibrt_mode.mode == IBRT_MASTER);
+							DLOG(1|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<%s>",
+								 is_open_reconnect?"IBRT_MASTER":"IBRT_SLAVE");
+							#endif
+                            //TRACE(1,"ibrt_ui_log:power on %d fetch out", nvrecord_env->ibrt_mode.mode);						
 							DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<IBRT_FETCH_OUT_EVENT>");
                             app_ibrt_ui_event_entry(IBRT_FETCH_OUT_EVENT);
                         }

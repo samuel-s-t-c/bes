@@ -723,7 +723,7 @@ void bt_key_handle_func_click(void)
         case HFCALL_MACHINE_CURRENT_3WAY_HOLD_CALLING:
 			DLOG(0|TR_ATTR_NO_ID|TR_ATTR_NO_TS, "<HFCALL_MACHINE_CURRENT_3WAY_HOLD_CALLING><HFP_KEY_THREEWAY_HOLD_AND_ANSWER>");
             hfp_handle_key(HFP_KEY_THREEWAY_HOLD_AND_ANSWER);
-        break;   
+        break;
 #ifdef __BT_ONE_BRING_TWO__              
         case HFCALL_MACHINE_CURRENT_IDLE_ANOTHER_IDLE:
         {

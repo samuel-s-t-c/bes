@@ -26,14 +26,24 @@
 #define  IBRT_UI_RECONNECT_IBRT_WAIT_RESPONSE_TIMEOUT               (300)//ms
 #define  IBRT_UI_NV_SLAVE_RECONNECT_TWS_WAIT_RESPONSE_TIMEOUT       (1000)//ms
 #define  IBRT_UI_NV_MASTER_RECONNECT_TWS_WAIT_RESPONSE_TIMEOUT      (300)//ms
+#ifdef CSD
+#define  IBRT_UI_DISABLE_BT_SCAN_TIMEOUT                            (120000)
+#else
 #define  IBRT_UI_DISABLE_BT_SCAN_TIMEOUT                            (150000)//5min
+#endif
 #define  IBRT_UI_STOP_IBRT_TIMEOUT                                  (3000000)//40min
 
-
+#ifdef CSD_RECONNECT
 #define  IBRT_UI_OPEN_RECONNECT_MOBILE_MAX_TIMES            (1)
 #define  IBRT_UI_OPEN_RECONNECT_TWS_MAX_TIMES               (1)
 #define  IBRT_UI_RECONNECT_MOBILE_MAX_TIMES                 (8)
 #define  IBRT_UI_RECONNECT_TWS_MAX_TIMES                    (8)
+#else
+#define  IBRT_UI_OPEN_RECONNECT_MOBILE_MAX_TIMES            (0)
+#define  IBRT_UI_OPEN_RECONNECT_TWS_MAX_TIMES               (0)
+#define  IBRT_UI_RECONNECT_MOBILE_MAX_TIMES                 (20)
+#define  IBRT_UI_RECONNECT_TWS_MAX_TIMES                    (20)
+#endif
 #define  IBRT_UI_RECONNECT_IBRT_MAX_TIMES                   (1)
 
 #define  IBRT_UI_LONG_POLL_INTERVAL                         (0x68)

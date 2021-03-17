@@ -185,7 +185,7 @@ void app_ibrt_search_ui_handle_key(APP_KEY_STATUS *status, void *param)
 				break;
 #else
 				break;
-#endif                
+#endif
         }
     }
 

@@ -1096,7 +1096,12 @@ static void hal_key_boot_handler(void *param)
         }
     }
     if (pwr_key.debounce || pwr_key.dither || pwr_key.pressed) {
-        if (pwr_key.pressed && key_status.time_updown) {	//DEBUG_BES_BUG
+    	#ifdef CSD_PWRON
+        if (pwr_key.pressed && key_status.time_updown)	//DEBUG_BES_BUG
+        #else
+        if (pwr_key.pressed)
+        #endif
+        {
         	DLOG(2, "%s %d", __func__, time - key_status.time_updown);
             if (key_status.event == HAL_KEY_EVENT_NONE) {
                 if (time - key_status.time_updown >= KEY_INIT_DOWN_THRESHOLD) {

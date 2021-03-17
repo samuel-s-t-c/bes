@@ -1,10 +1,7 @@
 TARGET=best2500i_ibrt
 arg_arr=($@)
 SPACE=' '
-if [ "${DEBUGCMD}" == "" ]
-then
-DEBUGCMD=echo
-fi
+DEBUGCMD=
 
 if [ "${1}" == "all" ]
 then
@@ -37,3 +34,4 @@ do
 	arg_list=${arg_list}${SPACE}${arg}
 done
 ${DEBUGCMD} make T=${TARGET} ${arg_list} -j
+echo -e ${TARGET}\\t\\t${?} >> result
